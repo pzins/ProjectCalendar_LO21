@@ -1,14 +1,6 @@
 #include "precedencemanager.h"
 
-PrecedenceManager::PrecedenceManager()
-{
 
-}
-
-PrecedenceManager::~PrecedenceManager()
-{
-
-}
 
 void PrecedenceManager::ajouterPrecedence(Tache& i, Tache& j)
 {

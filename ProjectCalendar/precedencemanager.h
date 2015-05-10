@@ -7,8 +7,6 @@ class PrecedenceManager
 private:
     std::vector<Precedence*> vect_precedence;
 public:
-    PrecedenceManager();
-    ~PrecedenceManager();
     void ajouterPrecedence(Tache& i, Tache& j);
 };
 

@@ -10,8 +10,8 @@ private:
 
 public:
     Precedence(Tache& i, Tache& j) : pred(&i), succ(&j){}
-    Tache& getPredecesseur() const {return *pred;}
-    Tache& getSuccesseur() const {return *succ;}
+    Tache& getPred() const {return *pred;}
+    Tache& getSucc() const {return *succ;}
 
 };
 
