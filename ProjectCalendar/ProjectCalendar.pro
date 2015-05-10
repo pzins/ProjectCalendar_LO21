@@ -15,4 +15,32 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    tacheunitaire.cpp \
+    tachemanager.cpp \
+    tacheEditeur.cpp \
+    tachecomposite.cpp \
+    tache.cpp \
+    projetmanager.cpp \
+    projet.cpp \
+    programmationmanager.cpp \
+    programmation.cpp \
+    precedencemanager.cpp \
+    precedence.cpp \
+    calendar.cpp \
+    timing.cpp
+
+HEADERS += \
+    tache.h \
+    tachecomposite.h \
+    tacheunitaire.h \
+    tachemanager.h \
+    tacheEditeur.h \
+    projetmanager.h \
+    projet.h \
+    programmationmanager.h \
+    programmation.h \
+    precedencemanager.h \
+    precedence.h \
+    calendar.h \
+    timing.h
