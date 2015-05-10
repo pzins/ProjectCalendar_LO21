@@ -60,8 +60,8 @@ TacheEditeur::TacheEditeur(Tache& ta, QWidget* parent):
     titreLineEdit->setText(t.getTitre());
     dateDispo->setDate(t.getDateDisponibilite());
     dateEcheance->setDate(t.getDateEcheance());
-    dureeH->setValue(t.getDuree().getHeure());
-    dureeM->setValue(t.getDuree().getMinute());
+    //dureeH->setValue(t.getDuree().getHeure());
+    //dureeM->setValue(t.getDuree().getMinute());
 
     sauver->setEnabled(false);
 
@@ -91,9 +91,9 @@ void TacheEditeur::sauverTache()
     }
     t.setTitre(titreLineEdit->text());
     t.setDatesDisponibiliteEcheance(dateDispo->date(), dateEcheance->date());
-    t.setDuree(Duree(dureeH->value(), dureeM->value()));
-    if(preemtive->isChecked()) t.setPreemptive();
-    else t.setNonPreemptive();
+    //t.setDuree(Duree(dureeH->value(), dureeM->value()));
+    //if(preemtive->isChecked()) t.setPreemptive();
+    //else t.setNonPreemptive();
     QMessageBox::information(this, "sauvegarde", "Tache a bien ete sauvegardee");
 }
 

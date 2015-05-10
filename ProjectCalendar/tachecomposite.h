@@ -11,12 +11,13 @@ private:
 
 public:
 
-    void ajouterTache(Tache& t){vect_tache[t.getId()] = t;}
+    //void ajouterTache(Tache& t){vect_tache[t.getId()] = t;}
 
     virtual QString getTitre() const {return titre;}
     virtual QString getId() const{return "ol";}
     virtual std::map<QString, Tache*> getTache(){return vect_tache;}
-    TacheComposite();
+    TacheComposite(QString id, QString t, QDate dispo, QDate eche):
+        Tache(id, t, dispo, eche){};
     ~TacheComposite();
 
 

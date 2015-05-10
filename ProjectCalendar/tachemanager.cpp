@@ -15,6 +15,7 @@ Tache* TacheManager::trouverTache(const QString& id)const{
     return 0;
 }
 
+/*
 Tache& TacheManager::ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo,
                                   const QDate& deadline, bool preempt){
     if (trouverTache(id)) throw CalendarException("erreur, TacheManager, tache deja existante");
@@ -22,7 +23,7 @@ Tache& TacheManager::ajouterTache(const QString& id, const QString& t, const Dur
     addItem(newt);
     return *newt;
 }
-
+*/
 Tache& TacheManager::getTache(const QString& id){
     Tache* t=trouverTache(id);
     if (!t) throw CalendarException("erreur, TacheManager, tache inexistante");
@@ -120,7 +121,7 @@ void TacheManager::load(const QString& f){
                     xml.readNext();
                 }
                 //qDebug()<<"ajout tache "<<identificateur<<"\n";
-                ajouterTache(identificateur,titre,duree,disponibilite,echeance,preemptive);
+                //ajouterTache(identificateur,titre,duree,disponibilite,echeance,preemptive);
 
             }
         }
@@ -145,14 +146,14 @@ void  TacheManager::save(const QString& f){
     stream.writeStartElement("taches");
     for(unsigned int i=0; i<vect_tache.size(); i++){
         stream.writeStartElement("tache");
-        stream.writeAttribute("preemptive", (vect_tache[i]->isPreemptive())?"true":"false");
+        //stream.writeAttribute("preemptive", (vect_tache[i]->isPreemptive())?"true":"false");
         stream.writeTextElement("identificateur",vect_tache[i]->getId());
         stream.writeTextElement("titre",vect_tache[i]->getTitre());
         stream.writeTextElement("disponibilite",vect_tache[i]->getDateDisponibilite().toString(Qt::ISODate));
         stream.writeTextElement("echeance",vect_tache[i]->getDateEcheance().toString(Qt::ISODate));
         QString str;
-        str.setNum(vect_tache[i]->getDuree().getDureeEnMinutes());
-        stream.writeTextElement("duree",str);
+        //str.setNum(vect_tache[i]->getDuree().getDureeEnMinutes());
+        //stream.writeTextElement("duree",str);
         stream.writeEndElement();
     }
     stream.writeEndElement();
