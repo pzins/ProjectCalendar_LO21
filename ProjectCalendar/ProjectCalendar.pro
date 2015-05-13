@@ -25,12 +25,15 @@ SOURCES += main.cpp \
     tache.cpp \
     projetmanager.cpp \
     projet.cpp \
-    programmationmanager.cpp \
     programmation.cpp \
     precedencemanager.cpp \
     precedence.cpp \
     calendar.cpp \
-    timing.cpp
+    agenda.cpp \
+    programmationrdv.cpp \
+    programmationevenement.cpp \
+    programmationtacheunitaire.cpp \
+    programmationpartietache.cpp
 
 HEADERS += \
     tache.h \
@@ -40,9 +43,12 @@ HEADERS += \
     tacheEditeur.h \
     projetmanager.h \
     projet.h \
-    programmationmanager.h \
     programmation.h \
     precedencemanager.h \
     precedence.h \
     calendar.h \
-    timing.h
+    agenda.h \
+    programmationrdv.h \
+    programmationevenement.h \
+    programmationtacheunitaire.h \
+    programmationpartietache.h

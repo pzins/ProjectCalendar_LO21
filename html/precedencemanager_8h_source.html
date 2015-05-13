@@ -94,17 +94,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::vector&lt;Precedence*&gt; vect_precedence;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> ajouterPrecedence(<a class="code" href="class_tache.html">Tache</a>&amp; i, <a class="code" href="class_tache.html">Tache</a>&amp; j);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif // PRECEDENCEMANAGER_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>(){}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    ~<a class="code" href="class_precedence_manager.html">PrecedenceManager</a>(){}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>(<span class="keyword">const</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>&amp; p){}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>&amp; p){}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>* instance;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> ajouterPrecedence(<a class="code" href="class_tache.html">Tache</a>&amp; i, <a class="code" href="class_tache.html">Tache</a>&amp; j);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>&amp; getInstance(){</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span>(!instance) instance = <span class="keyword">new</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> *instance;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> liberer_instance(){</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">delete</span> instance;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // PRECEDENCEMANAGER_H</span></div>
 <div class="ttc" id="class_precedence_manager_html"><div class="ttname"><a href="class_precedence_manager.html">PrecedenceManager</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:5</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> tache.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 11 2015 01:21:34 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 13 2015 15:57:08 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

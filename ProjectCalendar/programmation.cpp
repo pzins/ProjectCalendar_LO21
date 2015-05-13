@@ -1,6 +1,6 @@
 #include "programmation.h"
-#include "tachemanager.h"
 
+/*
 QTextStream& operator<<(QDataStream& f, const Programmation& p);
 
 void Tache::setId(const QString& str){
@@ -8,3 +8,4 @@ void Tache::setId(const QString& str){
       throw CalendarException("erreur TacheManager : tache id deja existante");
   identificateur=str;
 }
+*/

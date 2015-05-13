@@ -1,12 +1,3 @@
 #include "projetmanager.h"
 
-ProjetManager::ProjetManager()
-{
-
-}
-
-ProjetManager::~ProjetManager()
-{
-
-}
-
+ProjetManager* ProjetManager::instance = 0;

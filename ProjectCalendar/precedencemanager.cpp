@@ -1,6 +1,6 @@
 #include "precedencemanager.h"
 
-
+PrecedenceManager* PrecedenceManager::instance = 0;
 
 void PrecedenceManager::ajouterPrecedence(Tache& i, Tache& j)
 {

@@ -1,11 +1,21 @@
 #ifndef PROGRAMMATIONPARTIETACHE_H
 #define PROGRAMMATIONPARTIETACHE_H
+#include "programmationtacheunitaire.h"
+#include "calendar.h"
+#include <QString>
 
-
-class ProgrammationPartieTache
+class ProgrammationPartieTache : public ProgrammationTacheUnitaire
 {
+private:
+    int numero;
+    QString nom_partie;
+    Duree duree;
+    const TacheUnitaire* tache;
+
 public:
-    ProgrammationPartieTache();
+    ProgrammationPartieTache(const QDate& date_, const QTime& debut_, const TacheUnitaire& tache_,
+                const int numero_, const QString& nom_partie_, const Duree& duree_):
+        ProgrammationTacheUnitaire(date_, debut_, tache_), nom_partie(nom_partie_), duree(duree_), tache(&tache_){}
     ~ProgrammationPartieTache();
 };
 

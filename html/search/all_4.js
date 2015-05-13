@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['intervalle',['Intervalle',['../class_t_i_m_e_1_1_intervalle.html',1,'TIME']]],
-  ['intervalle',['Intervalle',['../class_t_i_m_e_1_1_intervalle.html#a98b63f9c55a777090ec224d61ab26427',1,'TIME::Intervalle']]]
+  ['tache',['Tache',['../class_tache.html',1,'']]],
+  ['tachecomposite',['TacheComposite',['../class_tache_composite.html',1,'']]],
+  ['tacheediteur',['TacheEditeur',['../class_tache_editeur.html',1,'']]],
+  ['tachemanager',['TacheManager',['../class_tache_manager.html',1,'']]],
+  ['tacheunitaire',['TacheUnitaire',['../class_tache_unitaire.html',1,'']]]
 ];
