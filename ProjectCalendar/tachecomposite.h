@@ -1,24 +1,22 @@
 #ifndef TACHECOMPOSITE_H
 #define TACHECOMPOSITE_H
+#include <map>
 #include "tache.h"
+
 
 class TacheComposite : public Tache
 {
 private:
-    QString titre;
     std::map<QString, Tache*> vect_tache;
-
 
 public:
 
     //void ajouterTache(Tache& t){vect_tache[t.getId()] = t;}
 
-    virtual QString getTitre() const {return titre;}
-    virtual QString getId() const{return "ol";}
-    virtual std::map<QString, Tache*> getTache(){return vect_tache;}
-    TacheComposite(QString id, QString t, QDate dispo, QDate eche):
-        Tache(id, t, dispo, eche){};
-    ~TacheComposite();
+    const std::map<QString, Tache*>& getTache() const {return vect_tache;}
+
+    TacheComposite(const QString& id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_):
+        Tache(id_, titre_, dispo_, echeance_){}
 
 
 };

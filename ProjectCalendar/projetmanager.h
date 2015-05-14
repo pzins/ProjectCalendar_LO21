@@ -6,10 +6,12 @@
 
 class ProjetManager
 {
+    friend class Projet;
+
 private:
-    std::map<QString, Projet> vect_projet;
-    ProjetManager(){};
-    ~ProjetManager(){};
+    std::map<QString, Projet*> map_projet;
+    ProjetManager(){}
+    ~ProjetManager(){}
     ProjetManager(const ProjetManager& p){}
     ProjetManager& operator=(const ProjetManager& p){}
 
@@ -26,6 +28,7 @@ public:
     static void libererInstance(){
         delete instance;
     }
+    bool ajouterProjet(const QString& id, const QString& titre, const QDate& dispo,const QDate& echeance);
 
 };
 

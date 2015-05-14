@@ -3,17 +3,9 @@
 #include <QString>
 #include <QDate>
 #include <QTextStream>
+#include "calendarexception.h"
 
 using namespace std;
-
-class CalendarException{
-public:
-    CalendarException(const QString& message):info(message){}
-    QString getInfo() const { return info; }
-private:
-    QString info;
-};
-
 
 /*! \class Duree
         \brief Classe permettant de manipuler des durees
@@ -45,7 +37,5 @@ public:
 
 QTextStream& operator<<(QTextStream& f, const Duree & d);
 QTextStream& operator>>(QTextStream&, Duree&); //lecture format hhHmm
-
-
 
 #endif

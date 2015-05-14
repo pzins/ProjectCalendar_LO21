@@ -1,7 +1,7 @@
 #ifndef PROGRAMMATIONEVENEMENT1J_H
 #define PROGRAMMATIONEVENEMENT1J_H
 #include "programmationevenement.h"
-#include "calendar.h"
+#include "duree.h"
 
 class ProgrammationEvenement1J : public ProgrammationEvenement
 {

@@ -10,7 +10,7 @@
 #include <QCheckBox>
 #include <QSpinBox>
 #include <QDateEdit>
-#include "calendar.h"
+#include "duree.h"
 #include <QMessageBox>
 
 #include "tache.h"

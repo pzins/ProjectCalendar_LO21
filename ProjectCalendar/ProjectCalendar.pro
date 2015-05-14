@@ -28,14 +28,15 @@ SOURCES += main.cpp \
     programmation.cpp \
     precedencemanager.cpp \
     precedence.cpp \
-    calendar.cpp \
     agenda.cpp \
     programmationrdv.cpp \
     programmationevenement.cpp \
     programmationtacheunitaire.cpp \
     programmationpartietache.cpp \
     programmationevenement1j.cpp \
-    programmationevenementplsj.cpp
+    programmationevenementplsj.cpp \
+    calendarexception.cpp \
+    duree.cpp
 
 HEADERS += \
     tache.h \
@@ -48,11 +49,12 @@ HEADERS += \
     programmation.h \
     precedencemanager.h \
     precedence.h \
-    calendar.h \
     agenda.h \
     programmationrdv.h \
     programmationevenement.h \
     programmationtacheunitaire.h \
     programmationpartietache.h \
     programmationevenement1j.h \
-    programmationevenementplsj.h
+    programmationevenementplsj.h \
+    calendarexception.h \
+    duree.h

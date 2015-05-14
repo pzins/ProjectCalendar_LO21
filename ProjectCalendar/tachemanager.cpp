@@ -149,8 +149,8 @@ void  TacheManager::save(const QString& f){
         //stream.writeAttribute("preemptive", (vect_tache[i]->isPreemptive())?"true":"false");
         stream.writeTextElement("identificateur",vect_tache[i]->getId());
         stream.writeTextElement("titre",vect_tache[i]->getTitre());
-        stream.writeTextElement("disponibilite",vect_tache[i]->getDateDisponibilite().toString(Qt::ISODate));
-        stream.writeTextElement("echeance",vect_tache[i]->getDateEcheance().toString(Qt::ISODate));
+        stream.writeTextElement("disponibilite",vect_tache[i]->getDispo().toString(Qt::ISODate));
+        stream.writeTextElement("echeance",vect_tache[i]->getEcheance().toString(Qt::ISODate));
         QString str;
         //str.setNum(vect_tache[i]->getDuree().getDureeEnMinutes());
         //stream.writeTextElement("duree",str);

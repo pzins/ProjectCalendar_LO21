@@ -1,30 +1,38 @@
 ﻿#ifndef TACHE_H
 #define TACHE_H
 #include <QString>
-#include "calendar.h"
+#include <QDate>
+#include <QTextStream>
+#include "calendarexception.h"
 
 class Tache
 {
 private:
-    QString identificateur;
+    QString id;
     QString titre;
-    QDate disponibilite;
+    QString description;
+    QDate dispo;
     QDate echeance;
 
 
 public:
-    Tache(QString id, QString t, QDate dispo, QDate eche): identificateur(id), titre(t),
-        disponibilite(dispo), echeance(eche){}
+    Tache(const QString& id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_):
+        id(id_), titre(titre_), dispo(dispo_), echeance(echeance_){}
 
-    QString getId() const { return identificateur; }
-    void setId(const QString& str);
-    QString getTitre() const { return titre; }
-    void setTitre(const QString& str) { titre=str; }
-    QDate getDateDisponibilite() const {  return disponibilite; }
-    QDate getDateEcheance() const {  return echeance; }
-    void setDatesDisponibiliteEcheance(const QDate& disp, const QDate& e) {
-        if (e<disp) throw CalendarException("erreur Tache : date echeance < date disponibilite");
-        disponibilite=disp; echeance=e;
+    QString getId() const {return id;}
+    void setId(const QString& id_){id = id_;}
+
+    QString getTitre() const {return titre;}
+    void setTitre(const QString& titre_) {titre=titre_;}
+
+    QDate getDispo() const {return dispo;}
+
+    QDate getEcheance() const {return echeance;}
+
+    void setDispoEcheance(const QDate& dispo_, const QDate& echeance_) {
+        if (echeance_<dispo_) throw CalendarException("erreur Tache : date echeance < date disponibilite");
+        dispo=dispo_;
+        echeance=echeance_;
     }
 
 };

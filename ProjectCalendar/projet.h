@@ -6,11 +6,15 @@
 class Projet
 {
 private:
-    QString nom;
+    QString id;
+    QString titre;
+    QDate dispo;
+    QDate echeance;
     std::map<QString, Tache*> vect_tache;
 
 public:
-    Projet();
+    Projet(const QString& id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_) :
+        id(id_), titre(titre_), dispo(dispo_), echeance(echeance_){}
     ~Projet();
 };
 

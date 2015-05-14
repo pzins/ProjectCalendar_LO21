@@ -58,8 +58,8 @@ TacheEditeur::TacheEditeur(Tache& ta, QWidget* parent):
 
     idLineEdit->setText(t.getId());
     titreLineEdit->setText(t.getTitre());
-    dateDispo->setDate(t.getDateDisponibilite());
-    dateEcheance->setDate(t.getDateEcheance());
+    dateDispo->setDate(t.getDispo());
+    dateEcheance->setDate(t.getEcheance());
     //dureeH->setValue(t.getDuree().getHeure());
     //dureeM->setValue(t.getDuree().getMinute());
 
@@ -90,7 +90,7 @@ void TacheEditeur::sauverTache()
         return;
     }
     t.setTitre(titreLineEdit->text());
-    t.setDatesDisponibiliteEcheance(dateDispo->date(), dateEcheance->date());
+    t.setDispoEcheance(dateDispo->date(), dateEcheance->date());
     //t.setDuree(Duree(dureeH->value(), dureeM->value()));
     //if(preemtive->isChecked()) t.setPreemptive();
     //else t.setNonPreemptive();

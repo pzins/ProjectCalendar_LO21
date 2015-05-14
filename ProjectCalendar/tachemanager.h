@@ -1,6 +1,8 @@
 #ifndef TACHEMANAGER_H
 #define TACHEMANAGER_H
+#include "duree.h"
 #include "tache.h"
+
 
 
 class TacheManager {

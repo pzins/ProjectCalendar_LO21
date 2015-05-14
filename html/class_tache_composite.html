@@ -100,44 +100,37 @@ Inheritance diagram for TacheComposite:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a83ad9aff65e043f7c74296b2c7236895"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83ad9aff65e043f7c74296b2c7236895"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
-<tr class="separator:a83ad9aff65e043f7c74296b2c7236895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab220a1a90f963ffc47823be715a847fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab220a1a90f963ffc47823be715a847fa"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
-<tr class="separator:ab220a1a90f963ffc47823be715a847fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1e5ca36a0d59bd2ed6f919210c7c03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e1e5ca36a0d59bd2ed6f919210c7c03"></a>
-virtual std::map&lt; QString, <br class="typebreak"/>
-<a class="el" href="class_tache.html">Tache</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> ()</td></tr>
-<tr class="separator:a6e1e5ca36a0d59bd2ed6f919210c7c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5946b2bafec6bed76a8f847e4d1dd07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5946b2bafec6bed76a8f847e4d1dd07"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TacheComposite</b> (QString id, QString t, QDate dispo, QDate eche)</td></tr>
-<tr class="separator:ab5946b2bafec6bed76a8f847e4d1dd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866f0196431cf74cf0a03ed0c4b70e08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a866f0196431cf74cf0a03ed0c4b70e08"></a>
+const std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> () const </td></tr>
+<tr class="separator:a866f0196431cf74cf0a03ed0c4b70e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e0fe752c2f4f21c05d6757ad68fa7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8e0fe752c2f4f21c05d6757ad68fa7a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TacheComposite</b> (const QString &amp;id_, const QString &amp;titre_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="separator:ac8e0fe752c2f4f21c05d6757ad68fa7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_tache"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_tache')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_tache.html">Tache</a></td></tr>
-<tr class="memitem:a2ebf916388f0c0d6c871c6c6410a5648 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ebf916388f0c0d6c871c6c6410a5648"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (QString id, QString t, QDate dispo, QDate eche)</td></tr>
-<tr class="separator:a2ebf916388f0c0d6c871c6c6410a5648 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab033b6d74cb111c7e30ccf4197be99 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ab033b6d74cb111c7e30ccf4197be99"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;id_, const QString &amp;titre_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="separator:a5ab033b6d74cb111c7e30ccf4197be99 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29b8a9d32a5541f837bd3df5482dcb9f inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29b8a9d32a5541f837bd3df5482dcb9f"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
 <tr class="separator:a29b8a9d32a5541f837bd3df5482dcb9f inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d2ff9c442fef12cb29ff55e3272fd1b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d2ff9c442fef12cb29ff55e3272fd1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (const QString &amp;str)</td></tr>
-<tr class="separator:a6d2ff9c442fef12cb29ff55e3272fd1b inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f99b3e1c1fa69eb95995140a171b35b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f99b3e1c1fa69eb95995140a171b35b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (const QString &amp;id_)</td></tr>
+<tr class="separator:a1f99b3e1c1fa69eb95995140a171b35b inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e56c6eaaa23d2c66148ff5a89724e6 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9e56c6eaaa23d2c66148ff5a89724e6"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
 <tr class="separator:ab9e56c6eaaa23d2c66148ff5a89724e6 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a323c2848e8c181508677803bece8f529 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a323c2848e8c181508677803bece8f529"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTitre</b> (const QString &amp;str)</td></tr>
-<tr class="separator:a323c2848e8c181508677803bece8f529 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a542a506e7315001adc9f423e613a6d7b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a542a506e7315001adc9f423e613a6d7b"></a>
-QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDateDisponibilite</b> () const </td></tr>
-<tr class="separator:a542a506e7315001adc9f423e613a6d7b inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44bf074be085367c3a58b81be680d70 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44bf074be085367c3a58b81be680d70"></a>
-QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDateEcheance</b> () const </td></tr>
-<tr class="separator:ad44bf074be085367c3a58b81be680d70 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c6c50f8be48298fb175dd6bf2a98b6 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0c6c50f8be48298fb175dd6bf2a98b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDatesDisponibiliteEcheance</b> (const QDate &amp;disp, const QDate &amp;e)</td></tr>
-<tr class="separator:ad0c6c50f8be48298fb175dd6bf2a98b6 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b18d86f761b3b15e02350e37876004 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56b18d86f761b3b15e02350e37876004"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTitre</b> (const QString &amp;titre_)</td></tr>
+<tr class="separator:a56b18d86f761b3b15e02350e37876004 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15bc97521d95ea3fbab9ebea4d47662 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa15bc97521d95ea3fbab9ebea4d47662"></a>
+QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDispo</b> () const </td></tr>
+<tr class="separator:aa15bc97521d95ea3fbab9ebea4d47662 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8daabd655dc0405b5eae21b591e1a1c2 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8daabd655dc0405b5eae21b591e1a1c2"></a>
+QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getEcheance</b> () const </td></tr>
+<tr class="separator:a8daabd655dc0405b5eae21b591e1a1c2 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2cbded1891dcc12f405a509e003b322 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2cbded1891dcc12f405a509e003b322"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDispoEcheance</b> (const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="separator:aa2cbded1891dcc12f405a509e003b322 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="tachecomposite_8h_source.html">tachecomposite.h</a></li>
@@ -145,7 +138,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDatesDisponibilite
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 14 2015 17:19:58 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 14 2015 19:47:33 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
