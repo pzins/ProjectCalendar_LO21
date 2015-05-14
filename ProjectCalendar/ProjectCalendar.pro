@@ -33,7 +33,9 @@ SOURCES += main.cpp \
     programmationrdv.cpp \
     programmationevenement.cpp \
     programmationtacheunitaire.cpp \
-    programmationpartietache.cpp
+    programmationpartietache.cpp \
+    programmationevenement1j.cpp \
+    programmationevenementplsj.cpp
 
 HEADERS += \
     tache.h \
@@ -51,4 +53,6 @@ HEADERS += \
     programmationrdv.h \
     programmationevenement.h \
     programmationtacheunitaire.h \
-    programmationpartietache.h
+    programmationpartietache.h \
+    programmationevenement1j.h \
+    programmationevenementplsj.h

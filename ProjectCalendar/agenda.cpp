@@ -25,6 +25,7 @@ Agenda::~Agenda(){
     for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
 }
 
+/*
 Agenda::Agenda(const Agenda& um){
     for(unsigned int i=0; i<vect_progr.size(); i++) vect_progr[i]=new Programmation(*um.vect_progr[i]);
 }
@@ -34,4 +35,4 @@ Agenda& Agenda::operator=(const Agenda& um){
     this->~Agenda();
     for(unsigned int i=0; i<um.vect_progr.size(); i++) addItem(new Programmation(*um.vect_progr[i]));
     return *this;
-}
+}*/

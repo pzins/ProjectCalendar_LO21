@@ -2,7 +2,7 @@
 #define PROGRAMMATIONRDV_H
 #include "programmationevenement1j.h"
 
-class ProgrammationRdv : public ProgrammationEvenement1J
+class ProgrammationRdv : public ProgrammationEvenement1J    
 {
 private:
     QString lieu;
