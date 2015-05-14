@@ -15,6 +15,8 @@ public:
     ProgrammationEvenement(const QDate& date_, const QTime& debut_, const QString& titre_, const QString& description_):
         Programmation(date_, debut_), titre(titre_), description(description_){}
 
+    virtual ~ProgrammationEvenement(){}
+
     const QString& getTitre() const {return titre;}
     const QString& getDescription() const {return description;}
     virtual void afficher() const =0;

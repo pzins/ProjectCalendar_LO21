@@ -8,3 +8,9 @@ bool ProjetManager::ajouterProjet(const QString& id, const QString& titre, const
 {
     map_projet.insert(std::make_pair(id,new Projet(id, titre, dispo, echeance)));
 }
+
+
+Projet& ProjetManager::getProjet(const QString& id)
+{
+    return *map_projet.at(id);
+}

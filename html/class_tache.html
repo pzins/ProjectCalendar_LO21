@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_tache-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Tache Class Reference</div>  </div>
+<div class="title">Tache Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
@@ -101,9 +101,9 @@ Inheritance diagram for Tache:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ab033b6d74cb111c7e30ccf4197be99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ab033b6d74cb111c7e30ccf4197be99"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;id_, const QString &amp;titre_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
-<tr class="separator:a5ab033b6d74cb111c7e30ccf4197be99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7df9ffc420b4427f406ba48872e926"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf7df9ffc420b4427f406ba48872e926"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;id_, const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="separator:adf7df9ffc420b4427f406ba48872e926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29b8a9d32a5541f837bd3df5482dcb9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29b8a9d32a5541f837bd3df5482dcb9f"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
 <tr class="separator:a29b8a9d32a5541f837bd3df5482dcb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,9 +122,18 @@ QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDispo</b> () cons
 <tr class="memitem:a8daabd655dc0405b5eae21b591e1a1c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8daabd655dc0405b5eae21b591e1a1c2"></a>
 QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getEcheance</b> () const </td></tr>
 <tr class="separator:a8daabd655dc0405b5eae21b591e1a1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6b543d264701e0766a3a12e34217504"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6b543d264701e0766a3a12e34217504"></a>
+const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const </td></tr>
+<tr class="separator:aa6b543d264701e0766a3a12e34217504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af88b9e728d797e971fbf3f00276fe1d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af88b9e728d797e971fbf3f00276fe1d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDescription</b> (const QString &amp;description_)</td></tr>
+<tr class="separator:af88b9e728d797e971fbf3f00276fe1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2cbded1891dcc12f405a509e003b322"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2cbded1891dcc12f405a509e003b322"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDispoEcheance</b> (const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
 <tr class="separator:aa2cbded1891dcc12f405a509e003b322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace96144aeea58acba74fc0b204fd521b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace96144aeea58acba74fc0b204fd521b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const =0</td></tr>
+<tr class="separator:ace96144aeea58acba74fc0b204fd521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="tache_8h_source.html">tache.h</a></li>
@@ -132,7 +141,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDispoEcheance</b> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 14 2015 19:47:33 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 14 2015 22:39:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

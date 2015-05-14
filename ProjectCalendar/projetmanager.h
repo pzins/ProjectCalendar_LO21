@@ -6,8 +6,6 @@
 
 class ProjetManager
 {
-    friend class Projet;
-
 private:
     std::map<QString, Projet*> map_projet;
     ProjetManager(){}
@@ -29,6 +27,8 @@ public:
         delete instance;
     }
     bool ajouterProjet(const QString& id, const QString& titre, const QDate& dispo,const QDate& echeance);
+    const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
+    Projet& getProjet(const QString& id);
 
 };
 

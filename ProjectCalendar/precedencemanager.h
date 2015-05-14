@@ -6,6 +6,7 @@ class PrecedenceManager
 {
 private:
     std::vector<Precedence*> vect_precedence;
+
     PrecedenceManager(){}
     ~PrecedenceManager(){}
     PrecedenceManager(const PrecedenceManager& p){}
@@ -15,7 +16,7 @@ private:
 
 
 public:
-    void ajouterPrecedence(Tache& i, Tache& j);
+    void ajouterPrecedence(Tache& pred_, Tache& succ_);
     static PrecedenceManager& getInstance(){
         if(!instance) instance = new PrecedenceManager();
         return *instance;

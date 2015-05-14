@@ -10,6 +10,9 @@ class Programmation {
 
 public:
     Programmation(const QDate& date_, const QTime& debut_): date(date_), debut(debut_){}
+
+    virtual ~Programmation(){}
+
     QDate getDate() const {return date;}
     QTime getDebut() const {return debut;}
    // const Tache& getTache() const =0;

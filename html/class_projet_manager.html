@@ -84,7 +84,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_projet_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ProjetManager Class Reference</div>  </div>
@@ -96,6 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2f6e7ce81f39705245f544ddbb2e5221"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f6e7ce81f39705245f544ddbb2e5221"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProjet</b> (const QString &amp;id, const QString &amp;titre, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
 <tr class="separator:a2f6e7ce81f39705245f544ddbb2e5221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdfc7d67b4a580d0ba10dbc6cb4b713d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdfc7d67b4a580d0ba10dbc6cb4b713d"></a>
+const std::map&lt; QString, <br class="typebreak"/>
+<a class="el" href="class_projet.html">Projet</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapProjet</b> () const </td></tr>
+<tr class="separator:afdfc7d67b4a580d0ba10dbc6cb4b713d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85500adf677f9418cef058d28994562e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85500adf677f9418cef058d28994562e"></a>
+<a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getProjet</b> (const QString &amp;id)</td></tr>
+<tr class="separator:a85500adf677f9418cef058d28994562e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -105,12 +111,6 @@ static <a class="el" href="class_projet_manager.html">ProjetManager</a> &amp;&#1
 <tr class="memitem:a6d0535201539179e2591f4e2e294e48b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d0535201539179e2591f4e2e294e48b"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
 <tr class="separator:a6d0535201539179e2591f4e2e294e48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:ab87b41c3faa36955cc370972f5cce344"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab87b41c3faa36955cc370972f5cce344"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Projet</b></td></tr>
-<tr class="separator:ab87b41c3faa36955cc370972f5cce344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a></li>
@@ -119,7 +119,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Projet</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 14 2015 19:47:33 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 14 2015 22:39:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
