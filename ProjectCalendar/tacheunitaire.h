@@ -23,8 +23,7 @@ public:
 
 
     bool isPreemptive() const {return preemptive;}
-    void setPreemptive() {preemptive=true;}
-    void setNonPreemptive() {preemptive=false;}
+    void setPreemptive(bool preemptive_) {preemptive=preemptive_;}
     virtual void afficher() const;
 
 };

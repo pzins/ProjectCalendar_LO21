@@ -24,10 +24,11 @@ public:
     const QDate& getDispo() const {return dispo;}
     const QDate& getEcheance() const {return echeance;}
 
-    bool ajouterTacheUnitaire(const QString& id, const QString& titre, const QString& description,
+    void ajouterTacheUnitaire(const QString& id, const QString& titre, const QString& description,
                               const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive=false);
-    bool ajouterTacheComposite(const QString& id, const QString& titre, const QString& description,
+    void ajouterTacheComposite(const QString& id, const QString& titre, const QString& description,
                                const QDate& dispo, const QDate& echeance);
+    void retirerTache(const QString& id);
 
     const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
 

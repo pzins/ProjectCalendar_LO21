@@ -17,6 +17,7 @@ private:
 
 public:
     void ajouterPrecedence(Tache& pred_, Tache& succ_);
+
     static PrecedenceManager& getInstance(){
         if(!instance) instance = new PrecedenceManager();
         return *instance;

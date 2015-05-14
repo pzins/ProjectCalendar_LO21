@@ -6,6 +6,12 @@ void TacheComposite::ajouterTache(TacheUnitaire& t)
     map_tache.insert(std::make_pair(t.getId(), &t));
 }
 
+void TacheComposite::retirerTache(TacheUnitaire& t)
+{
+    //à voir en fct de si suppr tache ou juste enlève de cette tachecompo
+    //voir cycles de vies liés ou pas
+}
+
 void TacheComposite::afficher() const
 {
     std::cout << "id: " << getId().toStdString() << std::endl;

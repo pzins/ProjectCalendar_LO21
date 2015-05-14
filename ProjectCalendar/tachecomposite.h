@@ -13,6 +13,7 @@ private:
 public:
 
     void ajouterTache(TacheUnitaire& t);
+    void retirerTache(TacheUnitaire& t);
 
     const std::map<QString, Tache*>& getTache() const {return map_tache;}
 
