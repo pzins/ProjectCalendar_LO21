@@ -22,6 +22,8 @@ void Projet::retirerTache(TacheUnitaire& tache)
     Tache* tu = (*it).second;
     map_tache.erase(it);
     delete tu;
+    nb_tache--;
+    map_tache.at(nb_tache)->setId(tache.getId());
 }
 
 Projet::~Projet()

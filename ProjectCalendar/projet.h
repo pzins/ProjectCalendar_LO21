@@ -21,6 +21,7 @@ public:
         id(id_), titre(titre_), dispo(dispo_), echeance(echeance_), nb_tache(0){}
 
     unsigned int getId() const {return id;}
+    void setId(unsigned int id_){id = id_;}
     const QString& getTitre() const {return titre;}
     const QDate& getDispo() const {return dispo;}
     const QDate& getEcheance() const {return echeance;}

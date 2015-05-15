@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
     for(Projet::Iterator it=pro1->begin(); it != pro1->end(); it++)
         cout << (*it).getTitre().toStdString() << endl;
 
-    precedence_m.ajouterPrecedence(pro1->getTache(1), pro1->getTache(2));
-    precedence_m.ajouterPrecedence(pro1->getTache(1), pro1->getTache(3));
-    precedence_m.ajouterPrecedence(pro1->getTache(1), pro1->getTache(4));
-    std::cout << precedence_m.getVectPrecedence().size() << std::endl;
+    precedence_m.ajouterPrecedence(pro1->getTache(0), pro1->getTache(1));
+    precedence_m.ajouterPrecedence(pro1->getTache(0), pro1->getTache(2));
+    precedence_m.ajouterPrecedence(pro1->getTache(0), pro1->getTache(3));
+   std::cout << precedence_m.getVectPrecedence().size() << std::endl;
 
     cout << "10" << endl;
 
@@ -46,7 +46,6 @@ int main(int argc, char *argv[])
         cout << "ol" << endl;
 
     cout << "10" << endl;
-
 
     /* il faut ajouter l'iterator pour les precedences
      * iterator de classe tache permet à partir de getinstance de

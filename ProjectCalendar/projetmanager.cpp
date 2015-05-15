@@ -19,6 +19,8 @@ void ProjetManager::retirerProjet(Projet &projet)
     Projet* tu = (*it).second;
     map_projet.erase(it);
     delete tu;
+    nb_projet--;
+    map_projet.at(nb_projet)->setId(projet.getId());
 }
 
 
