@@ -40,7 +40,31 @@ public:
         vect_progr.push_back(&p);
     }
 
+    class Iterator
+    {
+    private:
+        friend class Agenda;
+        std::vector<Programmation*>::iterator courant;
+        Iterator(std::vector<Programmation*>::iterator deb) : courant(deb){}
+    public:
+        Iterator() : courant(0) {}
+        Programmation& operator*() const {return **courant;}
+        Iterator& operator++(){++courant; return *this;}
+        Iterator operator++(int i){
+            Iterator old = *this;
+            ++courant;
+            return old;
+        }
+        bool operator==(Iterator it) const{
+            return courant == it.courant;
+        }
+        bool operator!=(Iterator it) const{
+            return courant != it.courant;
+        }
+    };
 
+    Iterator begin(){return Iterator(vect_progr.begin());}
+    Iterator end(){return Iterator(vect_progr.end());}
 
 };
 

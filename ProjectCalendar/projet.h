@@ -35,10 +35,32 @@ public:
     Tache& getTache(const QString& id){
         return *map_tache.at(id);
     }
+   ~Projet(){}
 
-
-
-    ~Projet();
+    class Iterator
+    {
+    private:
+        friend class Projet;
+        std::map<QString, Tache*>::iterator courant;
+        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
+    public:
+        Iterator() : courant(0){}
+        Tache& operator*() const {return *(courant->second);}
+        Iterator& operator++(){++courant; return *this;}
+        Iterator operator++(int i){
+            Iterator old = *this;
+            ++courant;
+            return old;
+        }
+        bool operator==(Iterator it) const{
+            return courant == it.courant;
+        }
+        bool operator!=(Iterator it) const{
+            return courant != it.courant;
+        }
+    };
+    Iterator begin(){return Iterator(map_tache.begin());}
+    Iterator end(){return Iterator(map_tache.end());}
 };
 
 #endif // PROJET_H

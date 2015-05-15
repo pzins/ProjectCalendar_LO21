@@ -41,7 +41,7 @@ public:
         Iterator(std::map<QString, Projet*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
-        Projet* operator*() const {return courant->second;}
+        Projet& operator*() const {return *courant->second;}
         Iterator& operator++(){++courant; return *this;}
         Iterator operator++(int i){
             Iterator old = *this;

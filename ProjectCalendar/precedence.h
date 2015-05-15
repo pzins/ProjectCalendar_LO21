@@ -1,6 +1,7 @@
 #ifndef PRECEDENCE_H
 #define PRECEDENCE_H
-#include "tache.h"
+
+class Tache;
 
 class Precedence
 {
