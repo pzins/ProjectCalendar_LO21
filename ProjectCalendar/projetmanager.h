@@ -27,7 +27,7 @@ public:
         delete instance;
     }
     bool ajouterProjet(const QString& id, const QString& titre, const QDate& dispo,const QDate& echeance);
-    void retirerProjet(const QString& id);
+    void retirerProjet(Projet& projet);
 
     const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
     Projet& getProjet(const QString& id);

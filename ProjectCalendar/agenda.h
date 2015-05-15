@@ -23,7 +23,9 @@ private:
 
 
 public:
-    void ajouterProgrammation(const Tache& t, const QDate& d, const QTime& h);
+    void ajouterProgrammation(Programmation& progr);
+    void retirerProgrammation(Programmation& programmation);
+
     static Agenda& getInstance(){
         if(!instance) instance = new Agenda();
         return *instance;

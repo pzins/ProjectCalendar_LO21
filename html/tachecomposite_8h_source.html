@@ -100,28 +100,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> ajouterTache(<a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>&amp; t);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> retirerTache(<a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>&amp; t);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> ajouterTache(<a class="code" href="class_tache.html">Tache</a>&amp; t);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> retirerTache(<a class="code" href="class_tache.html">Tache</a>&amp; t);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">const</span> std::map&lt;QString, Tache*&gt;&amp; getTache()<span class="keyword"> const </span>{<span class="keywordflow">return</span> map_tache;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_tache_composite.html">TacheComposite</a>(<span class="keyword">const</span> QString&amp; id_, <span class="keyword">const</span> QString&amp; titre_, <span class="keyword">const</span> QString&amp; description_, <span class="keyword">const</span> QDate&amp; dispo_,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                   <span class="keyword">const</span> QDate&amp; echeance_):</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_tache.html">Tache</a>(id_, titre_, description_, dispo_, echeance_){}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ~<a class="code" href="class_tache_composite.html">TacheComposite</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> afficher() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // TACHECOMPOSITE_H</span></div>
-<div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:7</div></div>
 <div class="ttc" id="class_tache_composite_html"><div class="ttname"><a href="class_tache_composite.html">TacheComposite</a></div><div class="ttdef"><b>Definition:</b> tachecomposite.h:8</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> tache.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 15 2015 18:21:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 15 2015 19:33:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

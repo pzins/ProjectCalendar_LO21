@@ -28,14 +28,14 @@ public:
                               const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive=false);
     void ajouterTacheComposite(const QString& id, const QString& titre, const QString& description,
                                const QDate& dispo, const QDate& echeance);
-    void retirerTache(const QString& id);
+    void retirerTache(TacheUnitaire& tache);
 
     const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
 
     Tache& getTache(const QString& id){
         return *map_tache.at(id);
     }
-   ~Projet(){}
+   ~Projet();
 
     class Iterator
     {

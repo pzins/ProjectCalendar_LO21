@@ -9,7 +9,7 @@ private:
     std::vector<Precedence*> vect_precedence;
 
     PrecedenceManager(){}
-    ~PrecedenceManager(){}
+    ~PrecedenceManager();
     PrecedenceManager(const PrecedenceManager& p){}
     PrecedenceManager& operator=(const PrecedenceManager& p){}
 
@@ -18,6 +18,8 @@ private:
 
 public:
     void ajouterPrecedence(Tache& pred_, Tache& succ_);
+    void retirerPrecedence(Precedence& precedence);
+
     std::vector<Precedence*> getVectPrecedence() const {return vect_precedence;}
 
     static PrecedenceManager& getInstance(){
@@ -28,6 +30,10 @@ public:
     static void liberer_instance(){
         delete instance;
     }
+
+
+
+
     class Iterator
     {
     private:
