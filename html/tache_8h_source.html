@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_tache.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tache.html">Tache</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    QString id;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QString titre;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QString description;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QDate dispo;</div>
@@ -105,13 +105,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_tache.html">Tache</a>(<span class="keyword">const</span> QString&amp; id_, <span class="keyword">const</span> QString&amp; titre_, <span class="keyword">const</span> QString&amp; description_, <span class="keyword">const</span> QDate&amp; dispo_,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_tache.html">Tache</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_, <span class="keyword">const</span> QString&amp; titre_, <span class="keyword">const</span> QString&amp; description_, <span class="keyword">const</span> QDate&amp; dispo_,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;         <span class="keyword">const</span> QDate&amp; echeance_): id(id_), titre(titre_), description(description_), dispo(dispo_),</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;         echeance(echeance_){}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_tache.html">Tache</a>(){}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QString getId()<span class="keyword"> const </span>{<span class="keywordflow">return</span> id;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> setId(<span class="keyword">const</span> QString&amp; id_){<span class="keywordtype">id</span> = id_;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getId()<span class="keyword"> const </span>{<span class="keywordflow">return</span> id;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> setId(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_){<span class="keywordtype">id</span> = id_;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QString getTitre()<span class="keyword"> const </span>{<span class="keywordflow">return</span> titre;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> setTitre(<span class="keyword">const</span> QString&amp; titre_) {titre=titre_;}</div>
@@ -169,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 15 2015 19:33:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 15 2015 23:33:01 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

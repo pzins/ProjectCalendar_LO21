@@ -8,16 +8,16 @@
 class TacheComposite : public Tache
 {
 private:
-    std::map<QString, Tache*> map_tache;
+    std::map<unsigned int, Tache*> map_tache;
 
 public:
 
     void ajouterTache(Tache& t);
     void retirerTache(Tache& t);
 
-    const std::map<QString, Tache*>& getTache() const {return map_tache;}
+    const std::map<unsigned int, Tache*>& getTache() const {return map_tache;}
 
-    TacheComposite(const QString& id_, const QString& titre_, const QString& description_, const QDate& dispo_,
+    TacheComposite(unsigned int id_, const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):
         Tache(id_, titre_, description_, dispo_, echeance_){}
     ~TacheComposite();

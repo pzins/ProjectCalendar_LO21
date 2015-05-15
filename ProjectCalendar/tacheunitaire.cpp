@@ -3,7 +3,7 @@
 
 void TacheUnitaire::afficher() const
 {
-    std::cout << "id: " << getId().toStdString() << std::endl;
+    std::cout << "id: " << getId() << std::endl;
     std::cout << "titre: " << getTitre().toStdString() << std::endl;
     std::cout << "description: " << getDescription().toStdString() << std::endl;
     std::cout << "dispo: " << getDispo().toString().toStdString() << std::endl;

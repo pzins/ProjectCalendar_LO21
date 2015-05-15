@@ -9,7 +9,7 @@
 class Tache
 {
 private:
-    QString id;
+    unsigned int id;
     QString titre;
     QString description;
     QDate dispo;
@@ -17,13 +17,13 @@ private:
 
 
 public:
-    Tache(const QString& id_, const QString& titre_, const QString& description_, const QDate& dispo_,
+    Tache(unsigned int id_, const QString& titre_, const QString& description_, const QDate& dispo_,
          const QDate& echeance_): id(id_), titre(titre_), description(description_), dispo(dispo_),
          echeance(echeance_){}
     virtual ~Tache(){}
 
-    QString getId() const {return id;}
-    void setId(const QString& id_){id = id_;}
+    unsigned int getId() const {return id;}
+    void setId(unsigned int id_){id = id_;}
 
     QString getTitre() const {return titre;}
     void setTitre(const QString& titre_) {titre=titre_;}

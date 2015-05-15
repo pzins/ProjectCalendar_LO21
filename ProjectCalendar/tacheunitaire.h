@@ -12,7 +12,7 @@ class TacheUnitaire : public Tache
 
 public:
 
-    TacheUnitaire(const QString& id_, const QString& titre_, const QString& description_, const QDate& dispo_,
+    TacheUnitaire(unsigned int id_, const QString& titre_, const QString& description_, const QDate& dispo_,
                   const QDate& echeance_, const Duree& duree_, bool preemptive_=false):
             Tache(id_, titre_, description_, dispo_, echeance_), duree(duree_), preemptive(preemptive_){}
 

@@ -7,13 +7,14 @@
 class ProjetManager
 {
 private:
-    std::map<QString, Projet*> map_projet;
+    std::map<unsigned int, Projet*> map_projet;
     ProjetManager(){}
     ~ProjetManager(){}
     ProjetManager(const ProjetManager& p){}
     ProjetManager& operator=(const ProjetManager& p){}
 
     static ProjetManager* instance;
+    static unsigned int nb_projet;
 
 
 public:
@@ -26,19 +27,19 @@ public:
     static void libererInstance(){
         delete instance;
     }
-    bool ajouterProjet(const QString& id, const QString& titre, const QDate& dispo,const QDate& echeance);
+    void ajouterProjet(const QString& titre, const QDate& dispo,const QDate& echeance);
     void retirerProjet(Projet& projet);
 
-    const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
-    Projet& getProjet(const QString& id);
+    const std::map<unsigned int, Projet*>& getMapProjet() const {return map_projet;}
+    Projet& getProjet(unsigned int id);
 
 
     class Iterator
     {
     private:
         friend class ProjetManager;
-        std::map<QString, Projet*>::iterator courant;
-        Iterator(std::map<QString, Projet*>::iterator deb) : courant(deb){}
+        std::map<unsigned int, Projet*>::iterator courant;
+        Iterator(std::map<unsigned int, Projet*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
         Projet& operator*() const {return *courant->second;}

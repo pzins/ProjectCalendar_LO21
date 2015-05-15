@@ -19,8 +19,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     tacheunitaire.cpp \
-    tachemanager.cpp \
-    tacheEditeur.cpp \
     tachecomposite.cpp \
     tache.cpp \
     projetmanager.cpp \
@@ -42,9 +40,6 @@ HEADERS += \
     tache.h \
     tachecomposite.h \
     tacheunitaire.h \
-    tachemanager.h \
-    tacheEditeur.h \
-    projetmanager.h \
     projet.h \
     programmation.h \
     precedencemanager.h \
@@ -57,4 +52,5 @@ HEADERS += \
     programmationevenement1j.h \
     programmationevenementplsj.h \
     calendarexception.h \
-    duree.h
+    duree.h \
+    projetmanager.h

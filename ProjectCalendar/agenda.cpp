@@ -16,7 +16,7 @@ Programmation* Agenda::trouverProgrammation(const Tache& t)const{
 
 void Agenda::ajouterProgrammation(Programmation& progr){
     //if (trouverProgrammation(tache)) throw CalendarException("erreur, Agenda, Programmation deja existante");
-    vect_progr.push_back(
+//    vect_progr.push_back(
     //Programmation* newt=new Programmation(t,d,h);
     //addItem(newt);
 }

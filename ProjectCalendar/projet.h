@@ -9,30 +9,31 @@ class Projet
 {
     friend class ProjetManager;
 private:
-    QString id;
+    unsigned int id;
     QString titre;
     QDate dispo;
     QDate echeance;
-    std::map<QString, Tache*> map_tache;
+    unsigned int nb_tache;
+    std::map<unsigned int, Tache*> map_tache;
 
 public:
-    Projet(const QString& id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_) :
-        id(id_), titre(titre_), dispo(dispo_), echeance(echeance_){}
+    Projet(unsigned int id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_) :
+        id(id_), titre(titre_), dispo(dispo_), echeance(echeance_), nb_tache(0){}
 
-    const QString& getId() const {return id;}
+    unsigned int getId() const {return id;}
     const QString& getTitre() const {return titre;}
     const QDate& getDispo() const {return dispo;}
     const QDate& getEcheance() const {return echeance;}
 
-    void ajouterTacheUnitaire(const QString& id, const QString& titre, const QString& description,
+    void ajouterTacheUnitaire(const QString& titre, const QString& description,
                               const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive=false);
-    void ajouterTacheComposite(const QString& id, const QString& titre, const QString& description,
+    void ajouterTacheComposite(const QString& titre, const QString& description,
                                const QDate& dispo, const QDate& echeance);
     void retirerTache(TacheUnitaire& tache);
 
-    const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
+    const std::map<unsigned int, Tache*>& getMapTache() const {return map_tache;}
 
-    Tache& getTache(const QString& id){
+    Tache& getTache(unsigned int id){
         return *map_tache.at(id);
     }
    ~Projet();
@@ -41,8 +42,8 @@ public:
     {
     private:
         friend class Projet;
-        std::map<QString, Tache*>::iterator courant;
-        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
+        std::map<unsigned int, Tache*>::iterator courant;
+        Iterator(std::map<unsigned int, Tache*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
         Tache& operator*() const {return *(courant->second);}
