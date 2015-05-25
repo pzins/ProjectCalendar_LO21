@@ -11,16 +11,16 @@ void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_)
 
 PrecedenceManager::~PrecedenceManager()
 {
-    for(std::vector<Precedence*>::iterator it=vect_precedence.begin(); it != vect_precedence.end(); ++it)
-        delete *it;
+  //  for(PrecedenceManager::Iterator it=vect_precedence.begin(); it != vect_precedence.end(); ++it)
+  //      delete *it;
 }
 
 void PrecedenceManager::retirerPrecedence(Precedence& precedence)
 {
-    for(std::vector<Precedence*>::iterator it = vect_precedence.begin(); it != vect_precedence.end(); ++it)
-        if(&precedence == *it)
+  //  for(PrecedenceManager::Iterator it = vect_precedence.begin(); it != vect_precedence.end(); ++it)
+        /*if(&precedence == *it)
         {
             vect_precedence.erase(it);
             break;
-        }
+        }*/
 }

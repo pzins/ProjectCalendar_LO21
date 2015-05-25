@@ -15,10 +15,10 @@ void ProjetManager::ajouterProjet(const QString& titre, const QDate& dispo,
 void ProjetManager::retirerProjet(Projet &projet)
 {
     //a voir cycles vies liés?
-    std::map<unsigned int, Projet*>::iterator it = map_projet.find(projet.getId());
-    Projet* tu = (*it).second;
-    map_projet.erase(it);
-    delete tu;
+    //ProjetManager::Iterator it = map_projet.find(projet.getId());
+    //Projet* tu = (*it).second;
+    //map_projet.erase(it);
+    //delete tu;
     nb_projet--;
     map_projet.at(nb_projet)->setId(projet.getId());
 }

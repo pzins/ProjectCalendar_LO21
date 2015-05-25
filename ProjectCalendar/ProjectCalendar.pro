@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     programmationevenement1j.cpp \
     programmationevenementplsj.cpp \
     calendarexception.cpp \
-    duree.cpp
+    duree.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     tache.h \
@@ -53,4 +54,8 @@ HEADERS += \
     programmationevenementplsj.h \
     calendarexception.h \
     duree.h \
-    projetmanager.h
+    projetmanager.h \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui

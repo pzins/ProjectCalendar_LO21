@@ -23,18 +23,18 @@ void Agenda::ajouterProgrammation(Programmation& progr){
 
 void Agenda::retirerProgrammation(Programmation& programmation)
 {
-    for(std::vector<Programmation*>::iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
+   /* for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
         if(&programmation == (*it))
         {
             vect_progr.erase(it);
             break;
-        }
+        }*/
 }
 
 Agenda::~Agenda(){
     //for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
-    for(std::vector<Programmation*>::iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
-        delete *it;
+   /* for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
+        delete *it;*/
 }
 
 /*

@@ -1,11 +1,13 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include "projetmanager.h"
 #include "agenda.h"
 #include "precedencemanager.h"
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+
+    QApplication a(argc, argv);/*
 
     ProjetManager& projet_m = ProjetManager::getInstance();
     PrecedenceManager& precedence_m = PrecedenceManager::getInstance();
@@ -51,5 +53,8 @@ int main(int argc, char *argv[])
      * iterator de classe tache permet à partir de getinstance de
      * tacheManager de parcourir les précédences
     */
+
+    MainWindow m;
+    m.show();
     return a.exec();
 }
