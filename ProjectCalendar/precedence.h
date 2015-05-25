@@ -1,15 +1,17 @@
 #ifndef PRECEDENCE_H
 #define PRECEDENCE_H
-#include "tache.h"
+
+class Tache;
 
 class Precedence
 {
+    friend class PrecedenceManager;
 private:
     Tache* pred;
     Tache* succ;
+    Precedence(Tache& pred_, Tache& succ_) : pred(&pred_), succ(&succ_){}
 
 public:
-    Precedence(Tache& i, Tache& j) : pred(&i), succ(&j){}
     Tache& getPred() const {return *pred;}
     Tache& getSucc() const {return *succ;}
 

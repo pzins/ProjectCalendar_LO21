@@ -24,5 +24,12 @@ void ProgrammationRdv::retirerPersonne(const QString& nom)
         }
     }
     std::cout << "Cette personne n'existe pas" << std::endl;
+}
 
+void ProgrammationRdv::afficher() const
+{
+    ProgrammationEvenement1J::afficher();
+    std::cout << "lieu : " << lieu.toStdString()<< std::endl;
+    for(unsigned int i = 0; i < personne.size(); ++i)
+    std::cout << "personne" << i << " : " << personne[i].toStdString() << std::endl;
 }

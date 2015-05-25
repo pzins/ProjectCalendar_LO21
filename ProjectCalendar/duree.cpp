@@ -1,4 +1,4 @@
-#include "calendar.h"
+#include "duree.h"
 #include <QFile>
 #include <QTextCodec>
 #include <QtXml>

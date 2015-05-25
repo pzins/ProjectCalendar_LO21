@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_programmation-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Programmation Class Reference</div>  </div>
+<div class="title">Programmation Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
@@ -94,10 +94,12 @@ Inheritance diagram for Programmation:</div>
  <div class="center">
   <img src="class_programmation.png" usemap="#Programmation_map" alt=""/>
   <map id="Programmation_map" name="Programmation_map">
-<area href="class_programmation_evenement.html" alt="ProgrammationEvenement" shape="rect" coords="0,56,174,80"/>
-<area href="class_programmation_tache_unitaire.html" alt="ProgrammationTacheUnitaire" shape="rect" coords="184,56,358,80"/>
-<area href="class_programmation_rdv.html" alt="ProgrammationRdv" shape="rect" coords="0,112,174,136"/>
-<area href="class_programmation_partie_tache.html" alt="ProgrammationPartieTache" shape="rect" coords="184,112,358,136"/>
+<area href="class_programmation_evenement.html" alt="ProgrammationEvenement" shape="rect" coords="95,56,276,80"/>
+<area href="class_programmation_tache_unitaire.html" alt="ProgrammationTacheUnitaire" shape="rect" coords="382,56,563,80"/>
+<area href="class_programmation_evenement1_j.html" alt="ProgrammationEvenement1J" shape="rect" coords="0,112,181,136"/>
+<area href="class_programmation_evenementpls_j.html" alt="ProgrammationEvenementplsJ" shape="rect" coords="191,112,372,136"/>
+<area href="class_programmation_partie_tache.html" alt="ProgrammationPartieTache" shape="rect" coords="382,112,563,136"/>
+<area href="class_programmation_rdv.html" alt="ProgrammationRdv" shape="rect" coords="0,168,181,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -109,9 +111,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd1632dfa907a6bf2a84bfdbc3bef38f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1632dfa907a6bf2a84bfdbc3bef38f"></a>
 QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
 <tr class="separator:abd1632dfa907a6bf2a84bfdbc3bef38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f221fc2dcd2dc22dcbe4a3c11c5155"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76f221fc2dcd2dc22dcbe4a3c11c5155"></a>
-QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getHoraire</b> () const </td></tr>
-<tr class="separator:a76f221fc2dcd2dc22dcbe4a3c11c5155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bec27ff2907165f5ac776604dfbc8bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bec27ff2907165f5ac776604dfbc8bc"></a>
+QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () const </td></tr>
+<tr class="separator:a1bec27ff2907165f5ac776604dfbc8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe3c6ca03b0dd5119c1d1f8cdd60f39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fe3c6ca03b0dd5119c1d1f8cdd60f39"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const =0</td></tr>
+<tr class="separator:a8fe3c6ca03b0dd5119c1d1f8cdd60f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="programmation_8h_source.html">programmation.h</a></li>
@@ -119,7 +124,7 @@ QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getHoraire</b> () co
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 13 2015 15:57:08 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 20 2015 15:03:11 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

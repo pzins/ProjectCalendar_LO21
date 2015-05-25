@@ -14,17 +14,30 @@ Programmation* Agenda::trouverProgrammation(const Tache& t)const{
     return 0;
 }
 
-void Agenda::ajouterProgrammation(const Tache& t, const QDate& d, const QTime& h){
-    if (trouverProgrammation(t)) throw CalendarException("erreur, Agenda, Programmation deja existante");
+void Agenda::ajouterProgrammation(Programmation& progr){
+    //if (trouverProgrammation(tache)) throw CalendarException("erreur, Agenda, Programmation deja existante");
+//    vect_progr.push_back(
     //Programmation* newt=new Programmation(t,d,h);
     //addItem(newt);
 }
 
-
-Agenda::~Agenda(){
-    for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
+void Agenda::retirerProgrammation(Programmation& programmation)
+{
+    for(std::vector<Programmation*>::iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
+        if(&programmation == (*it))
+        {
+            vect_progr.erase(it);
+            break;
+        }
 }
 
+Agenda::~Agenda(){
+    //for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
+    for(std::vector<Programmation*>::iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
+        delete *it;
+}
+
+/*
 Agenda::Agenda(const Agenda& um){
     for(unsigned int i=0; i<vect_progr.size(); i++) vect_progr[i]=new Programmation(*um.vect_progr[i]);
 }
@@ -34,4 +47,4 @@ Agenda& Agenda::operator=(const Agenda& um){
     this->~Agenda();
     for(unsigned int i=0; i<um.vect_progr.size(); i++) addItem(new Programmation(*um.vect_progr[i]));
     return *this;
-}
+}*/

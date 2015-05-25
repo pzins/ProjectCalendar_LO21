@@ -2,24 +2,26 @@
 #define PROGRAMMATIONEVENEMENT_H
 #include <QString>
 #include "programmation.h"
-#include "calendar.h"
+#include "duree.h"
 
 class ProgrammationEvenement : public Programmation
 {
 private:
     QString titre;
     QString description;
-    Duree duree;
 
 
 public:
-    ProgrammationEvenement(const QDate& date_, const QTime& debut_, const QString titre_, const QString description_,
-                           const Duree& duree_): Programmation(date_, debut_), titre(titre_), description(description_),
-                                                duree(duree_){}
+    ProgrammationEvenement(const QDate& date_, const QTime& debut_, const QString& titre_, const QString& description_):
+        Programmation(date_, debut_), titre(titre_), description(description_){}
+
+    virtual ~ProgrammationEvenement(){}
 
     const QString& getTitre() const {return titre;}
     const QString& getDescription() const {return description;}
-    const Duree& getDuree() const {return duree;}
+    virtual void afficher() const =0;
+
+
 };
 
 #endif // PROGRAMMATIONEVENEMENT_H

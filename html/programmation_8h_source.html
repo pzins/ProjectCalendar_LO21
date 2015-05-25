@@ -89,25 +89,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PROGRAMMATION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PROGRAMMATION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QDate&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_programmation.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation.html">Programmation</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    QDate date;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    QTime debut;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_programmation.html">Programmation</a>(<span class="keyword">const</span> QDate&amp; date_, <span class="keyword">const</span> QTime&amp; debut_): date(date_), debut(debut_){}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    QDate getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    QTime getHoraire()<span class="keyword"> const </span>{<span class="keywordflow">return</span> debut;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   <span class="comment">// const Tache&amp; getTache() const =0;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QTime&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_programmation.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation.html">Programmation</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    QDate date;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    QTime debut;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_programmation.html">Programmation</a>(<span class="keyword">const</span> QDate&amp; date_, <span class="keyword">const</span> QTime&amp; debut_): date(date_), debut(debut_){}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_programmation.html">Programmation</a>(){}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif // PROGRAMMATION_H</span></div>
-<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdef"><b>Definition:</b> programmation.h:5</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QDate getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QTime getDebut()<span class="keyword"> const </span>{<span class="keywordflow">return</span> debut;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   <span class="comment">// const Tache&amp; getTache() const =0;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> afficher() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif // PROGRAMMATION_H</span></div>
+<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdef"><b>Definition:</b> programmation.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 13 2015 15:57:08 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 20 2015 15:03:11 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
