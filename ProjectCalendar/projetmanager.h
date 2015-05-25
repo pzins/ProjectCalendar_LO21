@@ -2,6 +2,7 @@
 #define PROJETMANAGER_H
 #include <QString>
 #include "projet.h"
+#include <QPushButton>
 
 
 class ProjetManager
@@ -15,7 +16,7 @@ private:
 
     static ProjetManager* instance;
     static unsigned int nb_projet;
-
+    QPushButton* button;
 
 public:
 

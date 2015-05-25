@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include <QDirModel>
+#include <QStandardItemModel>
 
 #include "projetmanager.h"
 #include "agenda.h"
@@ -32,6 +34,9 @@ private:
 
     ProjetManager* pm;
     Agenda* ag;
+
+    QPushButton* b;
+    QStandardItemModel* model;
 
 };
 

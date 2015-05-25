@@ -54,7 +54,9 @@ int main(int argc, char *argv[])
      * tacheManager de parcourir les précédences
     */
 
-    MainWindow m;
+    MainWindow& m = MainWindow::getInstance();
+
     m.show();
+
     return a.exec();
 }
