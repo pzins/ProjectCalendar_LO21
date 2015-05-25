@@ -58,6 +58,10 @@ void Projet::load(const QString& f)
             if(xml.name() == "taches") continue;
             // If it's named tache, we'll dig the information from there.
             if(xml.name() == "tache") {
+                QString parent_tache;
+                bool has_parent_composite = false;
+
+                std::cout << "=================" << std::endl;
                 QString titre;
                 QString description;
                 QDate disponibilite;
@@ -71,6 +75,11 @@ void Projet::load(const QString& f)
                     QString val =attributes.value("preemptive").toString();
                     preemptive=(val == "true" ? true : false);
                     isComposite = false;
+                }
+                if(attributes.hasAttribute("parent_tache"))
+                {
+                    parent_tache = attributes.value("parent_tache").toString();
+                    has_parent_composite = true;
                 }
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
@@ -109,9 +118,15 @@ void Projet::load(const QString& f)
                         // ...and next...
                         xml.readNext();
                     }
-                    std::cout << "Avanttache!!!!!" << map_tache.size() <<  std::endl;
-                    ajouterTacheUnitaire(titre,description,disponibilite,echeance, duree,preemptive);
-                    std::cout << "Tache!!!!!" << map_tache.size() <<  std::endl;
+                    if(has_parent_composite)
+                    {
+                        dynamic_cast<TacheComposite&>(getTache(parent_tache)).ajouterTacheUnitaire(titre,
+                           description, disponibilite, echeance, duree, preemptive);
+                    }
+                    else
+                    {
+                        ajouterTacheUnitaire(titre,description,disponibilite,echeance, duree,preemptive);
+                    }
                 }
                 else
                 {
@@ -141,9 +156,16 @@ void Projet::load(const QString& f)
                         // ...and next...
                         xml.readNext();
                     }
-                    std::cout << "avanttache!!!!!" << map_tache.size() <<  std::endl;
-                    ajouterTacheComposite(titre, description, disponibilite, echeance);
-                    std::cout << "tache!!!!!" << map_tache.size() <<  std::endl;
+
+                    if(has_parent_composite)
+                    {
+                        dynamic_cast<TacheComposite&>(getTache(parent_tache)).ajouterTacheComposite(titre,
+                           description, disponibilite, echeance);
+                    }
+                    else
+                    {
+                        ajouterTacheComposite(titre, description, disponibilite, echeance);
+                    }
                 }
             }
         }
@@ -157,9 +179,9 @@ void Projet::load(const QString& f)
     //qDebug()<<"fin load\n";
 }
 
-void Projet::save(const QString& titre)
+void Projet::save(const QString& t)
 {
-    QFile newfile(titre);
+    QFile newfile(t);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
     QXmlStreamWriter stream(&newfile);
@@ -167,6 +189,8 @@ void Projet::save(const QString& titre)
     stream.writeStartDocument();
     stream.writeStartElement("taches");
     for(Projet::Iterator it = begin(); it != end(); ++it){
+        stream.writeStartElement("tache");
+        stream.writeAttribute("parent_projet", titre);
         (*it).exportXml(stream);
     }
     stream.writeEndDocument();

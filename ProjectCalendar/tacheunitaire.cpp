@@ -11,8 +11,7 @@ void TacheUnitaire::afficher(QStandardItem* it)
 
 void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
 {
-    stream.writeStartElement("tache");
-    stream.writeAttribute("preemptive", (isPreemptive())?"true":"false");
+    stream.writeAttribute("preemptive", isPreemptive()?"true":"false");
     stream.writeTextElement("titre", getTitre());
     stream.writeTextElement("description",getDescription());
     stream.writeTextElement("disponibilite",getDispo().toString(Qt::ISODate));
