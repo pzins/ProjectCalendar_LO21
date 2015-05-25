@@ -68,16 +68,23 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="pushButton_4">
          <property name="text">
-          <string>Ajouter sous-tâche</string>
+          <string>Ajouter précédences</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="save">
          <property name="text">
-          <string>Ajouter précédences</string>
+          <string>Sauvegarder</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="load">
+         <property name="text">
+          <string>Charger</string>
          </property>
         </widget>
        </item>

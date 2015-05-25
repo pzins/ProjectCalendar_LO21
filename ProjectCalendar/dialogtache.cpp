@@ -41,11 +41,12 @@ DialogTache::~DialogTache()
 void DialogTache::afficherProjets()
 {
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
-        ui->projet->addItem((*it).getTitre(), (*it).getTitre());
+        ui->projet->addItem((*it).getTitre(), (*it).getId());
 }
 void DialogTache::afficherComposite(QString titre)
 {
     ui->composite->clear();
+    ui->composite->addItem("",-1);
     Projet* p = &pm->getProjet(titre);
     for(Projet::Iterator it = p->begin(); it != p->end(); ++it)
         (*it).afficherComposite(*ui->composite);
@@ -62,14 +63,30 @@ void DialogTache::autoriserDuree(bool etat)
 void DialogTache::valider()
 {
     Projet* p = &pm->getProjet(ui->projet->currentText());
-    if(ui->isComposite->isChecked())
+    if(ui->composite->currentData() == -1)
     {
-        p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+        if(ui->isComposite->isChecked())
+        {
+            p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+        }
+        else
+        {
+            p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                    ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+        }
     }
     else
     {
-        p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
-                                ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+        TacheComposite* t = dynamic_cast<TacheComposite*>(&p->getTache(ui->composite->currentText()));
+        if(ui->isComposite->isChecked())
+        {
+            t->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+        }
+        else
+        {
+            t->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                    ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+        }
     }
     pm->remplirModel();
 }

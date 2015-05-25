@@ -25,6 +25,9 @@ public:
 public slots:
     void nouveauProjet();
     void ajouterTache();
+    void sauvegarder();
+    void charger();
+
 
 
 private:

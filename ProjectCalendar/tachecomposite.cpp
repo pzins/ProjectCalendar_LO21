@@ -1,19 +1,29 @@
 #include "tachecomposite.h"
 #include <iostream>
 
-void TacheComposite::ajouterTache(Tache& tache)
+
+void TacheComposite::ajouterTacheComposite(const QString& titre, const QString& description,
+                           const QDate& dispo, const QDate& echeance)
 {
-    map_tache.insert(std::make_pair(tache.getId(), &tache));
+    map_tache.insert(std::make_pair(titre, new TacheComposite(titre, description, dispo, echeance)));
+}
+
+
+void TacheComposite::ajouterTacheUnitaire(const QString& titre, const QString& description,
+                          const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive)
+{
+    map_tache.insert(std::make_pair(titre, new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive)));
 }
 
 void TacheComposite::retirerTache(Tache& tache)
 {
     //à voir en fct de si suppr tache ou juste enlève de cette tachecompo
     //voir cycles de vies liés ou pas
+    /*
     std::map<unsigned int, Tache*>::iterator it = map_tache.find(tache.getId());
     Tache* tu = (*it).second;
     map_tache.erase(it);
-    delete tu;
+    delete tu;*/
 }
 
 void TacheComposite::afficher(QStandardItem* item)
@@ -40,11 +50,27 @@ void TacheComposite::afficher(QStandardItem* item)
 void TacheComposite::afficherComposite(QComboBox& c)
 {
     c.addItem(getTitre(), getTitre());
+    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
+        (*it).afficherComposite(c);
 }
 
 
 TacheComposite::~TacheComposite()
 {
-    for(std::map<unsigned int, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)
+    for(std::map<QString, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)
         delete (*it).second;
+}
+
+void TacheComposite::exportXml(QXmlStreamWriter &stream)
+{
+    stream.writeStartElement("tache");
+    stream.writeTextElement("titre", getTitre());
+    stream.writeTextElement("description",getDescription());
+    stream.writeTextElement("disponibilite",getDispo().toString(Qt::ISODate));
+    stream.writeTextElement("echeance",getEcheance().toString(Qt::ISODate));
+    stream.writeEndElement();
+    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
+    {
+        (*it).exportXml(stream);
+    }
 }

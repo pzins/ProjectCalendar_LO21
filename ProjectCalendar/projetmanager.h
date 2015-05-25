@@ -3,7 +3,6 @@
 #include "projet.h"
 
 #include <QString>
-#include <QPushButton>
 #include <QStandardItemModel>
 
 
@@ -19,7 +18,6 @@ private:
 
     static ProjetManager* instance;
     static unsigned int nb_projet;
-    QPushButton* button;
 
     QStandardItemModel model;
 
@@ -43,6 +41,10 @@ public:
 
     QStandardItemModel& getModel(){return model;}
     void remplirModel();
+
+    void save(const QString& f);
+    void load(const QString& f);
+
 
     class Iterator
     {

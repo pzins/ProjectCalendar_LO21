@@ -8,29 +8,33 @@
 class TacheComposite : public Tache
 {
 private:
-    std::map<unsigned int, Tache*> map_tache;
+    std::map<QString, Tache*> map_tache;
 
 public:
 
-    void ajouterTache(Tache& t);
     void retirerTache(Tache& t);
+    void ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
+                               const QDate& echeance);
+    void ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
+                              const QDate& echeance, const Duree& duree, bool preemptive=false);
 
-    const std::map<unsigned int, Tache*>& getTache() const {return map_tache;}
+    const std::map<QString, Tache*>& getTache() const {return map_tache;}
 
-    TacheComposite(unsigned int id_, const QString& titre_, const QString& description_, const QDate& dispo_,
+    TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):
-        Tache(id_, titre_, description_, dispo_, echeance_){}
+        Tache(titre_, description_, dispo_, echeance_){}
     ~TacheComposite();
     virtual void afficher(QStandardItem* it) ;
 
     virtual void afficherComposite(QComboBox& c);
+    virtual void exportXml(QXmlStreamWriter& stream);
 
 
     class Iterator
     {
         friend class TacheComposite;
-        std::map<unsigned int, Tache*>::iterator courant;
-        Iterator(std::map<unsigned int, Tache*>::iterator deb) : courant(deb){}
+        std::map<QString, Tache*>::iterator courant;
+        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
         Tache& operator*() const {return *(courant->second);}

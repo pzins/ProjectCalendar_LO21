@@ -5,6 +5,7 @@
 #include <QTextStream>
 #include <QStandardItem>
 #include <QComboBox>
+#include <QtXml>
 
 #include "calendarexception.h"
 #include "precedencemanager.h"
@@ -12,7 +13,6 @@
 class Tache
 {
 private:
-    unsigned int id;
     QString titre;
     QString description;
     QDate dispo;
@@ -20,13 +20,10 @@ private:
 
 
 public:
-    Tache(unsigned int id_, const QString& titre_, const QString& description_, const QDate& dispo_,
-         const QDate& echeance_): id(id_), titre(titre_), description(description_), dispo(dispo_),
+    Tache(const QString& titre_, const QString& description_, const QDate& dispo_,
+         const QDate& echeance_): titre(titre_), description(description_), dispo(dispo_),
          echeance(echeance_){}
     virtual ~Tache(){}
-
-    unsigned int getId() const {return id;}
-    void setId(unsigned int id_){id = id_;}
 
     QString getTitre() const {return titre;}
     void setTitre(const QString& titre_) {titre=titre_;}
@@ -45,6 +42,7 @@ public:
     }
     virtual void afficher(QStandardItem* it)=0;
     virtual void afficherComposite(QComboBox& c)=0;
+    virtual void exportXml(QXmlStreamWriter& stream)=0;
 
 
 /*

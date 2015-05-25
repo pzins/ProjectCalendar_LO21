@@ -101,15 +101,9 @@ Inheritance diagram for Tache:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a5aa06f492e3e28209f0031fe175c8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a5aa06f492e3e28209f0031fe175c8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (unsigned int id_, const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
-<tr class="separator:a1a5aa06f492e3e28209f0031fe175c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ecd8cf814e8c1a0b7c912a5b7d3a8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1ecd8cf814e8c1a0b7c912a5b7d3a8c"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
-<tr class="separator:ae1ecd8cf814e8c1a0b7c912a5b7d3a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad077a895ad98e1759772d2e72737debc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad077a895ad98e1759772d2e72737debc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (unsigned int id_)</td></tr>
-<tr class="separator:ad077a895ad98e1759772d2e72737debc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1adac818e0106a196c2a19a3c556b8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1adac818e0106a196c2a19a3c556b8b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="separator:aa1adac818e0106a196c2a19a3c556b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e56c6eaaa23d2c66148ff5a89724e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9e56c6eaaa23d2c66148ff5a89724e6"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
 <tr class="separator:ab9e56c6eaaa23d2c66148ff5a89724e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +131,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> 
 <tr class="memitem:ab48d366057eb45597346d01add3a2a7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab48d366057eb45597346d01add3a2a7b"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherComposite</b> (QComboBox &amp;c)=0</td></tr>
 <tr class="separator:ab48d366057eb45597346d01add3a2a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea13df80675afe147d7ea8e2057f65e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea13df80675afe147d7ea8e2057f65e1"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream)=0</td></tr>
+<tr class="separator:aea13df80675afe147d7ea8e2057f65e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="tache_8h_source.html">tache.h</a></li>
@@ -144,7 +141,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherCompo
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 25 2015 19:38:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 25 2015 23:50:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

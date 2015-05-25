@@ -39,6 +39,9 @@ public:
     }
    ~Projet();
 
+    void save(const QString &titre);
+    void load(const QString& f);
+
     class Iterator
     {
     private:
