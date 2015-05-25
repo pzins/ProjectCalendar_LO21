@@ -28,3 +28,18 @@ Projet& ProjetManager::getProjet(unsigned int id)
 {
     return *map_projet.at(id);
 }
+
+
+void ProjetManager::remplirModel()
+{
+    model.clear();
+    for(ProjetManager::Iterator it = begin(); it != end(); ++it)
+    {
+        QStandardItem* item = new QStandardItem((*it).getTitre());
+        model.appendRow(item);
+        for(Projet::Iterator ite = (*it).begin(); ite != (*it).end(); ++ite)
+        {
+           (*ite).afficher(item);
+        }
+    }
+}

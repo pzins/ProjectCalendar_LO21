@@ -16,9 +16,16 @@ void TacheComposite::retirerTache(Tache& tache)
     delete tu;
 }
 
-void TacheComposite::afficher() const
+void TacheComposite::afficher(QStandardItem* item)
 {
-    std::cout << "id: " << getId() << std::endl;
+    QStandardItem* i = new QStandardItem(getTitre());
+    item->appendRow(i);
+    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
+    {
+        (*it).afficher(i);
+    }
+
+    /*std::cout << "id: " << getId() << std::endl;
     std::cout << "titre: " << getTitre().toStdString() << std::endl;
     std::cout << "description: " << getDescription().toStdString() << std::endl;
     std::cout << "dispo: " << getDispo().toString().toStdString() << std::endl;
@@ -27,7 +34,7 @@ void TacheComposite::afficher() const
     for (std::map<unsigned int, Tache*>::const_iterator it=map_tache.begin(); it!=map_tache.end(); ++it)
     {
         it->second->afficher();
-    }
+    }*/
 }
 
 TacheComposite::~TacheComposite()

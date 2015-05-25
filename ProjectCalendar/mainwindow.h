@@ -6,7 +6,7 @@
 
 #include "projetmanager.h"
 #include "agenda.h"
-
+#include "dialogprojet.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,9 +18,13 @@ class MainWindow : public QMainWindow
 
 public:
     static MainWindow& getInstance(QWidget* parent = 0);
-    static void deleteInstance();
+    static void libererInstance();
+
+    void afficher_projets(QStandardItemModel& m);
+    void afficher_taches(QStandardItem* i, Projet &p);
 
 public slots:
+    void nouveauProjet();
 
 
 private:
@@ -30,13 +34,13 @@ private:
     MainWindow(const MainWindow&);
 
     Ui::MainWindow *ui;
-    static MainWindow* mw;
+    static MainWindow* instance;
 
     ProjetManager* pm;
     Agenda* ag;
 
-    QPushButton* b;
-    QStandardItemModel* model;
+
+
 
 };
 

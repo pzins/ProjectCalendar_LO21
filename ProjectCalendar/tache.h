@@ -3,6 +3,8 @@
 #include <QString>
 #include <QDate>
 #include <QTextStream>
+#include <QStandardItem>
+
 #include "calendarexception.h"
 #include "precedencemanager.h"
 
@@ -40,7 +42,7 @@ public:
         dispo=dispo_;
         echeance=echeance_;
     }
-    virtual void afficher() const =0;
+    virtual void afficher(QStandardItem* it)=0;
 
 
 /*

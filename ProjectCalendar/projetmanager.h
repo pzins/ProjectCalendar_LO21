@@ -1,8 +1,11 @@
 #ifndef PROJETMANAGER_H
 #define PROJETMANAGER_H
-#include <QString>
 #include "projet.h"
+
+#include <QString>
 #include <QPushButton>
+#include <QStandardItemModel>
+
 
 
 class ProjetManager
@@ -18,6 +21,10 @@ private:
     static unsigned int nb_projet;
     QPushButton* button;
 
+    QStandardItemModel model;
+
+
+
 public:
 
     static ProjetManager& getInstance(){
@@ -32,9 +39,10 @@ public:
     void retirerProjet(Projet& projet);
 
     const std::map<unsigned int, Projet*>& getMapProjet() const {return map_projet;}
-    Projet& getProjet(unsigned int id);
+   Projet& getProjet(unsigned int id);
 
-
+    QStandardItemModel& getModel(){return model;}
+    void remplirModel();
 
     class Iterator
     {
