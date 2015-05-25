@@ -23,6 +23,9 @@ public:
     ~TacheComposite();
     virtual void afficher(QStandardItem* it) ;
 
+    virtual void afficherComposite(QComboBox& c);
+
+
     class Iterator
     {
         friend class TacheComposite;

@@ -11,7 +11,7 @@
 class ProjetManager
 {
 private:
-    std::map<unsigned int, Projet*> map_projet;
+    std::map<QString, Projet*> map_projet;
     ProjetManager(){}
     ~ProjetManager(){}
     ProjetManager(const ProjetManager& p){}
@@ -36,10 +36,10 @@ public:
         delete instance;
     }
     void ajouterProjet(const QString& titre, const QDate& dispo,const QDate& echeance);
-    void retirerProjet(Projet& projet);
+    void retirerProjet(QString &titre);
 
-    const std::map<unsigned int, Projet*>& getMapProjet() const {return map_projet;}
-   Projet& getProjet(unsigned int id);
+    const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
+   Projet& getProjet(const QString &titre);
 
     QStandardItemModel& getModel(){return model;}
     void remplirModel();
@@ -48,8 +48,8 @@ public:
     {
     private:
         friend class ProjetManager;
-        std::map<unsigned int, Projet*>::iterator courant;
-        Iterator(std::map<unsigned int, Projet*>::iterator deb) : courant(deb){}
+        std::map<QString, Projet*>::iterator courant;
+        Iterator(std::map<QString, Projet*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
         Projet& operator*() const {return *courant->second;}

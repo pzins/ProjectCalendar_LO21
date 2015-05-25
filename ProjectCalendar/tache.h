@@ -4,6 +4,7 @@
 #include <QDate>
 #include <QTextStream>
 #include <QStandardItem>
+#include <QComboBox>
 
 #include "calendarexception.h"
 #include "precedencemanager.h"
@@ -43,6 +44,7 @@ public:
         echeance=echeance_;
     }
     virtual void afficher(QStandardItem* it)=0;
+    virtual void afficherComposite(QComboBox& c)=0;
 
 
 /*

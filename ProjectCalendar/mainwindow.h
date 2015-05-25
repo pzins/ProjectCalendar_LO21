@@ -7,6 +7,7 @@
 #include "projetmanager.h"
 #include "agenda.h"
 #include "dialogprojet.h"
+#include "dialogtache.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,11 +21,10 @@ public:
     static MainWindow& getInstance(QWidget* parent = 0);
     static void libererInstance();
 
-    void afficher_projets(QStandardItemModel& m);
-    void afficher_taches(QStandardItem* i, Projet &p);
 
 public slots:
     void nouveauProjet();
+    void ajouterTache();
 
 
 private:

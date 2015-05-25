@@ -39,6 +39,9 @@
         <height>311</height>
        </rect>
       </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
      </widget>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
@@ -58,7 +61,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="ajouter_tache">
          <property name="text">
           <string>Ajouter tâche</string>
          </property>

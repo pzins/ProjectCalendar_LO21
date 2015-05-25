@@ -37,6 +37,12 @@ void TacheComposite::afficher(QStandardItem* item)
     }*/
 }
 
+void TacheComposite::afficherComposite(QComboBox& c)
+{
+    c.addItem(getTitre(), getTitre());
+}
+
+
 TacheComposite::~TacheComposite()
 {
     for(std::map<unsigned int, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)

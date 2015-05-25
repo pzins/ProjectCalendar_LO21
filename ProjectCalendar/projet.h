@@ -14,7 +14,7 @@ private:
     QDate dispo;
     QDate echeance;
     unsigned int nb_tache;
-    std::map<unsigned int, Tache*> map_tache;
+    std::map<QString, Tache*> map_tache;
 
 public:
     Projet(unsigned int id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_) :
@@ -30,12 +30,12 @@ public:
                               const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive=false);
     void ajouterTacheComposite(const QString& titre, const QString& description,
                                const QDate& dispo, const QDate& echeance);
-    void retirerTache(TacheUnitaire& tache);
+    void retirerTache(QString& titre);
 
-    const std::map<unsigned int, Tache*>& getMapTache() const {return map_tache;}
+    const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
 
-    Tache& getTache(unsigned int id){
-        return *map_tache.at(id);
+    Tache& getTache(const QString& titre){
+        return *map_tache.at(titre);
     }
    ~Projet();
 
@@ -43,8 +43,8 @@ public:
     {
     private:
         friend class Projet;
-        std::map<unsigned int, Tache*>::iterator courant;
-        Iterator(std::map<unsigned int, Tache*>::iterator deb) : courant(deb){}
+        std::map<QString, Tache*>::iterator courant;
+        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0){}
         Tache& operator*() const {return *(courant->second);}
