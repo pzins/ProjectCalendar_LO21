@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QPushButton>
 #include <QFileDialog>
-
+#include <QMessageBox>
 
 MainWindow* MainWindow::instance = 0;
 
@@ -61,8 +61,16 @@ void MainWindow::nouveauProjet()
 
 void MainWindow::ajouterTache()
 {
-    DialogTache* d = &DialogTache::getInstance();
-    d->show();
+    try
+    {
+        if(pm->getMapProjet().size() == 0) throw CalendarException("Aucun Projet");
+        DialogTache* d = &DialogTache::getInstance();
+        d->show();
+    }
+    catch(CalendarException e)
+    {
+        QMessageBox::critical(this, "Erreur", e.getInfo());
+    }
 }
 
 void MainWindow::sauvegarder()

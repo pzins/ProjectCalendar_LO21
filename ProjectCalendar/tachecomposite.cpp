@@ -4,16 +4,20 @@
 TacheComposite* TacheComposite::ajouterTacheComposite(const QString& titre, const QString& description,
                            const QDate& dispo, const QDate& echeance)
 {
+    verification(titre, description, dispo, echeance);
     TacheComposite* tc = new TacheComposite(titre, description, dispo, echeance);
     map_tache.insert(std::make_pair(titre, tc));
     return tc;
 }
 
 
-void TacheComposite::ajouterTacheUnitaire(const QString& titre, const QString& description,
+TacheUnitaire* TacheComposite::ajouterTacheUnitaire(const QString& titre, const QString& description,
                           const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive)
 {
-    map_tache.insert(std::make_pair(titre, new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive)));
+    verification(titre, description, dispo, echeance);
+    TacheUnitaire* tu = new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive);
+    map_tache.insert(std::make_pair(titre, tu));
+    return tu;
 }
 
 void TacheComposite::retirerTache(Tache& tache)

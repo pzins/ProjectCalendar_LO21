@@ -95,6 +95,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_iterator.html">Iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_iterator__compo.html">Iterator_compo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_iterator__uni.html">Iterator_uni</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -122,6 +126,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterTacheUnitaire<
 <tr class="memitem:a8682c52eb75d16ba90526eb1d63fd728"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8682c52eb75d16ba90526eb1d63fd728"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterTacheComposite</b> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
 <tr class="separator:a8682c52eb75d16ba90526eb1d63fd728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72e8ceb67e1bd1459399ae2d6f585b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab72e8ceb67e1bd1459399ae2d6f585b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>verification</b> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="separator:ab72e8ceb67e1bd1459399ae2d6f585b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addcea1013ab7fd3ed5fded22b66eba7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addcea1013ab7fd3ed5fded22b66eba7a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerTache</b> (QString &amp;titre)</td></tr>
 <tr class="separator:addcea1013ab7fd3ed5fded22b66eba7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +139,10 @@ const std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &g
 std::map&lt; QString, <br class="typebreak"/>
 <a class="el" href="class_tache_composite.html">TacheComposite</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapTacheComposite</b> ()</td></tr>
 <tr class="separator:a982f3e73ce4a2065a2f4867c1b01d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a788af1d391de33b7e77899033c519c7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a788af1d391de33b7e77899033c519c7f"></a>
+std::map&lt; QString, <br class="typebreak"/>
+<a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapTacheUnitaire</b> ()</td></tr>
+<tr class="separator:a788af1d391de33b7e77899033c519c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e8455f80b9750816cb45e8e560c25a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83e8455f80b9750816cb45e8e560c25a"></a>
 <a class="el" href="class_tache_composite.html">TacheComposite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTacheComposite</b> (const QString &amp;titre)</td></tr>
 <tr class="separator:a83e8455f80b9750816cb45e8e560c25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +158,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QStri
 <tr class="memitem:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad527f5d288ddf9b6e1bb70d285cec13b"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbeaef38f5dfdc9fa1fa8fba179941ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbeaef38f5dfdc9fa1fa8fba179941ac"></a>
+<a class="el" href="class_projet_1_1_iterator__uni.html">Iterator_uni</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (int i)</td></tr>
+<tr class="separator:afbeaef38f5dfdc9fa1fa8fba179941ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a9878351deda04dc78f28367e0807a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45a9878351deda04dc78f28367e0807a"></a>
+<a class="el" href="class_projet_1_1_iterator__uni.html">Iterator_uni</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> (int i)</td></tr>
+<tr class="separator:a45a9878351deda04dc78f28367e0807a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ddac2bcf7b07b541358556ac940849"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5ddac2bcf7b07b541358556ac940849"></a>
+<a class="el" href="class_projet_1_1_iterator__compo.html">Iterator_compo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (char a)</td></tr>
+<tr class="separator:af5ddac2bcf7b07b541358556ac940849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a047b1e15a5b886da63f781b915ebfd9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a047b1e15a5b886da63f781b915ebfd9f"></a>
+<a class="el" href="class_projet_1_1_iterator__compo.html">Iterator_compo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> (char a)</td></tr>
+<tr class="separator:a047b1e15a5b886da63f781b915ebfd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -161,7 +184,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ProjetManager</b></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 29 2015 22:28:33 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 00:41:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

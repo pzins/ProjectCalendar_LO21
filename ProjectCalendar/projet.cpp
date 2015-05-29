@@ -8,19 +8,22 @@
 void Projet::ajouterTacheUnitaire(const QString& titre, const QString& description,
                           const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive)
 {
-    map_tache.insert(std::make_pair(titre, new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive)));
-    ++nb_tache;
+    //verification(titre, description, dispo, echeance);
+    TacheUnitaire* tu = new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive);
+    map_tache.insert(std::make_pair(titre, tu));
+    map_tache_uni.insert(std::make_pair(titre, tu));
 }
 
 
 void Projet::ajouterTacheComposite(const QString& titre, const QString& description,
                            const QDate& dispo, const QDate& echeance)
 {
+  //  verification(titre, description, dispo, echeance);
     TacheComposite* tc =  new TacheComposite(titre, description, dispo, echeance);
     map_tache.insert(std::make_pair(titre,tc));
     map_tache_compo.insert(std::make_pair(titre,tc));
-    ++nb_tache;
 }
+
 
 void Projet::retirerTache(QString& titre)
 {

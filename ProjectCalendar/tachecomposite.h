@@ -14,11 +14,21 @@ private:
 public:
 
     void retirerTache(Tache& t);
-    TacheComposite *ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
+    TacheComposite* ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
                                const QDate& echeance);
-    void ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
+    TacheUnitaire* ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
                               const QDate& echeance, const Duree& duree, bool preemptive=false);
 
+    void verification(const QString& titre, const QString& description,
+                      const QDate& dispo, const QDate& echeance)
+    {
+        if(titre == "") throw CalendarException("Veuillez entrer un titre");
+        if(description == "") throw CalendarException("Veuillez entrer une description");
+
+        if(echeance > getEcheance()) throw CalendarException("Echéance et échéance de la tache mère sont incohérentes");
+        if(dispo < getDispo()) throw CalendarException("Disponibilité et disponibilité de tache mère sont incohérentes");
+        if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
+    }
     std::map<QString, Tache*>& getTache() {return map_tache;}
 
     TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,

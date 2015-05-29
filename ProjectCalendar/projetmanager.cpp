@@ -14,6 +14,9 @@ ProjetManager* ProjetManager::instance = 0;
 void ProjetManager::ajouterProjet(const QString& titre, const QDate& dispo,
                                   const QDate& echeance)
 {
+    if(titre == "") throw CalendarException("Veuillez entrer un titre");
+    if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
+    if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
     map_projet.insert(std::make_pair(titre,new Projet(nb_projet, titre, dispo, echeance)));
     ++nb_projet;
     update();

@@ -2,6 +2,7 @@
 #include "ui_dialogprojet.h"
 
 #include <iostream>
+#include <QMessageBox>
 
 DialogProjet* DialogProjet::instance = 0;
 
@@ -41,5 +42,12 @@ DialogProjet::~DialogProjet()
 
 void DialogProjet::valider()
 {
-    pm->ajouterProjet(ui->lineEdit->text(), ui->dateEdit->date(), ui->dateEdit_2->date());
+    try
+    {
+        pm->ajouterProjet(ui->lineEdit->text(), ui->dateEdit->date(), ui->dateEdit_2->date());
+    }
+    catch(CalendarException e)
+    {
+        QMessageBox::critical(this, "Erreur", e.getInfo());
+    }
 }

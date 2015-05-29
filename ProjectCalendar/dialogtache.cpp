@@ -2,6 +2,7 @@
 #include "ui_dialogtache.h"
 #include "duree.h"
 #include <iostream>
+#include <QMessageBox>
 
 DialogTache* DialogTache::instance = 0;
 
@@ -79,36 +80,44 @@ void DialogTache::valider()
     Projet* p = pm->getProjet(ui->projet->currentText());
     if(p)
     {
-        if(ui->composite->currentData() == -1)
+        try
         {
-            if(ui->isComposite->isChecked())
+            p->verification(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+            if(ui->composite->currentData() == -1)
             {
-                p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+                if(ui->isComposite->isChecked())
+                {
+                    p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+                }
+                else
+                {
+                    p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                            ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+                }
             }
             else
             {
-                p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
-                                        ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+                TacheComposite* t = p->getTacheComposite(ui->composite->currentText());
+                if(ui->isComposite->isChecked())
+                {
+                    TacheComposite* tc = t->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(),
+                                                     ui->dispo->date(), ui->eche->date());
+                     p->getMapTacheComposite().insert(std::make_pair(ui->titre->text(),tc));
+                }
+                else
+                {
+                    TacheUnitaire* tu = t->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(),
+                        ui->dispo->date(), ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+                    p->getMapTacheUnitaire().insert(std::make_pair(ui->titre->text(),tu));
+
+                }
             }
+            notifier();
         }
-        else
+        catch(CalendarException e)
         {
-            TacheComposite* t = p->getTacheComposite(ui->composite->currentText());
-
-            if(ui->isComposite->isChecked())
-            {
-                TacheComposite* tc = t->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(),
-                                                 ui->dispo->date(), ui->eche->date());
-                 p->getMapTacheComposite().insert(std::make_pair(ui->titre->text(),tc));
-
-            }
-            else
-            {
-                t->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
-                   ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
-            }
+            QMessageBox::critical(this, "Erreur", e.getInfo());
         }
-        notifier();
     }
 }
 void DialogTache::ajouterObservateur(Observateur* o){obs.insert(o);}
