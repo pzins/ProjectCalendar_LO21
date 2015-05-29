@@ -37,7 +37,9 @@ SOURCES += main.cpp \
     duree.cpp \
     mainwindow.cpp \
     dialogprojet.cpp \
-    dialogtache.cpp
+    dialogtache.cpp \
+    observateur.cpp \
+    observable.cpp
 
 HEADERS += \
     tache.h \
@@ -59,7 +61,9 @@ HEADERS += \
     projetmanager.h \
     mainwindow.h \
     dialogprojet.h \
-    dialogtache.h
+    dialogtache.h \
+    observateur.h \
+    observable.h
 
 FORMS += \
     mainwindow.ui \

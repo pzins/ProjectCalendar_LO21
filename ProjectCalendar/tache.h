@@ -10,6 +10,8 @@
 #include "calendarexception.h"
 #include "precedencemanager.h"
 
+
+
 class Tache
 {
 private:
@@ -40,9 +42,15 @@ public:
         dispo=dispo_;
         echeance=echeance_;
     }
+
+
+
     virtual void afficher(QStandardItem* it)=0;
     virtual void afficherComposite(QComboBox& c)=0;
     virtual void exportXml(QXmlStreamWriter& stream)=0;
+
+
+
 
 
 /*

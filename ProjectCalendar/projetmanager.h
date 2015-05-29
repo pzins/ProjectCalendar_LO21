@@ -1,13 +1,14 @@
 #ifndef PROJETMANAGER_H
 #define PROJETMANAGER_H
 #include "projet.h"
+#include "observateur.h"
 
 #include <QString>
 #include <QStandardItemModel>
 
 
 
-class ProjetManager
+class ProjetManager : public Observateur
 {
 private:
     std::map<QString, Projet*> map_projet;
@@ -37,10 +38,10 @@ public:
     void retirerProjet(QString &titre);
 
     const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
-   Projet& getProjet(const QString &titre);
+   Projet* getProjet(const QString &titre);
 
     QStandardItemModel& getModel(){return model;}
-    void remplirModel();
+    void update();
 
     void save(const QString& f);
     void load(const QString& f);

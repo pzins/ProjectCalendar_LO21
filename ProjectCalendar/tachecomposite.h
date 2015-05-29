@@ -5,6 +5,7 @@
 #include "tacheunitaire.h"
 
 
+
 class TacheComposite : public Tache
 {
 private:
@@ -13,12 +14,12 @@ private:
 public:
 
     void retirerTache(Tache& t);
-    void ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
+    TacheComposite *ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
                                const QDate& echeance);
     void ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
                               const QDate& echeance, const Duree& duree, bool preemptive=false);
 
-    const std::map<QString, Tache*>& getTache() const {return map_tache;}
+    std::map<QString, Tache*>& getTache() {return map_tache;}
 
     TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):
@@ -28,6 +29,7 @@ public:
 
     virtual void afficherComposite(QComboBox& c);
     virtual void exportXml(QXmlStreamWriter& stream);
+
 
 
     class Iterator

@@ -4,6 +4,7 @@
 #include "tacheunitaire.h"
 #include "tachecomposite.h"
 #include <QString>
+#include <stdexcept>
 
 class Projet
 {
@@ -15,6 +16,8 @@ private:
     QDate echeance;
     unsigned int nb_tache;
     std::map<QString, Tache*> map_tache;
+    std::map<QString, TacheComposite*> map_tache_compo;
+
 
 public:
     Projet(unsigned int id_, const QString& titre_, const QDate& dispo_, const QDate& echeance_) :
@@ -33,14 +36,27 @@ public:
     void retirerTache(QString& titre);
 
     const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
+    std::map<QString, TacheComposite*>& getMapTacheComposite() {return map_tache_compo;}
 
-    Tache& getTache(const QString& titre){
-        return *map_tache.at(titre);
+    TacheComposite* getTacheComposite(const QString& titre)
+    {
+        try
+        {
+            return map_tache_compo.at(titre);
+        }
+        catch(out_of_range)
+        {
+            return 0;
+        }
     }
+
    ~Projet();
 
     void save(const QString &titre);
     void load(const QString& f);
+
+
+
 
     class Iterator
     {

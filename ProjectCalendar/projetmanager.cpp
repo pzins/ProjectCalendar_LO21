@@ -4,6 +4,7 @@
 #include <QtXml>
 #include <QMessageBox>
 #include <iostream>
+#include <stdexcept>
 
 unsigned int ProjetManager::nb_projet = 0;
 
@@ -15,6 +16,7 @@ void ProjetManager::ajouterProjet(const QString& titre, const QDate& dispo,
 {
     map_projet.insert(std::make_pair(titre,new Projet(nb_projet, titre, dispo, echeance)));
     ++nb_projet;
+    update();
 }
 
 void ProjetManager::retirerProjet(QString& titre)
@@ -29,13 +31,22 @@ void ProjetManager::retirerProjet(QString& titre)
 }
 
 
-Projet& ProjetManager::getProjet(const QString &titre)
+Projet* ProjetManager::getProjet(const QString &titre)
 {
-    return *map_projet.at(titre);
+    try
+    {
+        return map_projet.at(titre);
+    }
+    catch(out_of_range)
+    {
+        return 0;
+    }
 }
 
 
-void ProjetManager::remplirModel()
+
+
+void ProjetManager::update()
 {
     model.clear();
     for(ProjetManager::Iterator it = begin(); it != end(); ++it)

@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ag = &Agenda::getInstance();
 
-    pm->remplirModel();
+    //pm->update();
     ui->treeView->setModel(&pm->getModel());
     connect(ui->nouveau_projet, SIGNAL(clicked()),this,SLOT(nouveauProjet()));
     connect(ui->ajouter_tache, SIGNAL(clicked()),this,SLOT(ajouterTache()));
@@ -80,7 +80,7 @@ void MainWindow::charger()
     {
         (*it).load((*it).getTitre() + QString(".xml"));
     }
-    pm->remplirModel();
+    pm->update();
 }
 
 MainWindow::~MainWindow()

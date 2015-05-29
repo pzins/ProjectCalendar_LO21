@@ -96,26 +96,39 @@ Inheritance diagram for DialogTache:</div>
  <div class="center">
   <img src="class_dialog_tache.png" usemap="#DialogTache_map" alt=""/>
   <map id="DialogTache_map" name="DialogTache_map">
+<area href="class_observateur.html" alt="Observateur" shape="rect" coords="93,0,176,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:af3b668dbd3bec817eb427e820c9554da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3b668dbd3bec817eb427e820c9554da"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>autoriserDuree</b> (bool etat)</td></tr>
-<tr class="separator:af3b668dbd3bec817eb427e820c9554da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21daf094ce77b7e9a4e9a98af1eec5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac21daf094ce77b7e9a4e9a98af1eec5f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateDuree</b> (bool etat)</td></tr>
+<tr class="separator:ac21daf094ce77b7e9a4e9a98af1eec5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e53914783e26f621e767f07252a552"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0e53914783e26f621e767f07252a552"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>valider</b> ()</td></tr>
 <tr class="separator:ac0e53914783e26f621e767f07252a552"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b49e3e261186250360b79e990ee83ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b49e3e261186250360b79e990ee83ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherComposite</b> (QString titre)</td></tr>
-<tr class="separator:a1b49e3e261186250360b79e990ee83ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156d4182a19c6810fb4cc8212c6cde11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156d4182a19c6810fb4cc8212c6cde11"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateComposite</b> (QString titre)</td></tr>
+<tr class="separator:a156d4182a19c6810fb4cc8212c6cde11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a08b13bc636c1bc0335534633d3bdf63f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08b13bc636c1bc0335534633d3bdf63f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherProjets</b> ()</td></tr>
 <tr class="separator:a08b13bc636c1bc0335534633d3bdf63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099b08e30b16437bffa0fec8b85646c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a099b08e30b16437bffa0fec8b85646c8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="separator:a099b08e30b16437bffa0fec8b85646c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9917408b7a82d701f875d377107c4927"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9917408b7a82d701f875d377107c4927"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="separator:a9917408b7a82d701f875d377107c4927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99761abfa51d693b37471680c6d2ab64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99761abfa51d693b37471680c6d2ab64"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> ()</td></tr>
+<tr class="separator:a99761abfa51d693b37471680c6d2ab64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545322d9954016dd1bab6a0eda7f3178"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a545322d9954016dd1bab6a0eda7f3178"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:a545322d9954016dd1bab6a0eda7f3178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -133,7 +146,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2015 18:05:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 29 2015 22:28:33 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

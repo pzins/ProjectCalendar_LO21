@@ -42,5 +42,4 @@ DialogProjet::~DialogProjet()
 void DialogProjet::valider()
 {
     pm->ajouterProjet(ui->lineEdit->text(), ui->dateEdit->date(), ui->dateEdit_2->date());
-    pm->remplirModel();
 }

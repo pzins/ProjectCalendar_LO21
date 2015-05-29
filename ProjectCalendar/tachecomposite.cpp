@@ -1,11 +1,12 @@
 #include "tachecomposite.h"
 #include <iostream>
 
-
-void TacheComposite::ajouterTacheComposite(const QString& titre, const QString& description,
+TacheComposite* TacheComposite::ajouterTacheComposite(const QString& titre, const QString& description,
                            const QDate& dispo, const QDate& echeance)
 {
-    map_tache.insert(std::make_pair(titre, new TacheComposite(titre, description, dispo, echeance)));
+    TacheComposite* tc = new TacheComposite(titre, description, dispo, echeance);
+    map_tache.insert(std::make_pair(titre, tc));
+    return tc;
 }
 
 
@@ -76,3 +77,4 @@ void TacheComposite::exportXml(QXmlStreamWriter &stream)
         stream.writeEndElement();
     }
 }
+

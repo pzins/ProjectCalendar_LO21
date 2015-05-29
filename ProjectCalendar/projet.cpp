@@ -1,4 +1,5 @@
 #include "projet.h"
+#include "projetmanager.h"
 #include <QFile>
 #include <QTextCodec>
 #include <QtXml>
@@ -15,7 +16,9 @@ void Projet::ajouterTacheUnitaire(const QString& titre, const QString& descripti
 void Projet::ajouterTacheComposite(const QString& titre, const QString& description,
                            const QDate& dispo, const QDate& echeance)
 {
-    map_tache.insert(std::make_pair(titre, new TacheComposite(titre, description, dispo, echeance)));
+    TacheComposite* tc =  new TacheComposite(titre, description, dispo, echeance);
+    map_tache.insert(std::make_pair(titre,tc));
+    map_tache_compo.insert(std::make_pair(titre,tc));
     ++nb_tache;
 }
 
@@ -35,6 +38,8 @@ Projet::~Projet()
     for(std::map<QString, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)
         delete (*it).second;
 }
+
+
 
 void Projet::load(const QString& f)
 {
@@ -120,8 +125,8 @@ void Projet::load(const QString& f)
                     }
                     if(has_parent_composite)
                     {
-                        dynamic_cast<TacheComposite&>(getTache(parent_tache)).ajouterTacheUnitaire(titre,
-                           description, disponibilite, echeance, duree, preemptive);
+                        //dynamic_cast<TacheComposite*>(getTache(parent_tache))->ajouterTacheUnitaire(titre,
+                          // description, disponibilite, echeance, duree, preemptive);
                     }
                     else
                     {
@@ -159,8 +164,8 @@ void Projet::load(const QString& f)
 
                     if(has_parent_composite)
                     {
-                        dynamic_cast<TacheComposite&>(getTache(parent_tache)).ajouterTacheComposite(titre,
-                           description, disponibilite, echeance);
+                        //dynamic_cast<TacheComposite*>(getTache(parent_tache))->ajouterTacheComposite(titre,
+                          // description, disponibilite, echeance);
                     }
                     else
                     {
@@ -196,3 +201,6 @@ void Projet::save(const QString& t)
     stream.writeEndDocument();
     newfile.close();
 }
+
+
+

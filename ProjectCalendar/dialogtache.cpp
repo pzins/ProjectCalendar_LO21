@@ -7,10 +7,14 @@ DialogTache* DialogTache::instance = 0;
 
 DialogTache& DialogTache::getInstance(QWidget* parent)
 {
-    if(instance) return *instance;
+    if(instance){
+        instance->update();
+        return *instance;
+    }
     else
     {
         instance = new DialogTache(parent);
+        instance->update();
         return *instance;
     }
 }
@@ -27,9 +31,9 @@ DialogTache::DialogTache(QWidget *parent) :
 {
     ui->setupUi(this);
     pm = &ProjetManager::getInstance();
-    afficherProjets();
-    connect(ui->isComposite, SIGNAL(clicked(bool)), this, SLOT(autoriserDuree(bool)));
-    connect(ui->projet, SIGNAL(currentIndexChanged(QString)), this, SLOT(afficherComposite(QString)));
+    ajouterObservateur(pm);
+    connect(ui->isComposite, SIGNAL(clicked(bool)), this, SLOT(updateDuree(bool)));
+    connect(ui->projet, SIGNAL(currentIndexChanged(QString)), this, SLOT(updateComposite(QString)));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(valider()));
 }
 
@@ -38,21 +42,31 @@ DialogTache::~DialogTache()
     delete ui;
 }
 
-void DialogTache::afficherProjets()
+void DialogTache::update()
 {
-    for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
-        ui->projet->addItem((*it).getTitre(), (*it).getId());
+    ui->projet->clear();
+   for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+    {
+       ui->projet->addItem((*it).getTitre(), (*it).getId());
+    }
+    updateComposite(ui->projet->currentText());
 }
-void DialogTache::afficherComposite(QString titre)
+
+
+void DialogTache::updateComposite(QString titre)
 {
     ui->composite->clear();
     ui->composite->addItem("",-1);
-    Projet* p = &pm->getProjet(titre);
-    for(Projet::Iterator it = p->begin(); it != p->end(); ++it)
-        (*it).afficherComposite(*ui->composite);
+    Projet* p = pm->getProjet(titre);
+    if (p)
+    {
+        for(Projet::Iterator it = p->begin(); it != p->end(); ++it)
+            (*it).afficherComposite(*ui->composite);
+    }
 }
 
-void DialogTache::autoriserDuree(bool etat)
+
+void DialogTache::updateDuree(bool etat)
 {
 
     if(etat)
@@ -62,31 +76,47 @@ void DialogTache::autoriserDuree(bool etat)
 
 void DialogTache::valider()
 {
-    Projet* p = &pm->getProjet(ui->projet->currentText());
-    if(ui->composite->currentData() == -1)
+    Projet* p = pm->getProjet(ui->projet->currentText());
+    if(p)
     {
-        if(ui->isComposite->isChecked())
+        if(ui->composite->currentData() == -1)
         {
-            p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+            if(ui->isComposite->isChecked())
+            {
+                p->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+            }
+            else
+            {
+                p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                        ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+            }
         }
         else
         {
-            p->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
-                                    ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+            TacheComposite* t = p->getTacheComposite(ui->composite->currentText());
+
+            if(ui->isComposite->isChecked())
+            {
+                TacheComposite* tc = t->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(),
+                                                 ui->dispo->date(), ui->eche->date());
+                 p->getMapTacheComposite().insert(std::make_pair(ui->titre->text(),tc));
+
+            }
+            else
+            {
+                t->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                   ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+            }
         }
+        notifier();
     }
-    else
+}
+void DialogTache::ajouterObservateur(Observateur* o){obs.insert(o);}
+void DialogTache::supprimerObservateur(Observateur* o){obs.erase(o);}
+void DialogTache::notifier()
+{
+    for(std::set<Observateur*>::iterator it = obs.begin(); it != obs.end(); ++it)
     {
-        TacheComposite* t = dynamic_cast<TacheComposite*>(&p->getTache(ui->composite->currentText()));
-        if(ui->isComposite->isChecked())
-        {
-            t->ajouterTacheComposite(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
-        }
-        else
-        {
-            t->ajouterTacheUnitaire(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
-                                    ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()));
-        }
+        (*it)->update();
     }
-    pm->remplirModel();
 }

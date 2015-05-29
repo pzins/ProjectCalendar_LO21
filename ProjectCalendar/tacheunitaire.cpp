@@ -7,6 +7,7 @@ void TacheUnitaire::afficher(QStandardItem* it)
     QStandardItem* item = new QStandardItem(getTitre());
     it->appendRow(item);
 }
+void TacheUnitaire::afficherComposite(QComboBox& c){}
 
 
 void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
@@ -21,3 +22,5 @@ void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
     stream.writeTextElement("duree",str);
     stream.writeEndElement();
 }
+
+
