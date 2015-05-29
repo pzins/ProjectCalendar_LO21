@@ -53,7 +53,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
 }
 
-
 void MainWindow::nouveauProjet()
 {
     DialogProjet* d = &DialogProjet::getInstance();
@@ -75,8 +74,8 @@ void MainWindow::sauvegarder()
 
 void MainWindow::charger()
 {
-    //QString chemin = QFileDialog::getOpenFileName();
-    pm->load("projets.xml");
+    QString chemin = QFileDialog::getOpenFileName();
+    pm->load(chemin);
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
     {
         (*it).load((*it).getTitre() + QString(".xml"));
