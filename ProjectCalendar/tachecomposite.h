@@ -36,6 +36,7 @@ public:
         Tache(titre_, description_, dispo_, echeance_){}
     ~TacheComposite();
     virtual void afficher(QStandardItem* it) ;
+    virtual void supprimer(const QString &titre, std::map<QString, Tache *> &map);
 
     virtual void afficherComposite(QComboBox& c);
     virtual void exportXml(QXmlStreamWriter& stream);

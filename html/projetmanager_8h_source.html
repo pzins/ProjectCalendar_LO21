@@ -93,10 +93,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QStandardItemModel&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QTreeView&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_projet_manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_projet_manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a>, <span class="keyword">public</span> QTreeView</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::map&lt;QString, Projet*&gt; map_projet;</div>
@@ -171,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 30 2015 00:41:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 14:09:05 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

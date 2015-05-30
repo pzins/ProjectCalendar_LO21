@@ -88,6 +88,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="supprimer">
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>

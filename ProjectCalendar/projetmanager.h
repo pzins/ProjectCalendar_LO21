@@ -5,10 +5,10 @@
 
 #include <QString>
 #include <QStandardItemModel>
+#include <QTreeView>
 
 
-
-class ProjetManager : public Observateur
+class ProjetManager : public Observateur, public QTreeView
 {
 private:
     std::map<QString, Projet*> map_projet;

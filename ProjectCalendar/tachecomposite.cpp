@@ -52,6 +52,24 @@ void TacheComposite::afficher(QStandardItem* item)
     }*/
 }
 
+void TacheComposite::supprimer(const QString& titre, std::map<QString, Tache*>& map)
+{
+    if(getTitre() == titre)
+    {
+        for(TacheComposite::Iterator it = begin(); it != end(); ++it)
+        {
+            (*it).supprimer((*it).getTitre(), map_tache);
+        }
+    }
+    else
+    {
+        for(TacheComposite::Iterator it = begin(); it != end(); ++it)
+        {
+            (*it).supprimer(titre, map_tache);
+        }
+    }
+}
+
 void TacheComposite::afficherComposite(QComboBox& c)
 {
     c.addItem(getTitre(), getTitre());

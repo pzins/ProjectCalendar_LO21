@@ -28,29 +28,34 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     pm = &ProjetManager::getInstance();
-/*
-    pm->ajouterProjet("ol",QDate(2000,5,6),QDate(2003,2,5));
-    pm->ajouterProjet("lyon",QDate(2000,5,6),QDate(2003,2,5));
-    Projet* pro1 = &(pm->getProjet("ol"));
 
-    pro1->ajouterTacheUnitaire("tache1","...",QDate(2012,3,5), QDate(2012,20,6), 5);
-    pro1->ajouterTacheComposite("tache2","...",QDate(2012,3,5), QDate(2012,20,6));
+    pm->ajouterProjet("ol",QDate(2000,3,5),QDate(2003,2,5));
+    pm->ajouterProjet("lyon",QDate(2000,3,5),QDate(2003,2,5));
+    Projet* pro1 = (pm->getProjet("ol"));
+
+    pro1->ajouterTacheUnitaire("tache1","...",QDate(2000,3,5), QDate(2000,20,2), 5);
+    pro1->ajouterTacheComposite("tache2","...",QDate(2000,3,5), QDate(2003,2,5));
 
 
-    TacheComposite* c = dynamic_cast<TacheComposite*>(&pro1->getTache("tache2"));
-    c->ajouterTacheUnitaire("tache3","...",QDate(2012,3,5), QDate(2012,20,6), Duree(5,2));
-*/
+    TacheComposite* c = pro1->getTacheComposite("tache2");
+    c->ajouterTacheUnitaire("tache3","...",QDate(2000,3,5), QDate(2003,1,5), Duree(5,2));
+
 
 
 
     ag = &Agenda::getInstance();
-
-    //pm->update();
+    ui->treeView->setAnimated(true);
+    pm->update();
     ui->treeView->setModel(&pm->getModel());
+    ui->treeView->setSelectionMode(QTreeView::ExtendedSelection);
+    ui->treeView->setSelectionBehavior(QTreeView::SelectRows);
+
+
     connect(ui->nouveau_projet, SIGNAL(clicked()),this,SLOT(nouveauProjet()));
     connect(ui->ajouter_tache, SIGNAL(clicked()),this,SLOT(ajouterTache()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
+    connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimer()));
 }
 
 void MainWindow::nouveauProjet()
@@ -89,6 +94,22 @@ void MainWindow::charger()
         (*it).load((*it).getTitre() + QString(".xml"));
     }
     pm->update();
+}
+
+void MainWindow::supprimer()
+{
+        QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+        QString selection;
+        for(int i = 0; i < sel.size(); ++i)
+        {
+            std::cout << sel.at(i).data().toString().toStdString() << std::endl;
+            selection = sel.at(i).data().toString();
+        }
+        for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+        {
+            std::cout << "ol" << std::endl;
+           (*it).suppressionTache(selection, (*it).getMapTache());
+        }
 }
 
 MainWindow::~MainWindow()

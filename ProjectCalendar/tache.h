@@ -44,7 +44,7 @@ public:
     }
 
 
-
+    virtual void supprimer(const QString &titre, std::map<QString, Tache *> &map)=0;
     virtual void afficher(QStandardItem* it)=0;
     virtual void afficherComposite(QComboBox& c)=0;
     virtual void exportXml(QXmlStreamWriter& stream)=0;

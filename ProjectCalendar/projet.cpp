@@ -25,15 +25,12 @@ void Projet::ajouterTacheComposite(const QString& titre, const QString& descript
 }
 
 
-void Projet::retirerTache(QString& titre)
+void Projet::suppressionTache(QString& titre, std::map<QString, Tache*>& map)
 {
-    //vois cycles de vies liés?
-   /* std::map<QString, Tache*>::iterator it = map_tache.find(titre);
-    Tache* tu = (*it).second;
-    map_tache.erase(it);
-    delete tu;
-    nb_tache--;
-    map_tache.at(nb_tache)->setId(tache.getId());*/
+    for(Projet::Iterator it = begin(); it != end(); ++it)
+    {
+        (*it).supprimer(titre, map);
+    }
 }
 
 Projet::~Projet()

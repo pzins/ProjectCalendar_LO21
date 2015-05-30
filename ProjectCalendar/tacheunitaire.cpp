@@ -7,6 +7,14 @@ void TacheUnitaire::afficher(QStandardItem* it)
     QStandardItem* item = new QStandardItem(getTitre());
     it->appendRow(item);
 }
+
+void TacheUnitaire::supprimer(const QString &titre, std::map<QString, Tache *> &map)
+{
+    if(titre == getTitre())
+        map.erase(map.find(titre));
+
+}
+
 void TacheUnitaire::afficherComposite(QComboBox& c){}
 
 

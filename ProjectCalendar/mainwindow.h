@@ -27,6 +27,7 @@ public slots:
     void ajouterTache();
     void sauvegarder();
     void charger();
+    void supprimer();
 
 
 

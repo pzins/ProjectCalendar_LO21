@@ -48,9 +48,9 @@ public:
         if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
     }
 
-    void retirerTache(QString& titre);
+    void suppressionTache(QString& titre, std::map<QString, Tache *>& map);
 
-    const std::map<QString, Tache*>& getMapTache() const {return map_tache;}
+    std::map<QString, Tache*>& getMapTache() {return map_tache;}
 
     std::map<QString, TacheComposite*>& getMapTacheComposite() {return map_tache_compo;}
     std::map<QString, TacheUnitaire*>& getMapTacheUnitaire() {return map_tache_uni;}
