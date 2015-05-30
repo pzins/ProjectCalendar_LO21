@@ -8,7 +8,7 @@
 #include <QTreeView>
 
 
-class ProjetManager : public Observateur, public QTreeView
+class ProjetManager : public Observateur, public QStandardItemModel
 {
 private:
     std::map<QString, Projet*> map_projet;
@@ -25,6 +25,7 @@ private:
 
 
 public:
+
 
     static ProjetManager& getInstance(){
         if(!instance) instance = new ProjetManager();

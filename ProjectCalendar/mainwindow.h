@@ -42,7 +42,7 @@ private:
 
     ProjetManager* pm;
     Agenda* ag;
-
+   QStandardItemModel model;
 
 
 

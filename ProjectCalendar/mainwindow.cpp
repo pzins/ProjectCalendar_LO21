@@ -46,10 +46,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ag = &Agenda::getInstance();
     ui->treeView->setAnimated(true);
     pm->update();
-    ui->treeView->setModel(&pm->getModel());
+    /*ui->treeView->setModel(&pm->getModel());
     ui->treeView->setSelectionMode(QTreeView::ExtendedSelection);
-    ui->treeView->setSelectionBehavior(QTreeView::SelectRows);
+    ui->treeView->setSelectionBehavior(QTreeView::SelectRows);*/
 
+
+    QStandardItem *parentItem = model.invisibleRootItem();
+    for (int i = 0; i < 4; ++i) {
+        QStandardItem *item = new QStandardItem(QString("item %0").arg(i));
+        parentItem->appendRow(item);
+        parentItem = item;
+    }
+    ui->treeView->setModel(&model);
 
     connect(ui->nouveau_projet, SIGNAL(clicked()),this,SLOT(nouveauProjet()));
     connect(ui->ajouter_tache, SIGNAL(clicked()),this,SLOT(ajouterTache()));
