@@ -13,7 +13,6 @@ private:
 
 public:
 
-    void retirerTache(Tache& t);
     TacheComposite* ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
                                const QDate& echeance);
     TacheUnitaire* ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
@@ -35,11 +34,9 @@ public:
                    const QDate& echeance_):
         Tache(titre_, description_, dispo_, echeance_){}
     ~TacheComposite();
-    virtual void afficher(QStandardItem* it) ;
-    virtual void supprimer(const QString &titre, std::map<QString, Tache *> &map);
 
-    virtual void afficherComposite(QComboBox& c);
     virtual void exportXml(QXmlStreamWriter& stream);
+    virtual bool isComposite() const{return true;}
 
 
 

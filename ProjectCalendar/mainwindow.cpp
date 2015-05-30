@@ -28,21 +28,21 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     pm = &ProjetManager::getInstance();
-
-    pm->ajouterProjet("ol",QDate(2000,3,5),QDate(2003,2,5));
-    pm->ajouterProjet("lyon",QDate(2000,3,5),QDate(2003,2,5));
+/*
+    pm->ajouterProjet("ol","...",QDate(2000,3,5),QDate(2003,2,5));
+    pm->ajouterProjet("lyon","...", QDate(2000,3,5),QDate(2003,2,5));
     Projet* pro1 = (pm->getProjet("ol"));
 
-    pro1->ajouterTacheUnitaire("tache1","...",QDate(2000,3,5), QDate(2000,20,2), 5);
+    pro1->ajouterTacheUnitaire('U',"tache1","...",QDate(2000,3,5), QDate(2000,20,2), 5);
     pro1->ajouterTacheComposite("tache2","...",QDate(2000,3,5), QDate(2003,2,5));
 
 
     TacheComposite* c = pro1->getTacheComposite("tache2");
     c->ajouterTacheUnitaire("tache3","...",QDate(2000,3,5), QDate(2003,1,5), Duree(5,2));
 
+*/
 
-
-
+    ui->treeView->setModel(&pm->getModel());
     ag = &Agenda::getInstance();
     ui->treeView->setAnimated(true);
     pm->update();
@@ -50,41 +50,145 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->treeView->setSelectionMode(QTreeView::ExtendedSelection);
     ui->treeView->setSelectionBehavior(QTreeView::SelectRows);*/
 
-
+    /*
     QStandardItem *parentItem = model.invisibleRootItem();
+
     for (int i = 0; i < 4; ++i) {
+        Projet *object = new Projet("oko",QDate(2000,5,2), QDate(2001,2,3));
+        QVariant variant;
+        variant.setValue(object);
+        QStandardItem *item = new QStandardItem;
+        item->setData(variant.toString());
+        parentItem->appendRow(item);
         QStandardItem *item = new QStandardItem(QString("item %0").arg(i));
+        QStandardItem *item = new TacheUnitaire("ol","lyon",QDate(2000,2,2), QDate(2003,3,3),Duree(3,3));
+        item->setText("hfghjol");
         parentItem->appendRow(item);
         parentItem = item;
     }
     ui->treeView->setModel(&model);
+*/
+    connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
+    connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
+    connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
 
-    connect(ui->nouveau_projet, SIGNAL(clicked()),this,SLOT(nouveauProjet()));
-    connect(ui->ajouter_tache, SIGNAL(clicked()),this,SLOT(ajouterTache()));
+    connect(ui->ajouter, SIGNAL(clicked()), this, SLOT(ajouter()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimer()));
 }
 
-void MainWindow::nouveauProjet()
+
+void MainWindow::supprimer()
 {
-    DialogProjet* d = &DialogProjet::getInstance();
-    d->show();
+    /*QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    if(sel.size() == 1)
+        pm->ajoutItemModel(selection, sel.at(i));*/
+    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    QModelIndex parent = sel.at(0).parent();
+    std::cout << parent.data().toString().toStdString() << std::endl;
+
 }
 
-void MainWindow::ajouterTache()
+void MainWindow::adaptForm(bool etat)
 {
-    try
+    if(etat == true)
     {
-        if(pm->getMapProjet().size() == 0) throw CalendarException("Aucun Projet");
-        DialogTache* d = &DialogTache::getInstance();
-        d->show();
+        ui->isPreemptive->show();
+        ui->duree->show();
+        ui->label_duree->show();
     }
-    catch(CalendarException e)
+    else
     {
-        QMessageBox::critical(this, "Erreur", e.getInfo());
+        ui->duree->hide();
+        ui->label_duree->hide();
+        ui->isPreemptive->hide();
     }
 }
+void MainWindow::adaptForm2(bool etat)
+{
+    if(etat == false)
+    {
+        ui->isPreemptive->show();
+        ui->duree->show();
+        ui->label_duree->show();
+    }
+    else
+    {
+        ui->duree->hide();
+        ui->label_duree->hide();
+        ui->isPreemptive->hide();
+    }
+}
+
+
+
+void MainWindow::ajouter()
+{
+    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    QModelIndex idx, idx_parent;
+    if(sel.size() == 1)
+    {
+        idx = sel.at(0);
+        idx_parent = idx;
+        while(idx_parent.parent().data().toString() != "") idx_parent = idx_parent.parent();
+    }
+    std::cout << "ol" << std::endl;
+    if(ui->projet->isChecked() == true)
+    {
+        try
+        {
+            pm->verification(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+            pm->ajoutItemModel(ui->titre->text(), pm->getModel().invisibleRootItem()->index());
+            pm->ajouterProjet(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date());
+        }
+        catch(CalendarException e)
+        {
+            QMessageBox::critical(this, "Erreur", e.getInfo());
+        }
+
+    }
+    else if (sel.size() == 1 && (ui->tacheunitaire->isChecked() == true || ui->tachecomposite->isChecked() == true))
+    {
+        Projet* p;
+        bool ajout_a_projet;
+        if(idx.parent().data().toString() == "")
+        {
+            p = pm->getProjet(idx.data().toString());
+            ajout_a_projet = true;
+        }
+        else
+        {
+            p = pm->getProjet(idx_parent.data().toString());
+            ajout_a_projet = false;
+        }
+
+        if(p && (ajout_a_projet || p->getTache(idx.data().toString())->isComposite()))
+        {
+            try
+            {
+                p->verification(ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date(),
+                                idx.data().toString());
+                pm->ajoutItemModel(ui->titre->text(), idx);
+                if(ui->tacheunitaire->isChecked())
+                {
+                    p->ajouterTache(QChar('U'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date(),
+                                    Duree(ui->duree->time().hour(), ui->duree->time().minute()), ui->isPreemptive->isChecked());
+                }
+                else
+                {
+                    p->ajouterTache(QChar('C'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date(),
+                                    Duree(ui->duree->time().hour(), ui->duree->time().minute()), ui->isPreemptive->isChecked());
+                }
+            }
+            catch(CalendarException e)
+            {
+                QMessageBox::critical(this, "Erreur", e.getInfo());
+            }
+        }
+    }
+}
+
 
 void MainWindow::sauvegarder()
 {
@@ -104,25 +208,9 @@ void MainWindow::charger()
     pm->update();
 }
 
-void MainWindow::supprimer()
-{
-        QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
-        QString selection;
-        for(int i = 0; i < sel.size(); ++i)
-        {
-            std::cout << sel.at(i).data().toString().toStdString() << std::endl;
-            selection = sel.at(i).data().toString();
-        }
-        for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
-        {
-            std::cout << "ol" << std::endl;
-           (*it).suppressionTache(selection, (*it).getMapTache());
-        }
-}
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-

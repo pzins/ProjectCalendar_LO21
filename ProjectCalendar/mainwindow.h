@@ -23,11 +23,14 @@ public:
 
 
 public slots:
-    void nouveauProjet();
-    void ajouterTache();
     void sauvegarder();
     void charger();
     void supprimer();
+    void adaptForm(bool etat);
+    void adaptForm2(bool etat);
+    void ajouter();
+
+
 
 
 
@@ -42,7 +45,6 @@ private:
 
     ProjetManager* pm;
     Agenda* ag;
-   QStandardItemModel model;
 
 
 

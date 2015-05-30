@@ -5,32 +5,25 @@
 #include <QtXml>
 #include <iostream>
 
-void Projet::ajouterTacheUnitaire(const QString& titre, const QString& description,
-                          const QDate& dispo, const QDate& echeance, const Duree& duree, bool preemptive)
+void Projet::ajouterTache(QChar type, const QString& titre, const QString& description, const QDate& dispo,
+                          const QDate& echeance, const Duree& duree, bool preemptive)
 {
-    //verification(titre, description, dispo, echeance);
-    TacheUnitaire* tu = new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive);
-    map_tache.insert(std::make_pair(titre, tu));
-    map_tache_uni.insert(std::make_pair(titre, tu));
-}
-
-
-void Projet::ajouterTacheComposite(const QString& titre, const QString& description,
-                           const QDate& dispo, const QDate& echeance)
-{
-  //  verification(titre, description, dispo, echeance);
-    TacheComposite* tc =  new TacheComposite(titre, description, dispo, echeance);
-    map_tache.insert(std::make_pair(titre,tc));
-    map_tache_compo.insert(std::make_pair(titre,tc));
+    if(type == 'U')
+    {
+        Tache* tu = new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive);
+        map_tache.insert(std::make_pair(titre, tu));
+    }
+    else if(type == 'C')
+    {
+        Tache* tc =  new TacheComposite(titre, description, dispo, echeance);
+        map_tache.insert(std::make_pair(titre,tc));
+    }
 }
 
 
 void Projet::suppressionTache(QString& titre, std::map<QString, Tache*>& map)
 {
-    for(Projet::Iterator it = begin(); it != end(); ++it)
-    {
-        (*it).supprimer(titre, map);
-    }
+
 }
 
 Projet::~Projet()
@@ -130,7 +123,7 @@ void Projet::load(const QString& f)
                     }
                     else
                     {
-                        ajouterTacheUnitaire(titre,description,disponibilite,echeance, duree,preemptive);
+                        //ajouterTacheUnitaire(titre,description,disponibilite,echeance, duree,preemptive);
                     }
                 }
                 else
@@ -169,7 +162,7 @@ void Projet::load(const QString& f)
                     }
                     else
                     {
-                        ajouterTacheComposite(titre, description, disponibilite, echeance);
+                        //ajouterTacheComposite(titre, description, disponibilite, echeance);
                     }
                 }
             }

@@ -33,7 +33,7 @@
      <widget class="QTreeView" name="treeView">
       <property name="geometry">
        <rect>
-        <x>240</x>
+        <x>450</x>
         <y>20</y>
         <width>441</width>
         <height>311</height>
@@ -43,52 +43,150 @@
        <bool>false</bool>
       </attribute>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget">
+     <widget class="QWidget" name="verticalLayoutWidget_3">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>30</y>
-        <width>161</width>
-        <height>281</height>
+        <y>40</y>
+        <width>365</width>
+        <height>401</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QPushButton" name="nouveau_projet">
-         <property name="text">
-          <string>Nouveau projet</string>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
          </property>
-        </widget>
+         <item row="0" column="0" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QRadioButton" name="projet">
+             <property name="text">
+              <string>Projet</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="tacheunitaire">
+             <property name="text">
+              <string>Tache Unitaire</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="tachecomposite">
+             <property name="text">
+              <string>Tache Composite</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Titre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="titre"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Description</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QTextEdit" name="descr">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Disponibilité</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QDateEdit" name="dispo"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Echéance</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QDateEdit" name="eche"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_duree">
+           <property name="text">
+            <string>Durée</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QTimeEdit" name="duree"/>
+         </item>
+         <item row="7" column="1">
+          <widget class="QPushButton" name="ajouter">
+           <property name="text">
+            <string>Ajouter</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="isPreemptive">
+           <property name="text">
+            <string>Preemptive</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
-       <item>
-        <widget class="QPushButton" name="ajouter_tache">
-         <property name="text">
-          <string>Ajouter tâche</string>
-         </property>
-        </widget>
-       </item>
-       <item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>460</y>
+        <width>271</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
         <widget class="QPushButton" name="pushButton_4">
          <property name="text">
           <string>Ajouter précédences</string>
          </property>
         </widget>
        </item>
-       <item>
+       <item row="0" column="1">
         <widget class="QPushButton" name="save">
          <property name="text">
           <string>Sauvegarder</string>
          </property>
         </widget>
        </item>
-       <item>
+       <item row="1" column="0">
         <widget class="QPushButton" name="load">
          <property name="text">
           <string>Charger</string>
          </property>
         </widget>
        </item>
-       <item>
+       <item row="1" column="1">
         <widget class="QPushButton" name="supprimer">
          <property name="text">
           <string>Supprimer</string>

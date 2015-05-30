@@ -20,63 +20,6 @@ TacheUnitaire* TacheComposite::ajouterTacheUnitaire(const QString& titre, const 
     return tu;
 }
 
-void TacheComposite::retirerTache(Tache& tache)
-{
-    //à voir en fct de si suppr tache ou juste enlève de cette tachecompo
-    //voir cycles de vies liés ou pas
-    /*
-    std::map<unsigned int, Tache*>::iterator it = map_tache.find(tache.getId());
-    Tache* tu = (*it).second;
-    map_tache.erase(it);
-    delete tu;*/
-}
-
-void TacheComposite::afficher(QStandardItem* item)
-{
-    QStandardItem* i = new QStandardItem(getTitre());
-    item->appendRow(i);
-    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
-    {
-        (*it).afficher(i);
-    }
-
-    /*std::cout << "id: " << getId() << std::endl;
-    std::cout << "titre: " << getTitre().toStdString() << std::endl;
-    std::cout << "description: " << getDescription().toStdString() << std::endl;
-    std::cout << "dispo: " << getDispo().toString().toStdString() << std::endl;
-    std::cout << "echeance: " << getEcheance().toString().toStdString() << std::endl;
-    std::cout << "tache contenues: " << std::endl;
-    for (std::map<unsigned int, Tache*>::const_iterator it=map_tache.begin(); it!=map_tache.end(); ++it)
-    {
-        it->second->afficher();
-    }*/
-}
-
-void TacheComposite::supprimer(const QString& titre, std::map<QString, Tache*>& map)
-{
-    if(getTitre() == titre)
-    {
-        for(TacheComposite::Iterator it = begin(); it != end(); ++it)
-        {
-            (*it).supprimer((*it).getTitre(), map_tache);
-        }
-    }
-    else
-    {
-        for(TacheComposite::Iterator it = begin(); it != end(); ++it)
-        {
-            (*it).supprimer(titre, map_tache);
-        }
-    }
-}
-
-void TacheComposite::afficherComposite(QComboBox& c)
-{
-    c.addItem(getTitre(), getTitre());
-    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
-        (*it).afficherComposite(c);
-}
-
 
 TacheComposite::~TacheComposite()
 {

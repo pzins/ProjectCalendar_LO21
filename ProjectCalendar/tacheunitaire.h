@@ -25,9 +25,7 @@ public:
 
     bool isPreemptive() const {return preemptive;}
     void setPreemptive(bool preemptive_) {preemptive=preemptive_;}
-    virtual void afficher(QStandardItem* it);
-    virtual void afficherComposite(QComboBox& c);
-    virtual void supprimer(const QString &titre, std::map<QString, Tache *> &map);
+    virtual bool isComposite() const {return false;}
 
 };
 

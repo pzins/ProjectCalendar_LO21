@@ -107,9 +107,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8f0dd4cb6a20d676fe69291b945cdbd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f0dd4cb6a20d676fe69291b945cdbd3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProjet</b> (const QString &amp;titre, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
-<tr class="separator:a8f0dd4cb6a20d676fe69291b945cdbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6003fe7cb30b42435cb14ec4b363ac87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6003fe7cb30b42435cb14ec4b363ac87"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProjet</b> (const QString &amp;titre, const QString &amp;description_, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="separator:a6003fe7cb30b42435cb14ec4b363ac87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4b0cd4d8c512658388f4da2217f0339"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4b0cd4d8c512658388f4da2217f0339"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerProjet</b> (QString &amp;titre)</td></tr>
 <tr class="separator:ab4b0cd4d8c512658388f4da2217f0339"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,15 +123,21 @@ const std::map&lt; QString, <br class="typebreak"/>
 <tr class="memitem:a6958644d399946ad798d7abb965c73ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6958644d399946ad798d7abb965c73ee"></a>
 QStandardItemModel &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModel</b> ()</td></tr>
 <tr class="separator:a6958644d399946ad798d7abb965c73ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a74fdcaeee8209d8a5ceb9d0ca22a69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a74fdcaeee8209d8a5ceb9d0ca22a69"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="separator:a0a74fdcaeee8209d8a5ceb9d0ca22a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e179fd88ac2d0ed68f0229752038f42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e179fd88ac2d0ed68f0229752038f42"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f)</td></tr>
 <tr class="separator:a6e179fd88ac2d0ed68f0229752038f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdfde850628d04b9e0489957a013c77e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdfde850628d04b9e0489957a013c77e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:afdfde850628d04b9e0489957a013c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1871fe7233690188a71fec8bb4fcd12f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1871fe7233690188a71fec8bb4fcd12f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajoutItemModel</b> (const QString &amp;titre, const QModelIndex &amp;idx)</td></tr>
+<tr class="separator:a1871fe7233690188a71fec8bb4fcd12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae79ccc2514c871a220870390e66451"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ae79ccc2514c871a220870390e66451"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>verification</b> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="separator:a2ae79ccc2514c871a220870390e66451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a74fdcaeee8209d8a5ceb9d0ca22a69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a74fdcaeee8209d8a5ceb9d0ca22a69"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:a0a74fdcaeee8209d8a5ceb9d0ca22a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6661b18e7f02409a9b1e29e7bf16b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6661b18e7f02409a9b1e29e7bf16b58"></a>
 <a class="el" href="class_projet_manager_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:ad6661b18e7f02409a9b1e29e7bf16b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,7 +161,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 30 2015 14:20:47 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 20:48:31 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

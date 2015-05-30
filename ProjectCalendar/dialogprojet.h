@@ -1,36 +1,36 @@
-#ifndef DIALOGPROJET_H
-#define DIALOGPROJET_H
+//#ifndef DIALOGPROJET_H
+//#define DIALOGPROJET_H
 
-#include <QDialog>
+//#include <QDialog>
 
-#include "projetmanager.h"
+//#include "projetmanager.h"
 
-namespace Ui {
-class DialogProjet;
-}
+//namespace Ui {
+//class DialogProjet;
+//}
 
-class DialogProjet : public QDialog
-{
-    Q_OBJECT
+//class DialogProjet : public QDialog
+//{
+//    Q_OBJECT
 
-public:
-    static DialogProjet& getInstance(QWidget* parent = 0);
-    static void libererInstance();
+//public:
+//    static DialogProjet& getInstance(QWidget* parent = 0);
+//    static void libererInstance();
 
-public slots:
-    void valider();
+//public slots:
+//    void valider();
 
 
-private:
-    explicit DialogProjet(QWidget *parent = 0);
-    ~DialogProjet();
-    DialogProjet& operator=(const DialogProjet&);
-    DialogProjet(const DialogProjet&);
+//private:
+//    explicit DialogProjet(QWidget *parent = 0);
+//    ~DialogProjet();
+//    DialogProjet& operator=(const DialogProjet&);
+//    DialogProjet(const DialogProjet&);
 
-    Ui::DialogProjet *ui;
-    static DialogProjet* instance;
-    ProjetManager* pm;
+//    Ui::DialogProjet *ui;
+//    static DialogProjet* instance;
+//    ProjetManager* pm;
 
-};
+//};
 
-#endif // DIALOGPROJET_H
+//#endif // DIALOGPROJET_H

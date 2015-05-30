@@ -18,11 +18,8 @@ private:
     ProjetManager& operator=(const ProjetManager& p){}
 
     static ProjetManager* instance;
-    static unsigned int nb_projet;
 
     QStandardItemModel model;
-
-
 
 public:
 
@@ -35,17 +32,46 @@ public:
     static void libererInstance(){
         delete instance;
     }
-    void ajouterProjet(const QString& titre, const QDate& dispo,const QDate& echeance);
+    void ajouterProjet(const QString& titre, const QString& description_, const QDate& dispo,
+                       const QDate& echeance);
+
     void retirerProjet(QString &titre);
 
     const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
-   Projet* getProjet(const QString &titre);
+    Projet* getProjet(const QString &titre);
 
     QStandardItemModel& getModel(){return model;}
-    void update();
 
     void save(const QString& f);
     void load(const QString& f);
+
+    void ajoutItemModel(const QString& titre,const QModelIndex& idx)
+    {
+        QStandardItem* item = new QStandardItem(titre);
+        if(idx == model.invisibleRootItem()->index())
+        {
+            model.invisibleRootItem()->appendRow(item);
+        }
+        else
+        {
+            QStandardItem* i = model.itemFromIndex(idx);
+            i->appendRow(item);
+        }
+
+    }
+
+    void verification(const QString& titre, const QString& description,
+                      const QDate& dispo, const QDate& echeance)
+    {
+        if(titre == "") throw CalendarException("Veuillez entrer un titre");
+        if(description == "") throw CalendarException("Veuillez entrer une description");
+        if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
+        if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
+    }
+
+    void update();
+
+
 
 
     class Iterator

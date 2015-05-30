@@ -6,20 +6,14 @@
 #include <iostream>
 #include <stdexcept>
 
-unsigned int ProjetManager::nb_projet = 0;
 
 ProjetManager* ProjetManager::instance = 0;
 
 
-void ProjetManager::ajouterProjet(const QString& titre, const QDate& dispo,
+void ProjetManager::ajouterProjet(const QString& titre, const QString& description, const QDate& dispo,
                                   const QDate& echeance)
 {
-    if(titre == "") throw CalendarException("Veuillez entrer un titre");
-    if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
-    if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
-    map_projet.insert(std::make_pair(titre,new Projet(nb_projet, titre, dispo, echeance)));
-    ++nb_projet;
-    update();
+    map_projet.insert(std::make_pair(titre,new Projet(titre,description, dispo, echeance)));
 }
 
 void ProjetManager::retirerProjet(QString& titre)
@@ -51,6 +45,7 @@ Projet* ProjetManager::getProjet(const QString &titre)
 
 void ProjetManager::update()
 {
+/*
     model.clear();
     for(ProjetManager::Iterator it = begin(); it != end(); ++it)
     {
@@ -60,7 +55,7 @@ void ProjetManager::update()
         {
            (*ite).afficher(item);
         }
-    }
+    }*/
 }
 
 
@@ -116,7 +111,7 @@ void ProjetManager::load(const QString& f){
                     // ...and next...
                     xml.readNext();
                 }
-                ajouterProjet(titre,disponibilite,echeance);
+             //   ajouterProjet(titre,disponibilite,echeance);
             }
         }
     }
@@ -140,13 +135,11 @@ void ProjetManager::save(const QString& f){
     for(ProjetManager::Iterator it = begin(); it != end(); ++it){
         stream.writeStartElement("projet");
         QString str;
-        str.setNum((*it).getId());
-        stream.writeAttribute("id", str);
+        //str.setNum((*it).getId());
+        //stream.writeAttribute("id", str);
         stream.writeTextElement("titre",(*it).getTitre());
         stream.writeTextElement("disponibilite",(*it).getDispo().toString(Qt::ISODate));
         stream.writeTextElement("echeance",(*it).getEcheance().toString(Qt::ISODate));
-        str.setNum(ProjetManager::nb_projet);
-        stream.writeTextElement("nombreprojet", str);
         stream.writeEndElement();
     }
     stream.writeEndElement();

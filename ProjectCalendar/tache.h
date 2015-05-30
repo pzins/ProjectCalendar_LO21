@@ -44,11 +44,8 @@ public:
     }
 
 
-    virtual void supprimer(const QString &titre, std::map<QString, Tache *> &map)=0;
-    virtual void afficher(QStandardItem* it)=0;
-    virtual void afficherComposite(QComboBox& c)=0;
     virtual void exportXml(QXmlStreamWriter& stream)=0;
-
+    virtual bool isComposite() const =0;
 
 
 
@@ -84,5 +81,4 @@ public:
     SuccIterator end(){return SuccIterator(PrecedenceManager::getInstance().getVectPrecedence().end());}
 */
 };
-
 #endif // TACHE_H
