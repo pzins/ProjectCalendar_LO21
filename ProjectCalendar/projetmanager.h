@@ -71,6 +71,9 @@ public:
 
     void update();
 
+    void findChildren(std::vector<QString>& vec, QModelIndex& selected);
+
+    void supprimerItem(QModelIndexList& sel);
 
 
 

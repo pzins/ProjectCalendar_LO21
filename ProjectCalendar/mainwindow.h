@@ -21,11 +21,10 @@ public:
     static MainWindow& getInstance(QWidget* parent = 0);
     static void libererInstance();
 
-
 public slots:
     void sauvegarder();
     void charger();
-    void supprimer();
+    void supprimerItem();
     void adaptForm(bool etat);
     void adaptForm2(bool etat);
     void ajouter();

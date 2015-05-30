@@ -159,47 +159,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> update();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> findChildren(std::vector&lt;QString&gt;&amp; vec, QModelIndex&amp; selected);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1_iterator.html">   77</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        std::map&lt;QString, Projet*&gt;::iterator courant;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(std::map&lt;QString, Projet*&gt;::iterator deb) : courant(deb){}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>() : courant(0){}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *courant-&gt;second;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            ++courant;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> old;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> supprimerItem(QModelIndexList&amp; sel);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1_iterator.html">   80</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::map&lt;QString, Projet*&gt;::iterator courant;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(std::map&lt;QString, Projet*&gt;::iterator deb) : courant(deb){}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>() : courant(0){}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *courant-&gt;second;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            ++courant;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> old;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(map_projet.begin());}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(map_projet.end());}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    };</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(map_projet.begin());}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(map_projet.end());}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
 <div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:11</div></div>
 <div class="ttc" id="class_observateur_html"><div class="ttname"><a href="class_observateur.html">Observateur</a></div><div class="ttdef"><b>Definition:</b> observateur.h:6</div></div>
 <div class="ttc" id="class_calendar_exception_html"><div class="ttname"><a href="class_calendar_exception.html">CalendarException</a></div><div class="ttdef"><b>Definition:</b> calendarexception.h:7</div></div>
 <div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdef"><b>Definition:</b> projet.h:10</div></div>
-<div class="ttc" id="class_projet_manager_1_1_iterator_html"><div class="ttname"><a href="class_projet_manager_1_1_iterator.html">ProjetManager::Iterator</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:77</div></div>
+<div class="ttc" id="class_projet_manager_1_1_iterator_html"><div class="ttname"><a href="class_projet_manager_1_1_iterator.html">ProjetManager::Iterator</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:80</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 30 2015 20:48:31 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 31 2015 00:09:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

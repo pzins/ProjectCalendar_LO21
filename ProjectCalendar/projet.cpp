@@ -21,9 +21,9 @@ void Projet::ajouterTache(QChar type, const QString& titre, const QString& descr
 }
 
 
-void Projet::suppressionTache(QString& titre, std::map<QString, Tache*>& map)
+void Projet::supprimerTache(QString& titre)
 {
-
+    map_tache.erase(titre);
 }
 
 Projet::~Projet()

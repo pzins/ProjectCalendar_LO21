@@ -33,12 +33,12 @@ MainWindow::MainWindow(QWidget *parent) :
     pm->ajouterProjet("lyon","...", QDate(2000,3,5),QDate(2003,2,5));
     Projet* pro1 = (pm->getProjet("ol"));
 
-    pro1->ajouterTacheUnitaire('U',"tache1","...",QDate(2000,3,5), QDate(2000,20,2), 5);
-    pro1->ajouterTacheComposite("tache2","...",QDate(2000,3,5), QDate(2003,2,5));
+    pro1->ajouterTache(QChar('U'),"tache1","...",QDate(2000,3,5), QDate(2000,20,2), 5);
+    pro1->ajouterTache(QChar('C'),"tache2","...",QDate(2000,3,5), QDate(2003,2,5));
 
 
     TacheComposite* c = pro1->getTacheComposite("tache2");
-    c->ajouterTacheUnitaire("tache3","...",QDate(2000,3,5), QDate(2003,1,5), Duree(5,2));
+    c->ajouter("tache3","...",QDate(2000,3,5), QDate(2003,1,5), );
 
 */
 
@@ -79,15 +79,11 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 
-void MainWindow::supprimer()
-{
-    /*QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
-    if(sel.size() == 1)
-        pm->ajoutItemModel(selection, sel.at(i));*/
-    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
-    QModelIndex parent = sel.at(0).parent();
-    std::cout << parent.data().toString().toStdString() << std::endl;
 
+void MainWindow::supprimerItem()
+{
+   QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    pm->supprimerItem(sel);
 }
 
 void MainWindow::adaptForm(bool etat)
@@ -133,7 +129,6 @@ void MainWindow::ajouter()
         idx_parent = idx;
         while(idx_parent.parent().data().toString() != "") idx_parent = idx_parent.parent();
     }
-    std::cout << "ol" << std::endl;
     if(ui->projet->isChecked() == true)
     {
         try

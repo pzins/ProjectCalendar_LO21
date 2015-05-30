@@ -49,7 +49,7 @@ public:
         if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
     }
 
-    void suppressionTache(QString& titre, std::map<QString, Tache *>& map);
+    void supprimerTache(QString& titre);
 
     std::map<QString, Tache*>& getMapTache() {return map_tache;}
 

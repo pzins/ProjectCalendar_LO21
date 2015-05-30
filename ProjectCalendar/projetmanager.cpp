@@ -147,3 +147,54 @@ void ProjetManager::save(const QString& f){
     newfile.close();
 }
 
+
+void ProjetManager::findChildren(std::vector<QString>& vec, QModelIndex& selected)
+{
+    QStandardItem* selectedItem = model.itemFromIndex(selected);
+    for(int i = 0; i < selectedItem->rowCount(); ++i)
+    {
+        QModelIndex child = model.index(i,0,selected);
+        vec.push_back(child.data().toString());
+        QStandardItem* item = model.itemFromIndex(child);
+        if(item->hasChildren())
+        {
+            findChildren(vec, child);
+        }
+    }
+}
+
+
+void ProjetManager::supprimerItem(QModelIndexList& sel)
+{
+    QModelIndex selected = sel.at(0);
+    QStandardItem* selectedItem = model.itemFromIndex(selected);
+    std::vector<QString> vec;
+    findChildren(vec, selected);
+    QModelIndex idx_parent = selected;
+    while(idx_parent.parent().data().toString() != "") idx_parent = idx_parent.parent();
+
+    Projet* p = getProjet(idx_parent.data().toString());
+    if(p)
+    {
+        for(std::vector<QString>::iterator it = vec.begin(); it != vec.end(); ++it)
+            p->supprimerTache(*it);
+    }
+    //delete all children of parent;
+        QStandardItem * loopItem = selectedItem; //main loop item
+        QList<QStandardItem *> carryItems; //Last In First Out stack of items
+        QList<QStandardItem *> itemsToBeDeleted; //List of items to be deleted
+        while (loopItem->rowCount())
+        {
+            itemsToBeDeleted << loopItem->takeRow(0);
+            //if the row removed has children:
+            if (itemsToBeDeleted.at(0)->hasChildren())
+            {
+                carryItems << loopItem;                 //put on the stack the current loopItem
+                loopItem = itemsToBeDeleted.at(0);      //set the row with children as the loopItem
+            }
+            //if current loopItem has no more rows but carryItems list is not empty:
+            if (!loopItem->rowCount() && !carryItems.isEmpty()) loopItem = carryItems.takeFirst();
+        }
+        qDeleteAll(itemsToBeDeleted);
+    model.removeRow(selectedItem->row(), selected.parent());
+}
