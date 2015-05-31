@@ -83,9 +83,10 @@ void ProjetManager::load(const QString& f){
             // If it's named tache, we'll dig the information from there.
             if(xml.name() == "projet") {
                 QString titre;
+                QString description;
                 QDate disponibilite;
                 QDate echeance;
-                xml.readNext();
+                xml.readNext();                xml.readNext();
                 //We're going to loop over the things because the order might change.
                 //We'll continue the loop until we hit an EndElement named tache.
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "projet")) {
@@ -93,6 +94,10 @@ void ProjetManager::load(const QString& f){
                             // We've found titre.
                         if(xml.name() == "titre") {
                             xml.readNext(); titre=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        if(xml.name() == "description") {
+                            xml.readNext(); description=xml.text().toString();
                             //qDebug()<<"titre="<<titre<<"\n";
                         }
                         // We've found disponibilite
@@ -111,7 +116,8 @@ void ProjetManager::load(const QString& f){
                     // ...and next...
                     xml.readNext();
                 }
-             //   ajouterProjet(titre,disponibilite,echeance);
+                ajouterProjet(titre,description, disponibilite,echeance);
+                ajoutItemModel(titre, model.invisibleRootItem()->index());
             }
         }
     }
@@ -135,9 +141,8 @@ void ProjetManager::save(const QString& f){
     for(ProjetManager::Iterator it = begin(); it != end(); ++it){
         stream.writeStartElement("projet");
         QString str;
-        //str.setNum((*it).getId());
-        //stream.writeAttribute("id", str);
         stream.writeTextElement("titre",(*it).getTitre());
+        stream.writeTextElement("description",(*it).getDescription());
         stream.writeTextElement("disponibilite",(*it).getDispo().toString(Qt::ISODate));
         stream.writeTextElement("echeance",(*it).getEcheance().toString(Qt::ISODate));
         stream.writeEndElement();
@@ -197,4 +202,91 @@ void ProjetManager::supprimerItem(QModelIndexList& sel)
         }
         qDeleteAll(itemsToBeDeleted);
     model.removeRow(selectedItem->row(), selected.parent());
+}
+
+void ProjetManager::saveModel(const QString &f)
+{
+    QFile newfile(f);
+    if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
+        throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
+    QXmlStreamWriter stream(&newfile);
+    stream.setAutoFormatting(true);
+    stream.writeStartDocument();
+
+    QStandardItem * item = model.invisibleRootItem();
+    rec_fct(*item, stream);
+    stream.writeEndElement();
+    newfile.close();
+}
+
+void ProjetManager::rec_fct(const QStandardItem& item, QXmlStreamWriter& str)
+{
+    str.writeStartElement("item");
+    str.writeTextElement("titre",  item.data(0).toString());
+    for(int i = 0; i<item.rowCount(); ++i)
+    {
+        rec_fct(*item.child(i,0), str);
+    }
+    str.writeEndElement();
+}
+
+
+void ProjetManager::loadModel(const QString &f)
+{
+    //qDebug()<<"debut load\n";
+    //this->~TacheManager();
+    std::cout << "___START LOAD MODEL___" << std::endl;
+    QFile fin(f);
+    // If we can't open it, let's show an error message.
+    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        throw CalendarException("Erreur ouverture fichier tâches");
+    }
+    // QXmlStreamReader takes any QIODevice.
+    QXmlStreamReader xml(&fin);
+    //qDebug()<<"debut fichier\n";
+    // We'll parse the XML until we reach end of it.
+    bool firstTime = true;
+    QStandardItem* base;
+    while(!xml.atEnd() && !xml.hasError()) {
+        // Read next element.
+        QXmlStreamReader::TokenType token = xml.readNext();
+        // If token is just StartDocument, we'll go to next.
+        if(token == QXmlStreamReader::StartDocument) continue;
+        // If token is StartElement, we'll see if we can read it.
+        if(token == QXmlStreamReader::StartElement) {
+            // If it's named tache, we'll dig the information from there.
+            if(xml.name() == "item") {
+                //xml.readNext();
+                std::cout << xml.name().toString().toStdString() <<std::endl;
+                QString titre;
+              //  std::cout << "marque" << xml.text().toString().toStdString() << "07" << std::endl;
+                xml.readNext();
+                std::cout << xml.name().toString().toStdString() <<std::endl;
+
+                titre=xml.text().toString();
+                //xml.readNext();
+
+                if(firstTime)
+                {
+                    base = new QStandardItem(titre);
+                    model.appendRow(base);
+                    firstTime = false;
+                }
+                else
+                {
+                    QStandardItem* tmp = new QStandardItem(titre);
+                    base->appendRow(tmp);
+                    base = tmp;
+                }
+            //    std::cout << titre.toStdString() << std::endl;
+            }
+        }
+    }
+    // Error handling.
+    if(xml.hasError()) {
+        throw CalendarException("Erreur lecteur fichier taches, parser xml");
+    }
+    // Removes any device() or data from the reader * and resets its internal state to the initial state.
+    xml.clear();
+    //qDebug()<<"fin load\n";
 }

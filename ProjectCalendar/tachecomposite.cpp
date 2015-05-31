@@ -29,17 +29,11 @@ TacheComposite::~TacheComposite()
 
 void TacheComposite::exportXml(QXmlStreamWriter &stream)
 {
+    stream.writeStartElement("tache");
     stream.writeTextElement("titre", getTitre());
     stream.writeTextElement("description",getDescription());
     stream.writeTextElement("disponibilite",getDispo().toString(Qt::ISODate));
     stream.writeTextElement("echeance",getEcheance().toString(Qt::ISODate));
     stream.writeEndElement();
-    for(TacheComposite::Iterator it = begin(); it != end(); ++it)
-    {
-        stream.writeStartElement("tache");
-        stream.writeAttribute("parent_tache", getTitre());
-        (*it).exportXml(stream);
-        stream.writeEndElement();
-    }
 }
 

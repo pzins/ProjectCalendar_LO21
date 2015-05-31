@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     static MainWindow& getInstance(QWidget* parent = 0);
     static void libererInstance();
+    void supprimerAllItem();
 
 public slots:
     void sauvegarder();
@@ -28,6 +29,7 @@ public slots:
     void adaptForm(bool etat);
     void adaptForm2(bool etat);
     void ajouter();
+    void test();
 
 
 

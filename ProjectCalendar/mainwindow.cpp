@@ -75,16 +75,21 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->ajouter, SIGNAL(clicked()), this, SLOT(ajouter()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
-    connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimer()));
+    connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
+    connect(ui->precedence, SIGNAL(clicked()), this, SLOT(test()));
 }
 
-
+void MainWindow::test()
+{
+    pm->save("projets.xml");
+}
 
 void MainWindow::supprimerItem()
 {
    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
     pm->supprimerItem(sel);
 }
+
 
 void MainWindow::adaptForm(bool etat)
 {
@@ -188,19 +193,26 @@ void MainWindow::ajouter()
 void MainWindow::sauvegarder()
 {
     pm->save("projets.xml");
+    pm->saveModel("model.xml");
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+    {
         (*it).save((*it).getTitre() + QString(".xml"));
+    }
+
 }
 
 void MainWindow::charger()
 {
-    QString chemin = QFileDialog::getOpenFileName();
-    pm->load(chemin);
+   // QString chemin = QFileDialog::getOpenFileName();
+    //supprimerAllItem();
+    pm->load("projets.xml");
+    pm->loadModel("model.xml");
+    /*
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
     {
         (*it).load((*it).getTitre() + QString(".xml"));
     }
-    pm->update();
+    pm->update();*/
 }
 
 

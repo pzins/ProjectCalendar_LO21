@@ -43,7 +43,11 @@ public:
     QStandardItemModel& getModel(){return model;}
 
     void save(const QString& f);
+    void saveModel(const QString& f);
+    void rec_fct(const QStandardItem &item, QXmlStreamWriter& str);
+
     void load(const QString& f);
+    void loadModel(const QString& f);
 
     void ajoutItemModel(const QString& titre,const QModelIndex& idx)
     {

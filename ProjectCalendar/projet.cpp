@@ -187,13 +187,10 @@ void Projet::save(const QString& t)
     stream.writeStartDocument();
     stream.writeStartElement("taches");
     for(Projet::Iterator it = begin(); it != end(); ++it){
-        stream.writeStartElement("tache");
-        stream.writeAttribute("parent_projet", titre);
         (*it).exportXml(stream);
     }
     stream.writeEndDocument();
     newfile.close();
 }
-
 
 
