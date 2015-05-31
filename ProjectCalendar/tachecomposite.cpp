@@ -37,3 +37,9 @@ void TacheComposite::exportXml(QXmlStreamWriter &stream)
     stream.writeEndElement();
 }
 
+QString TacheComposite::info() const
+{
+    QString str = "<h3 align='center'>Tache Composite</h3>"+Tache::info();
+    str += "</table>";
+    return str;
+}

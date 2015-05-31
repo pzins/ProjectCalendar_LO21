@@ -18,15 +18,17 @@ void ProjetManager::ajouterProjet(const QString& titre, const QString& descripti
 
 void ProjetManager::retirerProjet(QString& titre)
 {
-    //a voir cycles vies liés?
-    //ProjetManager::Iterator it = map_projet.find(projet.getId());
-    //Projet* tu = (*it).second;
-    //map_projet.erase(it);
-    //delete tu;
-    //nb_projet--;
-    //map_projet.at(titre)->setId(projet.getId());
+    map_projet.erase(titre);
 }
 
+void ProjetManager::verification(const QString& titre, const QString& description,
+                  const QDate& dispo, const QDate& echeance)
+{
+    if(titre == "") throw CalendarException("Veuillez entrer un titre");
+    if(description == "") throw CalendarException("Veuillez entrer une description");
+    if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
+    if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
+}
 
 Projet* ProjetManager::getProjet(const QString &titre)
 {
@@ -40,8 +42,36 @@ Projet* ProjetManager::getProjet(const QString &titre)
     }
 }
 
+void ProjetManager::findItem(QStandardItem* projet, const QString& item, std::vector<QString>& vec)
+{
+    if(projet->data(0).toString() == item)
+    {
+        findChildren(vec, projet);
+    }
+    for(int i = 0; i < projet->rowCount(); ++i)
+    {
+        findItem(projet->child(i,0), item, vec);
+    }
+
+}
 
 
+std::vector<QString> ProjetManager::getTacheFilles(const QString& tache, const QString& projet)
+{
+    QStandardItem* it = model.invisibleRootItem();
+    QStandardItem* pro;
+    std::vector<QString> res;
+
+    for(int i = 0; i < it->rowCount(); ++i)
+    {
+        if(it->child(i,0)->data(0).toString() == projet)
+        {
+            pro = it->child(i,0);
+            findItem(pro, tache, res);
+        }
+    }
+    return res;
+}
 
 void ProjetManager::update()
 {
@@ -57,6 +87,37 @@ void ProjetManager::update()
         }
     }*/
 }
+
+QString ProjetManager::getInfo(QModelIndex idx)
+{
+    QString item = idx.data(0).toString();
+    while(idx.parent().isValid()) idx = idx.parent();
+    QString parent  = idx.data(0).toString();
+    Projet* p = getProjet(parent);
+    QString ret;
+    if(item != parent)
+        ret = p->getTache(item)->info();
+    else
+        ret = p->info();
+    return ret;
+}
+
+void ProjetManager::ajoutItemModel(const QString& titre,const QModelIndex& idx)
+{
+    QStandardItem* item = new QStandardItem(titre);
+    if(idx == model.invisibleRootItem()->index())
+    {
+        model.invisibleRootItem()->appendRow(item);
+    }
+    else
+    {
+        QStandardItem* i = model.itemFromIndex(idx);
+        i->appendRow(item);
+    }
+
+}
+
+
 
 
 void ProjetManager::load(const QString& f){
@@ -153,36 +214,33 @@ void ProjetManager::save(const QString& f){
 }
 
 
-void ProjetManager::findChildren(std::vector<QString>& vec, QModelIndex& selected)
+void ProjetManager::findChildren(std::vector<QString>& vec, QStandardItem* item)
 {
-    QStandardItem* selectedItem = model.itemFromIndex(selected);
-    for(int i = 0; i < selectedItem->rowCount(); ++i)
+    vec.push_back(item->data(0).toString());
+    for(int i = 0; i < item->rowCount(); ++i)
     {
-        QModelIndex child = model.index(i,0,selected);
-        vec.push_back(child.data().toString());
-        QStandardItem* item = model.itemFromIndex(child);
-        if(item->hasChildren())
-        {
-            findChildren(vec, child);
-        }
+        findChildren(vec, item->child(i,0));
     }
 }
 
 
-void ProjetManager::supprimerItem(QModelIndexList& sel)
+void ProjetManager::supprimerItem(QModelIndex& sel)
 {
-    QModelIndex selected = sel.at(0);
-    QStandardItem* selectedItem = model.itemFromIndex(selected);
+    QStandardItem* selectedItem = model.itemFromIndex(sel);
     std::vector<QString> vec;
-    findChildren(vec, selected);
-    QModelIndex idx_parent = selected;
-    while(idx_parent.parent().data().toString() != "") idx_parent = idx_parent.parent();
-
-    Projet* p = getProjet(idx_parent.data().toString());
+    findChildren(vec, selectedItem);
+    QStandardItem* parent = selectedItem;
+    while(parent->parent()) parent = parent->parent();
+    Projet* p = getProjet(parent->data(0).toString());
     if(p)
     {
         for(std::vector<QString>::iterator it = vec.begin(); it != vec.end(); ++it)
             p->supprimerTache(*it);
+    }
+    if(parent == selectedItem)
+    {
+        QString str = parent->data(0).toString();
+        retirerProjet(str);
     }
     //delete all children of parent;
         QStandardItem * loopItem = selectedItem; //main loop item
@@ -201,7 +259,7 @@ void ProjetManager::supprimerItem(QModelIndexList& sel)
             if (!loopItem->rowCount() && !carryItems.isEmpty()) loopItem = carryItems.takeFirst();
         }
         qDeleteAll(itemsToBeDeleted);
-    model.removeRow(selectedItem->row(), selected.parent());
+    model.removeRow(selectedItem->row(), sel.parent());
 }
 
 void ProjetManager::saveModel(const QString &f)
@@ -215,12 +273,12 @@ void ProjetManager::saveModel(const QString &f)
     stream.writeStartElement("items");
 
     QStandardItem * item = model.invisibleRootItem();
-    rec_fct(*item, stream, "+");
+    save_recursive(*item, stream, "+");
     stream.writeEndElement();
     newfile.close();
 }
 
-void ProjetManager::rec_fct(const QStandardItem& item, QXmlStreamWriter& str, QString pere)
+void ProjetManager::save_recursive(const QStandardItem& item, QXmlStreamWriter& str, QString pere)
 {
     str.writeStartElement("item");
     QString ele = item.data(0).toString();
@@ -237,7 +295,7 @@ void ProjetManager::rec_fct(const QStandardItem& item, QXmlStreamWriter& str, QS
     str.writeEndElement();
     for(int i = 0; i<item.rowCount(); ++i)
     {
-        rec_fct(*item.child(i,0), str, ele);
+        save_recursive(*item.child(i,0), str, ele);
     }
 }
 
@@ -322,11 +380,10 @@ void ProjetManager::loadModel(const QString &f)
                     }
                     else
                     {
-                        QStandardItem* res;
                         QStandardItem* root = model.invisibleRootItem();
                         for(int i = 0; i < root->rowCount(); ++i)
                         {
-                            res = getChild(root->child(i,0), pere, titre);
+                            appendChild(root->child(i,0), pere, titre);
                         }
                     }
                 }
@@ -342,17 +399,17 @@ void ProjetManager::loadModel(const QString &f)
     //qDebug()<<"fin load\n";
 }
 
-QStandardItem* ProjetManager::getChild(QStandardItem* item, QString& pere, QString ele)
+void ProjetManager::appendChild(QStandardItem* item, const QString& pere, const QString& titre)
 {
     if(item->data(0).toString() == pere)
     {
-        item->appendRow(new QStandardItem(ele));
+        item->appendRow(new QStandardItem(titre));
     }
     else
     {
         for(int i = 0; i < item->rowCount(); ++i)
         {
-            getChild(item->child(i,0), pere, ele);
+            appendChild(item->child(i,0), pere, titre);
         }
     }
 }

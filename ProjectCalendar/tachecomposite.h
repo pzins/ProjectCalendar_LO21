@@ -37,6 +37,7 @@ public:
 
     virtual void exportXml(QXmlStreamWriter& stream);
     virtual bool isComposite() const{return true;}
+    virtual QString info() const;
 
 
 

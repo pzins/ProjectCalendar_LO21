@@ -29,8 +29,9 @@ public slots:
     void adaptForm(bool etat);
     void adaptForm2(bool etat);
     void ajouter();
+    void afficherInfo(QModelIndex idx);
     void test();
-
+    void expand();
 
 
 
@@ -50,5 +51,8 @@ private:
 
 
 };
+
+
+
 
 #endif // MAINWINDOW_H

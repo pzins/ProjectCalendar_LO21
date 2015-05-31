@@ -33,6 +33,14 @@ public:
     unsigned int getMinute() const { return nb_minutes%60; }
     unsigned int getHeure() const { return nb_minutes/60; }
     void afficher(QTextStream& f) const; //<!Affiche la duree sous le format hhHmm
+    QString toString() const{
+        QString str;
+        str.setNum(getHeure());
+        QString res = str;
+        str.setNum(getMinute());
+        res += "H "+str+" min";
+        return res;
+    }
 };
 
 QTextStream& operator<<(QTextStream& f, const Duree & d);

@@ -23,7 +23,6 @@ private:
 
 public:
 
-
     static ProjetManager& getInstance(){
         if(!instance) instance = new ProjetManager();
         return *instance;
@@ -32,55 +31,56 @@ public:
     static void libererInstance(){
         delete instance;
     }
+
+    const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
+    QStandardItemModel& getModel(){return model;}
+
+
+
     void ajouterProjet(const QString& titre, const QString& description_, const QDate& dispo,
                        const QDate& echeance);
 
     void retirerProjet(QString &titre);
 
-    const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
     Projet* getProjet(const QString &titre);
 
-    QStandardItemModel& getModel(){return model;}
 
-    void save(const QString& f);
-    void saveModel(const QString& f);
-    void rec_fct(const QStandardItem &item, QXmlStreamWriter& str, QString pere);
-    QStandardItem* getChild(QStandardItem *item, QString &titre, QString ele);
+    void save(const QString& f);//sauvegarde les projets
+    void saveModel(const QString& f);//sauvegarde le modele
+    void save_recursive(const QStandardItem &item, QXmlStreamWriter& str, QString pere);//aide saveModel
 
-    void load(const QString& f);
-    void loadModel(const QString& f);
 
-    void ajoutItemModel(const QString& titre,const QModelIndex& idx)
-    {
-        QStandardItem* item = new QStandardItem(titre);
-        if(idx == model.invisibleRootItem()->index())
-        {
-            model.invisibleRootItem()->appendRow(item);
-        }
-        else
-        {
-            QStandardItem* i = model.itemFromIndex(idx);
-            i->appendRow(item);
-        }
 
-    }
 
+    void load(const QString& f);//charge les projets
+    void loadModel(const QString& f);//charge le modele
+    void appendChild(QStandardItem *item, const QString& pere, const QString& titre);//aide loadModel
+
+    //recupère des infos sur des les éléments du model, à partir d'un index
+    QString getInfo(QModelIndex idx);
+
+
+    //renvoie un vector contenant toutes les taches filles d'une tache à partir du nom de la tache de base et du projet
+    std::vector<QString> getTacheFilles(const QString& tache, const QString& projet);
+    //fct recursive qui aide getTacheFille, en appelant finditem
+    void findItem(QStandardItem* projet, const QString& item, std::vector<QString> &vec);
+
+    //ajoute un élément au modele à partir de l'index
+    void ajoutItemModel(const QString& titre,const QModelIndex& idx);
+
+
+    //fait les vérification lors de l'ajout d'un projet
     void verification(const QString& titre, const QString& description,
-                      const QDate& dispo, const QDate& echeance)
-    {
-        if(titre == "") throw CalendarException("Veuillez entrer un titre");
-        if(description == "") throw CalendarException("Veuillez entrer une description");
-        if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
-        if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
-    }
+                      const QDate& dispo, const QDate& echeance);
 
-    void update();
 
-    void findChildren(std::vector<QString>& vec, QModelIndex& selected);
+    void update();//à enlever surement
 
-    void supprimerItem(QModelIndexList& sel);
+    //ajout ds vec les nom de ttes les taches filles de la tache item
+    void findChildren(std::vector<QString> &vec, QStandardItem* item);
 
-    void rec(QStringList &str, int nb, int current, QStandardItem *it);
+    //supprime des taches ou projet
+    void supprimerItem(QModelIndex &sel);
 
 
     class Iterator

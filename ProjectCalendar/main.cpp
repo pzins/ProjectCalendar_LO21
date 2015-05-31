@@ -3,6 +3,7 @@
 #include "agenda.h"
 #include "precedencemanager.h"
 #include "mainwindow.h"
+#include <QTextStream>
 
 int main(int argc, char *argv[])
 {
@@ -55,6 +56,7 @@ int main(int argc, char *argv[])
     */
 
     MainWindow& m = MainWindow::getInstance();
+
 
     m.show();
 

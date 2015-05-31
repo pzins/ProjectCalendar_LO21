@@ -19,6 +19,18 @@ void Projet::ajouterTache(QChar type, const QString& titre, const QString& descr
         map_tache.insert(std::make_pair(titre,tc));
     }
 }
+QString Projet::info() const
+{
+    QString str = "<h3 align='center'>Projet</h3><table border='0' align='center'>";
+    str += "<tr><td><b>Titre</b><td >"+titre+"</td></td></tr>";
+    str += "<tr><td><b>Description</b><td >"+description+"</td></td></tr>";
+    str += "<tr><td><b>Disponibilité</b><td >"+dispo.toString()+"</td></td></tr>";
+    str += "<tr><td><b>Echéance</b><td >"+echeance.toString()+"</td></td></tr>";
+    QString nb;
+    nb.setNum(map_tache.size());
+    str += "<tr><td><b>Nombre de taches</b><td >"+nb+"</td></td></tr></table>";
+    return str;
+}
 
 
 void Projet::supprimerTache(QString& titre)

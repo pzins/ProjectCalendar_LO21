@@ -45,10 +45,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->treeView->setModel(&pm->getModel());
     ag = &Agenda::getInstance();
     ui->treeView->setAnimated(true);
-    pm->update();
-    /*ui->treeView->setModel(&pm->getModel());
-    ui->treeView->setSelectionMode(QTreeView::ExtendedSelection);
-    ui->treeView->setSelectionBehavior(QTreeView::SelectRows);*/
+//    pm->update();
+
 
     /*
     QStandardItem *parentItem = model.invisibleRootItem();
@@ -73,21 +71,48 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
 
     connect(ui->ajouter, SIGNAL(clicked()), this, SLOT(ajouter()));
+    connect(ui->precedence, SIGNAL(clicked()), this, SLOT(test()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
+    connect(ui->expand, SIGNAL(clicked()), this, SLOT(expand()));
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
-    connect(ui->precedence, SIGNAL(clicked()), this, SLOT(test()));
+    connect(ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(afficherInfo(QModelIndex)));
 }
 
 void MainWindow::test()
 {
-    pm->save("projets.xml");
+}
+
+void MainWindow::expand()
+{
+    ui->treeView->expandAll();
+}
+
+
+void MainWindow::afficherInfo(QModelIndex idx)
+{
+
+    ui->info->setHtml(pm->getInfo(idx));
+
 }
 
 void MainWindow::supprimerItem()
 {
-   QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
-    pm->supprimerItem(sel);
+    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    for(int i = 0; i < sel.size(); ++i)
+        pm->supprimerItem(sel[i]);
+
+
+    std::cout << "=========================================" << std::endl;
+    for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+    {
+        std::cout << "\n" << (*it).getTitre().toStdString() << std::endl;
+        for(Projet::Iterator i = (*it).begin(); i != (*it).end(); ++i)
+        {
+            std::cout <<"---" << (*i).getTitre().toStdString() << std::endl;
+        }
+    }
+    std::cout << "=========================================" << std::endl;
 }
 
 
@@ -207,21 +232,11 @@ void MainWindow::charger()
     //supprimerAllItem();
     pm->load("projets.xml");
     pm->loadModel("model.xml");
-
-
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
     {
         (*it).load((*it).getTitre() + QString(".xml"));
     }
-    for(ProjetManager::Iterator i = pm->begin(); i != pm->end(); ++i)
-    {
-        std::cout << "Projet : " << (*i).getTitre().toStdString()<< std::endl;
-        for(Projet::Iterator it = (*i).begin(); it != (*i).end(); ++it)
-        {
-            std::cout << (*it).getTitre().toStdString() << std::endl;
-        }
-    }
-    //pm->update();*/
+
 }
 
 

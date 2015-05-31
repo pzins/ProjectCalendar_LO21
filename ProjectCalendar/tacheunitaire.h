@@ -26,6 +26,7 @@ public:
     bool isPreemptive() const {return preemptive;}
     void setPreemptive(bool preemptive_) {preemptive=preemptive_;}
     virtual bool isComposite() const {return false;}
+    virtual QString info() const;
 
 };
 

@@ -15,7 +15,6 @@ private:
     QString description;
     QDate dispo;
     QDate echeance;
-    unsigned int nb_tache;
     std::map<QString, Tache*> map_tache;
 
 public:
@@ -70,7 +69,7 @@ public:
     void save(const QString &titre);
     void load(const QString& f);
 
-
+    QString info() const;
 
 
     class Iterator
