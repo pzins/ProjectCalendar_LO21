@@ -44,7 +44,8 @@ public:
 
     void save(const QString& f);
     void saveModel(const QString& f);
-    void rec_fct(const QStandardItem &item, QXmlStreamWriter& str);
+    void rec_fct(const QStandardItem &item, QXmlStreamWriter& str, QString pere);
+    QStandardItem* getChild(QStandardItem *item, QString &titre);
 
     void load(const QString& f);
     void loadModel(const QString& f);
@@ -79,6 +80,7 @@ public:
 
     void supprimerItem(QModelIndexList& sel);
 
+    void rec(QStringList &str, int nb, int current, QStandardItem *it);
 
 
     class Iterator

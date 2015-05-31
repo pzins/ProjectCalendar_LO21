@@ -205,7 +205,7 @@ void MainWindow::charger()
 {
    // QString chemin = QFileDialog::getOpenFileName();
     //supprimerAllItem();
-    pm->load("projets.xml");
+   // pm->load("projets.xml");
     pm->loadModel("model.xml");
     /*
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)

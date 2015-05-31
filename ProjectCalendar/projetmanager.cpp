@@ -117,7 +117,7 @@ void ProjetManager::load(const QString& f){
                     xml.readNext();
                 }
                 ajouterProjet(titre,description, disponibilite,echeance);
-                ajoutItemModel(titre, model.invisibleRootItem()->index());
+                //ajoutItemModel(titre, model.invisibleRootItem()->index());
             }
         }
     }
@@ -214,28 +214,42 @@ void ProjetManager::saveModel(const QString &f)
     stream.writeStartDocument();
 
     QStandardItem * item = model.invisibleRootItem();
-    rec_fct(*item, stream);
+    rec_fct(*item, stream, "+");
     stream.writeEndElement();
     newfile.close();
 }
 
-void ProjetManager::rec_fct(const QStandardItem& item, QXmlStreamWriter& str)
+void ProjetManager::rec_fct(const QStandardItem& item, QXmlStreamWriter& str, QString pere)
 {
     str.writeStartElement("item");
-    str.writeTextElement("titre",  item.data(0).toString());
+    QString ele = item.data(0).toString();
+    if(ele == "")
+    {
+        ele = "*";
+    }
+    str.writeTextElement("titre",  ele);
+
+    QString s;
+    s.setNum(item.rowCount());
+    str.writeTextElement("child",s);
+    str.writeTextElement("pere",pere);
+    str.writeEndElement();
     for(int i = 0; i<item.rowCount(); ++i)
     {
-        rec_fct(*item.child(i,0), str);
+        rec_fct(*item.child(i,0), str, ele);
     }
-    str.writeEndElement();
 }
+
+
+
+
 
 
 void ProjetManager::loadModel(const QString &f)
 {
     //qDebug()<<"debut load\n";
     //this->~TacheManager();
-    std::cout << "___START LOAD MODEL___" << std::endl;
+
     QFile fin(f);
     // If we can't open it, let's show an error message.
     if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -245,8 +259,6 @@ void ProjetManager::loadModel(const QString &f)
     QXmlStreamReader xml(&fin);
     //qDebug()<<"debut fichier\n";
     // We'll parse the XML until we reach end of it.
-    bool firstTime = true;
-    QStandardItem* base;
     while(!xml.atEnd() && !xml.hasError()) {
         // Read next element.
         QXmlStreamReader::TokenType token = xml.readNext();
@@ -254,31 +266,78 @@ void ProjetManager::loadModel(const QString &f)
         if(token == QXmlStreamReader::StartDocument) continue;
         // If token is StartElement, we'll see if we can read it.
         if(token == QXmlStreamReader::StartElement) {
+            // If it's named taches, we'll go to the next.
+            if(xml.name() == "items") continue;
             // If it's named tache, we'll dig the information from there.
             if(xml.name() == "item") {
-                //xml.readNext();
-                std::cout << xml.name().toString().toStdString() <<std::endl;
+//                qDebug()<<"new tache\n";
                 QString titre;
-              //  std::cout << "marque" << xml.text().toString().toStdString() << "07" << std::endl;
+                QString child;
+                QString pere;
+
+                //qDebug()<<"preemptive="<<preemptive<<"\n";
+
                 xml.readNext();
-                std::cout << xml.name().toString().toStdString() <<std::endl;
+                //We're going to loop over the things because the order might change.
+                //We'll continue the loop until we hit an EndElement named tache.
 
-                titre=xml.text().toString();
-                //xml.readNext();
 
-                if(firstTime)
-                {
-                    base = new QStandardItem(titre);
-                    model.appendRow(base);
-                    firstTime = false;
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "item")) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
+                        // We've found identificteur.
+                        if(xml.name() == "titre") {
+                            xml.readNext(); titre=xml.text().toString();
+                            //qDebug()<<"id="<<identificateur<<"\n";
+                        }
+
+                        // We've found titre.
+                        if(xml.name() == "child") {
+                            xml.readNext(); child=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        // We've found titre.
+                        if(xml.name() == "pere") {
+                            xml.readNext(); pere=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                    }
+                    // ...and next...
+                    xml.readNext();
                 }
-                else
+                QStandardItem* search_item = 0;
+                std::cout << "******" << std::endl;
+                std::cout << titre.toStdString() << " " << child.toStdString() << " " << pere.toStdString() << std::endl;
+                if(pere == "*")
                 {
-                    QStandardItem* tmp = new QStandardItem(titre);
-                    base->appendRow(tmp);
-                    base = tmp;
+                    QStandardItem* item = new QStandardItem(titre);
+                    model.appendRow(item);
+
                 }
-            //    std::cout << titre.toStdString() << std::endl;
+                else if (pere != "*" && pere != "+")
+                {
+
+                    QList<QStandardItem*> liste = model.findItems(pere);
+                    std::cout << "SIZE  = "<<liste.size() << std::endl;
+                    if(liste.size() > 0)
+                    {
+                        std::cout << "titre = " << titre.toStdString() << " / pere = " << pere.toStdString() << std::endl;
+                        liste.at(0)->appendRow(new QStandardItem(titre));
+                        search_item = liste.at(0);
+                    }
+                    else
+                    {
+                        QStandardItem* res;
+                        QStandardItem* root = model.invisibleRootItem();
+                        for(int i = 0; i < root->rowCount(); ++i)
+                        {
+                            res = getChild(root->child(i,0), pere);
+                            if(res != 0) break;
+                        }
+                        std::cout <<"RES = " <<  res->data(0).toString().toStdString() << std::endl;
+                        res->appendRow(new QStandardItem(titre));
+
+                    }
+                }
             }
         }
     }
@@ -289,4 +348,17 @@ void ProjetManager::loadModel(const QString &f)
     // Removes any device() or data from the reader * and resets its internal state to the initial state.
     xml.clear();
     //qDebug()<<"fin load\n";
+}
+
+QStandardItem* ProjetManager::getChild(QStandardItem* item, QString& pere)
+{
+    if(item->data(0).toString() == pere) return item;
+    else
+    {
+        for(int i = 0; i < item->rowCount(); ++i)
+        {
+            return getChild(item->child(i,0), pere);
+        }
+    }
+
 }
