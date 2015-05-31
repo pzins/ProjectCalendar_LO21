@@ -59,7 +59,6 @@ void Projet::load(const QString& f)
                 QString parent_tache;
                 bool has_parent_composite = false;
 
-                std::cout << "=================" << std::endl;
                 QString titre;
                 QString description;
                 QDate disponibilite;
@@ -74,97 +73,46 @@ void Projet::load(const QString& f)
                     preemptive=(val == "true" ? true : false);
                     isComposite = false;
                 }
-                if(attributes.hasAttribute("parent_tache"))
-                {
-                    parent_tache = attributes.value("parent_tache").toString();
-                    has_parent_composite = true;
-                }
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
                 //We'll continue the loop until we hit an EndElement named tache.
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tache")) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
+                        // We've found titre.
+                        if(xml.name() == "titre") {
+                            xml.readNext(); titre=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        if(xml.name() == "description") {
+                            xml.readNext(); description=xml.text().toString();
+                        }
+                        // We've found disponibilite
+                        if(xml.name() == "disponibilite") {
+                            xml.readNext();
+                            disponibilite=QDate::fromString(xml.text().toString(),Qt::ISODate);
+                            //qDebug()<<"disp="<<disponibilite.toString()<<"\n";
+                        }
+                        // We've found echeance
+                        if(xml.name() == "echeance") {
+                            xml.readNext();
+                            echeance=QDate::fromString(xml.text().toString(),Qt::ISODate);
+                            //qDebug()<<"echeance="<<echeance.toString()<<"\n";
+                        }
+                        // We've found duree
+                        if(xml.name() == "duree") {
+                            xml.readNext();
+                            duree.setDuree(xml.text().toString().toUInt());
+                            //qDebug()<<"duree="<<duree.getDureeEnMinutes()<<"\n";
+                        }
+                    }
+                    // ...and next...
+                    xml.readNext();
+                }
                 if(!isComposite)
-                {
-                    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tache")) {
-                        if(xml.tokenType() == QXmlStreamReader::StartElement) {
-                            // We've found titre.
-                            if(xml.name() == "titre") {
-                                xml.readNext(); titre=xml.text().toString();
-                                //qDebug()<<"titre="<<titre<<"\n";
-                            }
-                            if(xml.name() == "description") {
-                                xml.readNext(); description=xml.text().toString();
-                            }
-                            // We've found disponibilite
-                            if(xml.name() == "disponibilite") {
-                                xml.readNext();
-                                disponibilite=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                                //qDebug()<<"disp="<<disponibilite.toString()<<"\n";
-                            }
-                            // We've found echeance
-                            if(xml.name() == "echeance") {
-                                xml.readNext();
-                                echeance=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                                //qDebug()<<"echeance="<<echeance.toString()<<"\n";
-                            }
-                            // We've found duree
-                            if(xml.name() == "duree") {
-                                xml.readNext();
-                                duree.setDuree(xml.text().toString().toUInt());
-                                //qDebug()<<"duree="<<duree.getDureeEnMinutes()<<"\n";
-                            }
-                        }
-                        // ...and next...
-                        xml.readNext();
-                    }
-                    if(has_parent_composite)
-                    {
-                        //dynamic_cast<TacheComposite*>(getTache(parent_tache))->ajouterTacheUnitaire(titre,
-                          // description, disponibilite, echeance, duree, preemptive);
-                    }
-                    else
-                    {
-                        //ajouterTacheUnitaire(titre,description,disponibilite,echeance, duree,preemptive);
-                    }
-                }
+                    ajouterTache(QChar('U'), titre, description, disponibilite, echeance, duree, preemptive);
                 else
-                {
-                    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tache")) {
-                        if(xml.tokenType() == QXmlStreamReader::StartElement) {
-                            // We've found titre.
-                            if(xml.name() == "titre") {
-                                xml.readNext(); titre=xml.text().toString();
-                                //qDebug()<<"titre="<<titre<<"\n";
-                            }
-                            if(xml.name() == "description") {
-                                xml.readNext(); description=xml.text().toString();
-                            }
-                            // We've found disponibilite
-                            if(xml.name() == "disponibilite") {
-                                xml.readNext();
-                                disponibilite=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                                //qDebug()<<"disp="<<disponibilite.toString()<<"\n";
-                            }
-                            // We've found echeance
-                            if(xml.name() == "echeance") {
-                                xml.readNext();
-                                echeance=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                                //qDebug()<<"echeance="<<echeance.toString()<<"\n";
-                            }
-                        }
-                        // ...and next...
-                        xml.readNext();
-                    }
+                    ajouterTache(QChar('C'), titre, description, disponibilite, echeance, duree, preemptive);
 
-                    if(has_parent_composite)
-                    {
-                        //dynamic_cast<TacheComposite*>(getTache(parent_tache))->ajouterTacheComposite(titre,
-                          // description, disponibilite, echeance);
-                    }
-                    else
-                    {
-                        //ajouterTacheComposite(titre, description, disponibilite, echeance);
-                    }
-                }
             }
         }
     }

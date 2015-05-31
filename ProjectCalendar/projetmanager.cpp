@@ -212,6 +212,7 @@ void ProjetManager::saveModel(const QString &f)
     QXmlStreamWriter stream(&newfile);
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
+    stream.writeStartElement("items");
 
     QStandardItem * item = model.invisibleRootItem();
     rec_fct(*item, stream, "+");
@@ -270,7 +271,6 @@ void ProjetManager::loadModel(const QString &f)
             if(xml.name() == "items") continue;
             // If it's named tache, we'll dig the information from there.
             if(xml.name() == "item") {
-//                qDebug()<<"new tache\n";
                 QString titre;
                 QString child;
                 QString pere;
@@ -305,8 +305,6 @@ void ProjetManager::loadModel(const QString &f)
                     xml.readNext();
                 }
                 QStandardItem* search_item = 0;
-                std::cout << "******" << std::endl;
-                std::cout << titre.toStdString() << " " << child.toStdString() << " " << pere.toStdString() << std::endl;
                 if(pere == "*")
                 {
                     QStandardItem* item = new QStandardItem(titre);
@@ -317,10 +315,8 @@ void ProjetManager::loadModel(const QString &f)
                 {
 
                     QList<QStandardItem*> liste = model.findItems(pere);
-                    std::cout << "SIZE  = "<<liste.size() << std::endl;
                     if(liste.size() > 0)
                     {
-                        std::cout << "titre = " << titre.toStdString() << " / pere = " << pere.toStdString() << std::endl;
                         liste.at(0)->appendRow(new QStandardItem(titre));
                         search_item = liste.at(0);
                     }
@@ -330,12 +326,8 @@ void ProjetManager::loadModel(const QString &f)
                         QStandardItem* root = model.invisibleRootItem();
                         for(int i = 0; i < root->rowCount(); ++i)
                         {
-                            res = getChild(root->child(i,0), pere);
-                            if(res != 0) break;
+                            res = getChild(root->child(i,0), pere, titre);
                         }
-                        std::cout <<"RES = " <<  res->data(0).toString().toStdString() << std::endl;
-                        res->appendRow(new QStandardItem(titre));
-
                     }
                 }
             }
@@ -350,15 +342,17 @@ void ProjetManager::loadModel(const QString &f)
     //qDebug()<<"fin load\n";
 }
 
-QStandardItem* ProjetManager::getChild(QStandardItem* item, QString& pere)
+QStandardItem* ProjetManager::getChild(QStandardItem* item, QString& pere, QString ele)
 {
-    if(item->data(0).toString() == pere) return item;
+    if(item->data(0).toString() == pere)
+    {
+        item->appendRow(new QStandardItem(ele));
+    }
     else
     {
         for(int i = 0; i < item->rowCount(); ++i)
         {
-            return getChild(item->child(i,0), pere);
+            getChild(item->child(i,0), pere, ele);
         }
     }
-
 }

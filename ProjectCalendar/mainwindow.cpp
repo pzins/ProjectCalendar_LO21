@@ -205,14 +205,23 @@ void MainWindow::charger()
 {
    // QString chemin = QFileDialog::getOpenFileName();
     //supprimerAllItem();
-   // pm->load("projets.xml");
+    pm->load("projets.xml");
     pm->loadModel("model.xml");
-    /*
+
+
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
     {
         (*it).load((*it).getTitre() + QString(".xml"));
     }
-    pm->update();*/
+    for(ProjetManager::Iterator i = pm->begin(); i != pm->end(); ++i)
+    {
+        std::cout << "Projet : " << (*i).getTitre().toStdString()<< std::endl;
+        for(Projet::Iterator it = (*i).begin(); it != (*i).end(); ++it)
+        {
+            std::cout << (*it).getTitre().toStdString() << std::endl;
+        }
+    }
+    //pm->update();*/
 }
 
 

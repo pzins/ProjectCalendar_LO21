@@ -45,7 +45,7 @@ public:
     void save(const QString& f);
     void saveModel(const QString& f);
     void rec_fct(const QStandardItem &item, QXmlStreamWriter& str, QString pere);
-    QStandardItem* getChild(QStandardItem *item, QString &titre);
+    QStandardItem* getChild(QStandardItem *item, QString &titre, QString ele);
 
     void load(const QString& f);
     void loadModel(const QString& f);
