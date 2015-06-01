@@ -19,6 +19,26 @@ void Projet::ajouterTache(QChar type, const QString& titre, const QString& descr
         map_tache.insert(std::make_pair(titre,tc));
     }
 }
+
+void Projet::verification(const QString& titre, const QString& description,
+                  const QDate& dispo, const QDate& echeance, const QString& tc_parent)
+{
+    std::map<QString, Tache*>::iterator it = map_tache.find(tc_parent);
+    if(it != map_tache.end())
+    {
+        if((*it).second->getDispo() > dispo) throw CalendarException("Disponibilité et disponibilité de tache mère sont incohérentes");
+        if((*it).second->getEcheance() < echeance) throw CalendarException("Echéance et échéance de tache mère sont incohérentes");
+    }
+    if(titre == "") throw CalendarException("Veuillez entrer un titre");
+    if(map_tache.find(titre) != map_tache.end()) throw CalendarException("Titre déjà attribué");
+    if(map_tache.find(titre) != map_tache.end()) throw CalendarException("Titre déjà attribué");
+    if(description == "") throw CalendarException("Veuillez entrer une description");
+    if(echeance > this->echeance) throw CalendarException("Echéance et échéance du projet sont incohérentes");
+    if(dispo < this->dispo) throw CalendarException("Disponibilité et disponibilité du projet sont incohérentes");
+    if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
+}
+
+
 QString Projet::info() const
 {
     QString str = "<h3 align='center'>Projet</h3><table border='0' align='center'>";
@@ -42,6 +62,18 @@ Projet::~Projet()
 {
     for(std::map<QString, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)
         delete (*it).second;
+}
+
+Tache* Projet::getTache(const QString& titre)
+{
+    try
+    {
+        return map_tache.at(titre);
+    }
+    catch(out_of_range)
+    {
+        return 0;
+    }
 }
 
 

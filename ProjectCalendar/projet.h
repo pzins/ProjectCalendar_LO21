@@ -26,50 +26,30 @@ public:
     const QString& getDescription() const {return description;}
     const QDate& getDispo() const {return dispo;}
     const QDate& getEcheance() const {return echeance;}
+    std::map<QString, Tache*>& getMapTache() {return map_tache;}
 
     void ajouterTache(QChar type, const QString& titre, const QString& description, const QDate& dispo,
                         const QDate& echeance, const Duree& duree, bool preemptive);
 
-    void verification(const QString& titre, const QString& description,
-                      const QDate& dispo, const QDate& echeance, const QString& tc_parent)
-    {
-        std::map<QString, Tache*>::iterator it = map_tache.find(tc_parent);
-        if(it != map_tache.end())
-        {
-            if((*it).second->getDispo() > dispo) throw CalendarException("Disponibilité et disponibilité de tache mère sont incohérentes");
-            if((*it).second->getEcheance() < echeance) throw CalendarException("Echéance et échéance de tache mère sont incohérentes");
-        }
-        if(titre == "") throw CalendarException("Veuillez entrer un titre");
-        if(map_tache.find(titre) != map_tache.end()) throw CalendarException("Titre déjà attribué");
-        if(map_tache.find(titre) != map_tache.end()) throw CalendarException("Titre déjà attribué");
-        if(description == "") throw CalendarException("Veuillez entrer une description");
-        if(echeance > this->echeance) throw CalendarException("Echéance et échéance du projet sont incohérentes");
-        if(dispo < this->dispo) throw CalendarException("Disponibilité et disponibilité du projet sont incohérentes");
-        if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
-    }
-
     void supprimerTache(QString& titre);
 
-    std::map<QString, Tache*>& getMapTache() {return map_tache;}
+    //verifie avant l'ajout de tache
+    void verification(const QString& titre, const QString& description,
+                      const QDate& dispo, const QDate& echeance, const QString& tc_parent);
 
-    Tache* getTache(const QString& titre)
-    {
-        try
-        {
-            return map_tache.at(titre);
-        }
-        catch(out_of_range)
-        {
-            return 0;
-        }
-    }
+    //retourne un QString contenant des infos sur le projet
+    QString info() const;
 
-   ~Projet();
+    //return un pointeur sur la tache d'après le titre, leve CalendarException sinon elle n'existe pas
+    Tache* getTache(const QString& titre);
 
+   ~Projet();//à implémenter pour détruire les taches du projet
+
+    //sauvegarde un les taches du projet
     void save(const QString &titre);
+    //charge les taches du projet
     void load(const QString& f);
 
-    QString info() const;
 
 
     class Iterator
