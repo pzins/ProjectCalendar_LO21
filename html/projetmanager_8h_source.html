@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::map&lt;QString, Projet*&gt; map_projet;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>(){}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ~<a class="code" href="class_projet_manager.html">ProjetManager</a>(){}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ~<a class="code" href="class_projet_manager.html">ProjetManager</a>();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; p){}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; p){}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                      <span class="keyword">const</span> QDate&amp; dispo, <span class="keyword">const</span> QDate&amp; echeance);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> update();<span class="comment">//à enlever surement</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(){};<span class="comment">//à enlever surement et enlever l&#39;héritage de Observable</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//ajout ds vec les nom de ttes les taches filles de la tache item</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> findChildren(std::vector&lt;QString&gt; &amp;vec, QStandardItem* item);</div>
@@ -207,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2015 02:05:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 2 2015 03:10:42 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

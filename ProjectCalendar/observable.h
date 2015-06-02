@@ -6,6 +6,7 @@
 class Observable
 {
 public:
+    virtual ~Observable(){}
     virtual void ajouterObservateur(Observateur*)=0;
     virtual void supprimerObservateur(Observateur*)=0;
     virtual void notifier()=0;

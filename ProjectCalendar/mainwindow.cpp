@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "precedenceitem.h"
 #include <QPushButton>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -44,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->treeView->setModel(&pm->getModel());
     ag = &Agenda::getInstance();
+    pre = &PrecedenceManager::getInstance();
+    pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
 //    pm->update();
 
@@ -71,21 +75,33 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
 
     connect(ui->ajouter, SIGNAL(clicked()), this, SLOT(ajouter()));
-    connect(ui->precedence, SIGNAL(clicked()), this, SLOT(test()));
+    connect(ui->precedence, SIGNAL(clicked()), this, SLOT(ajouterPrecedence()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
     connect(ui->load, SIGNAL(clicked()), this, SLOT(charger()));
     connect(ui->expand, SIGNAL(clicked()), this, SLOT(expand()));
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
     connect(ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(afficherInfo(QModelIndex)));
+    connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
 }
 
-void MainWindow::test()
+void MainWindow::ajouterPrecedence()
 {
+    DialogPrecedence* d = &DialogPrecedence::getInstance();
+    d->show();
+
 }
 
 void MainWindow::expand()
 {
     ui->treeView->expandAll();
+}
+
+void MainWindow::supprimer_precedence()
+{
+    PrecedenceItem* element = dynamic_cast<PrecedenceItem*>(ui->precedence_list->currentItem());
+    pre->retirerPrecedence(*element->getPrecedence());
+    delete element->getPrecedence();
+    ui->precedence_list->removeItemWidget(ui->precedence_list->currentItem());
 }
 
 
@@ -237,6 +253,15 @@ void MainWindow::charger()
         (*it).load((*it).getTitre() + QString(".xml"));
     }
 
+}
+
+void MainWindow::update()
+{
+    ui->precedence_list->clear();
+    for(PrecedenceManager::Iterator it = pre->begin(); it != pre->end(); ++it)
+    {
+        ui->precedence_list->addItem(new PrecedenceItem((*it).toString(),&(*it)));
+    }
 }
 
 

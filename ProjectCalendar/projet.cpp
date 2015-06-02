@@ -55,7 +55,12 @@ QString Projet::info() const
 
 void Projet::supprimerTache(QString& titre)
 {
-    map_tache.erase(titre);
+    Tache* tache = getTache(titre);
+    if(tache)
+    {
+        map_tache.erase(titre);
+        delete tache;
+    }
 }
 
 Projet::~Projet()

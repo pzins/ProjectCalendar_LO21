@@ -37,9 +37,10 @@ SOURCES += main.cpp \
     duree.cpp \
     mainwindow.cpp \
     dialogprojet.cpp \
-    dialogtache.cpp \
     observateur.cpp \
-    observable.cpp
+    observable.cpp \
+    dialogprecedence.cpp \
+    precedenceitem.cpp
 
 HEADERS += \
     tache.h \
@@ -60,12 +61,13 @@ HEADERS += \
     duree.h \
     projetmanager.h \
     mainwindow.h \
-    dialogprojet.h \
-    dialogtache.h \
     observateur.h \
-    observable.h
+    observable.h \
+    dialogprojet.h \
+    dialogprecedence.h \
+    precedenceitem.h
 
 FORMS += \
     mainwindow.ui \
     dialogprojet.ui \
-    dialogtache.ui
+    dialogprecedence.ui

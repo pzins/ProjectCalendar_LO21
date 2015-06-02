@@ -90,6 +90,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PrecedenceManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for PrecedenceManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_precedence_manager.png" usemap="#PrecedenceManager_map" alt=""/>
+  <map id="PrecedenceManager_map" name="PrecedenceManager_map">
+<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,132,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -98,15 +107,27 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6607fea158641ad13eca6d36d756afc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6607fea158641ad13eca6d36d756afc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> (<a class="el" href="class_tache.html">Tache</a> &amp;pred_, <a class="el" href="class_tache.html">Tache</a> &amp;succ_)</td></tr>
-<tr class="separator:ac6607fea158641ad13eca6d36d756afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21cbdc73c0c90b0f025c23489c53c219"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21cbdc73c0c90b0f025c23489c53c219"></a>
+std::set&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getVectPrecedence</b> () const </td></tr>
+<tr class="separator:a21cbdc73c0c90b0f025c23489c53c219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52087d3b4e888d87ffad7313a0ac8ecc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> (<a class="el" href="class_tache.html">Tache</a> &amp;pred_, <a class="el" href="class_tache.html">Tache</a> &amp;succ_, <a class="el" href="class_projet.html">Projet</a> &amp;projet_)</td></tr>
+<tr class="separator:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca8497dd9286dc3a35cf2bc70e57bfd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ca8497dd9286dc3a35cf2bc70e57bfd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPrecedence</b> (<a class="el" href="class_precedence.html">Precedence</a> &amp;precedence)</td></tr>
 <tr class="separator:a4ca8497dd9286dc3a35cf2bc70e57bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeadca9abec01c55e30f37a1bf4808415"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeadca9abec01c55e30f37a1bf4808415"></a>
-std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getVectPrecedence</b> () const </td></tr>
-<tr class="separator:aeadca9abec01c55e30f37a1bf4808415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e69d31bbaecc1d9c64b49511f523209"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e69d31bbaecc1d9c64b49511f523209"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
+<tr class="separator:a7e69d31bbaecc1d9c64b49511f523209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18628ae349521c2c33b7d93ecea930ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18628ae349521c2c33b7d93ecea930ae"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="separator:a18628ae349521c2c33b7d93ecea930ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb26b20499b54f16e0ae33aad858af6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb26b20499b54f16e0ae33aad858af6a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="separator:adb26b20499b54f16e0ae33aad858af6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e9e21bea86bd18f187a38dfd3f9689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33e9e21bea86bd18f187a38dfd3f9689"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> ()</td></tr>
+<tr class="separator:a33e9e21bea86bd18f187a38dfd3f9689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91f25f26cf6357a0b3c646eb2b1831c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91f25f26cf6357a0b3c646eb2b1831c9"></a>
 <a class="el" href="class_precedence_manager_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:a91f25f26cf6357a0b3c646eb2b1831c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,7 +151,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>liberer_instan
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2015 02:05:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 2 2015 03:10:42 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

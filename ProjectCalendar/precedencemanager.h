@@ -1,26 +1,26 @@
 #ifndef PRECEDENCEMANAGER_H
 #define PRECEDENCEMANAGER_H
 #include <vector>
+#include <set>
 #include "precedence.h"
+#include "observable.h"
 
-class PrecedenceManager
+class PrecedenceManager : public Observable
 {
 private:
-    std::vector<Precedence*> vect_precedence;
+    std::set<Precedence*> set_precedence;
 
     PrecedenceManager(){}
-    ~PrecedenceManager();
+    virtual ~PrecedenceManager();
     PrecedenceManager(const PrecedenceManager& p){}
     PrecedenceManager& operator=(const PrecedenceManager& p){}
 
     static PrecedenceManager* instance;
 
+    std::set<Observateur*> obs;
 
 public:
-    void ajouterPrecedence(Tache& pred_, Tache& succ_);
-    void retirerPrecedence(Precedence& precedence);
-
-    std::vector<Precedence*> getVectPrecedence() const {return vect_precedence;}
+    std::set<Precedence*> getVectPrecedence() const {return set_precedence;}
 
     static PrecedenceManager& getInstance(){
         if(!instance) instance = new PrecedenceManager();
@@ -31,6 +31,18 @@ public:
         delete instance;
     }
 
+    void ajouterPrecedence(Tache& pred_, Tache& succ_, Projet& projet_);
+    void retirerPrecedence(Precedence& precedence);
+    bool contains(const Precedence& p);
+
+
+    virtual void ajouterObservateur(Observateur* o);
+    virtual void supprimerObservateur(Observateur* o);
+    virtual void notifier();
+
+
+
+
 
 
 
@@ -38,10 +50,10 @@ public:
     {
     private:
         friend class PrecedenceManager;
-        std::vector<Precedence*>::iterator courant;
-        Iterator(std::vector<Precedence*>::iterator deb) : courant(deb){}
+        std::set<Precedence*>::iterator courant;
+        Iterator(std::set<Precedence*>::iterator deb) : courant(deb){}
     public:
-        Iterator() : courant(0) {}
+        //Iterator() : courant() {}
         Precedence& operator*() const {return **courant;}
         Iterator& operator++(){++courant; return *this;}
         Iterator operator++(int i){
@@ -57,8 +69,8 @@ public:
         }
     };
 
-    Iterator begin(){return Iterator(vect_precedence.begin());}
-    Iterator end(){return Iterator(vect_precedence.end());}
+    Iterator begin(){return Iterator(set_precedence.begin());}
+    Iterator end(){return Iterator(set_precedence.end());}
 };
 
 #endif // PRECEDENCEMANAGER_H

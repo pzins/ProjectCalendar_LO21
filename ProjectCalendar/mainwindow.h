@@ -6,14 +6,13 @@
 
 #include "projetmanager.h"
 #include "agenda.h"
-#include "dialogprojet.h"
-#include "dialogtache.h"
+#include "dialogprecedence.h"
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow, public Observateur
 {
     Q_OBJECT
 
@@ -21,6 +20,7 @@ public:
     static MainWindow& getInstance(QWidget* parent = 0);
     static void libererInstance();
     void supprimerAllItem();
+    void update();
 
 public slots:
     void sauvegarder();
@@ -30,9 +30,9 @@ public slots:
     void adaptForm2(bool etat);
     void ajouter();
     void afficherInfo(QModelIndex idx);
-    void test();
+    void ajouterPrecedence();
     void expand();
-
+    void supprimer_precedence();
 
 
 
@@ -46,6 +46,7 @@ private:
     static MainWindow* instance;
 
     ProjetManager* pm;
+    PrecedenceManager* pre;
     Agenda* ag;
 
 

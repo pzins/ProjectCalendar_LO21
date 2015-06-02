@@ -13,7 +13,7 @@ class ProjetManager : public Observateur, public QStandardItemModel
 private:
     std::map<QString, Projet*> map_projet;
     ProjetManager(){}
-    ~ProjetManager(){}
+    ~ProjetManager();
     ProjetManager(const ProjetManager& p){}
     ProjetManager& operator=(const ProjetManager& p){}
 
@@ -74,7 +74,7 @@ public:
                       const QDate& dispo, const QDate& echeance);
 
 
-    void update();//à enlever surement
+    virtual void update(){};//à enlever surement et enlever l'héritage de Observable
 
     //ajout ds vec les nom de ttes les taches filles de la tache item
     void findChildren(std::vector<QString> &vec, QStandardItem* item);
