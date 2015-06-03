@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     pre = &PrecedenceManager::getInstance();
     pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
+    ui->calendarWidget->
 //    pm->update();
 
 
@@ -255,7 +256,7 @@ void MainWindow::charger()
 
 }
 
-void MainWindow::update()
+void MainWindow::update(const QString& s1, const QString& s2)
 {
     ui->precedence_list->clear();
     for(PrecedenceManager::Iterator it = pre->begin(); it != pre->end(); ++it)

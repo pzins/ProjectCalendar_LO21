@@ -1,12 +1,15 @@
 #include "precedencemanager.h"
+#include "calendarexception.h"
+#include "projetmanager.h"
 #include <iostream>
+
 
 PrecedenceManager* PrecedenceManager::instance = 0;
 
 
 PrecedenceManager::~PrecedenceManager()
 {
-    for(std::set<Precedence*>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
+    for(std::set<Precedence*, MyComp>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
         delete (*it);
 }
 
@@ -14,13 +17,33 @@ PrecedenceManager::~PrecedenceManager()
 void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_, Projet& projet_)
 {
     Precedence* pred = new Precedence(pred_,succ_, projet_);
-    if(!contains(*pred))
+    if(!set_precedence.insert(pred).second)
     {
-        set_precedence.insert(pred);
+        delete pred;
+        throw CalendarException("Précédence déjà présente");
+    }
+    else if (containsInverse(*pred))
+    {
+        delete pred;
+        throw CalendarException("Précédence non cohérente");
+    }
+    else
+    {
         notifier();
     }
 }
 
+bool PrecedenceManager::containsInverse(const Precedence &p) const
+{
+    for(PrecedenceManager::ConstIterator it = begin(); it != end(); ++it)
+    {
+        if(p.isInverse(*it))
+            return true;
+    }
+    return false;
+}
+
+/*
 bool PrecedenceManager::contains(const Precedence& p)
 {
     for(Iterator it = begin(); it != end(); ++it)
@@ -30,15 +53,16 @@ bool PrecedenceManager::contains(const Precedence& p)
         }
     }
     return false;
-}
+}*/
 
-
-void PrecedenceManager::retirerPrecedence(Precedence& precedence)
+void PrecedenceManager::retirerPrecedence(Precedence &p)
 {
-    for(std::set<Precedence*> ::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
+    for(std::set<Precedence*, MyComp>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
     {
-        if(&precedence == *it)
+        std::cout << "ok" << std::endl;
+        if(p == *(*it))
         {
+            std::cout << "klm" << std::endl;
             set_precedence.erase(it);
             notifier();
             break;
@@ -46,17 +70,36 @@ void PrecedenceManager::retirerPrecedence(Precedence& precedence)
     }
 }
 
-void PrecedenceManager::notifier()
+std::vector<Precedence*> PrecedenceManager::findPrecedence(Projet* p, Tache* t)
 {
-    for(std::set<Observateur*>::iterator it = obs.begin(); it != obs.end(); ++it)
-        (*it)->update();
-}
-void PrecedenceManager::ajouterObservateur(Observateur* o)
-{
-    obs.insert(o);
+    std::vector<Precedence*> vec;
+    if(p)
+    {
+        for(PrecedenceManager::Iterator it = begin(); it != end(); ++it)
+        {
+            if((*it) == *p && ((*it) == *t) || !t)
+            {
+                vec.push_back(&*it);
+            }
+        }
+    }
+    return vec;
 }
 
-void PrecedenceManager::supprimerObservateur(Observateur* o)
+void PrecedenceManager::update(const QString& s1, const QString& s2)
 {
-    obs.erase(o);
+    std::cout << "ol" << std::endl;
+    Projet* p = ProjetManager::getInstance().getProjet(s1);
+    if(!p) return;
+    Tache* t = p->getTache(s2);
+    std::vector<Precedence*> vec = findPrecedence(p, t);
+    std::cout << "ollo " << vec.size() << std::endl;
+    for(std::vector<Precedence*>::iterator it = vec.begin(); it != vec.end(); ++it)
+         retirerPrecedence(*(*it));
+}
+
+void PrecedenceManager::notifier(const QString& s1, const QString& s2)
+{
+    for(Observable::Iterator it = getObs().begin(); it != getObs().end(); ++it)
+        (*it).update(s1,s2);
 }

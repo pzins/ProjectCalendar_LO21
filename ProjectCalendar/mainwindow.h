@@ -7,6 +7,7 @@
 #include "projetmanager.h"
 #include "agenda.h"
 #include "dialogprecedence.h"
+#include "precedencemanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,7 +21,7 @@ public:
     static MainWindow& getInstance(QWidget* parent = 0);
     static void libererInstance();
     void supprimerAllItem();
-    void update();
+    virtual void update(const QString& s1="", const QString& s2="");
 
 public slots:
     void sauvegarder();

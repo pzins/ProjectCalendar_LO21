@@ -20,3 +20,7 @@ QString Tache::info() const
     return str;
 }
 
+bool Tache::operator==(const Tache& t)
+{
+    return titre == t.getTitre();
+}

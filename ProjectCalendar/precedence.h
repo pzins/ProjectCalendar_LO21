@@ -1,9 +1,8 @@
 #ifndef PRECEDENCE_H
 #define PRECEDENCE_H
 #include <QString>
+#include "tache.h"
 
-
-class Tache;
 class Projet;
 
 class Precedence
@@ -21,10 +20,11 @@ public:
     Projet& getProjet() const {return *projet;}
     QString toString() const;
 
-    bool operator <(const Precedence& p);
-    bool operator >(const Precedence& p);
+    bool operator<(const Precedence& p);
     bool operator ==(const Precedence& p);
-    bool operator !=(const Precedence& p);
+    bool isInverse(const Precedence& pred) const;
+    bool operator==(const Tache& t);
+    bool operator==(const Projet& t);
 
 };
 

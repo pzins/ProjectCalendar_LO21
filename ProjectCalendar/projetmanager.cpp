@@ -28,8 +28,16 @@ void ProjetManager::retirerProjet(QString& titre)
     if(projet)
     {
         map_projet.erase(titre);
+        notifier(titre,0);
         delete projet;
     }
+}
+
+
+void ProjetManager::notifier(const QString& s1, const QString& s2)
+{
+    for(Observable::Iterator it =  getObs().begin(); it != getObs().end(); ++it)
+        (*it).update(s1,s2);
 }
 
 void ProjetManager::verification(const QString& titre, const QString& description,

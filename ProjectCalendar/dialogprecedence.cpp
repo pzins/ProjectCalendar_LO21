@@ -54,13 +54,41 @@ void DialogPrecedence::accept()
         Projet* p = pm->getProjet(ui->projet->currentText());
         Tache* ant = p->getTache(ui->anterieure->currentText());
         Tache* post = p->getTache(ui->posterieure->currentText());
+
+        std::vector<QString> vec;
+        if(ant->isComposite())
+        {
+            vec = ProjetManager::getInstance().getTacheFilles(ant->getTitre(), p->getTitre());
+            for(std::vector<QString>::iterator it = vec.begin()+1; it != vec.end(); ++it)
+            {
+                if(*it == post->getTitre())
+                {
+                    throw CalendarException("Précédence impossible entre tache mère et tache fille");
+                }
+                Tache* ante = p->getTache(*it);
+                pre->ajouterPrecedence(*ante,*post, *p);
+            }
+        }
+        else if(post->isComposite())
+        {
+            vec = ProjetManager::getInstance().getTacheFilles(post->getTitre(), p->getTitre());
+            for(std::vector<QString>::iterator it = vec.begin()+1; it != vec.end(); ++it)
+            {
+                if(*it == ant->getTitre())
+                {
+                    throw CalendarException("Précédence impossible entre tache mère et tache fille");
+                }
+                Tache* poste = p->getTache(*it);
+                pre->ajouterPrecedence(*ant,*poste, *p);
+            }
+        }
         pre->ajouterPrecedence(*ant, *post, *p);
+        this->close();
     }
     catch(CalendarException e)
     {
         QMessageBox::critical(this, "Erreur", e.getInfo());
     }
-    this->close();
 }
 
 void DialogPrecedence::chargerProjets()

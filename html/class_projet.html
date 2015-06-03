@@ -84,12 +84,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_projet-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Projet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for Projet:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_projet.png" usemap="#Projet_map" alt=""/>
+  <map id="Projet_map" name="Projet_map">
+<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,78,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -137,18 +145,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QStri
 <tr class="memitem:a9d3f14378e9831ce72aef90858d8d733"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d3f14378e9831ce72aef90858d8d733"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:a9d3f14378e9831ce72aef90858d8d733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba60591b22a971014cb21220c0dc7eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ba60591b22a971014cb21220c0dc7eb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_projet.html">Projet</a> &amp;p)</td></tr>
+<tr class="separator:a2ba60591b22a971014cb21220c0dc7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c93dd2241398bb117a764dab22a5254"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c93dd2241398bb117a764dab22a5254"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="separator:a7c93dd2241398bb117a764dab22a5254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac935c3f7a161e8fb124391cdcb346c39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac935c3f7a161e8fb124391cdcb346c39"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:ac935c3f7a161e8fb124391cdcb346c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad527f5d288ddf9b6e1bb70d285cec13b"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:aaaed9857b3481233fa7c581b5c86151d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaed9857b3481233fa7c581b5c86151d"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>ProjetManager</b></td></tr>
-<tr class="separator:aaaed9857b3481233fa7c581b5c86151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
+<tr class="memitem:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24b4cfcda63fe93dbca84dc6fa6cb089"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+<tr class="separator:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2100c4c9fcd7a94624c8aaf4acdf58d inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2100c4c9fcd7a94624c8aaf4acdf58d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+<tr class="separator:ac2100c4c9fcd7a94624c8aaf4acdf58d inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcddf8a5f21c6cb31334d91e89541539 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcddf8a5f21c6cb31334d91e89541539"></a>
+const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getObs</b> () const </td></tr>
+<tr class="separator:afcddf8a5f21c6cb31334d91e89541539 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16b5b4502299872607a6fb2b1ad8ad5 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae16b5b4502299872607a6fb2b1ad8ad5"></a>
+<a class="el" href="class_observable_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:ae16b5b4502299872607a6fb2b1ad8ad5 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeba1960c449755ea7f712b7814f1236 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abeba1960c449755ea7f712b7814f1236"></a>
+<a class="el" href="class_observable_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:abeba1960c449755ea7f712b7814f1236 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="projet_8h_source.html">projet.h</a></li>
@@ -157,7 +181,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ProjetManager</b></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 2 2015 03:10:42 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 3 2015 23:04:46 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

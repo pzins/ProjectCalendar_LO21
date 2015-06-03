@@ -1,15 +1,15 @@
 #ifndef PROJET_H
 #define PROJET_H
-#include "tache.h"
-#include "tacheunitaire.h"
 #include "tachecomposite.h"
+#include "observable.h"
 #include <QString>
 #include <stdexcept>
 #include <iostream>
+#include "precedencemanager.h"
 
-class Projet
+class Projet : public Observable
 {
-    friend class ProjetManager;
+    //friend class ProjetManager;
 private:
     QString titre;
     QString description;
@@ -20,7 +20,10 @@ private:
 public:
 
     Projet(const QString& titre_, const QString& description_, const QDate& dispo_, const QDate& echeance_) :
-        titre(titre_), description(description_), dispo(dispo_), echeance(echeance_){}
+        titre(titre_), description(description_), dispo(dispo_), echeance(echeance_)
+    {
+        ajouterObservateur(&PrecedenceManager::getInstance());
+    }
 
     const QString& getTitre() const {return titre;}
     const QString& getDescription() const {return description;}
@@ -49,6 +52,10 @@ public:
     void save(const QString &titre);
     //charge les taches du projet
     void load(const QString& f);
+
+    bool operator==(const Projet& p);
+
+    void notifier(const QString& str="", const QString& s2="");
 
 
 

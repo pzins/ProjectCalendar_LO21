@@ -8,7 +8,6 @@
 #include <QtXml>
 
 #include "calendarexception.h"
-#include "precedencemanager.h"
 
 
 
@@ -48,7 +47,7 @@ public:
     virtual bool isComposite() const =0;
     virtual QString info() const=0;
 
-
+    bool operator==(const Tache& t);
 
 /*
     class SuccIterator

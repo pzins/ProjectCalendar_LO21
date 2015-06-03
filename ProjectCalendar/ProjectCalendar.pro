@@ -8,6 +8,7 @@ QT       += core \
               xml \
               widgets
 
+
 QT       -= gui
 
 TARGET = ProjectCalendar

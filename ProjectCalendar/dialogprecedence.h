@@ -3,10 +3,12 @@
 
 #include <QDialog>
 #include "projetmanager.h"
+#include "precedencemanager.h"
 
 namespace Ui {
 class DialogPrecedence;
 }
+
 
 class DialogPrecedence : public QDialog
 {

@@ -8,11 +8,14 @@
 #include <QTreeView>
 
 
-class ProjetManager : public Observateur, public QStandardItemModel
+class ProjetManager : public QStandardItemModel, public Observable
 {
+    //friend class PrecedenceManager;
 private:
     std::map<QString, Projet*> map_projet;
-    ProjetManager(){}
+    ProjetManager(){
+        //ajouterObservateur(&PrecedenceManager::getInstance());
+    }
     ~ProjetManager();
     ProjetManager(const ProjetManager& p){}
     ProjetManager& operator=(const ProjetManager& p){}
@@ -20,6 +23,8 @@ private:
     static ProjetManager* instance;
 
     QStandardItemModel model;
+
+
 
 public:
 
@@ -74,7 +79,6 @@ public:
                       const QDate& dispo, const QDate& echeance);
 
 
-    virtual void update(){};//à enlever surement et enlever l'héritage de Observable
 
     //ajout ds vec les nom de ttes les taches filles de la tache item
     void findChildren(std::vector<QString> &vec, QStandardItem* item);
@@ -82,6 +86,8 @@ public:
     //supprime des taches ou projet
     void supprimerItem(QModelIndex &sel);
 
+
+    virtual void notifier(const QString& s1="", const QString& s2="");
 
     class Iterator
     {

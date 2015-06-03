@@ -5,6 +5,12 @@
 #include <QtXml>
 #include <iostream>
 
+
+bool Projet::operator ==(const Projet& p)
+{
+    return titre == p.getTitre();
+}
+
 void Projet::ajouterTache(QChar type, const QString& titre, const QString& description, const QDate& dispo,
                           const QDate& echeance, const Duree& duree, bool preemptive)
 {
@@ -59,9 +65,19 @@ void Projet::supprimerTache(QString& titre)
     if(tache)
     {
         map_tache.erase(titre);
+        notifier(this->getTitre(), titre);
         delete tache;
     }
 }
+
+
+void Projet::notifier(const QString& s1, const QString& s2)
+{
+    for(Observable::Iterator it =  getObs().begin(); it != getObs().end(); ++it)
+        (*it).update(s1,s2);
+}
+
+
 
 Projet::~Projet()
 {
