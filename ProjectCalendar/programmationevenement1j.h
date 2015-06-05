@@ -17,6 +17,7 @@ public:
 
     const Duree& getDuree() const {return duree;}
     virtual void afficher() const;
+    virtual bool isEvt1j() const {return true;}
 };
 
 #endif // PROGRAMMATIONEVENEMENT1J_H

@@ -6,7 +6,7 @@
 
 QT       += core \
               xml \
-              widgets
+              widgets\
 
 
 QT       -= gui
@@ -41,7 +41,9 @@ SOURCES += main.cpp \
     observateur.cpp \
     observable.cpp \
     dialogprecedence.cpp \
-    precedenceitem.cpp
+    precedenceitem.cpp \
+    jourscene.cpp \
+    programmationitem.cpp
 
 HEADERS += \
     tache.h \
@@ -66,7 +68,9 @@ HEADERS += \
     observable.h \
     dialogprojet.h \
     dialogprecedence.h \
-    precedenceitem.h
+    precedenceitem.h \
+    jourscene.h \
+    programmationitem.h
 
 FORMS += \
     mainwindow.ui \

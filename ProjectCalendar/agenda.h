@@ -2,13 +2,23 @@
 #define AGENDA_H
 #include <vector>
 #include <iostream>
+#include <set>
 #include "tache.h"
 #include "programmation.h"
 
+class ProgComp
+{
+public:
+    bool operator()(Programmation* a, Programmation* b)
+    {
+        return (a->getDate() < b->getDate())||
+                (a->getDate() == b->getDate() && a->getDebut() < b->getDebut());
+    }
+};
 
 class Agenda {
 private:
-    std::vector<Programmation*> vect_progr;
+    std::set<Programmation*, ProgComp> set_prog;
 
 
     void addItem(Programmation* t);
@@ -23,8 +33,6 @@ private:
 
 
 public:
-    void ajouterProgrammation(Programmation& progr);
-    void retirerProgrammation(Programmation& programmation);
 
     static Agenda& getInstance(){
         if(!instance) instance = new Agenda();
@@ -32,22 +40,15 @@ public:
     }
     static void libererInstance(){delete instance;}
 
-    void ajouterProg(Programmation& p){
-        for (int i = 0; i < vect_progr.size(); ++i)
-            if(vect_progr[i]->getDate() == p.getDate() && vect_progr[i]->getDebut() == p.getDebut()){
-                std::cout << "Ajout de programmation impossible" << std::endl;
-                throw CalendarException("2 programmations se chevauchent");
-                break;
-            }
-        vect_progr.push_back(&p);
-    }
+    Agenda& operator<<(Programmation& evt);
+    Agenda& operator>>(Programmation* evt);
 
     class Iterator
     {
     private:
         friend class Agenda;
-        std::vector<Programmation*>::iterator courant;
-        Iterator(std::vector<Programmation*>::iterator deb) : courant(deb){}
+        std::set<Programmation*, ProgComp>::iterator courant;
+        Iterator(std::set<Programmation*, ProgComp>::iterator deb) : courant(deb){}
     public:
         Iterator() : courant(0) {}
         Programmation& operator*() const {return **courant;}
@@ -65,8 +66,8 @@ public:
         }
     };
 
-    Iterator begin(){return Iterator(vect_progr.begin());}
-    Iterator end(){return Iterator(vect_progr.end());}
+    Iterator begin(){return Iterator(set_prog.begin());}
+    Iterator end(){return Iterator(set_prog.end());}
 
 };
 

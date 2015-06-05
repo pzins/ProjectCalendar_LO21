@@ -18,6 +18,8 @@ public:
     const QDate& getDateFin() const {return date_fin;}
     const QTime& getFin() const {return fin;}
     virtual void afficher() const;
+    virtual bool isEvt1j() const {return false;}
+
 };
 
 #endif // PROGRAMMATIONEVENEMENTPLSJ_H

@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
     pm = &ProjetManager::getInstance();
 /*
     pm->ajouterProjet("ol","...",QDate(2000,3,5),QDate(2003,2,5));
@@ -49,12 +51,19 @@ MainWindow::MainWindow(QWidget *parent) :
     pre = &PrecedenceManager::getInstance();
     pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
-    ui->calendarWidget->
+
+    scenes.push_back(new JourScene("Lundi",QDate(1994,3,20),0,0,ui->v_lundi->width()-2,ui->v_lundi->height()-2,840,ui->v_lundi));
+
+
+
+    ui->v_lundi->setScene(scenes.at(0));
+
+
 //    pm->update();
 
 
     /*
-    QStandardItem *parentItem = model.invisibleRootItem();
+    QStand  ardItem *parentItem = model.invisibleRootItem();
 
     for (int i = 0; i < 4; ++i) {
         Projet *object = new Projet("oko",QDate(2000,5,2), QDate(2001,2,3));

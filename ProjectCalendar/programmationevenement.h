@@ -20,7 +20,7 @@ public:
     const QString& getTitre() const {return titre;}
     const QString& getDescription() const {return description;}
     virtual void afficher() const =0;
-
+    virtual bool isEvt1j() const =0;
 
 };
 
