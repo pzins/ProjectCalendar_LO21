@@ -14,12 +14,12 @@ public:
         ProgrammationEvenement(date_, debut_, titre_, description_),date_fin(date_fin_), fin(fin_){}
 
     virtual ~ProgrammationEvenementplsJ(){}
-
     const QDate& getDateFin() const {return date_fin;}
     const QTime& getFin() const {return fin;}
     virtual void afficher() const;
     virtual bool isEvt1j() const {return false;}
 
+    virtual const Duree& getDuree() const {return 24;}
 };
 
 #endif // PROGRAMMATIONEVENEMENTPLSJ_H

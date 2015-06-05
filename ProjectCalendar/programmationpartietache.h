@@ -18,8 +18,8 @@ public:
         ProgrammationTacheUnitaire(date_, debut_, tache_), nom_partie(nom_partie_), duree(duree_), tache(&tache_){}
 
     virtual ~ProgrammationPartieTache(){}
-
     virtual void afficher() const;
+    virtual const Duree& getDuree() const {return duree;}
 
 };
 

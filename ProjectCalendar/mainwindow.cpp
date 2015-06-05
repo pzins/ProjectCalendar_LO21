@@ -51,12 +51,22 @@ MainWindow::MainWindow(QWidget *parent) :
     pre = &PrecedenceManager::getInstance();
     pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
+    std::cout << "ol=> " << ui->v_lundi->height() << " " << ui->v_lundi->width() << std::endl;
+    Agenda::getInstance().ajouterScene(ui->v_lundi->height(), ui->v_lundi->width(), this);
+    ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
+    Agenda::getInstance().ajouterProgrammation(QDate(1994,3,20),"ol","lyon", QTime(9,0), Duree(2,3));
+    Agenda::getInstance().ajouterProgrammation(QDate(1994,3,20),"jdtyj","lyon", QTime(11,2), Duree(0,35));
+    Agenda::getInstance().ajouterProgrammation(QDate(1994,3,20),"fdhg","lyon", QTime(17,30), Duree(0,30));
+    Agenda::getInstance().ajouterProgrammation(QDate(1994,3,20),"rsth","lyon", QTime(20,30), Duree(1,0));
 
-    scenes.push_back(new JourScene("Lundi",QDate(1994,3,20),0,0,ui->v_lundi->width()-2,ui->v_lundi->height()-2,840,ui->v_lundi));
 
+    std::cout << "________ " << Agenda::getInstance().getProgrammation().size()<< std::endl;
 
-
-    ui->v_lundi->setScene(scenes.at(0));
+/*
+    Agenda::getInstance().getScene(0).ajouterProgrammation("ol",QTime(9,30),Duree(5,3));
+    Agenda::getInstance().getScene(0).ajouterProgrammation("ol",QTime(10,30),Duree(1,0));
+    Agenda::getInstance().getScene(0).ajouterProgrammation("ly",QTime(17,30),Duree(0,30));
+    Agenda::getInstance().getScene(0).ajouterProgrammation("ppp",QTime(9,30),Duree(0,30));
 
 
 //    pm->update();
@@ -92,6 +102,19 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
     connect(ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(afficherInfo(QModelIndex)));
     connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
+
+    connect(ui->v_lundi->scene(), SIGNAL(selectionChanged()), this, SLOT(test()));
+}
+
+
+void MainWindow::test()
+{
+    std::cout << "OL" << std::endl;
+    for(QList<QGraphicsItem *>::iterator it = ui->v_lundi->scene()->selectedItems().begin() ; it != ui->v_lundi->scene()->selectedItems().end() ; ++it)
+    {
+        Programmation* p = dynamic_cast<ProgrammationItem*>(*it)->getProgrammtion();
+        Agenda::getInstance().enleverProgrammation(p);
+    }
 }
 
 void MainWindow::ajouterPrecedence()

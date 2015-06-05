@@ -21,6 +21,7 @@ public:
     const QString& getDescription() const {return description;}
     virtual void afficher() const =0;
     virtual bool isEvt1j() const =0;
+    virtual const Duree& getDuree() const =0;
 
 };
 

@@ -8,6 +8,7 @@ class PrecedenceItem : public QListWidgetItem
 private:
     Precedence* pre;
 
+
 public:
     PrecedenceItem(const QString& str, Precedence* pre_) : QListWidgetItem(str), pre(pre_){}
     Precedence* getPrecedence() const {return pre;}

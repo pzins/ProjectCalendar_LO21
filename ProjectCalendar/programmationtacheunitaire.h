@@ -17,6 +17,7 @@ public:
     const TacheUnitaire* getTache() const {return tache;}
 
     virtual void afficher() const;
+    virtual const Duree& getDuree() const {return tache->getDuree();}
 
 };
 

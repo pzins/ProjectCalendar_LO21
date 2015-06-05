@@ -2,6 +2,7 @@
 #define PROGRAMMATION_H
 #include <QDate>
 #include <QTime>
+#include "duree.h"
 #include <iostream>
 
 class Programmation {
@@ -15,6 +16,7 @@ public:
 
     QDate getDate() const {return date;}
     QTime getDebut() const {return debut;}
+    virtual const Duree& getDuree() const =0;
    // const Tache& getTache() const =0;
     virtual void afficher() const =0;
 };

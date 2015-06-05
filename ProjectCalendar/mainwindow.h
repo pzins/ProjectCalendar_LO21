@@ -3,13 +3,11 @@
 #include <QMainWindow>
 #include <QDirModel>
 #include <QStandardItemModel>
-#include <vector>
 
 #include "projetmanager.h"
 #include "agenda.h"
 #include "dialogprecedence.h"
 #include "precedencemanager.h"
-#include "jourscene.h"
 
 namespace Ui {
 class MainWindow;
@@ -36,6 +34,7 @@ public slots:
     void ajouterPrecedence();
     void expand();
     void supprimer_precedence();
+    void test();
 
 
 
@@ -51,7 +50,6 @@ private:
     ProjetManager* pm;
     PrecedenceManager* pre;
     Agenda* ag;
-    std::vector<JourScene*> scenes;
 
 
 

@@ -4,8 +4,10 @@
 #include <QDate>
 #include "duree.h"
 #include "programmation.h"
+#include "programmationitem.h"
+#include "observateur.h"
 
-class JourScene : public QGraphicsScene
+class JourScene : public QGraphicsScene, public Observateur
 {
 private:
     QString jour;
@@ -20,10 +22,10 @@ public:
     const QDate& getDate() const {return date;}
     void setDate(QDate& d) {date = d;}
 
-    QGraphicsRectItem *ajouterProgrammation(const QString titre, const QTime& debut, const Duree& duree,
-            Programmation* e=0, const QColor& contour = QColor("lightGray"), const QColor& fond = QColor("blue"));
+    void ajouterProgrammation(const QString titre, const QTime& debut, const Duree& duree,
+            Programmation* e=0, const QColor& contour = QColor("black"), const QColor& fond = QColor("red"));
     void dessinerFond();
-    void miseAJour();
+    virtual void update(const QString& s1="", const QString& s2="");
 };
 
 #endif // JOURSCENE_H

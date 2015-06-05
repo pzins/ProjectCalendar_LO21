@@ -15,7 +15,7 @@ public:
 
     virtual ~ProgrammationEvenement1J(){}
 
-    const Duree& getDuree() const {return duree;}
+    virtual const Duree& getDuree() const {return duree;}
     virtual void afficher() const;
     virtual bool isEvt1j() const {return true;}
 };

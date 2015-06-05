@@ -4,7 +4,9 @@
 #include <iostream>
 #include <set>
 #include "tache.h"
-#include "programmation.h"
+#include "programmationevenement1j.h"
+#include "jourscene.h"
+#include "observable.h"
 
 class ProgComp
 {
@@ -16,10 +18,11 @@ public:
     }
 };
 
-class Agenda {
+class Agenda : public Observable
+{
 private:
     std::set<Programmation*, ProgComp> set_prog;
-
+    std::vector<JourScene*> scenes;
 
     void addItem(Programmation* t);
     Programmation* trouverProgrammation(const Tache& t) const;
@@ -40,8 +43,29 @@ public:
     }
     static void libererInstance(){delete instance;}
 
-    Agenda& operator<<(Programmation& evt);
-    Agenda& operator>>(Programmation* evt);
+    void ajouterProgrammation(const QDate& date, const QString titre, const QString& desc, const QTime& debut,
+    const Duree& duree, const QColor& contour=QColor("black"), const QColor& fond=QColor("red"));
+
+    void enleverProgrammation(Programmation* prog);
+
+    void ajouterScene(qreal h, qreal w, QObject* parent = 0 );
+    JourScene& getScene(int i) const {return *scenes.at(i);}
+    std::set<Programmation*, ProgComp> getProgrammation() const {return set_prog;}
+
+    virtual void notifier(const QString& s1="", const QString& s2="");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     class Iterator
     {

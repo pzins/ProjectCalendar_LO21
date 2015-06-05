@@ -94,6 +94,7 @@ Inheritance diagram for JourScene:</div>
  <div class="center">
   <img src="class_jour_scene.png" usemap="#JourScene_map" alt=""/>
   <map id="JourScene_map" name="JourScene_map">
+<area href="class_observateur.html" alt="Observateur" shape="rect" coords="119,0,228,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -108,15 +109,15 @@ const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate<
 <tr class="memitem:a6492a731ec912052f77dd9952b40a1c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6492a731ec912052f77dd9952b40a1c1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDate</b> (QDate &amp;d)</td></tr>
 <tr class="separator:a6492a731ec912052f77dd9952b40a1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ab75335761ddcedbc97a616ed6648d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3ab75335761ddcedbc97a616ed6648d"></a>
-QGraphicsRectItem *&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (const QString titre, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, <a class="el" href="class_programmation.html">Programmation</a> *e=0, const QColor &amp;contour=QColor(&quot;lightGray&quot;), const QColor &amp;fond=QColor(&quot;blue&quot;))</td></tr>
-<tr class="separator:ab3ab75335761ddcedbc97a616ed6648d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc814d66d12d1e944654da9db004735"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfc814d66d12d1e944654da9db004735"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (const QString titre, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, <a class="el" href="class_programmation.html">Programmation</a> *e=0, const QColor &amp;contour=QColor(&quot;black&quot;), const QColor &amp;fond=QColor(&quot;red&quot;))</td></tr>
+<tr class="separator:acfc814d66d12d1e944654da9db004735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d8153523054cfa3da0a3c0253117ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d8153523054cfa3da0a3c0253117ec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>dessinerFond</b> ()</td></tr>
 <tr class="separator:aa7d8153523054cfa3da0a3c0253117ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac94462aef26a92aa69ac805af701cd87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac94462aef26a92aa69ac805af701cd87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>miseAJour</b> ()</td></tr>
-<tr class="separator:ac94462aef26a92aa69ac805af701cd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019e742d5f242329d54d132e4e02e131"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a019e742d5f242329d54d132e4e02e131"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="separator:a019e742d5f242329d54d132e4e02e131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="jourscene_8h_source.html">jourscene.h</a></li>
@@ -125,7 +126,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>miseAJour</b> ()</td>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 12:34:05 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 18:34:44 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
