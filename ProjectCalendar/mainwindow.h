@@ -24,7 +24,7 @@ public:
     virtual void update(const QString& s1="", const QString& s2="");
     void supprimerProgrammation(QGraphicsView& v);
     void getInformation(QGraphicsView& v);
-
+    void initCalendar(QDate d);
 
 
 public slots:
@@ -46,6 +46,7 @@ public slots:
     void samedi();
     void dimanche();
     void ajouterEvt();
+    void test();
 
 
 

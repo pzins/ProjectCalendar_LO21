@@ -60,6 +60,7 @@ public:
 
     void ajouterScene(const QString &jour, const QDate &date, qreal h, qreal w, QObject* parent = 0 );
     JourScene& getScene(int i) const {return *scenes.at(i);}
+    void removeAllScenes(){scenes.clear();}
     std::set<Programmation*, ProgComp> getProgrammation() const {return set_prog;}
 
     virtual void notifier(const QString& s1="", const QString& s2="");

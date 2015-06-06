@@ -102,8 +102,8 @@ QTabWidget::tab-bar {
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>2031</width>
-      <height>673</height>
+      <width>1361</width>
+      <height>721</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -885,10 +885,10 @@ Précédence</string>
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>1111</width>
-        <height>621</height>
+        <x>10</x>
+        <y>110</y>
+        <width>822</width>
+        <height>561</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -896,8 +896,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_lundi">
          <property name="minimumSize">
           <size>
-           <width>153</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -906,8 +906,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_mardi">
          <property name="minimumSize">
           <size>
-           <width>154</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -916,8 +916,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_mercredi">
          <property name="minimumSize">
           <size>
-           <width>153</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -926,8 +926,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_jeudi">
          <property name="minimumSize">
           <size>
-           <width>153</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -936,8 +936,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_vendredi">
          <property name="minimumSize">
           <size>
-           <width>153</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -946,8 +946,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_samedi">
          <property name="minimumSize">
           <size>
-           <width>154</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -956,8 +956,8 @@ Précédence</string>
         <widget class="QGraphicsView" name="v_dimanche">
          <property name="minimumSize">
           <size>
-           <width>153</width>
-           <height>619</height>
+           <width>100</width>
+           <height>550</height>
           </size>
          </property>
         </widget>
@@ -967,10 +967,10 @@ Précédence</string>
      <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>1150</x>
-        <y>70</y>
-        <width>173</width>
-        <height>118</height>
+        <x>860</x>
+        <y>20</y>
+        <width>301</width>
+        <height>263</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -997,6 +997,49 @@ Précédence</string>
        </item>
       </layout>
      </widget>
+     <widget class="QCalendarWidget" name="calendarWidget">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>310</y>
+        <width>456</width>
+        <height>172</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>20</y>
+        <width>821</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QTextBrowser" name="lundi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="mardi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="mercredi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="jeudi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="vendredi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="samedi"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="dimanche"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -1010,7 +1053,6 @@ Précédence</string>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

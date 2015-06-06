@@ -16,6 +16,7 @@ void Agenda::ajouterScene(const QString& jour, const QDate& date, qreal h, qreal
 }
 
 
+
 Agenda::~Agenda(){
     //for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
    /* for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)

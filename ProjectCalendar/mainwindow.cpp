@@ -43,12 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
 
-    QDate d = Agenda::getInstance().getAuj();
-    for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
-    {
-        QDate tmp = d.addDays(i);
-        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width(), this);
-    }
+
     /*Agenda::getInstance().ajouterScene("mardi",d, ui->v_mardi->height(), ui->v_mardi->width(), this);
     Agenda::getInstance().ajouterScene("mercredi",d, ui->v_mercredi->height(), ui->v_mercredi->width(), this);
     Agenda::getInstance().ajouterScene("jeudi",d, ui->v_jeudi->height(), ui->v_jeudi->width(), this);
@@ -56,22 +51,15 @@ MainWindow::MainWindow(QWidget *parent) :
     Agenda::getInstance().ajouterScene("samedi",d, ui->v_samedi->height(), ui->v_samedi->width(), this);
     Agenda::getInstance().ajouterScene("dimanche",d, ui->v_dimanche->height(), ui->v_dimanche->width(), this);*/
 
-    ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
-    ui->v_mardi->setScene(&Agenda::getInstance().getScene(1));
-    ui->v_mercredi->setScene(&Agenda::getInstance().getScene(2));
-    ui->v_jeudi->setScene(&Agenda::getInstance().getScene(3));
-    ui->v_vendredi->setScene(&Agenda::getInstance().getScene(4));
-    ui->v_samedi->setScene(&Agenda::getInstance().getScene(5));
-    ui->v_dimanche->setScene(&Agenda::getInstance().getScene(6));
 
 
-
+/*
 
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"rsth","lyon", QTime(20,30), Duree(1,0));
-
+*/
 
 
 /*
@@ -102,6 +90,12 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     ui->treeView->setModel(&model);
 */
+    initCalendar(Agenda::getInstance().getAuj());
+
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"rsth","lyon", QTime(20,30), Duree(1,0));
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
     connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
     connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
@@ -116,8 +110,43 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
 
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
+    connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(test()));
 
     ui->informations->setChecked(true);
+
+}
+void MainWindow::test()
+{
+    QDate d = ui->calendarWidget->selectedDate();
+    initCalendar(d);
+}
+
+void MainWindow::initCalendar(QDate d)
+{
+    //QDate d = Agenda::getInstance().getAuj();
+    Agenda::getInstance().removeAllScenes();
+    for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
+    {
+        QDate tmp = d.addDays(i);
+        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width(), this);
+    }
+    ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
+    ui->v_mardi->setScene(&Agenda::getInstance().getScene(1));
+    ui->v_mercredi->setScene(&Agenda::getInstance().getScene(2));
+    ui->v_jeudi->setScene(&Agenda::getInstance().getScene(3));
+    ui->v_vendredi->setScene(&Agenda::getInstance().getScene(4));
+    ui->v_samedi->setScene(&Agenda::getInstance().getScene(5));
+    ui->v_dimanche->setScene(&Agenda::getInstance().getScene(6));
+
+    ui->lundi->setText("<h3>Lundi</h3>"+Agenda::getInstance().getScene(0).getDate().toString());
+    ui->mardi->setText("<h3>Mardi</h3>"+Agenda::getInstance().getScene(1).getDate().toString());
+    ui->mercredi->setText("<h3>Mercredi</h3>"+Agenda::getInstance().getScene(2).getDate().toString());
+    ui->jeudi->setText("<h3>Jeudi</h3>"+Agenda::getInstance().getScene(3).getDate().toString());
+    ui->vendredi->setText("<h3>Vendredi</h3>"+Agenda::getInstance().getScene(4).getDate().toString());
+    ui->samedi->setText("<h3>Samedi</h3>"+Agenda::getInstance().getScene(5).getDate().toString());
+    ui->dimanche->setText("<h3>Dimanche</h3>"+Agenda::getInstance().getScene(6).getDate().toString());
+
+
     connect(ui->v_lundi->scene(), SIGNAL(selectionChanged()), this, SLOT(lundi()));
     connect(ui->v_mardi->scene(), SIGNAL(selectionChanged()), this, SLOT(mardi()));
     connect(ui->v_mercredi->scene(), SIGNAL(selectionChanged()), this, SLOT(mercredi()));
@@ -125,8 +154,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->v_vendredi->scene(), SIGNAL(selectionChanged()), this, SLOT(vendredi()));
     connect(ui->v_samedi->scene(), SIGNAL(selectionChanged()), this, SLOT(samedi()));
     connect(ui->v_dimanche->scene(), SIGNAL(selectionChanged()), this, SLOT(dimanche()));
+    Agenda::getInstance().notifier();
 }
-
 
 void MainWindow::lundi()
 {
