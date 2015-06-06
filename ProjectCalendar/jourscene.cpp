@@ -87,9 +87,13 @@ void JourScene::update(const QString& s1, const QString& s2)
     Agenda& a = Agenda::getInstance();
     for(Agenda::Iterator it = a.begin() ; it != a.end() ; ++it)
     {
-        if((*it).getDate() == date)
+        if((*it).isEvtPlsJ())
         {
-            std::cout << "QUATRE" << std::endl;
+            ProgrammationEvenementplsJ* p = dynamic_cast<ProgrammationEvenementplsJ*>(&*it);
+            a.ajouterProgrammationPlsJour(p);
+        }
+        else if((*it).getDate() == date)
+        {
             std::cout << date.toString().toStdString() << std::endl;
             ajouterProgrammation((*it).getTitre(), (*it).getDebut(),(*it).getDuree(), &*it);
         }

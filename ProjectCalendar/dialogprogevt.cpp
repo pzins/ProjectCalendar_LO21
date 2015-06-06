@@ -118,8 +118,8 @@ void DialogProgEvt::accept()
     }
     else
     {
-        /*ag->ajouterProgrammation(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                         Duree(ui->duree->time().hour(), ui->duree->time().minute()));*/
+        ag->ajouterProgrammationPlsJour(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
+                                        ui->date_fin->date(), ui->horaire_fin->time());
     }
     close();
 }

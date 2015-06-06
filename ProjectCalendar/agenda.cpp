@@ -2,7 +2,6 @@
 #include "jourscene.h"
 #include "programmation.h"
 #include "programmationrdv.h"
-#include "programmationevenementplsj.h"
 
 Agenda* Agenda::instance = 0;
 
@@ -35,23 +34,11 @@ void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre,
                                          const QTime& debut, const QDate& date_fin, const QTime& fin,
                                          const QColor& contour, const QColor& fond)
 {
-    int nb_jour = date_fin.daysTo(date)+1;
-    Programmation* p = new ProgrammationEvenementplsJ(date, debut, titre, desc, date_fin, fin);
+    ProgrammationEvenementplsJ* p = new ProgrammationEvenementplsJ(date, debut, titre, desc, date_fin, fin);
     try
     {
         verifProgrammation(p);
-        Duree d1(QTime(22,0).secsTo(debut) / 60);
-        Duree d2(fin.secsTo(QTime(8,0)) / 60);
-        for(int i = 0; i < nb_jour; ++i)
-        {
-            JourScene* j = scenes.at(date.dayOfWeek()-1+i);
-            if(i==0)
-                j->ajouterProgrammation(titre, debut, d1, p);
-            else if(i == nb_jour-1)
-                j->ajouterProgrammation(titre, QTime(8,0), Duree(14,0), p);
-            else
-                j->ajouterProgrammation(titre, QTime(8,0), d2, p);
-        }
+        ajouterProgrammationPlsJour(p);
     }
     catch(CalendarException e)
     {
@@ -59,6 +46,27 @@ void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre,
     }
 }
 
+void Agenda::ajouterProgrammationPlsJour(ProgrammationEvenementplsJ* p)
+{
+    std::cout << "okookokokok" << std::endl;
+    int nb_jour = p->getDate().daysTo(p->getDateFin())+1;
+    std::cout << "..." << nb_jour << "..." << std::endl;
+    Duree d1(QTime(8,0).secsTo(p->getFin()) / 60);
+    Duree d2(p->getDebut().secsTo(QTime(22,0)) / 60);
+
+
+    for(int i = 0; i < nb_jour; ++i)
+    {
+
+        JourScene* j = scenes.at(p->getDate().dayOfWeek()-1+i);
+        if(i==0)
+            j->ajouterProgrammation(p->getTitre(), p->getDebut(), d2, p);
+        else if(i == nb_jour-1)
+            j->ajouterProgrammation(p->getTitre(), QTime(8,0), d1, p);
+        else
+            j->ajouterProgrammation(p->getTitre(), QTime(8,0), Duree(14,0), p);
+    }
+}
 
 void Agenda::verifProgrammation(Programmation* p)
 {

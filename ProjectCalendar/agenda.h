@@ -5,6 +5,7 @@
 #include <set>
 #include "tache.h"
 #include "programmationevenement1j.h"
+#include "programmationevenementplsj.h"
 #include "jourscene.h"
 #include "observable.h"
 
@@ -64,6 +65,7 @@ public:
     virtual void notifier(const QString& s1="", const QString& s2="");
 
 
+    void ajouterProgrammationPlsJour(ProgrammationEvenementplsJ* p);
 
 
 
