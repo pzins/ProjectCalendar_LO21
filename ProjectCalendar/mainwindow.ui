@@ -107,7 +107,7 @@ QTabWidget::tab-bar {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ProjectManager">
      <attribute name="title">
@@ -331,7 +331,7 @@ QTabWidget::tab-bar {
        <rect>
         <x>50</x>
         <y>460</y>
-        <width>271</width>
+        <width>381</width>
         <height>95</height>
        </rect>
       </property>
@@ -361,6 +361,21 @@ QTabWidget::tab-bar {
         <widget class="QPushButton" name="save">
          <property name="text">
           <string>Sauvegarder</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="supprimer_precedence">
+         <property name="text">
+          <string>Supprimer 
+Précédence</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="programmer">
+         <property name="text">
+          <string>Programmer</string>
          </property>
         </widget>
        </item>
@@ -861,20 +876,6 @@ QTabWidget::tab-bar {
          </colorrole>
         </disabled>
        </palette>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="supprimer_precedence">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>470</y>
-        <width>101</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Supprimer 
-Précédence</string>
       </property>
      </widget>
     </widget>

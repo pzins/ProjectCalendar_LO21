@@ -22,6 +22,7 @@ public:
     virtual const Duree& getDuree() const {return 24;}
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const {return true;}
+    virtual bool isTache() const {return false;}
 
 };
 

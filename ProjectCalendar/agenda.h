@@ -8,6 +8,7 @@
 #include "programmationevenementplsj.h"
 #include "jourscene.h"
 #include "observable.h"
+#include "tacheunitaire.h"
 
 class ProgComp
 {
@@ -28,7 +29,7 @@ private:
     void addItem(Programmation* t);
     Programmation* trouverProgrammation(const Tache& t) const;
 
-    Agenda(QDate auj_);
+    Agenda(){};
     ~Agenda();
     Agenda(const Agenda& a);
     Agenda& operator=(const Agenda& a);
@@ -38,17 +39,15 @@ private:
 
 
 public:
-    const QDate& getAuj() const {return auj;}
-    void setAuj(QDate d){auj = d;}
     static Agenda& getInstance(){
-        if(!instance) instance = new Agenda(QDate::currentDate());
+        if(!instance) instance = new Agenda();
         return *instance;
     }
     static void libererInstance(){delete instance;}
 
     void ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-    const Duree& duree,  const QString& lieu="", const QString& pers="", const QColor& contour=QColor("black"),
-                              const QColor& fond=QColor("red"));
+    const Duree& duree,  const QString& lieu="", const QString& pers="", const TacheUnitaire *tache = 0,
+                              const QColor& contour=QColor("black"), const QColor& fond=QColor("red"));
 
     void ajouterProgrammationPlsJour(const QDate& date, const QString titre, const QString& desc, const QTime& debut,
                                      const QDate& date_fin, const QTime& fin, const QColor& contour=QColor("black"),

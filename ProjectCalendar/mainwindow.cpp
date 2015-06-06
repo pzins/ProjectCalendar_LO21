@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogprogevt.h"
 #include "precedenceitem.h"
+#include "dialogprogtache.h"
 #include <QPushButton>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -33,69 +34,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     pm = &ProjetManager::getInstance();
 
-
-
-
-
     ui->treeView->setModel(&pm->getModel());
     ag = &Agenda::getInstance();
     pre = &PrecedenceManager::getInstance();
     pre->ajouterObservateur(this);
     ui->treeView->setAnimated(true);
 
-
-    /*Agenda::getInstance().ajouterScene("mardi",d, ui->v_mardi->height(), ui->v_mardi->width(), this);
-    Agenda::getInstance().ajouterScene("mercredi",d, ui->v_mercredi->height(), ui->v_mercredi->width(), this);
-    Agenda::getInstance().ajouterScene("jeudi",d, ui->v_jeudi->height(), ui->v_jeudi->width(), this);
-    Agenda::getInstance().ajouterScene("vendredi",d, ui->v_vendredi->height(), ui->v_vendredi->width(), this);
-    Agenda::getInstance().ajouterScene("samedi",d, ui->v_samedi->height(), ui->v_samedi->width(), this);
-    Agenda::getInstance().ajouterScene("dimanche",d, ui->v_dimanche->height(), ui->v_dimanche->width(), this);*/
-
-
-
-/*
+    initCalendar(QDate::currentDate());
 
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"rsth","lyon", QTime(20,30), Duree(1,0));
-*/
 
-
-/*
-    Agenda::getInstance().getScene(0).ajouterProgrammation("ol",QTime(9,30),Duree(5,3));
-    Agenda::getInstance().getScene(0).ajouterProgrammation("ol",QTime(10,30),Duree(1,0));
-    Agenda::getInstance().getScene(0).ajouterProgrammation("ly",QTime(17,30),Duree(0,30));
-    Agenda::getInstance().getScene(0).ajouterProgrammation("ppp",QTime(9,30),Duree(0,30));
-
-
-//    pm->update();
-
-
-    /*
-    QStand  ardItem *parentItem = model.invisibleRootItem();
-
-    for (int i = 0; i < 4; ++i) {
-        Projet *object = new Projet("oko",QDate(2000,5,2), QDate(2001,2,3));
-        QVariant variant;
-        variant.setValue(object);
-        QStandardItem *item = new QStandardItem;
-        item->setData(variant.toString());
-        parentItem->appendRow(item);
-        QStandardItem *item = new QStandardItem(QString("item %0").arg(i));
-        QStandardItem *item = new TacheUnitaire("ol","lyon",QDate(2000,2,2), QDate(2003,3,3),Duree(3,3));
-        item->setText("hfghjol");
-        parentItem->appendRow(item);
-        parentItem = item;
-    }
-    ui->treeView->setModel(&model);
-*/
-    initCalendar(Agenda::getInstance().getAuj());
-
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"rsth","lyon", QTime(20,30), Duree(1,0));
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
     connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
     connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
@@ -110,12 +61,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
 
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
-    connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(test()));
+    connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(changeDate()));
 
     ui->informations->setChecked(true);
 
 }
-void MainWindow::test()
+void MainWindow::changeDate()
 {
     QDate d = ui->calendarWidget->selectedDate();
     initCalendar(d);
@@ -123,7 +74,6 @@ void MainWindow::test()
 
 void MainWindow::initCalendar(QDate d)
 {
-    //QDate d = Agenda::getInstance().getAuj();
     Agenda::getInstance().removeAllScenes();
     for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
     {
@@ -154,7 +104,35 @@ void MainWindow::initCalendar(QDate d)
     connect(ui->v_vendredi->scene(), SIGNAL(selectionChanged()), this, SLOT(vendredi()));
     connect(ui->v_samedi->scene(), SIGNAL(selectionChanged()), this, SLOT(samedi()));
     connect(ui->v_dimanche->scene(), SIGNAL(selectionChanged()), this, SLOT(dimanche()));
+    connect(ui->programmer, SIGNAL(clicked()), this, SLOT(programmerTache()));
     Agenda::getInstance().notifier();
+}
+
+void MainWindow::programmerTache()
+{
+    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    for(int i = 0; i < sel.size(); ++i)
+    {
+        if(i==0)
+        {
+            try
+            {
+                QString pname = pm->getProjetName(sel[i]);
+                QString tname = pm->getTacheName(sel[i]);
+                if(pname == tname) throw CalendarException("Impossible de programmet un projet");
+                Projet* p = pm->getProjet(pname);
+                Tache* t = p->getTache(tname);
+                if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
+                TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
+                DialogProgTache* d = &DialogProgTache::getInstance(tu,p);
+                d->show();
+            }
+            catch(CalendarException e)
+            {
+                std::cout << e.getInfo().toStdString() << std::endl;
+            }
+        }
+    }
 }
 
 void MainWindow::lundi()
@@ -208,7 +186,7 @@ void MainWindow::samedi()
 void MainWindow::dimanche()
 {
     if(ui->informations->isChecked())
-        getInformation(*ui->v_samedi);
+        getInformation(*ui->v_dimanche);
     else
         supprimerProgrammation(*ui->v_dimanche);
 }
@@ -266,10 +244,15 @@ void MainWindow::expand()
 
 void MainWindow::supprimer_precedence()
 {
-    PrecedenceItem* element = dynamic_cast<PrecedenceItem*>(ui->precedence_list->currentItem());
-    pre->retirerPrecedence(*element->getPrecedence());
-    delete element->getPrecedence();
-    ui->precedence_list->removeItemWidget(ui->precedence_list->currentItem());
+    if(ui->precedence_list->currentIndex().isValid())
+    {
+        PrecedenceItem* element = dynamic_cast<PrecedenceItem*>(ui->precedence_list->currentItem());
+
+        pre->retirerPrecedence(*element->getPrecedence());
+        delete element->getPrecedence();
+        ui->precedence_list->removeItemWidget(ui->precedence_list->currentItem());
+
+    }
 }
 
 

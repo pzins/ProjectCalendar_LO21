@@ -86,6 +86,9 @@ public:
     //supprime des taches ou projet
     void supprimerItem(QModelIndex &sel);
 
+    QString getProjetName(QModelIndex idx);
+    QString getTacheName(QModelIndex idx);
+
 
     virtual void notifier(const QString& s1="", const QString& s2="");
 

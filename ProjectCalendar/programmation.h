@@ -24,6 +24,7 @@ public:
     virtual const QString& getDescription() const =0;
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const =0;
+    virtual bool isTache() const =0;
 
 
 };

@@ -2,10 +2,10 @@
 #include "jourscene.h"
 #include "programmation.h"
 #include "programmationrdv.h"
+#include "programmationtacheunitaire.h"
 
 Agenda* Agenda::instance = 0;
 
-Agenda::Agenda(QDate auj_) : auj(auj_){}
 
 
 void Agenda::ajouterScene(const QString& jour, const QDate& date, qreal h, qreal w, QObject *parent)
@@ -49,9 +49,7 @@ void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre,
 
 void Agenda::ajouterProgrammationPlsJour(ProgrammationEvenementplsJ* p)
 {
-    std::cout << "okookokokok" << std::endl;
     int nb_jour = p->getDate().daysTo(p->getDateFin())+1;
-    std::cout << "..." << nb_jour << "..." << std::endl;
     Duree d1(QTime(8,0).secsTo(p->getFin()) / 60);
     Duree d2(p->getDebut().secsTo(QTime(22,0)) / 60);
 
@@ -73,7 +71,19 @@ void Agenda::verifProgrammation(Programmation* p)
 {
     for(std::set<Programmation*, ProgComp>::iterator it = set_prog.begin(); it != set_prog.end(); ++it)
     {
-        if(p->isEvtPlsJ())
+       /* if(p->isTache())
+        {
+            ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(p);
+            if(ptu->getDate() == (*it)->getDate() && (*it)->getDebut() < ptu->getTache()->getDebut())
+            {
+                QTime fin = (*it)->getDebut().addSecs((*it)->getDuree().getDureeEnMinutes() * 60);
+                if(fin > ptu->getTache()->getDebut())
+                {
+                    throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                }
+            }
+        }*/
+      if(p->isEvtPlsJ())
         {
             ProgrammationEvenementplsJ* tmp = dynamic_cast<ProgrammationEvenementplsJ*>(p);
             if(tmp->getDate() == (*it)->getDate())
@@ -117,18 +127,26 @@ void Agenda::verifProgrammation(Programmation* p)
 
 
 void Agenda::ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-                                  const Duree& duree, const QString& lieu, const QString& pers, const QColor& contour,
-                                  const QColor& fond)
+                                  const Duree& duree, const QString& lieu, const QString& pers, const TacheUnitaire* tache,
+                                  const QColor& contour, const QColor& fond)
 {
     Programmation* p;
     if(type == 0)
         p = new ProgrammationEvenement1J(date, debut, titre, desc, duree);
     else if(type == 1)
         p = new ProgrammationRdv(date, debut, titre, desc, duree, lieu, pers);
+    else if(type == 2)
+    {
+        std::cout << "()()()()()((   " << duree.toString().toStdString() << std::endl;
+        p = new ProgrammationTacheUnitaire(date, debut, *tache);
+    }
     try
     {
         verifProgrammation(p);
+        std::cout << "$$$$$$    avant ajout " << p->getDate().toString().toStdString() << std::endl;
         JourScene* j = scenes.at(date.dayOfWeek()-1);
+        std::cout << ";;;;;   DUREE " << p->getDuree().toString().toStdString() << std::endl;
+        std::cout << ";;;;;   DEBUT " << p->getDebut().toString().toStdString() << std::endl;
         j->ajouterProgrammation(titre, debut, duree, p);
     }
     catch(CalendarException e)
@@ -140,9 +158,6 @@ void Agenda::ajouterProgrammation(int type, const QDate& date, const QString tit
 
 void Agenda::enleverProgrammation(Programmation* prog)
 {
-    std::cout << "dprhfth  "  << set_prog.size() << std::endl;
-
     if(set_prog.erase(prog) == 0)
         throw CalendarException("Erreur, Agenda, cet Programmation n'existe pas");
-    std::cout << "srhpj^^" << set_prog.size() << std::endl;
 }

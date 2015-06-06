@@ -19,6 +19,8 @@ public:
 
     virtual void afficher() const =0;
     virtual bool isEvt1j() const =0;
+    virtual bool isTache() const =0;
+
     virtual const Duree& getDuree() const =0;
 
     virtual const QString& getTitre() const {return titre;}

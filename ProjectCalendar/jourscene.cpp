@@ -48,10 +48,7 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
 //8h-22h : 840min
 void JourScene::dessinerFond()
 {
-    std::cout << "<<< " << width() << " " << height()
-              <<std::endl;
     qreal r = (height() / minutes)*30;
-    std::cout << height() << " " << minutes << std::endl;
     qreal x = 0;
     int i = 0;
     while( x < minutes)
@@ -94,7 +91,6 @@ void JourScene::update(const QString& s1, const QString& s2)
         }
         else if((*it).getDate() == date)
         {
-            std::cout << date.toString().toStdString() << std::endl;
             ajouterProgrammation((*it).getTitre(), (*it).getDebut(),(*it).getDuree(), &*it);
         }
     }

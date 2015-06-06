@@ -49,6 +49,17 @@ void ProjetManager::verification(const QString& titre, const QString& descriptio
     if(dispo > echeance) throw CalendarException("Disponibilité et echeance incohérentes");
 }
 
+QString ProjetManager::getTacheName(QModelIndex idx)
+{
+    return idx.data(0).toString();
+}
+
+QString ProjetManager::getProjetName(QModelIndex idx)
+{
+    while(idx.parent().isValid()) idx = idx.parent();
+        QString parent  = idx.data(0).toString();
+    return parent;
+}
 
 QString ProjetManager::getInfo(QModelIndex idx)
 {

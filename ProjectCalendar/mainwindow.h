@@ -46,7 +46,8 @@ public slots:
     void samedi();
     void dimanche();
     void ajouterEvt();
-    void test();
+    void changeDate();
+    void programmerTache();
 
 
 

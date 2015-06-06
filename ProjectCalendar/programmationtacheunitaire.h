@@ -20,6 +20,11 @@ public:
     virtual const Duree& getDuree() const {return tache->getDuree();}
     virtual const QString& getTitre() const {return tache->getTitre();}
     virtual bool isEvtPlsJ() const {return false;}
+    virtual bool isTache() const {return true;}
+
+
+    virtual const QString& getDescription() const {return tache->getDescription();}
+
 
 };
 
