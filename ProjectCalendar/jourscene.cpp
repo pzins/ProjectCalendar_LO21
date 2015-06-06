@@ -16,11 +16,10 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
     ProgrammationItem* prog = new ProgrammationItem(0,y,width(),h,p);
     prog->setPen(QPen(contour));
     prog->setBrush(QBrush(fond));
-    QGraphicsScene::addItem(prog);
 
+    QGraphicsScene::addItem(prog);
     prog->setFlag(QGraphicsItem::ItemIsSelectable);
     prog->setZValue(1);
-
 
     int Xtxt = 0,Ytxt = y;
     QString s;
@@ -71,19 +70,28 @@ void JourScene::dessinerFond()
     }
 }
 
+void JourScene::removeAllItems()
+{
+    QList<QGraphicsItem*> itemsList = this->items();
+    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+    QList<QGraphicsItem*>::iterator end = itemsList.end();
+    while(iter != end)
+    { QGraphicsItem* item = (*iter); this->removeItem(item); iter++; }
+
+}
 
 void JourScene::update(const QString& s1, const QString& s2)
 {
-    clear();
+    removeAllItems();
     dessinerFond();
     Agenda& a = Agenda::getInstance();
     for(Agenda::Iterator it = a.begin() ; it != a.end() ; ++it)
     {
         if((*it).getDate() == date)
         {
-           // ajouterProgrammation((*it).)
-
-
+            std::cout << "QUATRE" << std::endl;
+            std::cout << date.toString().toStdString() << std::endl;
+            ajouterProgrammation((*it).getTitre(), (*it).getDebut(),(*it).getDuree(), &*it);
         }
     }
 }

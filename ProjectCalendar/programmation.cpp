@@ -1,11 +1,8 @@
 #include "programmation.h"
 
-/*
-QTextStream& operator<<(QDataStream& f, const Programmation& p);
-
-void Tache::setId(const QString& str){
-  if (TacheManager::getInstance().isTacheExistante((str)))
-      throw CalendarException("erreur TacheManager : tache id deja existante");
-  identificateur=str;
+const QString Programmation::toString() const
+{
+    QString str = "<tr><td><b>Date</b><td >"+date.toString()+"</td></td></tr>";
+    str += "<tr><td><b>Début</b><td >"+debut.toString()+"</td></td></tr>";
+    return str;
 }
-*/

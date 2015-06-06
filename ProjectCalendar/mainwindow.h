@@ -22,6 +22,10 @@ public:
     static void libererInstance();
     void supprimerAllItem();
     virtual void update(const QString& s1="", const QString& s2="");
+    void supprimerProgrammation(QGraphicsView& v);
+    void getInformation(QGraphicsView& v);
+
+
 
 public slots:
     void sauvegarder();
@@ -34,7 +38,15 @@ public slots:
     void ajouterPrecedence();
     void expand();
     void supprimer_precedence();
-    void test();
+    void lundi();
+    void mardi();
+    void mercredi();
+    void jeudi();
+    void vendredi();
+    void samedi();
+    void dimanche();
+    void ajouterEvt();
+
 
 
 
@@ -50,7 +62,6 @@ private:
     ProjetManager* pm;
     PrecedenceManager* pre;
     Agenda* ag;
-
 
 
 };

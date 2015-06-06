@@ -10,7 +10,7 @@ private:
 public:
     ProgrammationItem(int x,int y,int width,int height, Programmation* p) :
         QGraphicsRectItem(x,y,width,height,0), prog(p) {}
-    Programmation* getProgrammtion() const {return prog;}
+    Programmation* getProgrammation() const {return prog;}
 };
 
 #endif // PROGRAMMTIONITEM_H

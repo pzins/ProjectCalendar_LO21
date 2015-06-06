@@ -25,6 +25,9 @@ public:
     void ajouterProgrammation(const QString titre, const QTime& debut, const Duree& duree,
             Programmation* e=0, const QColor& contour = QColor("black"), const QColor& fond = QColor("red"));
     void dessinerFond();
+
+    void removeAllItems();
+
     virtual void update(const QString& s1="", const QString& s2="");
 };
 

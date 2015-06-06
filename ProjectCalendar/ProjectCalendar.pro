@@ -43,7 +43,8 @@ SOURCES += main.cpp \
     dialogprecedence.cpp \
     precedenceitem.cpp \
     jourscene.cpp \
-    programmationitem.cpp
+    programmationitem.cpp \
+    dialogprogevt.cpp
 
 HEADERS += \
     tache.h \
@@ -70,9 +71,11 @@ HEADERS += \
     dialogprecedence.h \
     precedenceitem.h \
     jourscene.h \
-    programmationitem.h
+    programmationitem.h \
+    dialogprogevt.h
 
 FORMS += \
     mainwindow.ui \
     dialogprojet.ui \
-    dialogprecedence.ui
+    dialogprecedence.ui \
+    dialogprogevt.ui

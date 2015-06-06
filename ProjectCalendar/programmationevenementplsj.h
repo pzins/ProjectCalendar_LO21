@@ -20,6 +20,9 @@ public:
     virtual bool isEvt1j() const {return false;}
 
     virtual const Duree& getDuree() const {return 24;}
+    virtual const QString toString() const;
+    virtual bool isEvtPlsJ() const {return true;}
+
 };
 
 #endif // PROGRAMMATIONEVENEMENTPLSJ_H

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sauvegarder',['sauvegarder',['../class_main_window.html#aa62e8ae5e9b0b266ac8f6eed2d0c79e6',1,'MainWindow']]]
+  ['removeallitems',['removeAllItems',['../class_jour_scene.html#a9cf3e8e576f28a3f540555c17fa31d19',1,'JourScene']]]
 ];

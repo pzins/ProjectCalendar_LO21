@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogProgEvt</class>
+ <widget class="QDialog" name="DialogProgEvt">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>426</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="accept">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>510</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>321</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Type</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QRadioButton" name="un_jour">
+      <property name="text">
+       <string>1 jour</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QRadioButton" name="pls_jours">
+      <property name="text">
+       <string>plusieurs jours</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Titre</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Description</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Date</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Horaire</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_duree">
+      <property name="text">
+       <string>Durée</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_date_fin">
+      <property name="text">
+       <string>Date fin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_horaire_fin">
+      <property name="text">
+       <string>Horaire fin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="titre"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPlainTextEdit" name="desc"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QDateEdit" name="date"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QTimeEdit" name="horaire"/>
+    </item>
+    <item row="6" column="1">
+     <widget class="QTimeEdit" name="duree"/>
+    </item>
+    <item row="7" column="1">
+     <widget class="QDateEdit" name="date_fin"/>
+    </item>
+    <item row="8" column="1">
+     <widget class="QTimeEdit" name="horaire_fin"/>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="label_personnes">
+      <property name="text">
+       <string>Personnes</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_lieu">
+      <property name="text">
+       <string>Lieu</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QTextEdit" name="personnes"/>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLineEdit" name="lieu"/>
+    </item>
+    <item row="9" column="1">
+     <widget class="QCheckBox" name="is_reunion">
+      <property name="text">
+       <string>réunion</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>accept</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogProgEvt</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>accept</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogProgEvt</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -102,8 +102,8 @@ QTabWidget::tab-bar {
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>1366</width>
-      <height>768</height>
+      <width>2031</width>
+      <height>673</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -903,22 +903,64 @@ Précédence</string>
         </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_mardi"/>
+        <widget class="QGraphicsView" name="v_mardi">
+         <property name="minimumSize">
+          <size>
+           <width>154</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_mercredi"/>
+        <widget class="QGraphicsView" name="v_mercredi">
+         <property name="minimumSize">
+          <size>
+           <width>153</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_jeudi"/>
+        <widget class="QGraphicsView" name="v_jeudi">
+         <property name="minimumSize">
+          <size>
+           <width>153</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_vendredi"/>
+        <widget class="QGraphicsView" name="v_vendredi">
+         <property name="minimumSize">
+          <size>
+           <width>153</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_samedi"/>
+        <widget class="QGraphicsView" name="v_samedi">
+         <property name="minimumSize">
+          <size>
+           <width>154</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QGraphicsView" name="v_dimanche"/>
+        <widget class="QGraphicsView" name="v_dimanche">
+         <property name="minimumSize">
+          <size>
+           <width>153</width>
+           <height>619</height>
+          </size>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -927,29 +969,29 @@ Précédence</string>
        <rect>
         <x>1150</x>
         <y>70</y>
-        <width>158</width>
-        <height>85</height>
+        <width>173</width>
+        <height>118</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QRadioButton" name="supprimer_2">
          <property name="text">
-          <string>Programmation</string>
+          <string>Supprimer</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QRadioButton" name="informations">
          <property name="text">
-          <string>Taches</string>
+          <string>Informations</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="ajouter_evt">
          <property name="text">
-          <string>Evenement</string>
+          <string>Ajouter un évènement</string>
          </property>
         </widget>
        </item>
