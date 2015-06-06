@@ -5,6 +5,7 @@
 #include "duree.h"
 #include "programmation.h"
 #include "programmationitem.h"
+#include "programmationevenementplsj.h"
 #include "observateur.h"
 
 class JourScene : public QGraphicsScene, public Observateur
@@ -29,6 +30,7 @@ public:
     void removeAllItems();
 
     virtual void update(const QString& s1="", const QString& s2="");
+
 };
 
 #endif // JOURSCENE_H

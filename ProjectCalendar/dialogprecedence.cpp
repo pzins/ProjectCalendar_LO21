@@ -101,13 +101,16 @@ void DialogPrecedence::chargerProjets()
 
 void DialogPrecedence::chargerTaches(QString titre)
 {
-    ui->anterieure->clear();
-    ui->posterieure->clear();
-    Projet* p = pm->getProjet(titre);
-    for(Projet::Iterator it = p->begin(); it != p->end(); ++it)
+    if(ui->projet->currentText() != "")
     {
-        ui->anterieure->addItem((*it).getTitre());
-        ui->posterieure->addItem((*it).getTitre());
+        ui->anterieure->clear();
+        ui->posterieure->clear();
+        Projet* p = pm->getProjet(titre);
+        for(Projet::Iterator it = p->begin(); it != p->end(); ++it)
+        {
+            ui->anterieure->addItem((*it).getTitre());
+            ui->posterieure->addItem((*it).getTitre());
+        }
     }
 }
 
@@ -115,6 +118,9 @@ void DialogPrecedence::chargement()
 {
     if(pm->getMapProjet().size() > 0)
     {
+        ui->anterieure->clear();
+        ui->posterieure->clear();
+        ui->projet->clear();
         chargerProjets();
         chargerTaches(ui->projet->currentText());
     }

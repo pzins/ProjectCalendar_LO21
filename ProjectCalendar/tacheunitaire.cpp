@@ -1,5 +1,6 @@
 #include "tacheunitaire.h"
 #include <iostream>
+#include "agenda.h"
 
 
 
@@ -24,4 +25,21 @@ QString TacheUnitaire::info() const
     str += "</table>";
 
     return str;
+}
+
+TacheUnitaire::~TacheUnitaire()
+{
+   Agenda* ag = &Agenda::getInstance();
+   for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
+   {
+       if((*it).isTache())
+       {
+           ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
+           if(ptu->getTache() == this)
+           {
+               ag->enleverProgrammation(&*it);
+               break;
+           }
+       }
+   }
 }

@@ -19,7 +19,6 @@ private:
     QDate dispo;
     QDate echeance;
 
-
 public:
     Tache(const QString& titre_, const QString& description_, const QDate& dispo_,
          const QDate& echeance_): titre(titre_), description(description_), dispo(dispo_),
@@ -30,8 +29,9 @@ public:
     void setTitre(const QString& titre_) {titre=titre_;}
 
     QDate getDispo() const {return dispo;}
-
     QDate getEcheance() const {return echeance;}
+
+
 
     const QString& getDescription() const {return description;}
     void setDescription(const QString& description_) {description = description_;}

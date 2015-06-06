@@ -32,6 +32,8 @@ DialogProgEvt::DialogProgEvt(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->un_jour->setChecked(true);
+    ui->date->setDate(QDate::currentDate());
+    ui->date_fin->setDate(QDate::currentDate());
     isReunion(false);
     adaptForm(true);
     connect(ui->un_jour, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));

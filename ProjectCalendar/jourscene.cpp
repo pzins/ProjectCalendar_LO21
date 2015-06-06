@@ -13,6 +13,7 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
     qreal y = ( height() / minutes ) * mins_ecoulees;
     qreal h = ( height() / minutes ) * duree.getDureeEnHeures()*60;
 
+
     ProgrammationItem* prog = new ProgrammationItem(0,y,width(),h,p);
     prog->setPen(QPen(contour));
     prog->setBrush(QBrush(fond));
@@ -87,13 +88,27 @@ void JourScene::update(const QString& s1, const QString& s2)
         if((*it).isEvtPlsJ())
         {
             ProgrammationEvenementplsJ* p = dynamic_cast<ProgrammationEvenementplsJ*>(&*it);
-            a.ajouterProgrammationPlsJour(p);
+            QDate deb = p->getDate(), fin = p->getDateFin();
+            if(date == deb)
+            {
+                int nb_mins = p->getDebut().secsTo(QTime(22,0)) / 60;
+                ajouterProgrammation(p->getTitre(),p->getDebut(),Duree(nb_mins),p);
+            }else if(date<fin && date>deb)
+            {
+                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(14,0),p);
+            }else if(date == fin)
+            {
+                int nb_mins = QTime(8,0).secsTo(p->getFin()) / 60;
+                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(nb_mins),p);
+            }
         }
         else if((*it).getDate() == date)
         {
-            ajouterProgrammation((*it).getTitre(), (*it).getDebut(),(*it).getDuree(), &*it);
+            Duree d = (*it).getDuree();
+            ajouterProgrammation((*it).getTitre(), (*it).getDebut(),d, &*it);
         }
     }
 }
+
 
 

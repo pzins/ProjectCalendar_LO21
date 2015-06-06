@@ -6,6 +6,7 @@
 #include "tache.h"
 #include "programmationevenement1j.h"
 #include "programmationevenementplsj.h"
+#include "programmationtacheunitaire.h"
 #include "jourscene.h"
 #include "observable.h"
 #include "tacheunitaire.h"
@@ -46,7 +47,7 @@ public:
     static void libererInstance(){delete instance;}
 
     void ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-    const Duree& duree,  const QString& lieu="", const QString& pers="", const TacheUnitaire *tache = 0,
+    const Duree& duree,  const QString& lieu="", const QString& pers="", TacheUnitaire* tache = 0,
                               const QColor& contour=QColor("black"), const QColor& fond=QColor("red"));
 
     void ajouterProgrammationPlsJour(const QDate& date, const QString titre, const QString& desc, const QTime& debut,
@@ -65,7 +66,6 @@ public:
     virtual void notifier(const QString& s1="", const QString& s2="");
 
 
-    void ajouterProgrammationPlsJour(ProgrammationEvenementplsJ* p);
 
 
 

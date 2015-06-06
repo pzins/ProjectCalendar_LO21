@@ -13,7 +13,7 @@ private:
     const TacheUnitaire* tache;
 
 public:
-    ProgrammationPartieTache(const QDate& date_, const QTime& debut_, const TacheUnitaire& tache_,
+    ProgrammationPartieTache(const QDate& date_, const QTime& debut_, TacheUnitaire& tache_,
                 const int numero_, const QString& nom_partie_, const Duree& duree_):
         ProgrammationTacheUnitaire(date_, debut_, tache_), nom_partie(nom_partie_), duree(duree_), tache(&tache_){}
 

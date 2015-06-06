@@ -45,7 +45,15 @@ MainWindow::MainWindow(QWidget *parent) :
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"rsth","lyon", QTime(20,30), Duree(1,0));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"mmm","lyon", QTime(20,30), Duree(1,0));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"jjj","lyon", QTime(10,2), Duree(1,0));
+    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"hhh","lyon", QTime(10,2), Duree(4,0));
+    Agenda::getInstance().ajouterProgrammationPlsJour(QDate(2015,6,2),"gggg","lyon", QTime(10,2),
+                                                      QDate(2015,6,3),QTime(8,15));
+    Agenda::getInstance().ajouterProgrammationPlsJour(QDate(2015,6,5),"fff","lyon", QTime(13,2),
+                                                      QDate(2015,6,6),QTime(10,15));
+
+
 
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
     connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
@@ -80,6 +88,9 @@ void MainWindow::initCalendar(QDate d)
         QDate tmp = d.addDays(i);
         Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width(), this);
     }
+    ui->dispo->setDate(QDate::currentDate());
+    ui->eche->setDate(QDate::currentDate());
+
     ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
     ui->v_mardi->setScene(&Agenda::getInstance().getScene(1));
     ui->v_mercredi->setScene(&Agenda::getInstance().getScene(2));
@@ -119,11 +130,12 @@ void MainWindow::programmerTache()
             {
                 QString pname = pm->getProjetName(sel[i]);
                 QString tname = pm->getTacheName(sel[i]);
-                if(pname == tname) throw CalendarException("Impossible de programmet un projet");
+                if(pname == tname) throw CalendarException("Impossible de programmer un projet");
                 Projet* p = pm->getProjet(pname);
                 Tache* t = p->getTache(tname);
                 if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
                 TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
+                if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
                 DialogProgTache* d = &DialogProgTache::getInstance(tu,p);
                 d->show();
             }
@@ -196,12 +208,9 @@ void MainWindow::supprimerProgrammation(QGraphicsView& v)
 {
     if(v.scene()->selectedItems().size() >0)
     {
-        for(QList<QGraphicsItem*>::iterator it =v.scene()->selectedItems().begin() ;
-            it != v.scene()->selectedItems().end() ; ++it)
-        {
-            Programmation* p = dynamic_cast<ProgrammationItem*>(*it)->getProgrammation();
-            Agenda::getInstance().enleverProgrammation(p);
-        }
+        QGraphicsItem* it = v.scene()->selectedItems().at(0);
+        Programmation* p = (dynamic_cast<ProgrammationItem*>(it))->getProgrammation();
+        Agenda::getInstance().enleverProgrammation(p);
         Agenda::getInstance().notifier();
     }
 }
