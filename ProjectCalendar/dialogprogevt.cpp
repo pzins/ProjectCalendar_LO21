@@ -3,29 +3,6 @@
 #include "agenda.h"
 #include <iostream>
 
-DialogProgEvt* DialogProgEvt::instance = 0;
-
-
-DialogProgEvt& DialogProgEvt::getInstance(QWidget* parent)
-{
-    if(instance)
-    {
-        return *instance;
-    }
-    else
-    {
-        instance = new DialogProgEvt(parent);
-        return *instance;
-    }
-}
-
-void DialogProgEvt::libererInstance()
-{
-    delete instance;
-    instance = 0;
-}
-
-
 DialogProgEvt::DialogProgEvt(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogProgEvt)

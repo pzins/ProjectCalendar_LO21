@@ -6,42 +6,6 @@
 #include "programmation.h"
 #include "dialogprogpartie.h"
 
-DialogProgTache* DialogProgTache::instance = 0;
-
-
-DialogProgTache& DialogProgTache::getInstance(TacheUnitaire* tache, Projet* projet, QWidget* parent)
-{
-    if(instance)
-    {
-        instance->setTache(tache);
-        instance->setProjet(projet);
-        instance->ui->parties->setChecked(false);
-        if(!tache->isPreemptive())
-        {
-            instance->ui->parties->setEnabled(false);
-        }
-        else
-        {
-            instance->ui->parties->setEnabled(true);
-
-        }
-        instance->ui->nb->hide();
-        instance->ui->label_nb->hide();
-        instance->ui->date->setDate(QDate::currentDate());
-        return *instance;
-    }
-    else
-    {
-        instance = new DialogProgTache(tache, projet, parent);
-        return *instance;
-    }
-}
-
-void DialogProgTache::libererInstance()
-{
-    delete instance;
-    instance = 0;
-}
 
 DialogProgTache::DialogProgTache(TacheUnitaire* tache_, Projet* projet_, QWidget *parent):
     QDialog(parent),
@@ -69,8 +33,8 @@ DialogProgTache::~DialogProgTache()
 
 void DialogProgTache::ajouterParties()
 {
-    DialogProgPartie* d = &DialogProgPartie::getInstance(ui->nb->value(), vec_titre, vec_date, vec_debut, vec_duree, this);
-    d->show();
+    DialogProgPartie* d = new DialogProgPartie(ui->nb->value(), vec_titre, vec_date, vec_debut, vec_duree, this);
+    d->exec();
 }
 
 void DialogProgTache::adaptForm(bool etat)
@@ -94,14 +58,11 @@ void DialogProgTache::accept()
         {
             verificationParties();
             ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache);
-
         }
         else
         {
-            std::cout << "MAUVAIS" << std::endl;
             ag->ajouterProgrammation(2, ui->date->date(), tache->getTitre(), tache->getDescription(),ui->horaire->time(),
                                      tache->getDuree(),"", "", tache );
-
         }
     }
     catch(CalendarException e)

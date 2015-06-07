@@ -39,11 +39,7 @@ class DialogProgPartie : public QDialog
 public:
     explicit DialogProgPartie(int nb, std::vector<QString> &vec_titre_, std::vector<QDate> &vec_date_,
                               std::vector<QTime> &vec_debut_, std::vector<Duree> &vec_duree_, QWidget *parent = 0);
-
-
-    static DialogProgPartie& getInstance(int nb, std::vector<QString>& vec_titre, std::vector<QDate> &vec_date_,
-                                         std::vector<QTime> &vec_debut_, std::vector<Duree> &vec_duree_, QWidget *parent=0);
-    static void libererInstance();
+    ~DialogProgPartie();
     void initialisation(int nb);
     void affichage();
 
@@ -53,7 +49,6 @@ public slots:
 
 private:
     Ui::DialogProgPartie *ui;
-    static DialogProgPartie* instance;
     std::vector<QString>& vec_titre;
     std::vector<QDate>& vec_date;
     std::vector<QTime>& vec_debut;

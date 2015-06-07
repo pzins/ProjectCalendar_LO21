@@ -3,6 +3,7 @@
 #include "dialogprogevt.h"
 #include "precedenceitem.h"
 #include "dialogprogtache.h"
+
 #include <QPushButton>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -74,6 +75,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->informations->setChecked(true);
 
 }
+
+
 void MainWindow::changeDate()
 {
     QDate d = ui->calendarWidget->selectedDate();
@@ -136,8 +139,8 @@ void MainWindow::programmerTache()
                 if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
                 TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
                 if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
-                DialogProgTache* d = &DialogProgTache::getInstance(tu,p);
-                d->show();
+                DialogProgTache* d = new DialogProgTache(tu,p);
+                d->exec();
             }
             catch(CalendarException e)
             {
@@ -241,15 +244,15 @@ void MainWindow::ajouterPrecedence()
     if(sel.size()==1)
     {
         QStandardItem* it = ProjetManager::getInstance().getModel().itemFromIndex(sel.at(0));
-        DialogPrecedence* d = &DialogPrecedence::getInstance(it);
-        d->show();
+        DialogPrecedence* d = new DialogPrecedence(it);
+        d->exec();
     }
 }
 
 void MainWindow::ajouterEvt()
 {
-    DialogProgEvt* d = &DialogProgEvt::getInstance();
-    d->show();
+    DialogProgEvt* d = new DialogProgEvt();
+    d->exec();
 }
 void MainWindow::expand()
 {

@@ -3,30 +3,10 @@
 #include "agenda.h"
 #include <QMessageBox>
 
-DialogPrecedence* DialogPrecedence::instance = 0;
 
 
-DialogPrecedence& DialogPrecedence::getInstance(QStandardItem* it, QWidget* parent)
-{
-    if(instance)
-    {
-        instance->setItemTache(it);
-        instance->ui->anterieure->clear();
-        instance->chargerAnterieure();
-        return *instance;
-    }
-    else
-    {
-        instance = new DialogPrecedence(it, parent);
-        return *instance;
-    }
-}
 
-void DialogPrecedence::libererInstance()
-{
-    delete instance;
-    instance = 0;
-}
+
 
 DialogPrecedence::DialogPrecedence(QStandardItem* it, QWidget *parent) :
     QDialog(parent),

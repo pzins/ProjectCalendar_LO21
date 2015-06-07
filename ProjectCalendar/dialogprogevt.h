@@ -12,12 +12,9 @@ class DialogProgEvt : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogProgEvt(QWidget *parent = 0);
-    ~DialogProgEvt();
 
 
     Ui::DialogProgEvt *ui;
-    static DialogProgEvt* instance;
 
 
 public slots:
@@ -27,8 +24,8 @@ public slots:
 
 
 public:
-    static DialogProgEvt& getInstance(QWidget* parent = 0);
-    static void libererInstance();
+    explicit DialogProgEvt(QWidget *parent = 0);
+    ~DialogProgEvt();
 
 };
 

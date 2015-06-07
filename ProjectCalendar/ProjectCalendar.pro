@@ -37,7 +37,6 @@ SOURCES += main.cpp \
     calendarexception.cpp \
     duree.cpp \
     mainwindow.cpp \
-    dialogprojet.cpp \
     observateur.cpp \
     observable.cpp \
     dialogprecedence.cpp \
@@ -69,7 +68,6 @@ HEADERS += \
     mainwindow.h \
     observateur.h \
     observable.h \
-    dialogprojet.h \
     dialogprecedence.h \
     precedenceitem.h \
     jourscene.h \
@@ -80,7 +78,6 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    dialogprojet.ui \
     dialogprecedence.ui \
     dialogprogevt.ui \
     dialogprogtache.ui \

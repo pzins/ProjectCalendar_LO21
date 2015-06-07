@@ -2,34 +2,6 @@
 #include "ui_dialogprogpartie.h"
 #include <iostream>
 
-DialogProgPartie* DialogProgPartie::instance = 0;
-
-
-DialogProgPartie& DialogProgPartie::getInstance(int nb, std::vector<QString>& vec_titre, std::vector<QDate> &vec_date_,
-                                                std::vector<QTime> &vec_debut_, std::vector<Duree>& vec_duree_,
-                                                QWidget *parent)
-{
-    if(instance)
-    {
-        instance->initialisation(nb);
-        instance->affichage();
-
-        return *instance;
-    }
-    else
-    {
-        instance = new DialogProgPartie(nb, vec_titre, vec_date_, vec_debut_, vec_duree_, parent);
-        instance->affichage();
-        return *instance;
-    }
-}
-
-void DialogProgPartie::libererInstance()
-{
-    delete instance;
-    instance = 0;
-}
-
 
 DialogProgPartie::DialogProgPartie(int nb, std::vector<QString>& vec_titre_, std::vector<QDate> &vec_date_,
                                    std::vector<QTime> &vec_debut_, std::vector<Duree>& vec_duree_,
@@ -40,7 +12,12 @@ DialogProgPartie::DialogProgPartie(int nb, std::vector<QString>& vec_titre_, std
 {
     ui->setupUi(this);
     initialisation(nb);
+    affichage();
+}
 
+DialogProgPartie::~DialogProgPartie()
+{
+    delete ui;
 }
 
 
@@ -53,7 +30,6 @@ void DialogProgPartie::initialisation(int nb)
     }
     vec_parties.clear();
 
-    std::cout << "Apres " << vec_parties.size() << std::endl;
     for(int i = 0; i < nb; ++i)
     {
         Partie* p = new Partie();

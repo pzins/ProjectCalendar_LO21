@@ -14,8 +14,7 @@ class DialogProgTache : public QDialog
 public:
     explicit DialogProgTache(TacheUnitaire* tache_, Projet* projet_, QWidget *parent = 0);
     ~DialogProgTache();
-    static DialogProgTache& getInstance(TacheUnitaire* tache_, Projet* projet_, QWidget* parent = 0);
-    static void libererInstance();
+
     void verification();
     void verificationParties();
     void setTache(TacheUnitaire* t){tache = t;}
@@ -28,7 +27,6 @@ public slots:
 
 private:
     Ui::DialogProgTache *ui;
-    static DialogProgTache* instance;
     Projet* projet;
     TacheUnitaire* tache;
 
