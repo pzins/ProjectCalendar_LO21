@@ -93,13 +93,12 @@ void DialogProgTache::accept()
         if(ui->parties->isChecked())
         {
             verificationParties();
-            for(int i = 0; i < vec_titre.size(); ++i)
-            {
-                ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache);
-            }
+            ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache);
+
         }
         else
         {
+            std::cout << "MAUVAIS" << std::endl;
             ag->ajouterProgrammation(2, ui->date->date(), tache->getTitre(), tache->getDescription(),ui->horaire->time(),
                                      tache->getDuree(),"", "", tache );
 
@@ -164,10 +163,29 @@ void DialogProgTache::verification()
 void DialogProgTache::verificationParties()
 {
     int min = 0;
+
     for(int i = 0; i < vec_duree.size(); ++i)
     {
         min += vec_duree.at(i).getHeure()*60;
         min += vec_duree.at(i).getMinute();
+        if(i < vec_duree.size() -1)
+        {
+            QDate d = vec_date.at(i);
+            QDate dd = vec_date.at(i+1);
+            QTime deb = vec_debut.at(i);
+            QTime debdeb = vec_debut.at(i+1);
+            std::cout << "d = " << d.toString().toStdString() << std::endl;
+            std::cout << "dd = " << dd.toString().toStdString()  << std::endl;
+            std::cout << "deb = " << deb.toString().toStdString() << std::endl;
+            std::cout << "debdeb = " << debdeb.toString() .toStdString()<< std::endl;
+            if((d > dd) || (d==dd && deb > debdeb))
+                throw CalendarException("Ordre des parties incohérentes");
+            if(d==dd && deb == debdeb)
+                throw CalendarException("Les parties ne peuvent pas avoir la même programmation");
+            QTime fin = deb.addSecs(vec_duree.at(i).getDureeEnMinutes()*60);
+            if(d==dd && fin > debdeb)
+                throw CalendarException("Les parties se chevauchent");
+        }
     }
     Duree d(min);
     if(!(tache->getDuree() == d)) throw CalendarException("Somme des durées des parties non cohérentes");

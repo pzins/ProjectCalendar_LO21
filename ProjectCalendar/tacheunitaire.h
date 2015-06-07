@@ -19,7 +19,7 @@ public:
             Tache(titre_, description_, dispo_, echeance_), duree(duree_),
             preemptive(preemptive_), programmed(false) {  }
 
-    ~TacheUnitaire();
+    virtual ~TacheUnitaire();
     TacheUnitaire(const TacheUnitaire& t);
     TacheUnitaire& operator=(const TacheUnitaire&);
     Duree getDuree() const {return duree;}

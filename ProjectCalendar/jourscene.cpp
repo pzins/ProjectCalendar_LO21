@@ -82,8 +82,8 @@ void JourScene::update(const QString& s1, const QString& s2)
 {
     removeAllItems();
     dessinerFond();
-    Agenda& a = Agenda::getInstance();
-    for(Agenda::Iterator it = a.begin() ; it != a.end() ; ++it)
+    Agenda* ag = &Agenda::getInstance();
+    for(Agenda::Iterator it = ag->begin() ; it != ag->end() ; ++it)
     {
         if((*it).isEvtPlsJ())
         {

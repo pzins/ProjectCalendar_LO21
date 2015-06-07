@@ -33,7 +33,7 @@ public:
     TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):
         Tache(titre_, description_, dispo_, echeance_){}
-    ~TacheComposite();
+    virtual ~TacheComposite();
 
     virtual void exportXml(QXmlStreamWriter& stream);
     virtual bool isComposite() const{return true;}

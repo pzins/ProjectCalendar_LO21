@@ -10,16 +10,18 @@ private:
     int numero;
     QString nom_partie;
     Duree duree;
-    const TacheUnitaire* tache;
 
 public:
     ProgrammationPartieTache(const QDate& date_, const QTime& debut_, TacheUnitaire& tache_,
                 const int numero_, const QString& nom_partie_, const Duree& duree_):
-        ProgrammationTacheUnitaire(date_, debut_, tache_), nom_partie(nom_partie_), duree(duree_), tache(&tache_){}
+        ProgrammationTacheUnitaire(date_, debut_, tache_), nom_partie(nom_partie_), duree(duree_){}
 
     virtual ~ProgrammationPartieTache(){}
     virtual void afficher() const;
     virtual const Duree& getDuree() const {return duree;}
+    const QString getNomPartie() const {return nom_partie;}
+    int getNumero() const {return numero;}
+    virtual bool isTache() const {return true;}
 
 };
 

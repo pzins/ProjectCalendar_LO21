@@ -29,17 +29,19 @@ QString TacheUnitaire::info() const
 
 TacheUnitaire::~TacheUnitaire()
 {
-   Agenda* ag = &Agenda::getInstance();
-   for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
-   {
-       if((*it).isTache())
-       {
-           ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
-           if(ptu->getTache() == this)
-           {
-               ag->enleverProgrammation(&*it);
-               break;
-           }
-       }
-   }
+    Agenda* ag = &Agenda::getInstance();
+    std::vector<Programmation*> vec;
+    for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
+    {
+        if((*it).isTache())
+        {
+            ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
+            if(ptu->getTache() == this)
+            {
+                vec.push_back(&*it);
+            }
+        }
+    }
+    for(std::vector<Programmation*>::iterator it = vec.begin(); it != vec.end(); ++it)
+        ag->enleverProgrammation(*it);
 }

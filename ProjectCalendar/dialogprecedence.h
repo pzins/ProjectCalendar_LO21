@@ -35,6 +35,7 @@ public:
     void setItemTache(QStandardItem* i){item_tache = i;}
 
     void chargerAnterieure();
+    void testDejaProg(Tache *ant, Tache *post);
 };
 
 #endif // DIALOGPRECEDENCE_H
