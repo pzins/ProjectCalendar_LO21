@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['partie',['Partie',['../class_partie.html',1,'']]],
   ['precedence',['Precedence',['../class_precedence.html',1,'']]],
   ['precedenceitem',['PrecedenceItem',['../class_precedence_item.html',1,'']]],
   ['precedencemanager',['PrecedenceManager',['../class_precedence_manager.html',1,'']]],

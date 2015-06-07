@@ -3,6 +3,7 @@
 #include "programmation.h"
 #include "programmationrdv.h"
 #include "programmationtacheunitaire.h"
+#include "programmationpartietache.h"
 
 Agenda* Agenda::instance = 0;
 
@@ -102,6 +103,43 @@ void Agenda::verifProgrammation(Programmation* p)
             }
         }
     }
+}
+
+void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::vector<QString>& vec_titre,
+                                             std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
+                                             TacheUnitaire* t)
+{
+   std::vector<ProgrammationPartieTache*> vec;
+
+   try
+   {
+       ProgrammationPartieTache* p;
+       for(int i = 0; i < vec_date.size(); ++i)
+       {
+           p = new ProgrammationPartieTache(vec_date.at(i), vec_debut.at(i), *t, i+1,
+                                                                      vec_titre.at(i), vec_duree.at(i));
+           vec.push_back(p);
+           verifProgrammation(p);
+       }
+       for(int i = 0; i < vec.size(); ++i)
+       {
+           if(set_prog.insert(vec.at(i)).second == false)
+           {
+               delete p;
+               throw CalendarException("Erreur, Agenda, une programmation existe à cette heure");
+           }
+       }
+   }
+   catch(CalendarException e)
+   {
+       std::cout << e.getInfo().toStdString() << std::endl;
+
+       /*for(int i = 0; i < vec.size(); ++i)
+       {
+           delete vec.at(i);
+       }*/
+   }
+
 }
 
 

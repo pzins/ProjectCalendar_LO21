@@ -15,26 +15,26 @@ class DialogPrecedence : public QDialog
     Q_OBJECT
 
 private:
-    explicit DialogPrecedence(QWidget *parent = 0);
+    explicit DialogPrecedence(QStandardItem *it, QWidget *parent = 0);
     ~DialogPrecedence();
     DialogPrecedence& operator=(const DialogPrecedence&);
     DialogPrecedence(const DialogPrecedence&);
 
     Ui::DialogPrecedence *ui;
     static DialogPrecedence* instance;
-    ProjetManager* pm;
-    PrecedenceManager* pre;
+
+    QStandardItem* item_tache;
 
 public slots:
     virtual void accept();
-    void chargerTaches(QString titre);
 
 public:
-    static DialogPrecedence& getInstance(QWidget* parent = 0);
+    static DialogPrecedence& getInstance(QStandardItem* it, QWidget* parent = 0);
     static void libererInstance();
     void chargerProjets();
-    void chargement();
+    void setItemTache(QStandardItem* i){item_tache = i;}
 
+    void chargerAnterieure();
 };
 
 #endif // DIALOGPRECEDENCE_H

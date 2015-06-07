@@ -237,8 +237,13 @@ void MainWindow::getInformation(QGraphicsView& v)
 
 void MainWindow::ajouterPrecedence()
 {
-    DialogPrecedence* d = &DialogPrecedence::getInstance();
-    d->show();
+    QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
+    if(sel.size()==1)
+    {
+        QStandardItem* it = ProjetManager::getInstance().getModel().itemFromIndex(sel.at(0));
+        DialogPrecedence* d = &DialogPrecedence::getInstance(it);
+        d->show();
+    }
 }
 
 void MainWindow::ajouterEvt()
@@ -267,9 +272,7 @@ void MainWindow::supprimer_precedence()
 
 void MainWindow::afficherInfo(QModelIndex idx)
 {
-
     ui->info->setHtml(pm->getInfo(idx));
-
 }
 
 void MainWindow::supprimerItem()

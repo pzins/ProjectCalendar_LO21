@@ -65,19 +65,9 @@ public:
 
     virtual void notifier(const QString& s1="", const QString& s2="");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    void ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::vector<QString>& vec_titre,
+                                                 std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
+                                         TacheUnitaire *t);
     class Iterator
     {
     private:

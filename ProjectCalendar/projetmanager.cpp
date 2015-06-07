@@ -57,7 +57,7 @@ QString ProjetManager::getTacheName(QModelIndex idx)
 QString ProjetManager::getProjetName(QModelIndex idx)
 {
     while(idx.parent().isValid()) idx = idx.parent();
-        QString parent  = idx.data(0).toString();
+        QString parent = idx.data(0).toString();
     return parent;
 }
 
@@ -129,6 +129,7 @@ void ProjetManager::findItem(QStandardItem* projet, const QString& item, std::ve
         findItem(projet->child(i,0), item, vec);
     }
 }
+
 
 
 void ProjetManager::findChildren(std::vector<QString>& vec, QStandardItem* item)

@@ -41,6 +41,7 @@ public:
         res += "H "+str+" min";
         return res;
     }
+    bool operator==(const Duree& d){return nb_minutes == d.getDureeEnMinutes();}
 };
 
 QTextStream& operator<<(QTextStream& f, const Duree & d);

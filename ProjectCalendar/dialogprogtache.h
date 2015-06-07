@@ -17,11 +17,14 @@ public:
     static DialogProgTache& getInstance(TacheUnitaire* tache_, Projet* projet_, QWidget* parent = 0);
     static void libererInstance();
     void verification();
+    void verificationParties();
     void setTache(TacheUnitaire* t){tache = t;}
     void setProjet(Projet* p){projet= p;}
 
 public slots:
     void accept();
+    void adaptForm(bool etat);
+    void ajouterParties();
 
 private:
     Ui::DialogProgTache *ui;
@@ -29,6 +32,10 @@ private:
     Projet* projet;
     TacheUnitaire* tache;
 
+    std::vector<QString> vec_titre;
+    std::vector<QDate> vec_date;
+    std::vector<QTime> vec_debut;
+    std::vector<Duree> vec_duree;
 };
 
 #endif // DIALOGPROGTACHE_H

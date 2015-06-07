@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>366</width>
+    <height>118</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="valider">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>0</x>
+     <y>80</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -34,40 +34,23 @@
     <rect>
      <x>40</x>
      <y>20</y>
-     <width>291</width>
-     <height>191</height>
+     <width>301</width>
+     <height>41</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
+    <property name="fieldGrowthPolicy">
+     <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+    </property>
     <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Projet</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_3">
       <property name="text">
        <string>Tâche antérieure</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Tâche postérieure</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
-     <widget class="QComboBox" name="projet"/>
-    </item>
-    <item row="1" column="1">
      <widget class="QComboBox" name="anterieure"/>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="posterieure"/>
     </item>
    </layout>
   </widget>
