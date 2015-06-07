@@ -27,6 +27,7 @@ public:
     virtual bool isEvtPlsJ() const =0;
     virtual bool isTache() const =0;
     virtual void exportXml(QXmlStreamWriter& stream) const =0;
+    virtual const int type() const =0;
 
 
 };

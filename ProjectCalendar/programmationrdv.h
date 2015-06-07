@@ -34,6 +34,7 @@ public:
     virtual bool isEvtPlsJ() const {return false;}
     virtual void exportXml(QXmlStreamWriter& stream) const;
 
+    virtual const int type() const {return 1;}
 
 
 };

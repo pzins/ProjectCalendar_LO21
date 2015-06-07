@@ -24,9 +24,10 @@ public:
     virtual bool isEvtPlsJ() const {return false;}
     virtual bool isTache() const {return true;}
 
-
+    virtual const QString toString() const;
     virtual const QString& getDescription() const {return tache->getDescription();}
     virtual void exportXml(QXmlStreamWriter& stream) const;
+    virtual const int type() const {return 2;}
 
 
 };

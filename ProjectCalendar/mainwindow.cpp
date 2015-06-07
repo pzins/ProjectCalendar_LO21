@@ -72,11 +72,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
     connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(changeDate()));
+    connect(ui->semaine, SIGNAL(clicked()), this, SLOT(exporterSemaine()));
 
     ui->informations->setChecked(true);
 
 }
 
+void MainWindow::exporterSemaine()
+{
+    Agenda::getInstance().save("semaine", true);
+}
 
 void MainWindow::changeDate()
 {
@@ -103,13 +108,20 @@ void MainWindow::initCalendar(QDate d)
     ui->v_samedi->setScene(&Agenda::getInstance().getScene(5));
     ui->v_dimanche->setScene(&Agenda::getInstance().getScene(6));
 
-    ui->lundi->setText("<h3>Lundi</h3>"+Agenda::getInstance().getScene(0).getDate().toString());
-    ui->mardi->setText("<h3>Mardi</h3>"+Agenda::getInstance().getScene(1).getDate().toString());
-    ui->mercredi->setText("<h3>Mercredi</h3>"+Agenda::getInstance().getScene(2).getDate().toString());
-    ui->jeudi->setText("<h3>Jeudi</h3>"+Agenda::getInstance().getScene(3).getDate().toString());
-    ui->vendredi->setText("<h3>Vendredi</h3>"+Agenda::getInstance().getScene(4).getDate().toString());
-    ui->samedi->setText("<h3>Samedi</h3>"+Agenda::getInstance().getScene(5).getDate().toString());
-    ui->dimanche->setText("<h3>Dimanche</h3>"+Agenda::getInstance().getScene(6).getDate().toString());
+    ui->lundi->setText("<b><h3 align='center'>Lundi</h3><h3 align='center'>"+
+                       Agenda::getInstance().getScene(0).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->mardi->setText("<b><h3 align='center'>Mardi</h3><h3 align='center'>"+
+                       Agenda::getInstance().getScene(1).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->mercredi->setText("<b><h3 align='center'>Mercredi</h3><h3 align='center'>"+
+                          Agenda::getInstance().getScene(2).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->jeudi->setText("<b><h3 align='center'>Jeudi</h3><h3 align='center'>"+
+                       Agenda::getInstance().getScene(3).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->vendredi->setText("<b><h3 align='center'>Vendredi</h3><h3 align='center'>"+
+                          Agenda::getInstance().getScene(4).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->samedi->setText("<b><h3 align='center'>Samedi</h3><h3 align='center'>"+
+                        Agenda::getInstance().getScene(5).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->dimanche->setText("<b><h3 align='center'>Dimanche</h3><h3 align='center'>"+
+                          Agenda::getInstance().getScene(6).getDate().toString("dd.MM.yyyy")+"</h3></b>");
 
 
     connect(ui->v_lundi->scene(), SIGNAL(selectionChanged()), this, SLOT(lundi()));

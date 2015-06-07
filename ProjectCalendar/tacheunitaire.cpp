@@ -21,7 +21,22 @@ void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
 QString TacheUnitaire::info() const
 {
     QString str = "<h3 align='center'>Tache Unitaire</h3>"+Tache::info();
-    str += "<tr><td><b>Durée</b><td >"+duree.toString()+"</td></td></tr>";
+    str += "<tr><td><b>Durée</b></td><td >"+duree.toString()+"</td></tr>";
+    if(isProgrammed())
+    {
+        Agenda* ag = &Agenda::getInstance();
+        for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
+        {
+            if((*it).isTache())
+            {
+                ProgrammationTacheUnitaire* p = dynamic_cast<ProgrammationTacheUnitaire*>(&*it);
+                if(p->getTache() == this)
+                {
+                    str += "<tr><td><b>Programmation</b></td><td>"+p->getDate().toString()+", "+p->getDebut().toString()+"</td></tr>";
+                }
+            }
+        }
+    }
     str += "</table>";
 
     return str;

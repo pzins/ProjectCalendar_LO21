@@ -4,7 +4,7 @@
 
 
 void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, const Duree& duree,
-        Programmation* p, const QColor& contour, const QColor& fond)
+        Programmation* p, int type)
 {
     int mins_ecoulees = -debut.secsTo(QTime(8,0)) / 60;
     QTime fin = debut;
@@ -15,8 +15,8 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
 
 
     ProgrammationItem* prog = new ProgrammationItem(0,y,width(),h,p);
-    prog->setPen(QPen(contour));
-    prog->setBrush(QBrush(fond));
+    prog->setPen(QPen(vec_couleur[type].contour));
+    prog->setBrush(QBrush(vec_couleur[type].fond));
 
     QGraphicsScene::addItem(prog);
     prog->setFlag(QGraphicsItem::ItemIsSelectable);
@@ -26,12 +26,12 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
     QString s;
     if(duree.getDureeEnMinutes()<30)
         return;
-    else if(duree.getDureeEnMinutes()<75)
+    else if(duree.getDureeEnMinutes()<45)
     {
         Xtxt = -3;
         Ytxt = y - 3;
         s = debut.toString("hh:mm") + "   -   " + fin.toString("hh:mm");
-    }else if(duree.getDureeEnMinutes() >= 75)
+    }else if(duree.getDureeEnMinutes() >= 45)
         s = debut.toString("hh:mm") + "   -   " + fin.toString("hh:mm") + "\n" + titre;
     else
         s = debut.toString("hh:mm") + "   -   " + fin.toString("hh:mm");
@@ -92,20 +92,20 @@ void JourScene::update(const QString& s1, const QString& s2)
             if(date == deb)
             {
                 int nb_mins = p->getDebut().secsTo(QTime(22,0)) / 60;
-                ajouterProgrammation(p->getTitre(),p->getDebut(),Duree(nb_mins),p);
+                ajouterProgrammation(p->getTitre(),p->getDebut(),Duree(nb_mins),p, (*it).type());
             }else if(date<fin && date>deb)
             {
-                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(14,0),p);
+                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(14,0),p, (*it).type());
             }else if(date == fin)
             {
                 int nb_mins = QTime(8,0).secsTo(p->getFin()) / 60;
-                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(nb_mins),p);
+                ajouterProgrammation(p->getTitre(),QTime(8,0),Duree(nb_mins),p, (*it).type());
             }
         }
         else if((*it).getDate() == date)
         {
             Duree d = (*it).getDuree();
-            ajouterProgrammation((*it).getTitre(), (*it).getDebut(),d, &*it);
+            ajouterProgrammation((*it).getTitre(), (*it).getDebut(),d, &*it, (*it).type());
         }
     }
 }

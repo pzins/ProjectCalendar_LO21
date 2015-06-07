@@ -13,10 +13,10 @@ QTextStream& operator<<(QTextStream& fout, const Tache& t){
 QString Tache::info() const
 {
     QString str = "<table border='0' align='center'>";
-    str += "<tr><td><b>Titre</b><td >"+titre+"</td></td></tr>";
-    str += "<tr><td><b>Description</b><td >"+description+"</td></td></tr>";
-    str += "<tr><td><b>Disponibilité</b><td >"+dispo.toString()+"</td></td></tr>";
-    str += "<tr><td><b>Echéance</b><td >"+echeance.toString()+"</td></td></tr>";
+    str += "<tr><td><b>Titre</b></td><td>"+titre+"</td></tr>";
+    str += "<tr><td><b>Description</b></td><td>"+description+"</td></tr>";
+    str += "<tr><td><b>Disponibilité</b></td><td>"+dispo.toString()+"</td></tr>";
+    str += "<tr><td><b>Echéance</b></td><td>"+echeance.toString()+"</td></tr>";
     return str;
 }
 

@@ -10,6 +10,7 @@
 #include "jourscene.h"
 #include "observable.h"
 #include "tacheunitaire.h"
+#include "xmlexporter.h"
 
 class ProgComp
 {
@@ -21,7 +22,7 @@ public:
     }
 };
 
-class Agenda : public Observable
+class Agenda : public Observable,  public XmlExporter
 {
 private:
     std::set<Programmation*, ProgComp> set_prog;
@@ -48,12 +49,10 @@ public:
 
     void ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
     const Duree& duree,  const QString& lieu="", const QString& pers="", TacheUnitaire* tache = 0, const QString &projet="", int num_partie=0,
-                              const QString nom_partie="", const QColor& contour=QColor("black"),
-                              const QColor& fond=QColor("red"));
+                              const QString nom_partie="");
 
     void ajouterProgrammationPlsJour(const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-                                     const QDate& date_fin, const QTime& fin, const QColor& contour=QColor("black"),
-                                     const QColor& fond=QColor("red"));
+                                     const QDate& date_fin, const QTime& fin);
 
     void enleverProgrammation(Programmation* prog);
 
@@ -70,7 +69,7 @@ public:
                                                  std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
                                          TacheUnitaire *t, const QString &projet);
 
-    void save(const QString& f);
+    void save(const QString& f, bool contraintes=false);
     void load(const QString& f);
 
 

@@ -94,9 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QStandardItemModel&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QTreeView&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;xmlexporter.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_projet_manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> QStandardItemModel, <span class="keyword">public</span> <a class="code" href="class_observable.html">Observable</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_projet_manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> QStandardItemModel, <span class="keyword">public</span> <a class="code" href="class_observable.html">Observable</a>, <span class="keyword">public</span> <a class="code" href="class_xml_exporter.html">XmlExporter</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">//friend class PrecedenceManager;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_projet.html">Projet</a>* getProjet(<span class="keyword">const</span> QString &amp;titre);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> save(<span class="keyword">const</span> QString&amp; f);<span class="comment">//sauvegarde les projets</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> save(<span class="keyword">const</span> QString&amp; f, <span class="keywordtype">bool</span> contraintes=<span class="keyword">false</span>);<span class="comment">//sauvegarde les projets</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> saveModel(<span class="keyword">const</span> QString&amp; f);<span class="comment">//sauvegarde le modele</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> save_recursive(<span class="keyword">const</span> QStandardItem &amp;item, QXmlStreamWriter&amp; str, QString pere);<span class="comment">//aide saveModel</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
@@ -210,13 +210,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
 <div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:11</div></div>
+<div class="ttc" id="class_xml_exporter_html"><div class="ttname"><a href="class_xml_exporter.html">XmlExporter</a></div><div class="ttdef"><b>Definition:</b> xmlexporter.h:8</div></div>
 <div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observable.h:6</div></div>
 <div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdef"><b>Definition:</b> projet.h:10</div></div>
 <div class="ttc" id="class_projet_manager_1_1_iterator_html"><div class="ttname"><a href="class_projet_manager_1_1_iterator.html">ProjetManager::Iterator</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:95</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 19:06:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 23:07:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

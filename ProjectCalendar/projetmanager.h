@@ -6,9 +6,9 @@
 #include <QString>
 #include <QStandardItemModel>
 #include <QTreeView>
+#include "xmlexporter.h"
 
-
-class ProjetManager : public QStandardItemModel, public Observable
+class ProjetManager : public QStandardItemModel, public Observable, public XmlExporter
 {
     //friend class PrecedenceManager;
 private:
@@ -50,7 +50,7 @@ public:
     Projet* getProjet(const QString &titre);
 
 
-    void save(const QString& f);//sauvegarde les projets
+    void save(const QString& f, bool contraintes=false);//sauvegarde les projets
     void saveModel(const QString& f);//sauvegarde le modele
     void save_recursive(const QStandardItem &item, QXmlStreamWriter& str, QString pere);//aide saveModel
 

@@ -24,6 +24,7 @@ public:
 
     virtual void exportXml(QXmlStreamWriter& stream) const;
 
+    virtual const int type() const {return 0;}
 
 
 

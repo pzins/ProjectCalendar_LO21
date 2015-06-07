@@ -1,7 +1,4 @@
 #include "projetmanager.h"
-#include <QFile>
-#include <QTextCodec>
-#include <QtXml>
 #include <QMessageBox>
 #include <iostream>
 #include <stdexcept>
@@ -252,7 +249,7 @@ void ProjetManager::load(const QString& f){
     //qDebug()<<"fin load\n";
 }
 
-void ProjetManager::save(const QString& f){
+void ProjetManager::save(const QString& f, bool contraintes){
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));

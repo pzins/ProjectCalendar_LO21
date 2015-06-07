@@ -5,6 +5,7 @@
 #include <iostream>
 #include "precedence.h"
 #include "observable.h"
+#include "xmlexporter.h"
 
 class MyComp
 {
@@ -16,7 +17,7 @@ public:
 };
 
 
-class PrecedenceManager : public Observable, public Observateur
+class PrecedenceManager : public Observable, public Observateur, public XmlExporter
 {
 private:
     std::set<Precedence*, MyComp> set_precedence;
@@ -52,7 +53,7 @@ public:
 
     std::vector<Precedence*> findPrecedence(Projet* pro, Tache* t);
 
-    void save(const QString& f);
+    void save(const QString& f, bool contraintes=false);
     void load(const QString& f);
 
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xmlmanager',['XmlManager',['../class_xml_manager.html',1,'']]]
+  ['xmlexporter',['XmlExporter',['../class_xml_exporter.html',1,'']]]
 ];

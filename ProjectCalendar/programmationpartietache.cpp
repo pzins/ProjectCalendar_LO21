@@ -27,3 +27,14 @@ void ProgrammationPartieTache::exportXml(QXmlStreamWriter &stream) const
     stream.writeTextElement("tache", getTache()->getTitre());
     stream.writeEndElement();
 }
+
+const QString ProgrammationPartieTache::toString() const
+{
+    QString str = ProgrammationTacheUnitaire::toString();
+    QString tmp = QString::number(numero);
+    str += "<tr><td><b>Numéro</b><td >"+tmp+"</td></td></tr>";
+    str += "<tr><td><b>Nom</b><td >"+nom_partie+"</td></td></tr>";
+    str += "<tr><td><b>Durée partie</b><td >"+duree.toString()+"</td></td></tr>";
+    return str;
+
+}

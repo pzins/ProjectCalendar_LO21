@@ -48,7 +48,7 @@ public slots:
     void ajouterEvt();
     void changeDate();
     void programmerTache();
-
+    void exporterSemaine();
 
 
 

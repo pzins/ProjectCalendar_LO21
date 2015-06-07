@@ -1,0 +1,18 @@
+#ifndef XMLEXPORTER_H
+#define XMLEXPORTER_H
+#include <QString>
+#include <QFile>
+#include <QXmlStreamReader>
+#include <QTextCodec>
+
+class XmlExporter
+{
+
+public:
+    XmlExporter();
+    ~XmlExporter();
+    virtual void save(const QString& f, bool contraintes=false)=0;
+    virtual void load(const QString& f)=0;
+};
+
+#endif // XMLEXPORTER_H

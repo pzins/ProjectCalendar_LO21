@@ -26,6 +26,8 @@ public:
     virtual bool isTache() const {return true;}
     virtual void exportXml(QXmlStreamWriter& stream) const;
 
+    virtual const QString toString() const;
+    virtual const int type() const {return 3;}
 };
 
 #endif // PROGRAMMATIONPARTIETACHE_H

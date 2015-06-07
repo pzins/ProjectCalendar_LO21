@@ -34,8 +34,7 @@ void Agenda::notifier(const QString& s1, const QString& s2)
 }
 
 void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre, const QString& desc,
-                                         const QTime& debut, const QDate& date_fin, const QTime& fin,
-                                         const QColor& contour, const QColor& fond)
+                                         const QTime& debut, const QDate& date_fin, const QTime& fin)
 {
     ProgrammationEvenementplsJ* p = new ProgrammationEvenementplsJ(date, debut, titre, desc, date_fin, fin);
     try
@@ -141,8 +140,7 @@ void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::
 
 void Agenda::ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
                                   const Duree& duree, const QString& lieu, const QString& pers, TacheUnitaire* tache,
-                                  const QString& projet, int num_partie, const QString nom_partie,
-                                  const QColor& contour, const QColor& fond)
+                                  const QString& projet, int num_partie, const QString nom_partie)
 {
     Programmation* p;
     if(type == 0)
@@ -184,7 +182,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
 }
 
 
-void Agenda::save(const QString &f)
+void Agenda::save(const QString &f, bool contraintes)
 {
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -194,7 +192,17 @@ void Agenda::save(const QString &f)
     stream.writeStartDocument();
     stream.writeStartElement("programmations");
     for(Agenda::Iterator it = begin(); it != end(); ++it){
-        (*it).exportXml(stream);
+        if(contraintes)
+        {
+            if((*it).getDate() >= scenes.at(0)->getDate() && (*it).getDate() <= scenes.at(6)->getDate())
+            {
+                (*it).exportXml(stream);
+            }
+        }
+        else
+        {
+            (*it).exportXml(stream);
+        }
     }
     stream.writeEndDocument();
     newfile.close();

@@ -92,7 +92,7 @@ void PrecedenceManager::notifier(const QString& s1, const QString& s2)
 }
 
 
-void PrecedenceManager::save(const QString& f){
+void PrecedenceManager::save(const QString& f, bool contraintes){
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));

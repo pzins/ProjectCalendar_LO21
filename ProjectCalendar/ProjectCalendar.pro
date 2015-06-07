@@ -45,7 +45,8 @@ SOURCES += main.cpp \
     programmationitem.cpp \
     dialogprogevt.cpp \
     dialogprogtache.cpp \
-    dialogprogpartie.cpp
+    dialogprogpartie.cpp \
+    xmlexporter.cpp
 
 HEADERS += \
     tache.h \
@@ -74,7 +75,8 @@ HEADERS += \
     programmationitem.h \
     dialogprogevt.h \
     dialogprogtache.h \
-    dialogprogpartie.h
+    dialogprogpartie.h \
+    xmlexporter.h
 
 FORMS += \
     mainwindow.ui \
