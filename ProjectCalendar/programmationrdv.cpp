@@ -21,3 +21,19 @@ const QString ProgrammationRdv::toString() const
     str += "</td></td></tr>";
     return str;
 }
+
+void ProgrammationRdv::exportXml(QXmlStreamWriter &stream) const
+{
+    stream.writeStartElement("programmation");
+    stream.writeAttribute("type", "1");
+    stream.writeTextElement("date",getDate().toString(Qt::ISODate));
+    stream.writeTextElement("debut",getDebut().toString());
+    stream.writeTextElement("titre", getTitre());
+    stream.writeTextElement("description",getDescription());
+    QString str;
+    str.setNum(getDuree().getDureeEnMinutes());
+    stream.writeTextElement("duree",str);
+    stream.writeTextElement("lieu", getLieu());
+    stream.writeTextElement("participants", getPersonne());
+    stream.writeEndElement();
+}

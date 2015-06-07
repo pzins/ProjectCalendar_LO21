@@ -21,6 +21,12 @@ public:
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const {return false;}
     virtual bool isTache() const {return false;}
+
+    virtual void exportXml(QXmlStreamWriter& stream) const;
+
+
+
+
 };
 
 #endif // PROGRAMMATIONEVENEMENT1J_H

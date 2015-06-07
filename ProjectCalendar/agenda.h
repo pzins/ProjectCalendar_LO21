@@ -47,8 +47,9 @@ public:
     static void libererInstance(){delete instance;}
 
     void ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-    const Duree& duree,  const QString& lieu="", const QString& pers="", TacheUnitaire* tache = 0,
-                              const QColor& contour=QColor("black"), const QColor& fond=QColor("red"));
+    const Duree& duree,  const QString& lieu="", const QString& pers="", TacheUnitaire* tache = 0, const QString &projet="", int num_partie=0,
+                              const QString nom_partie="", const QColor& contour=QColor("black"),
+                              const QColor& fond=QColor("red"));
 
     void ajouterProgrammationPlsJour(const QDate& date, const QString titre, const QString& desc, const QTime& debut,
                                      const QDate& date_fin, const QTime& fin, const QColor& contour=QColor("black"),
@@ -67,7 +68,12 @@ public:
 
     void ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::vector<QString>& vec_titre,
                                                  std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
-                                         TacheUnitaire *t);
+                                         TacheUnitaire *t, const QString &projet);
+
+    void save(const QString& f);
+    void load(const QString& f);
+
+
     class Iterator
     {
     private:

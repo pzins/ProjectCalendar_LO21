@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     initCalendar(QDate::currentDate());
 
+    /*
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
     Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
@@ -53,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
                                                       QDate(2015,6,3),QTime(8,15));
     Agenda::getInstance().ajouterProgrammationPlsJour(QDate(2015,6,5),"fff","lyon", QTime(13,2),
                                                       QDate(2015,6,6),QTime(10,15));
-
+*/
 
 
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
@@ -125,27 +126,24 @@ void MainWindow::initCalendar(QDate d)
 void MainWindow::programmerTache()
 {
     QModelIndexList sel = ui->treeView->selectionModel()->selectedRows();
-    for(int i = 0; i < sel.size(); ++i)
+    if(sel.size() == 1)
     {
-        if(i==0)
+        try
         {
-            try
-            {
-                QString pname = pm->getProjetName(sel[i]);
-                QString tname = pm->getTacheName(sel[i]);
-                if(pname == tname) throw CalendarException("Impossible de programmer un projet");
-                Projet* p = pm->getProjet(pname);
-                Tache* t = p->getTache(tname);
-                if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
-                TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
-                if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
-                DialogProgTache* d = new DialogProgTache(tu,p);
-                d->exec();
-            }
-            catch(CalendarException e)
-            {
-                std::cout << e.getInfo().toStdString() << std::endl;
-            }
+            QString pname = pm->getProjetName(sel[0]);
+            QString tname = pm->getTacheName(sel[0]);
+            if(pname == tname) throw CalendarException("Impossible de programmer un projet");
+            Projet* p = pm->getProjet(pname);
+            Tache* t = p->getTache(tname);
+            if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
+            TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
+            if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
+            DialogProgTache* d = new DialogProgTache(tu,p);
+            d->exec();
+        }
+        catch(CalendarException e)
+        {
+            std::cout << e.getInfo().toStdString() << std::endl;
         }
     }
 }
@@ -254,6 +252,7 @@ void MainWindow::ajouterEvt()
     DialogProgEvt* d = new DialogProgEvt();
     d->exec();
 }
+
 void MainWindow::expand()
 {
     ui->treeView->expandAll();
@@ -284,17 +283,6 @@ void MainWindow::supprimerItem()
     for(int i = 0; i < sel.size(); ++i)
         pm->supprimerItem(sel[i]);
 
-
-    std::cout << "=========================================" << std::endl;
-    for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
-    {
-        std::cout << "\n" << (*it).getTitre().toStdString() << std::endl;
-        for(Projet::Iterator i = (*it).begin(); i != (*it).end(); ++i)
-        {
-            std::cout <<"---" << (*i).getTitre().toStdString() << std::endl;
-        }
-    }
-    std::cout << "=========================================" << std::endl;
 }
 
 
@@ -405,6 +393,8 @@ void MainWindow::sauvegarder()
     {
         (*it).save((*it).getTitre() + QString(".xml"));
     }
+    pre->save("precedences.xml");
+    ag->save("programmations.xml");
 
 }
 
@@ -418,6 +408,8 @@ void MainWindow::charger()
     {
         (*it).load((*it).getTitre() + QString(".xml"));
     }
+    pre->load("precedences.xml");
+    ag->load("programmations.xml");
 
 }
 

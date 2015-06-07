@@ -4,6 +4,7 @@
 #include <QTime>
 #include "duree.h"
 #include <iostream>
+#include <QXmlStreamReader>
 
 class Programmation {
     QDate date;
@@ -25,6 +26,7 @@ public:
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const =0;
     virtual bool isTache() const =0;
+    virtual void exportXml(QXmlStreamWriter& stream) const =0;
 
 
 };

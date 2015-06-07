@@ -44,6 +44,20 @@ void DialogProgTache::adaptForm(bool etat)
         ui->nb->show();
         ui->label_nb->show();
         ui->ajouter->show();
+        ui->date->hide();
+        ui->horaire->hide();
+        ui->label_horaire->hide();
+        ui->label_date->hide();
+    }
+    else
+    {
+        ui->nb->hide();
+        ui->label_nb->hide();
+        ui->ajouter->hide();
+        ui->date->show();
+        ui->horaire->show();
+        ui->label_horaire->show();
+        ui->label_date->show();
     }
 }
 
@@ -57,12 +71,12 @@ void DialogProgTache::accept()
         if(ui->parties->isChecked())
         {
             verificationParties();
-            ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache);
+            ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache, projet->getTitre());
         }
         else
         {
             ag->ajouterProgrammation(2, ui->date->date(), tache->getTitre(), tache->getDescription(),ui->horaire->time(),
-                                     tache->getDuree(),"", "", tache );
+                                     tache->getDuree(),"", "", tache, projet->getTitre());
         }
     }
     catch(CalendarException e)

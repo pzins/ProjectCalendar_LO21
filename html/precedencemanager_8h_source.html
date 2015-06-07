@@ -140,76 +140,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::vector&lt;Precedence*&gt; findPrecedence(<a class="code" href="class_projet.html">Projet</a>* pro, <a class="code" href="class_tache.html">Tache</a>* t);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> save(<span class="keyword">const</span> QString&amp; f);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> load(<span class="keyword">const</span> QString&amp; f);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_precedence_manager_1_1_iterator.html">   58</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_precedence_manager.html">PrecedenceManager</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::set&lt;Precedence*,MyComp&gt;::iterator courant;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>(std::set&lt;Precedence*,MyComp&gt;::iterator deb) : courant(deb){}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//Iterator() : courant() {}</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="class_precedence.html">Precedence</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> **courant;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            ++courant;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> old;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    };</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>(set_precedence.begin());}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(set_precedence.end());}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_precedence_manager_1_1_const_iterator.html">   84</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_precedence_manager.html">PrecedenceManager</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::set&lt;Precedence*,MyComp&gt;::const_iterator courant;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>(std::set&lt;Precedence*,MyComp&gt;::const_iterator deb) : courant(deb){}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_precedence.html">Precedence</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> **courant;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> operator++(<span class="keywordtype">int</span> i){</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> old = *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            ++courant;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> old;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    };</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> begin()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>(set_precedence.begin());}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    ConstIterator end()<span class="keyword"> const </span>{<span class="keywordflow">return</span> ConstIterator(set_precedence.end());}</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_precedence_manager_1_1_iterator.html">   59</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_precedence_manager.html">PrecedenceManager</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::set&lt;Precedence*,MyComp&gt;::iterator courant;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>(std::set&lt;Precedence*,MyComp&gt;::iterator deb) : courant(deb){}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">//Iterator() : courant() {}</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="class_precedence.html">Precedence</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> **courant;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            ++courant;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> old;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_precedence_manager_1_1_iterator.html">Iterator</a>(set_precedence.begin());}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(set_precedence.end());}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_precedence_manager_1_1_const_iterator.html">   85</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_precedence_manager.html">PrecedenceManager</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::set&lt;Precedence*,MyComp&gt;::const_iterator courant;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>(std::set&lt;Precedence*,MyComp&gt;::const_iterator deb) : courant(deb){}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_precedence.html">Precedence</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> **courant;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> operator++(<span class="keywordtype">int</span> i){</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> old = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            ++courant;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">return</span> old;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a> begin()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a>(set_precedence.begin());}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    ConstIterator end()<span class="keyword"> const </span>{<span class="keywordflow">return</span> ConstIterator(set_precedence.end());}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif // PRECEDENCEMANAGER_H</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif // PRECEDENCEMANAGER_H</span></div>
 <div class="ttc" id="class_my_comp_html"><div class="ttname"><a href="class_my_comp.html">MyComp</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:9</div></div>
-<div class="ttc" id="class_precedence_manager_1_1_iterator_html"><div class="ttname"><a href="class_precedence_manager_1_1_iterator.html">PrecedenceManager::Iterator</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:58</div></div>
+<div class="ttc" id="class_precedence_manager_1_1_iterator_html"><div class="ttname"><a href="class_precedence_manager_1_1_iterator.html">PrecedenceManager::Iterator</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:59</div></div>
 <div class="ttc" id="class_precedence_manager_html"><div class="ttname"><a href="class_precedence_manager.html">PrecedenceManager</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:19</div></div>
 <div class="ttc" id="class_observateur_html"><div class="ttname"><a href="class_observateur.html">Observateur</a></div><div class="ttdef"><b>Definition:</b> observateur.h:8</div></div>
 <div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observable.h:6</div></div>
 <div class="ttc" id="class_precedence_html"><div class="ttname"><a href="class_precedence.html">Precedence</a></div><div class="ttdef"><b>Definition:</b> precedence.h:8</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> tache.h:14</div></div>
 <div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdef"><b>Definition:</b> projet.h:10</div></div>
-<div class="ttc" id="class_precedence_manager_1_1_const_iterator_html"><div class="ttname"><a href="class_precedence_manager_1_1_const_iterator.html">PrecedenceManager::ConstIterator</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:84</div></div>
+<div class="ttc" id="class_precedence_manager_1_1_const_iterator_html"><div class="ttname"><a href="class_precedence_manager_1_1_const_iterator.html">PrecedenceManager::ConstIterator</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 15:28:14 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 19:06:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

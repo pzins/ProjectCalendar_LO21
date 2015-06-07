@@ -7,14 +7,16 @@ class ProgrammationTacheUnitaire : public Programmation
 {
 private:
     TacheUnitaire* tache;
+    QString projet;
 
 public:
-    ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_):
-        Programmation(date_, debut_), tache(&tache_){}
+    ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_, const QString& projet_):
+        Programmation(date_, debut_), tache(&tache_), projet(projet_){}
 
     virtual ~ProgrammationTacheUnitaire(){}
 
-    TacheUnitaire* getTache() {return tache;}
+    TacheUnitaire* getTache() const {return tache;}
+    const QString& getProjet() const {return projet;}
 
     virtual void afficher() const;
     virtual const Duree& getDuree() const {return tache->getDuree();}
@@ -24,6 +26,7 @@ public:
 
 
     virtual const QString& getDescription() const {return tache->getDescription();}
+    virtual void exportXml(QXmlStreamWriter& stream) const;
 
 
 };

@@ -43,26 +43,13 @@ bool PrecedenceManager::containsInverse(const Precedence &p) const
     return false;
 }
 
-/*
-bool PrecedenceManager::contains(const Precedence& p)
-{
-    for(Iterator it = begin(); it != end(); ++it)
-    {
-        if((*it) == p){
-            return true;
-        }
-    }
-    return false;
-}*/
 
 void PrecedenceManager::retirerPrecedence(Precedence &p)
 {
     for(std::set<Precedence*, MyComp>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
     {
-        std::cout << "ok" << std::endl;
         if(p == *(*it))
         {
-            std::cout << "klm" << std::endl;
             set_precedence.erase(it);
             notifier();
             break;
@@ -102,4 +89,91 @@ void PrecedenceManager::notifier(const QString& s1, const QString& s2)
 {
     for(Observable::Iterator it = getObs().begin(); it != getObs().end(); ++it)
         (*it).update(s1,s2);
+}
+
+
+void PrecedenceManager::save(const QString& f){
+    QFile newfile(f);
+    if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
+        throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
+    QXmlStreamWriter stream(&newfile);
+    stream.setAutoFormatting(true);
+    stream.writeStartDocument();
+    stream.writeStartElement("precedences");
+    for(PrecedenceManager::Iterator it = begin(); it != end(); ++it){
+        stream.writeStartElement("precedence");
+        QString str;
+        stream.writeTextElement("projet",(*it).getProjet().getTitre());
+        stream.writeTextElement("anterieure",(*it).getPred().getTitre());
+        stream.writeTextElement("posterieure",(*it).getSucc().getTitre());
+        stream.writeEndElement();
+    }
+    stream.writeEndElement();
+    stream.writeEndDocument();
+    newfile.close();
+}
+
+
+void PrecedenceManager::load(const QString& f){
+    //qDebug()<<"debut load\n";
+    //this->~TacheManager();
+    QFile fin(f);
+    // If we can't open it, let's show an error message.
+    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        throw CalendarException("Erreur ouverture fichier tâches");
+    }
+    // QXmlStreamReader takes any QIODevice.
+    QXmlStreamReader xml(&fin);
+    //qDebug()<<"debut fichier\n";
+    // We'll parse the XML until we reach end of it.
+    while(!xml.atEnd() && !xml.hasError()) {
+        // Read next element.
+        QXmlStreamReader::TokenType token = xml.readNext();
+        // If token is just StartDocument, we'll go to next.
+        if(token == QXmlStreamReader::StartDocument) continue;
+        // If token is StartElement, we'll see if we can read it.
+        if(token == QXmlStreamReader::StartElement) {
+            // If it's named taches, we'll go to the next.
+            if(xml.name() == "precedences") continue;
+            // If it's named tache, we'll dig the information from there.
+            if(xml.name() == "precedence") {
+                QString projet;
+                QString anterieure;
+                QString posterieure;
+                xml.readNext();                xml.readNext();
+                //We're going to loop over the things because the order might change.
+                //We'll continue the loop until we hit an EndElement named tache.
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "precedence")) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
+                            // We've found titre.
+                        if(xml.name() == "projet") {
+                            xml.readNext(); projet=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        if(xml.name() == "anterieure") {
+                            xml.readNext(); anterieure=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        if(xml.name() == "posterieure") {
+                            xml.readNext(); posterieure=xml.text().toString();
+                            //qDebug()<<"titre="<<titre<<"\n";
+                        }
+                    }
+                    // ...and next...
+                    xml.readNext();
+                }
+                Projet* p = ProjetManager::getInstance().getProjet(projet);
+                Tache* ant = p->getTache(anterieure);
+                Tache* post = p->getTache(posterieure);
+                ajouterPrecedence(*ant, *post, *p);
+            }
+        }
+    }
+    // Error handling.
+    if(xml.hasError()) {
+        throw CalendarException("Erreur lecteur fichier taches, parser xml");
+    }
+    // Removes any device() or data from the reader * and resets its internal state to the initial state.
+    xml.clear();
+    //qDebug()<<"fin load\n";
 }

@@ -107,9 +107,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0da65961abdcd0fc3030b7a83db144f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0da65961abdcd0fc3030b7a83db144f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (int type, const QDate &amp;date, const QString titre, const QString &amp;desc, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, const QString &amp;lieu=&quot;&quot;, const QString &amp;pers=&quot;&quot;, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *tache=0, const QColor &amp;contour=QColor(&quot;black&quot;), const QColor &amp;fond=QColor(&quot;red&quot;))</td></tr>
-<tr class="separator:a0da65961abdcd0fc3030b7a83db144f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe739dafe60356a6e05710ded7a96ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbe739dafe60356a6e05710ded7a96ff"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (int type, const QDate &amp;date, const QString titre, const QString &amp;desc, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, const QString &amp;lieu=&quot;&quot;, const QString &amp;pers=&quot;&quot;, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *tache=0, const QString &amp;projet=&quot;&quot;, int num_partie=0, const QString nom_partie=&quot;&quot;, const QColor &amp;contour=QColor(&quot;black&quot;), const QColor &amp;fond=QColor(&quot;red&quot;))</td></tr>
+<tr class="separator:adbe739dafe60356a6e05710ded7a96ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4905addd7cc9d1843f2868d3809242c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4905addd7cc9d1843f2868d3809242c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammationPlsJour</b> (const QDate &amp;date, const QString titre, const QString &amp;desc, const QTime &amp;debut, const QDate &amp;date_fin, const QTime &amp;fin, const QColor &amp;contour=QColor(&quot;black&quot;), const QColor &amp;fond=QColor(&quot;red&quot;))</td></tr>
 <tr class="separator:aa4905addd7cc9d1843f2868d3809242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,9 +135,15 @@ std::set&lt; <a class="el" href="class_programmation.html">Programmation</a> <br
 <tr class="memitem:a53f353a2334e4b6ccc8c9a52576b3dda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53f353a2334e4b6ccc8c9a52576b3dda"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
 <tr class="separator:a53f353a2334e4b6ccc8c9a52576b3dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14324c02e5ea262821bb4e0c87208816"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14324c02e5ea262821bb4e0c87208816"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammationPartieTache</b> (std::vector&lt; QDate &gt; &amp;vec_date, std::vector&lt; QString &gt; &amp;vec_titre, std::vector&lt; QTime &gt; &amp;vec_debut, std::vector&lt; <a class="el" href="class_duree.html">Duree</a> &gt; &amp;vec_duree, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *t)</td></tr>
-<tr class="separator:a14324c02e5ea262821bb4e0c87208816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9ff564d5765f54424b5d453bcbfc21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d9ff564d5765f54424b5d453bcbfc21"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammationPartieTache</b> (std::vector&lt; QDate &gt; &amp;vec_date, std::vector&lt; QString &gt; &amp;vec_titre, std::vector&lt; QTime &gt; &amp;vec_debut, std::vector&lt; <a class="el" href="class_duree.html">Duree</a> &gt; &amp;vec_duree, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *t, const QString &amp;projet)</td></tr>
+<tr class="separator:a5d9ff564d5765f54424b5d453bcbfc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af472b65cff8dda210831992cbe917767"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af472b65cff8dda210831992cbe917767"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f)</td></tr>
+<tr class="separator:af472b65cff8dda210831992cbe917767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc2ebcc8126f0cf8729b3dedf31e763"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fc2ebcc8126f0cf8729b3dedf31e763"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
+<tr class="separator:a4fc2ebcc8126f0cf8729b3dedf31e763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a111e5efdee38c9c9187e80e8089c7322"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a111e5efdee38c9c9187e80e8089c7322"></a>
 <a class="el" href="class_agenda_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:a111e5efdee38c9c9187e80e8089c7322"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,7 +183,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 15:28:14 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 19:06:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -23,6 +23,8 @@ public:
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const {return true;}
     virtual bool isTache() const {return false;}
+    virtual void exportXml(QXmlStreamWriter& stream) const;
+
 
 };
 

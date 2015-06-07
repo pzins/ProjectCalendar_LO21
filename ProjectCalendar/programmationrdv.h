@@ -17,12 +17,22 @@ public:
 
     virtual ~ProgrammationRdv(){}
 
+    QString getPersonne() const {
+        QString res="";
+        for(int i = 0; i < personne.size(); ++i)
+        {
+            res += personne.at(i);
+            if(i != personne.size()-1)
+                res += "\n";
+        }
+    }
     const QString& getLieu() const {return lieu;}
     void ajouterPersonne(const QString& nom);
     void retirerPersonne(const QString& nom);
     virtual void afficher() const;
     virtual const QString toString() const;
     virtual bool isEvtPlsJ() const {return false;}
+    virtual void exportXml(QXmlStreamWriter& stream) const;
 
 
 

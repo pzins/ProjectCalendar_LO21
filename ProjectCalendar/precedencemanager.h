@@ -52,7 +52,8 @@ public:
 
     std::vector<Precedence*> findPrecedence(Projet* pro, Tache* t);
 
-
+    void save(const QString& f);
+    void load(const QString& f);
 
 
     class Iterator

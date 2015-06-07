@@ -101,9 +101,9 @@ Inheritance diagram for ProgrammationPartieTache:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae68a245e2ae1064f4529c3383f85b710"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae68a245e2ae1064f4529c3383f85b710"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationPartieTache</b> (const QDate &amp;date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_, const int numero_, const QString &amp;nom_partie_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_)</td></tr>
-<tr class="separator:ae68a245e2ae1064f4529c3383f85b710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcf4cf867fc04f661ce53e606ba64a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affcf4cf867fc04f661ce53e606ba64a6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationPartieTache</b> (const QDate &amp;date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_, const int numero_, const QString &amp;nom_partie_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_, const QString &amp;projet_)</td></tr>
+<tr class="separator:affcf4cf867fc04f661ce53e606ba64a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c2b6bb69214e6b2445fce8fd618c5db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c2b6bb69214e6b2445fce8fd618c5db"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const </td></tr>
 <tr class="separator:a0c2b6bb69214e6b2445fce8fd618c5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,13 +119,19 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumero</b> () const
 <tr class="memitem:ace82ab70db6b79b4729d3bc71bf77e78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace82ab70db6b79b4729d3bc71bf77e78"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isTache</b> () const </td></tr>
 <tr class="separator:ace82ab70db6b79b4729d3bc71bf77e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06262cf4841944679897f1738b215e44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06262cf4841944679897f1738b215e44"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="separator:a06262cf4841944679897f1738b215e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_programmation_tache_unitaire"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_programmation_tache_unitaire')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_programmation_tache_unitaire.html">ProgrammationTacheUnitaire</a></td></tr>
-<tr class="memitem:a6b8edacc2afab1f5e5e286062a42c097 inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b8edacc2afab1f5e5e286062a42c097"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationTacheUnitaire</b> (const QDate date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_)</td></tr>
-<tr class="separator:a6b8edacc2afab1f5e5e286062a42c097 inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eecf6c96e39ba9b5a0c44d0018df752 inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0eecf6c96e39ba9b5a0c44d0018df752"></a>
-<a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> ()</td></tr>
-<tr class="separator:a0eecf6c96e39ba9b5a0c44d0018df752 inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49279ce8c6e018fb8f0d0bc75ad822c2 inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49279ce8c6e018fb8f0d0bc75ad822c2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationTacheUnitaire</b> (const QDate date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_, const QString &amp;projet_)</td></tr>
+<tr class="separator:a49279ce8c6e018fb8f0d0bc75ad822c2 inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9704c330b428ca500c4a5c49eb9743 inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae9704c330b428ca500c4a5c49eb9743"></a>
+<a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> () const </td></tr>
+<tr class="separator:aae9704c330b428ca500c4a5c49eb9743 inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a62fea2129294166a4ea4ddc0f817fe inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a62fea2129294166a4ea4ddc0f817fe"></a>
+const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getProjet</b> () const </td></tr>
+<tr class="separator:a6a62fea2129294166a4ea4ddc0f817fe inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25633a3273414bd8495a98ebbc974588 inherit pub_methods_class_programmation_tache_unitaire"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25633a3273414bd8495a98ebbc974588"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
 <tr class="separator:a25633a3273414bd8495a98ebbc974588 inherit pub_methods_class_programmation_tache_unitaire"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,7 +162,7 @@ virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toSt
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 15:28:14 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 19:06:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
