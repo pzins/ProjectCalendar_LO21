@@ -19,11 +19,18 @@ void Agenda::ajouterScene(const QString& jour, const QDate& date, qreal h, qreal
 
 
 
-Agenda::~Agenda(){
-   /*
-    for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
-   for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
-        delete *it;*/
+Agenda::~Agenda()
+{
+    for(unsigned int i=0; i<scenes.size(); i++) delete scenes[i];
+    std::set<Programmation*, ProgComp>::iterator it;
+    std::set<Programmation*, ProgComp>::iterator end;
+    while(it != end)
+    {
+        std::set<Programmation*, ProgComp>::iterator tmp = it;
+        ++it;
+        delete *tmp;
+    }
+
 }
 
 void Agenda::notifier(const QString& s1, const QString& s2)
@@ -138,9 +145,9 @@ void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::
 }
 
 
-void Agenda::ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
-                                  const Duree& duree, const QString& lieu, const QString& pers, TacheUnitaire* tache,
-                                  const QString& projet, int num_partie, const QString nom_partie)
+void Agenda::ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc,
+                                  const QTime& debut, const Duree& duree, const QString& lieu, const QString& pers,
+                                  TacheUnitaire* tache, const QString& projet, int num_partie, const QString nom_partie)
 {
     Programmation* p;
     if(type == 0)

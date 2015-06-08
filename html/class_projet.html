@@ -89,19 +89,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Projet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe représentant un projet.  
+ <a href="class_projet.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="projet_8h_source.html">projet.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Projet:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_projet.png" usemap="#Projet_map" alt=""/>
   <map id="Projet_map" name="Projet_map">
-<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,78,24"/>
+<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="0,0,78,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_projet_1_1_iterator.html" title="Iterator de projet qui parcourt les taches du projet. ">Iterator</a> de projet qui parcourt les taches du projet.  <a href="class_projet_1_1_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -124,20 +130,20 @@ const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEchea
 <tr class="memitem:a9b8a6ac1b80374f119d96f56f4d19337"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b8a6ac1b80374f119d96f56f4d19337"></a>
 std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapTache</b> ()</td></tr>
 <tr class="separator:a9b8a6ac1b80374f119d96f56f4d19337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a934da0604e4501d56ee6b990f6dd18d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a934da0604e4501d56ee6b990f6dd18d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterTache</b> (QChar type, const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, bool preemptive)</td></tr>
+<tr class="memitem:a934da0604e4501d56ee6b990f6dd18d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a934da0604e4501d56ee6b990f6dd18d3">ajouterTache</a> (QChar type, const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, bool preemptive)</td></tr>
+<tr class="memdesc:a934da0604e4501d56ee6b990f6dd18d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterTache : ajout d'une tache à un projet  <a href="#a934da0604e4501d56ee6b990f6dd18d3">More...</a><br/></td></tr>
 <tr class="separator:a934da0604e4501d56ee6b990f6dd18d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369bb3b7225f916ad0114c839fe1acae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a369bb3b7225f916ad0114c839fe1acae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerTache</b> (QString &amp;titre)</td></tr>
+<tr class="memitem:a369bb3b7225f916ad0114c839fe1acae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a369bb3b7225f916ad0114c839fe1acae">supprimerTache</a> (QString &amp;titre)</td></tr>
+<tr class="memdesc:a369bb3b7225f916ad0114c839fe1acae"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprimerTache : suppression d'une tache d'un projet  <a href="#a369bb3b7225f916ad0114c839fe1acae">More...</a><br/></td></tr>
 <tr class="separator:a369bb3b7225f916ad0114c839fe1acae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20f5a302b4ab3cb0ac66d7c72fe16d46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20f5a302b4ab3cb0ac66d7c72fe16d46"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>verification</b> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance, const QString &amp;tc_parent)</td></tr>
+<tr class="memitem:a20f5a302b4ab3cb0ac66d7c72fe16d46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a20f5a302b4ab3cb0ac66d7c72fe16d46">verification</a> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance, const QString &amp;tc_parent)</td></tr>
+<tr class="memdesc:a20f5a302b4ab3cb0ac66d7c72fe16d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification : vérification des contraintes liées à l'ajout de taches dans un projet  <a href="#a20f5a302b4ab3cb0ac66d7c72fe16d46">More...</a><br/></td></tr>
 <tr class="separator:a20f5a302b4ab3cb0ac66d7c72fe16d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57c9aaee78a82d744627c278dc0d5442"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57c9aaee78a82d744627c278dc0d5442"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> () const </td></tr>
 <tr class="separator:a57c9aaee78a82d744627c278dc0d5442"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68ce4f487c4a4fa7b466dc3571653b80"></a>
-<a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> (const QString &amp;titre)</td></tr>
+<tr class="memitem:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a68ce4f487c4a4fa7b466dc3571653b80">getTache</a> (const QString &amp;titre)</td></tr>
+<tr class="memdesc:a68ce4f487c4a4fa7b466dc3571653b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache  <a href="#a68ce4f487c4a4fa7b466dc3571653b80">More...</a><br/></td></tr>
 <tr class="separator:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0446ff4f2718937b8801c303022f60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c0446ff4f2718937b8801c303022f60"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;titre)</td></tr>
@@ -145,11 +151,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QStri
 <tr class="memitem:a9d3f14378e9831ce72aef90858d8d733"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d3f14378e9831ce72aef90858d8d733"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:a9d3f14378e9831ce72aef90858d8d733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ba60591b22a971014cb21220c0dc7eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ba60591b22a971014cb21220c0dc7eb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_projet.html">Projet</a> &amp;p)</td></tr>
+<tr class="memitem:a2ba60591b22a971014cb21220c0dc7eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a2ba60591b22a971014cb21220c0dc7eb">operator==</a> (const <a class="el" href="class_projet.html">Projet</a> &amp;p)</td></tr>
+<tr class="memdesc:a2ba60591b22a971014cb21220c0dc7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : compare 2 projets (par rapport à leurs titre)  <a href="#a2ba60591b22a971014cb21220c0dc7eb">More...</a><br/></td></tr>
 <tr class="separator:a2ba60591b22a971014cb21220c0dc7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c93dd2241398bb117a764dab22a5254"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c93dd2241398bb117a764dab22a5254"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:a7c93dd2241398bb117a764dab22a5254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a7c93dd2241398bb117a764dab22a5254">notifier</a> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:a7c93dd2241398bb117a764dab22a5254"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a7c93dd2241398bb117a764dab22a5254">More...</a><br/></td></tr>
 <tr class="separator:a7c93dd2241398bb117a764dab22a5254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac935c3f7a161e8fb124391cdcb346c39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac935c3f7a161e8fb124391cdcb346c39"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
@@ -174,6 +180,252 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 <a class="el" href="class_observable_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:abeba1960c449755ea7f712b7814f1236 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe représentant un projet. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a934da0604e4501d56ee6b990f6dd18d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projet::ajouterTache </td>
+          <td>(</td>
+          <td class="paramtype">QChar&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>echeance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td>
+          <td class="paramname"><em>duree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>preemptive</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajouterTache : ajout d'une tache à un projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td></td></tr>
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">description</td><td></td></tr>
+    <tr><td class="paramname">dispo</td><td></td></tr>
+    <tr><td class="paramname">echeance</td><td></td></tr>
+    <tr><td class="paramname">duree</td><td></td></tr>
+    <tr><td class="paramname">preemptive</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a68ce4f487c4a4fa7b466dc3571653b80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tache.html">Tache</a> * Projet::getTache </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c93dd2241398bb117a764dab22a5254"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projet::notifier </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notifier : notifie tous les observateurs qui vont se mettre à jour </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>parametre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>parametre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">Observable</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ba60591b22a971014cb21220c0dc7eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Projet::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator == : compare 2 projets (par rapport à leurs titre) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a369bb3b7225f916ad0114c839fe1acae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projet::supprimerTache </td>
+          <td>(</td>
+          <td class="paramtype">QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>supprimerTache : suppression d'une tache d'un projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a20f5a302b4ab3cb0ac66d7c72fe16d46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projet::verification </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>echeance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>tc_parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>verification : vérification des contraintes liées à l'ajout de taches dans un projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">description</td><td></td></tr>
+    <tr><td class="paramname">dispo</td><td></td></tr>
+    <tr><td class="paramname">echeance</td><td></td></tr>
+    <tr><td class="paramname">tc_parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="projet_8h_source.html">projet.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/projet.cpp</li>
@@ -181,7 +433,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

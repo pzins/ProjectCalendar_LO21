@@ -88,20 +88,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">JourScene Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour.  
+ <a href="class_jour_scene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="jourscene_8h_source.html">jourscene.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for JourScene:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_jour_scene.png" usemap="#JourScene_map" alt=""/>
   <map id="JourScene_map" name="JourScene_map">
-<area href="class_observateur.html" alt="Observateur" shape="rect" coords="119,0,228,24"/>
+<area href="class_observateur.html" title="class abstraite permettant d&#39;observer d&#39;autres objets " alt="Observateur" shape="rect" coords="119,0,228,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a44a6b9d15f08a771ba4d4239c093065f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44a6b9d15f08a771ba4d4239c093065f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>JourScene</b> (const QString &amp;nom_, const QDate &amp;date_, qreal x_, qreal y_, qreal width_, qreal height_, unsigned int minutes_=840, QObject *parent=0)</td></tr>
+<tr class="memitem:a44a6b9d15f08a771ba4d4239c093065f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_scene.html#a44a6b9d15f08a771ba4d4239c093065f">JourScene</a> (const QString &amp;nom_, const QDate &amp;date_, qreal x_, qreal y_, qreal width_, qreal height_, unsigned int minutes_=840, QObject *parent=0)</td></tr>
+<tr class="memdesc:a44a6b9d15f08a771ba4d4239c093065f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jour_scene.html" title="Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour. ">JourScene</a>.  <a href="#a44a6b9d15f08a771ba4d4239c093065f">More...</a><br/></td></tr>
 <tr class="separator:a44a6b9d15f08a771ba4d4239c093065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a438796aa526063cf013ed59fd20c0e0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a438796aa526063cf013ed59fd20c0e0e"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -109,19 +114,211 @@ const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate<
 <tr class="memitem:a6492a731ec912052f77dd9952b40a1c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6492a731ec912052f77dd9952b40a1c1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDate</b> (QDate &amp;d)</td></tr>
 <tr class="separator:a6492a731ec912052f77dd9952b40a1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ea81a9b6c97c703eca80bf79734d55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6ea81a9b6c97c703eca80bf79734d55"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (const QString titre, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, <a class="el" href="class_programmation.html">Programmation</a> *e=0, int type=0)</td></tr>
+<tr class="memitem:ad6ea81a9b6c97c703eca80bf79734d55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_scene.html#ad6ea81a9b6c97c703eca80bf79734d55">ajouterProgrammation</a> (const QString titre, const QTime &amp;debut, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, <a class="el" href="class_programmation.html">Programmation</a> *e=0, int type=0)</td></tr>
+<tr class="memdesc:ad6ea81a9b6c97c703eca80bf79734d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterProgrammation : ajoute une programmation de l'agenda à la scene  <a href="#ad6ea81a9b6c97c703eca80bf79734d55">More...</a><br/></td></tr>
 <tr class="separator:ad6ea81a9b6c97c703eca80bf79734d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d8153523054cfa3da0a3c0253117ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d8153523054cfa3da0a3c0253117ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dessinerFond</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_scene.html#aa7d8153523054cfa3da0a3c0253117ec">dessinerFond</a> ()</td></tr>
+<tr class="memdesc:aa7d8153523054cfa3da0a3c0253117ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">dessinerFond : dessiner le fond du calendrier <br/></td></tr>
 <tr class="separator:aa7d8153523054cfa3da0a3c0253117ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf3e8e576f28a3f540555c17fa31d19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cf3e8e576f28a3f540555c17fa31d19"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllItems</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_scene.html#a9cf3e8e576f28a3f540555c17fa31d19">removeAllItems</a> ()</td></tr>
+<tr class="memdesc:a9cf3e8e576f28a3f540555c17fa31d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">removeAllItems : vide la scene <br/></td></tr>
 <tr class="separator:a9cf3e8e576f28a3f540555c17fa31d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a019e742d5f242329d54d132e4e02e131"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a019e742d5f242329d54d132e4e02e131"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:a019e742d5f242329d54d132e4e02e131"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_scene.html#a019e742d5f242329d54d132e4e02e131">update</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:a019e742d5f242329d54d132e4e02e131"><td class="mdescLeft">&#160;</td><td class="mdescRight">update : met la scene à jour à partir de l'agenda  <a href="#a019e742d5f242329d54d132e4e02e131">More...</a><br/></td></tr>
 <tr class="separator:a019e742d5f242329d54d132e4e02e131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a44a6b9d15f08a771ba4d4239c093065f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JourScene::JourScene </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>nom_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>date_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>x_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>y_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>width_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>height_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>minutes_</em> = <code>840</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_jour_scene.html" title="Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour. ">JourScene</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom_</td><td>jour de la semaine </td></tr>
+    <tr><td class="paramname">date_</td><td></td></tr>
+    <tr><td class="paramname">x_</td><td>position x </td></tr>
+    <tr><td class="paramname">y_</td><td>position y </td></tr>
+    <tr><td class="paramname">width_</td><td>largeur </td></tr>
+    <tr><td class="paramname">height_</td><td>hauteur </td></tr>
+    <tr><td class="paramname">minutes_</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad6ea81a9b6c97c703eca80bf79734d55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JourScene::ajouterProgrammation </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>debut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td>
+          <td class="paramname"><em>duree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_programmation.html">Programmation</a> *&#160;</td>
+          <td class="paramname"><em>e</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajouterProgrammation : ajoute une programmation de l'agenda à la scene </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">debut</td><td>horaire de début </td></tr>
+    <tr><td class="paramname">duree</td><td></td></tr>
+    <tr><td class="paramname">e</td><td>programmation de l'agenda </td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a019e742d5f242329d54d132e4e02e131"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JourScene::update </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>update : met la scene à jour à partir de l'agenda </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td></td></tr>
+    <tr><td class="paramname">s2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observateur.html#a34b7ede962421a2e816cb4c61d97416f">Observateur</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="jourscene_8h_source.html">jourscene.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/jourscene.cpp</li>
@@ -129,7 +326,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (c
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -3,13 +3,7 @@
 
 
 
-void ProgrammationRdv::afficher() const
-{
-    ProgrammationEvenement1J::afficher();
-    std::cout << "lieu : " << lieu.toStdString()<< std::endl;
-    for(unsigned int i = 0; i < personne.size(); ++i)
-    std::cout << "personne" << i << " : " << personne[i].toStdString() << std::endl;
-}
+
 
 const QString ProgrammationRdv::toString() const
 {

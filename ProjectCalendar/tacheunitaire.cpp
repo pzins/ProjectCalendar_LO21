@@ -18,7 +18,7 @@ void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
     stream.writeEndElement();
 }
 
-QString TacheUnitaire::info() const
+const QString TacheUnitaire::info() const
 {
     QString str = "<h3 align='center'>Tache Unitaire</h3>"+Tache::info();
     str += "<tr><td><b>Durée</b></td><td >"+duree.toString()+"</td></tr>";

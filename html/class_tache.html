@@ -88,21 +88,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Tache Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe abstraite représentant une <a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a>.  
+ <a href="class_tache.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tache_8h_source.html">tache.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Tache:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_tache.png" usemap="#Tache_map" alt=""/>
   <map id="Tache_map" name="Tache_map">
-<area href="class_tache_composite.html" alt="TacheComposite" shape="rect" coords="0,56,105,80"/>
-<area href="class_tache_unitaire.html" alt="TacheUnitaire" shape="rect" coords="115,56,220,80"/>
+<area href="class_affichable.html" title="Interface permettant aux classes d&#39;être facilement affichée dans un Text Browser. ..." alt="Affichable" shape="rect" coords="57,0,162,24"/>
+<area href="class_tache_composite.html" title="Classe abstraite représentant une TacheComposite. " alt="TacheComposite" shape="rect" coords="0,112,105,136"/>
+<area href="class_tache_unitaire.html" title="Classe abstraite représentant une TacheUnitaire. " alt="TacheUnitaire" shape="rect" coords="115,112,220,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa1adac818e0106a196c2a19a3c556b8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1adac818e0106a196c2a19a3c556b8b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="memitem:aa1adac818e0106a196c2a19a3c556b8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#aa1adac818e0106a196c2a19a3c556b8b">Tache</a> (const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
+<tr class="memdesc:aa1adac818e0106a196c2a19a3c556b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a>.  <a href="#aa1adac818e0106a196c2a19a3c556b8b">More...</a><br/></td></tr>
 <tr class="separator:aa1adac818e0106a196c2a19a3c556b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e56c6eaaa23d2c66148ff5a89724e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9e56c6eaaa23d2c66148ff5a89724e6"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
@@ -125,19 +131,110 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDescription</b> (c
 <tr class="memitem:aa2cbded1891dcc12f405a509e003b322"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2cbded1891dcc12f405a509e003b322"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDispoEcheance</b> (const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
 <tr class="separator:aa2cbded1891dcc12f405a509e003b322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c02621a29f8e92c82c0e12fb1962039"><td class="memItemLeft" align="right" valign="top">virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">info</a> () const </td></tr>
+<tr class="memdesc:a1c02621a29f8e92c82c0e12fb1962039"><td class="mdescLeft">&#160;</td><td class="mdescRight">info : crée un QString destiné à être affiché dans un Text Browser  <a href="#a1c02621a29f8e92c82c0e12fb1962039">More...</a><br/></td></tr>
+<tr class="separator:a1c02621a29f8e92c82c0e12fb1962039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea13df80675afe147d7ea8e2057f65e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea13df80675afe147d7ea8e2057f65e1"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream)=0</td></tr>
 <tr class="separator:aea13df80675afe147d7ea8e2057f65e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae605d6e28a58e575cf1159be3af2bd8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae605d6e28a58e575cf1159be3af2bd8a"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isComposite</b> () const =0</td></tr>
 <tr class="separator:ae605d6e28a58e575cf1159be3af2bd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c340ff60ec53a665a840bdcce03406"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42c340ff60ec53a665a840bdcce03406"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> () const =0</td></tr>
-<tr class="separator:a42c340ff60ec53a665a840bdcce03406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed1fd0458eaac678c0e42b5b961b2cc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed1fd0458eaac678c0e42b5b961b2cc9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
 <tr class="separator:aed1fd0458eaac678c0e42b5b961b2cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe abstraite représentant une <a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa1adac818e0106a196c2a19a3c556b8b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tache::Tache </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>description_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>echeance_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre_</td><td></td></tr>
+    <tr><td class="paramname">description_</td><td></td></tr>
+    <tr><td class="paramname">dispo_</td><td>date de disponibilité </td></tr>
+    <tr><td class="paramname">echeance_</td><td>date d'échéance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1c02621a29f8e92c82c0e12fb1962039"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString Tache::info </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>info : crée un QString destiné à être affiché dans un Text Browser </p>
+<dl class="section return"><dt>Returns</dt><dd>une QString contenant toutes les informations sur l'objet </dd></dl>
+
+<p>Implements <a class="el" href="class_affichable.html#ad546fcaa1d5aa3c67b8ed760148893cf">Affichable</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_tache_composite.html#a965dd45293c177398e0f6aa9dc6eea4b">TacheComposite</a>, and <a class="el" href="class_tache_unitaire.html#a3ee92a092cc758375d53bdf39c8ae6a5">TacheUnitaire</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="tache_8h_source.html">tache.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/tache.cpp</li>
@@ -145,7 +242,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -89,6 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">DialogPrecedence Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Fenêtre de dialogue pour l'ajout de précédences.  
+ <a href="class_dialog_precedence.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dialogprecedence_8h_source.html">dialogprecedence.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DialogPrecedence:</div>
 <div class="dyncontent">
@@ -109,19 +114,55 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a073f8e2ad54b667792cfd80933d6fc55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a073f8e2ad54b667792cfd80933d6fc55"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DialogPrecedence</b> (QStandardItem *it, QWidget *parent=0)</td></tr>
 <tr class="separator:a073f8e2ad54b667792cfd80933d6fc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37a35f4151c513ae000fce4618f3405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac37a35f4151c513ae000fce4618f3405"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerProjets</b> ()</td></tr>
-<tr class="separator:ac37a35f4151c513ae000fce4618f3405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f8ff468c6f9f6a38e170ab0997cdb87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f8ff468c6f9f6a38e170ab0997cdb87"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setItemTache</b> (QStandardItem *i)</td></tr>
 <tr class="separator:a9f8ff468c6f9f6a38e170ab0997cdb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09a624c7a8f5519df35069221be16a56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09a624c7a8f5519df35069221be16a56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerAnterieure</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dialog_precedence.html#a09a624c7a8f5519df35069221be16a56">chargerAnterieure</a> ()</td></tr>
+<tr class="memdesc:a09a624c7a8f5519df35069221be16a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">chargerAnterieure : charge les tâches pouvant avoir la contrainte de précédences <br/></td></tr>
 <tr class="separator:a09a624c7a8f5519df35069221be16a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44826abdb9c48447bd04dec64729964b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44826abdb9c48447bd04dec64729964b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>testDejaProg</b> (<a class="el" href="class_tache.html">Tache</a> *ant, <a class="el" href="class_tache.html">Tache</a> *post)</td></tr>
+<tr class="memitem:a44826abdb9c48447bd04dec64729964b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dialog_precedence.html#a44826abdb9c48447bd04dec64729964b">testDejaProg</a> (<a class="el" href="class_tache.html">Tache</a> *ant, <a class="el" href="class_tache.html">Tache</a> *post)</td></tr>
+<tr class="memdesc:a44826abdb9c48447bd04dec64729964b"><td class="mdescLeft">&#160;</td><td class="mdescRight">testDejaProg : test si l'ajout de précédence ne concerne pas une tâche déjà programmée  <a href="#a44826abdb9c48447bd04dec64729964b">More...</a><br/></td></tr>
 <tr class="separator:a44826abdb9c48447bd04dec64729964b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Fenêtre de dialogue pour l'ajout de précédences. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a44826abdb9c48447bd04dec64729964b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DialogPrecedence::testDejaProg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>ant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>post</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>testDejaProg : test si l'ajout de précédence ne concerne pas une tâche déjà programmée </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ant</td><td>tache antérieure </td></tr>
+    <tr><td class="paramname">post</td><td>tache de base pour laquelle on ajoute une contrainte de précédence </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="dialogprecedence_8h_source.html">dialogprecedence.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/dialogprecedence.cpp</li>
@@ -129,7 +170,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>testDejaProg</b> (<a 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

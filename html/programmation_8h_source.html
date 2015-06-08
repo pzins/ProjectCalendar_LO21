@@ -94,40 +94,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QXmlStreamReader&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_programmation.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation.html">Programmation</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    QDate date;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    QTime debut;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_programmation.html">Programmation</a>(<span class="keyword">const</span> QDate&amp; date_, <span class="keyword">const</span> QTime&amp; debut_): date(date_), debut(debut_){}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_programmation.html">Programmation</a>(){}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QDate getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QTime getDebut()<span class="keyword"> const </span>{<span class="keywordflow">return</span> debut;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   <span class="comment">// const Tache&amp; getTache() const =0;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> afficher() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getTitre() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getDescription() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString toString() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvtPlsJ() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isTache() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> exportXml(QXmlStreamWriter&amp; stream) <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">int</span> type() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_programmation.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation.html">Programmation</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QDate date;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QTime debut;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">   23</a></span>&#160;    <a class="code" href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">Programmation</a>(<span class="keyword">const</span> QDate&amp; date_, <span class="keyword">const</span> QTime&amp; debut_): date(date_), debut(debut_){}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_programmation.html">Programmation</a>(){}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QDate getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QTime getDebut()<span class="keyword"> const </span>{<span class="keywordflow">return</span> debut;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString toString() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif // PROGRAMMATION_H</span></div>
-<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdef"><b>Definition:</b> programmation.h:9</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getTitre() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getDescription() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_programmation.html#ac82f04755221a0a1b99058afd0f4c506">isEvtPlsJ</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_programmation.html#a20962157201b33c48b338f7d38d587df">isTache</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_programmation.html#aa02ae3dff587ab3d7aaa0c9df4f5c63f">exportXml</a>(QXmlStreamWriter&amp; stream) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_programmation.html#acdebdcf5254981b21b65e73b5badffdd">type</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // PROGRAMMATION_H</span></div>
+<div class="ttc" id="class_programmation_html_a20962157201b33c48b338f7d38d587df"><div class="ttname"><a href="class_programmation.html#a20962157201b33c48b338f7d38d587df">Programmation::isTache</a></div><div class="ttdeci">virtual bool isTache() const =0</div><div class="ttdoc">isTache : vérifie si il s&#39;agit d&#39;une programmation d&#39;une tache </div></div>
+<div class="ttc" id="class_programmation_html_acdebdcf5254981b21b65e73b5badffdd"><div class="ttname"><a href="class_programmation.html#acdebdcf5254981b21b65e73b5badffdd">Programmation::type</a></div><div class="ttdeci">virtual const int type() const =0</div><div class="ttdoc">type : renvoie le type de la programmation 0 : Programmation évènement 1 jour 1 : Programmation rende...</div></div>
+<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdoc">Classe abstraite représentant une programmation dans un agenda. </div><div class="ttdef"><b>Definition:</b> programmation.h:13</div></div>
+<div class="ttc" id="class_programmation_html_aa02ae3dff587ab3d7aaa0c9df4f5c63f"><div class="ttname"><a href="class_programmation.html#aa02ae3dff587ab3d7aaa0c9df4f5c63f">Programmation::exportXml</a></div><div class="ttdeci">virtual void exportXml(QXmlStreamWriter &amp;stream) const =0</div><div class="ttdoc">exportXml : permet l&#39;export d&#39;un programmation en xml </div></div>
+<div class="ttc" id="class_programmation_html_ac82f04755221a0a1b99058afd0f4c506"><div class="ttname"><a href="class_programmation.html#ac82f04755221a0a1b99058afd0f4c506">Programmation::isEvtPlsJ</a></div><div class="ttdeci">virtual bool isEvtPlsJ() const =0</div><div class="ttdoc">isEvtPlsJ : vérifie si il s&#39;agit d&#39;une programmation d&#39;un évènement de plusieurs jours ...</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:15</div></div>
+<div class="ttc" id="class_programmation_html_a426fadbfbac28956af57aa8984a5eb03"><div class="ttname"><a href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">Programmation::Programmation</a></div><div class="ttdeci">Programmation(const QDate &amp;date_, const QTime &amp;debut_)</div><div class="ttdoc">Programmation. </div><div class="ttdef"><b>Definition:</b> programmation.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

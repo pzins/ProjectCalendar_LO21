@@ -89,6 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Precedence Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe représentant les contraintes de précéndences.  
+ <a href="class_precedence.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="precedence_8h_source.html">precedence.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -101,18 +106,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad9bc34d9ddf30080c417f8a690c97c0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9bc34d9ddf30080c417f8a690c97c0e"></a>
 <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getProjet</b> () const </td></tr>
 <tr class="separator:ad9bc34d9ddf30080c417f8a690c97c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e92ff90562536051418adb94d4e4f26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e92ff90562536051418adb94d4e4f26"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
+<tr class="memitem:a8e92ff90562536051418adb94d4e4f26"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence.html#a8e92ff90562536051418adb94d4e4f26">toString</a> () const </td></tr>
+<tr class="memdesc:a8e92ff90562536051418adb94d4e4f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">toString : renvoie la précédence sous forme de texte  <a href="#a8e92ff90562536051418adb94d4e4f26">More...</a><br/></td></tr>
 <tr class="separator:a8e92ff90562536051418adb94d4e4f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502deb657ad9d9a88f908e6bb1ccbd61"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence.html#a502deb657ad9d9a88f908e6bb1ccbd61">isInverse</a> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;pred) const </td></tr>
+<tr class="memdesc:a502deb657ad9d9a88f908e6bb1ccbd61"><td class="mdescLeft">&#160;</td><td class="mdescRight">isInverse : vérifie si 2 précédences sont l'inverse l'une de l'autre  <a href="#a502deb657ad9d9a88f908e6bb1ccbd61">More...</a><br/></td></tr>
+<tr class="separator:a502deb657ad9d9a88f908e6bb1ccbd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad57f6977ca6315be41e8057cbea57caa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad57f6977ca6315be41e8057cbea57caa"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
 <tr class="separator:ad57f6977ca6315be41e8057cbea57caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe9424cce57abc14537ddf0777cb79a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe9424cce57abc14537ddf0777cb79a4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
 <tr class="separator:abe9424cce57abc14537ddf0777cb79a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502deb657ad9d9a88f908e6bb1ccbd61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a502deb657ad9d9a88f908e6bb1ccbd61"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInverse</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;pred) const </td></tr>
-<tr class="separator:a502deb657ad9d9a88f908e6bb1ccbd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc98e26e52e0e7f1eb85637f873b63ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc98e26e52e0e7f1eb85637f873b63ea"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
 <tr class="separator:afc98e26e52e0e7f1eb85637f873b63ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +131,52 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>PrecedenceManager</b></td></tr>
 <tr class="separator:a49a568edb7039450f0fa2feb2f5f4dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe représentant les contraintes de précéndences. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a502deb657ad9d9a88f908e6bb1ccbd61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Precedence::isInverse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_precedence.html">Precedence</a> &amp;&#160;</td>
+          <td class="paramname"><em>pred</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>isInverse : vérifie si 2 précédences sont l'inverse l'une de l'autre </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pred</td><td>précédence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8e92ff90562536051418adb94d4e4f26"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Precedence::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>toString : renvoie la précédence sous forme de texte </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="precedence_8h_source.html">precedence.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/precedence.cpp</li>
@@ -133,7 +184,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>PrecedenceManager</b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

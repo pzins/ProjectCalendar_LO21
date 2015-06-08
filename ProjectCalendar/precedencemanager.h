@@ -7,6 +7,10 @@
 #include "observable.h"
 #include "xmlexporter.h"
 
+/**
+ * @class MyComp
+ * @brief Comparateur pour le set de PrecedenceManager contenant des précédences
+ */
 class MyComp
 {
 public:
@@ -16,16 +20,20 @@ public:
     }
 };
 
-
+/**
+ * @class PrecedenceManager
+ * @brief Classe permettant de gérer les précédences entre les taches
+ *
+ */
 class PrecedenceManager : public Observable, public Observateur, public XmlExporter
 {
 private:
     std::set<Precedence*, MyComp> set_precedence;
 
-    PrecedenceManager(){}
+    PrecedenceManager(){};
     virtual ~PrecedenceManager();
-    PrecedenceManager(const PrecedenceManager& p){}
-    PrecedenceManager& operator=(const PrecedenceManager& p){}
+    PrecedenceManager(const PrecedenceManager& p);
+    PrecedenceManager& operator=(const PrecedenceManager& p);
 
     static PrecedenceManager* instance;
 
@@ -37,13 +45,30 @@ public:
         return *instance;
     }
 
-    static void liberer_instance(){
+    static void libererInstance(){
         delete instance;
     }
 
+    /**
+     * @brief ajouterPrecedence : ajout de précédence
+     * @param pred_ tache antérieure
+     * @param succ_ tache postérieure
+     * @param projet_ projet concerné
+     */
     void ajouterPrecedence(Tache& pred_, Tache& succ_, Projet& projet_);
+
+    /**
+     * @brief retirerPrecedence : suppression de précédences
+     * @param p précédence
+     */
     void retirerPrecedence(Precedence& p);
-   // bool contains(const Precedence& p); //plus besoin car j'ai ajouté un comparator perso
+
+    /**
+     * @brief containsInverse : vérifie si l'inverse d'une précédence n'est pas déjà présente
+     * pour éviter les incohérences (A avant B et B avant A)
+     * @param p précédence
+     * @return
+     */
     bool containsInverse(const Precedence& p) const;
 
 
@@ -51,12 +76,22 @@ public:
     void update(const QString& s1="", const QString& s2="");
     void notifier(const QString& s1="", const QString& s2="");
 
+    /**
+     * @brief findPrecedence : renvoie toutes les précédences concernant une taches
+     * @param pro projet
+     * @param t tache
+     * @return
+     */
     std::vector<Precedence*> findPrecedence(Projet* pro, Tache* t);
 
     void save(const QString& f, bool contraintes=false);
     void load(const QString& f);
 
 
+    /**
+     * @class Iterator
+     * @brief Iterator de PrecedenceManager sur les précédences
+     */
     class Iterator
     {
     private:
@@ -81,6 +116,10 @@ public:
     Iterator begin(){return Iterator(set_precedence.begin());}
     Iterator end(){return Iterator(set_precedence.end());}
 
+    /**
+     * @class ConstIterator
+     * @brief ConstIterator de PrecedenceManager sur les précédences
+     */
     class ConstIterator
     {
     private:

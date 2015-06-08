@@ -88,25 +88,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Programmation Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe abstraite représentant une programmation dans un agenda.  
+ <a href="class_programmation.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="programmation_8h_source.html">programmation.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Programmation:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_programmation.png" usemap="#Programmation_map" alt=""/>
   <map id="Programmation_map" name="Programmation_map">
-<area href="class_programmation_evenement.html" alt="ProgrammationEvenement" shape="rect" coords="95,56,276,80"/>
+<area href="class_programmation_evenement.html" title="Classe abstraite représentant une programmation d&#39;évènement dans un agenda. " alt="ProgrammationEvenement" shape="rect" coords="95,56,276,80"/>
 <area href="class_programmation_tache_unitaire.html" alt="ProgrammationTacheUnitaire" shape="rect" coords="382,56,563,80"/>
-<area href="class_programmation_evenement1_j.html" alt="ProgrammationEvenement1J" shape="rect" coords="0,112,181,136"/>
-<area href="class_programmation_evenementpls_j.html" alt="ProgrammationEvenementplsJ" shape="rect" coords="191,112,372,136"/>
-<area href="class_programmation_partie_tache.html" alt="ProgrammationPartieTache" shape="rect" coords="382,112,563,136"/>
-<area href="class_programmation_rdv.html" alt="ProgrammationRdv" shape="rect" coords="0,168,181,192"/>
+<area href="class_programmation_evenement1_j.html" title="Classe représentant la programmation d&#39;un évènement sur 1 jour. " alt="ProgrammationEvenement1J" shape="rect" coords="0,112,181,136"/>
+<area href="class_programmation_evenementpls_j.html" title="Classe représentant la programmation d&#39;un évènement sur plusieurs jours. " alt="ProgrammationEvenementplsJ" shape="rect" coords="191,112,372,136"/>
+<area href="class_programmation_partie_tache.html" title="Classe représentant la programmation d&#39;une partie d&#39;une tache. " alt="ProgrammationPartieTache" shape="rect" coords="382,112,563,136"/>
+<area href="class_programmation_rdv.html" title="Classe représentant la programmation d&#39;un rendez-vous. " alt="ProgrammationRdv" shape="rect" coords="0,168,181,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426fadbfbac28956af57aa8984a5eb03"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Programmation</b> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">Programmation</a> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memdesc:a426fadbfbac28956af57aa8984a5eb03"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a>.  <a href="#a426fadbfbac28956af57aa8984a5eb03">More...</a><br/></td></tr>
 <tr class="separator:a426fadbfbac28956af57aa8984a5eb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1632dfa907a6bf2a84bfdbc3bef38f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1632dfa907a6bf2a84bfdbc3bef38f"></a>
 QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -114,34 +119,115 @@ QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const
 <tr class="memitem:a1bec27ff2907165f5ac776604dfbc8bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bec27ff2907165f5ac776604dfbc8bc"></a>
 QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () const </td></tr>
 <tr class="separator:a1bec27ff2907165f5ac776604dfbc8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af74c5e1a8b918c3e91da3fb68f3ed876"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af74c5e1a8b918c3e91da3fb68f3ed876"></a>
+virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
+<tr class="separator:af74c5e1a8b918c3e91da3fb68f3ed876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adadca537a84f214d7c4358e0efe4e5cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adadca537a84f214d7c4358e0efe4e5cc"></a>
 virtual const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDuree</b> () const =0</td></tr>
 <tr class="separator:adadca537a84f214d7c4358e0efe4e5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fe3c6ca03b0dd5119c1d1f8cdd60f39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fe3c6ca03b0dd5119c1d1f8cdd60f39"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const =0</td></tr>
-<tr class="separator:a8fe3c6ca03b0dd5119c1d1f8cdd60f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb9d7878c54b9237ff6e1a7a11276b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbb9d7878c54b9237ff6e1a7a11276b1"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const =0</td></tr>
 <tr class="separator:adbb9d7878c54b9237ff6e1a7a11276b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a68f6e771f3587a0fd68cf953c86b7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a68f6e771f3587a0fd68cf953c86b7e"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const =0</td></tr>
 <tr class="separator:a2a68f6e771f3587a0fd68cf953c86b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af74c5e1a8b918c3e91da3fb68f3ed876"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af74c5e1a8b918c3e91da3fb68f3ed876"></a>
-virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
-<tr class="separator:af74c5e1a8b918c3e91da3fb68f3ed876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac82f04755221a0a1b99058afd0f4c506"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac82f04755221a0a1b99058afd0f4c506"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvtPlsJ</b> () const =0</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#ac82f04755221a0a1b99058afd0f4c506">isEvtPlsJ</a> () const =0</td></tr>
+<tr class="memdesc:ac82f04755221a0a1b99058afd0f4c506"><td class="mdescLeft">&#160;</td><td class="mdescRight">isEvtPlsJ : vérifie si il s'agit d'une programmation d'un évènement de plusieurs jours <br/></td></tr>
 <tr class="separator:ac82f04755221a0a1b99058afd0f4c506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20962157201b33c48b338f7d38d587df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20962157201b33c48b338f7d38d587df"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isTache</b> () const =0</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#a20962157201b33c48b338f7d38d587df">isTache</a> () const =0</td></tr>
+<tr class="memdesc:a20962157201b33c48b338f7d38d587df"><td class="mdescLeft">&#160;</td><td class="mdescRight">isTache : vérifie si il s'agit d'une programmation d'une tache <br/></td></tr>
 <tr class="separator:a20962157201b33c48b338f7d38d587df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa02ae3dff587ab3d7aaa0c9df4f5c63f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa02ae3dff587ab3d7aaa0c9df4f5c63f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream) const =0</td></tr>
+<tr class="memitem:aa02ae3dff587ab3d7aaa0c9df4f5c63f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#aa02ae3dff587ab3d7aaa0c9df4f5c63f">exportXml</a> (QXmlStreamWriter &amp;stream) const =0</td></tr>
+<tr class="memdesc:aa02ae3dff587ab3d7aaa0c9df4f5c63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">exportXml : permet l'export d'un programmation en xml  <a href="#aa02ae3dff587ab3d7aaa0c9df4f5c63f">More...</a><br/></td></tr>
 <tr class="separator:aa02ae3dff587ab3d7aaa0c9df4f5c63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdebdcf5254981b21b65e73b5badffdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdebdcf5254981b21b65e73b5badffdd"></a>
-virtual const int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const =0</td></tr>
+virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#acdebdcf5254981b21b65e73b5badffdd">type</a> () const =0</td></tr>
+<tr class="memdesc:acdebdcf5254981b21b65e73b5badffdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">type : renvoie le type de la programmation 0 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement 1 jour 1 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> rendez-vous 2 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a> Unitaire 3 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_partie.html" title="Partie d&#39;une tâche. ">Partie</a> de tâche 4 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement plusieurs jours <br/></td></tr>
 <tr class="separator:acdebdcf5254981b21b65e73b5badffdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe abstraite représentant une programmation dans un agenda. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a426fadbfbac28956af57aa8984a5eb03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Programmation::Programmation </td>
+          <td>(</td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>date_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>debut_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date_</td><td>date de début </td></tr>
+    <tr><td class="paramname">debut_</td><td>horaire de début </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa02ae3dff587ab3d7aaa0c9df4f5c63f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Programmation::exportXml </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamWriter &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exportXml : permet l'export d'un programmation en xml </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_programmation_rdv.html#a5bd0241812c1130ed3934867d2ba6365">ProgrammationRdv</a>, <a class="el" href="class_programmation_tache_unitaire.html#ad1a9456b92716c04be189b98d4e0faf7">ProgrammationTacheUnitaire</a>, <a class="el" href="class_programmation_partie_tache.html#a06262cf4841944679897f1738b215e44">ProgrammationPartieTache</a>, <a class="el" href="class_programmation_evenementpls_j.html#ab1fe59ae92fde82d0ca71af512297627">ProgrammationEvenementplsJ</a>, and <a class="el" href="class_programmation_evenement1_j.html#ae37d59bb45ab00c13bec5d4d715b6e0f">ProgrammationEvenement1J</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="programmation_8h_source.html">programmation.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/programmation.cpp</li>
@@ -149,7 +235,7 @@ virtual const int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

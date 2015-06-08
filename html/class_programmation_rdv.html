@@ -88,22 +88,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ProgrammationRdv Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe représentant la programmation d'un rendez-vous.  
+ <a href="class_programmation_rdv.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="programmationrdv_8h_source.html">programmationrdv.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ProgrammationRdv:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_programmation_rdv.png" usemap="#ProgrammationRdv_map" alt=""/>
   <map id="ProgrammationRdv_map" name="ProgrammationRdv_map">
-<area href="class_programmation_evenement1_j.html" alt="ProgrammationEvenement1J" shape="rect" coords="0,112,172,136"/>
-<area href="class_programmation_evenement.html" alt="ProgrammationEvenement" shape="rect" coords="0,56,172,80"/>
-<area href="class_programmation.html" alt="Programmation" shape="rect" coords="0,0,172,24"/>
+<area href="class_programmation_evenement1_j.html" title="Classe représentant la programmation d&#39;un évènement sur 1 jour. " alt="ProgrammationEvenement1J" shape="rect" coords="0,112,172,136"/>
+<area href="class_programmation_evenement.html" title="Classe abstraite représentant une programmation d&#39;évènement dans un agenda. " alt="ProgrammationEvenement" shape="rect" coords="0,56,172,80"/>
+<area href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. " alt="Programmation" shape="rect" coords="0,0,172,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3c8f56469bc5086ac5454191fc6d11e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c8f56469bc5086ac5454191fc6d11e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationRdv</b> (const QDate &amp;date_, const QTime &amp;debut_, const QString titre_, const QString description_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_, const QString &amp;lieu_, const QString &amp;pers_)</td></tr>
+<tr class="memitem:a3c8f56469bc5086ac5454191fc6d11e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_rdv.html#a3c8f56469bc5086ac5454191fc6d11e6">ProgrammationRdv</a> (const QDate &amp;date_, const QTime &amp;debut_, const QString titre_, const QString description_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_, const QString &amp;lieu_, const QString &amp;pers_)</td></tr>
+<tr class="memdesc:a3c8f56469bc5086ac5454191fc6d11e6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation_rdv.html" title="Classe représentant la programmation d&#39;un rendez-vous. ">ProgrammationRdv</a>.  <a href="#a3c8f56469bc5086ac5454191fc6d11e6">More...</a><br/></td></tr>
 <tr class="separator:a3c8f56469bc5086ac5454191fc6d11e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad653a79fa0ed4436db4b2df4ccb4bd15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad653a79fa0ed4436db4b2df4ccb4bd15"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>getPersonne</b> () const </td></tr>
@@ -111,43 +116,34 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><b>getPersonne</b> ()
 <tr class="memitem:a08b99f8d28ee786852ee3efe44d7e65c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08b99f8d28ee786852ee3efe44d7e65c"></a>
 const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLieu</b> () const </td></tr>
 <tr class="separator:a08b99f8d28ee786852ee3efe44d7e65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a487215fd1676c63ab8aa112b0638a0e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a487215fd1676c63ab8aa112b0638a0e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPersonne</b> (const QString &amp;nom)</td></tr>
-<tr class="separator:a487215fd1676c63ab8aa112b0638a0e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e85ad07b6346bce1b87c4d6e0bfac77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e85ad07b6346bce1b87c4d6e0bfac77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPersonne</b> (const QString &amp;nom)</td></tr>
-<tr class="separator:a4e85ad07b6346bce1b87c4d6e0bfac77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcbe147b2ba78a9a4c92326ad612ba5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fcbe147b2ba78a9a4c92326ad612ba5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const </td></tr>
-<tr class="separator:a7fcbe147b2ba78a9a4c92326ad612ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40767598e364a251d64e751a9bbbd455"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40767598e364a251d64e751a9bbbd455"></a>
 virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
 <tr class="separator:a40767598e364a251d64e751a9bbbd455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0c25469677431139622222d299cfa1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0c25469677431139622222d299cfa1d"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvtPlsJ</b> () const </td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_rdv.html#ad0c25469677431139622222d299cfa1d">isEvtPlsJ</a> () const </td></tr>
+<tr class="memdesc:ad0c25469677431139622222d299cfa1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">isEvtPlsJ : vérifie si il s'agit d'une programmation d'un évènement de plusieurs jours <br/></td></tr>
 <tr class="separator:ad0c25469677431139622222d299cfa1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd0241812c1130ed3934867d2ba6365"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bd0241812c1130ed3934867d2ba6365"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memitem:a5bd0241812c1130ed3934867d2ba6365"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_rdv.html#a5bd0241812c1130ed3934867d2ba6365">exportXml</a> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memdesc:a5bd0241812c1130ed3934867d2ba6365"><td class="mdescLeft">&#160;</td><td class="mdescRight">exportXml : permet l'export d'un programmation en xml  <a href="#a5bd0241812c1130ed3934867d2ba6365">More...</a><br/></td></tr>
 <tr class="separator:a5bd0241812c1130ed3934867d2ba6365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a036365bffab6369cd02c6fcc0485275f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a036365bffab6369cd02c6fcc0485275f"></a>
-virtual const int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const </td></tr>
+virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_rdv.html#a036365bffab6369cd02c6fcc0485275f">type</a> () const </td></tr>
+<tr class="memdesc:a036365bffab6369cd02c6fcc0485275f"><td class="mdescLeft">&#160;</td><td class="mdescRight">type : renvoie le type de la programmation 0 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement 1 jour 1 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> rendez-vous 2 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a> Unitaire 3 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_partie.html" title="Partie d&#39;une tâche. ">Partie</a> de tâche 4 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement plusieurs jours <br/></td></tr>
 <tr class="separator:a036365bffab6369cd02c6fcc0485275f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_programmation_evenement1_j"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_programmation_evenement1_j')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_programmation_evenement1_j.html">ProgrammationEvenement1J</a></td></tr>
-<tr class="memitem:a27153bd112af90b21e4dc107f9d07500 inherit pub_methods_class_programmation_evenement1_j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27153bd112af90b21e4dc107f9d07500"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationEvenement1J</b> (const QDate &amp;date_, const QTime &amp;debut_, const QString &amp;titre_, const QString &amp;description_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_)</td></tr>
+<tr class="memitem:a27153bd112af90b21e4dc107f9d07500 inherit pub_methods_class_programmation_evenement1_j"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_evenement1_j.html#a27153bd112af90b21e4dc107f9d07500">ProgrammationEvenement1J</a> (const QDate &amp;date_, const QTime &amp;debut_, const QString &amp;titre_, const QString &amp;description_, const <a class="el" href="class_duree.html">Duree</a> &amp;duree_)</td></tr>
+<tr class="memdesc:a27153bd112af90b21e4dc107f9d07500 inherit pub_methods_class_programmation_evenement1_j"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation_evenement1_j.html" title="Classe représentant la programmation d&#39;un évènement sur 1 jour. ">ProgrammationEvenement1J</a>.  <a href="#a27153bd112af90b21e4dc107f9d07500">More...</a><br/></td></tr>
 <tr class="separator:a27153bd112af90b21e4dc107f9d07500 inherit pub_methods_class_programmation_evenement1_j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6f43d57c792a15a8ba1631fba7320b9 inherit pub_methods_class_programmation_evenement1_j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6f43d57c792a15a8ba1631fba7320b9"></a>
 virtual const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDuree</b> () const </td></tr>
 <tr class="separator:ad6f43d57c792a15a8ba1631fba7320b9 inherit pub_methods_class_programmation_evenement1_j"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9cf6dbb682c44c4fc2c7a5eca33153 inherit pub_methods_class_programmation_evenement1_j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e9cf6dbb682c44c4fc2c7a5eca33153"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvt1j</b> () const </td></tr>
-<tr class="separator:a1e9cf6dbb682c44c4fc2c7a5eca33153 inherit pub_methods_class_programmation_evenement1_j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4930dddecb8986e0e6a4e7e5c37ee32c inherit pub_methods_class_programmation_evenement1_j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4930dddecb8986e0e6a4e7e5c37ee32c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isTache</b> () const </td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_evenement1_j.html#a4930dddecb8986e0e6a4e7e5c37ee32c">isTache</a> () const </td></tr>
+<tr class="memdesc:a4930dddecb8986e0e6a4e7e5c37ee32c inherit pub_methods_class_programmation_evenement1_j"><td class="mdescLeft">&#160;</td><td class="mdescRight">isTache : vérifie si il s'agit d'une programmation d'une tache <br/></td></tr>
 <tr class="separator:a4930dddecb8986e0e6a4e7e5c37ee32c inherit pub_methods_class_programmation_evenement1_j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_programmation_evenement"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_programmation_evenement')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_programmation_evenement.html">ProgrammationEvenement</a></td></tr>
-<tr class="memitem:a5fa581350af3fb44c12b5d2aea798e85 inherit pub_methods_class_programmation_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa581350af3fb44c12b5d2aea798e85"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationEvenement</b> (const QDate &amp;date_, const QTime &amp;debut_, const QString &amp;titre_, const QString &amp;description_)</td></tr>
+<tr class="memitem:a5fa581350af3fb44c12b5d2aea798e85 inherit pub_methods_class_programmation_evenement"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_evenement.html#a5fa581350af3fb44c12b5d2aea798e85">ProgrammationEvenement</a> (const QDate &amp;date_, const QTime &amp;debut_, const QString &amp;titre_, const QString &amp;description_)</td></tr>
+<tr class="memdesc:a5fa581350af3fb44c12b5d2aea798e85 inherit pub_methods_class_programmation_evenement"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation_evenement.html" title="Classe abstraite représentant une programmation d&#39;évènement dans un agenda. ">ProgrammationEvenement</a>.  <a href="#a5fa581350af3fb44c12b5d2aea798e85">More...</a><br/></td></tr>
 <tr class="separator:a5fa581350af3fb44c12b5d2aea798e85 inherit pub_methods_class_programmation_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0014e41f90616902a3150625cd19c68 inherit pub_methods_class_programmation_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0014e41f90616902a3150625cd19c68"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
@@ -156,8 +152,8 @@ virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const </td></tr>
 <tr class="separator:a25fee30b36f98f80de02e7593657e5c9 inherit pub_methods_class_programmation_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_programmation"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_programmation')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_programmation.html">Programmation</a></td></tr>
-<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426fadbfbac28956af57aa8984a5eb03"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Programmation</b> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">Programmation</a> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memdesc:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a>.  <a href="#a426fadbfbac28956af57aa8984a5eb03">More...</a><br/></td></tr>
 <tr class="separator:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1632dfa907a6bf2a84bfdbc3bef38f inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1632dfa907a6bf2a84bfdbc3bef38f"></a>
 QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -166,6 +162,122 @@ QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const
 QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () const </td></tr>
 <tr class="separator:a1bec27ff2907165f5ac776604dfbc8bc inherit pub_methods_class_programmation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe représentant la programmation d'un rendez-vous. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3c8f56469bc5086ac5454191fc6d11e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ProgrammationRdv::ProgrammationRdv </td>
+          <td>(</td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>date_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>debut_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>titre_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>description_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td>
+          <td class="paramname"><em>duree_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>lieu_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>pers_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_programmation_rdv.html" title="Classe représentant la programmation d&#39;un rendez-vous. ">ProgrammationRdv</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date_</td><td>date de début </td></tr>
+    <tr><td class="paramname">debut_</td><td>horaire de début </td></tr>
+    <tr><td class="paramname">titre_</td><td></td></tr>
+    <tr><td class="paramname">description_</td><td></td></tr>
+    <tr><td class="paramname">duree_</td><td></td></tr>
+    <tr><td class="paramname">lieu_</td><td></td></tr>
+    <tr><td class="paramname">pers_</td><td>participants </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5bd0241812c1130ed3934867d2ba6365"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProgrammationRdv::exportXml </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamWriter &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exportXml : permet l'export d'un programmation en xml </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_programmation_evenement1_j.html#ae37d59bb45ab00c13bec5d4d715b6e0f">ProgrammationEvenement1J</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="programmationrdv_8h_source.html">programmationrdv.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/programmationrdv.cpp</li>
@@ -173,7 +285,7 @@ QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () cons
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -3,6 +3,11 @@
 #include "programmation.h"
 #include "tacheunitaire.h"
 
+
+/**
+ * @class ProgrammationPartieTache
+ * @brief Classe représentant la programmation d'une tache unitaire d'un projet
+ */
 class ProgrammationTacheUnitaire : public Programmation
 {
 private:
@@ -10,6 +15,13 @@ private:
     QString projet;
 
 public:
+    /**
+     * @brief ProgrammationTacheUnitaire
+     * @param date_ date de début
+     * @param debut_ horaire de début
+     * @param tache_ tache concernée
+     * @param projet_ nom du projet concerné
+     */
     ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_, const QString& projet_):
         Programmation(date_, debut_), tache(&tache_), projet(projet_){}
 

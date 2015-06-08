@@ -88,31 +88,84 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Observateur Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>class abstraite permettant d'observer d'autres objets  
+ <a href="class_observateur.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="observateur_8h_source.html">observateur.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Observateur:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_observateur.png" usemap="#Observateur_map" alt=""/>
   <map id="Observateur_map" name="Observateur_map">
-<area href="class_jour_scene.html" alt="JourScene" shape="rect" coords="0,56,132,80"/>
-<area href="class_main_window.html" alt="MainWindow" shape="rect" coords="142,56,274,80"/>
-<area href="class_precedence_manager.html" alt="PrecedenceManager" shape="rect" coords="284,56,416,80"/>
+<area href="class_jour_scene.html" title="Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour. " alt="JourScene" shape="rect" coords="0,56,132,80"/>
+<area href="class_main_window.html" title="fenêtre principale " alt="MainWindow" shape="rect" coords="142,56,274,80"/>
+<area href="class_precedence_manager.html" title="Classe permettant de gérer les précédences entre les taches. " alt="PrecedenceManager" shape="rect" coords="284,56,416,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a34b7ede962421a2e816cb4c61d97416f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34b7ede962421a2e816cb4c61d97416f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)=0</td></tr>
+<tr class="memitem:a34b7ede962421a2e816cb4c61d97416f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observateur.html#a34b7ede962421a2e816cb4c61d97416f">update</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)=0</td></tr>
+<tr class="memdesc:a34b7ede962421a2e816cb4c61d97416f"><td class="mdescLeft">&#160;</td><td class="mdescRight">update : mise à jour de l'objet  <a href="#a34b7ede962421a2e816cb4c61d97416f">More...</a><br/></td></tr>
 <tr class="separator:a34b7ede962421a2e816cb4c61d97416f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class abstraite permettant d'observer d'autres objets </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a34b7ede962421a2e816cb4c61d97416f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Observateur::update </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>update : mise à jour de l'objet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>paramètre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>paramètre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_jour_scene.html#a019e742d5f242329d54d132e4e02e131">JourScene</a>, <a class="el" href="class_precedence_manager.html#aca0388acadd90727af826a0e8350bd99">PrecedenceManager</a>, and <a class="el" href="class_main_window.html#a197c01df70008df1e2b1ce96b2a6221c">MainWindow</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="observateur_8h_source.html">observateur.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

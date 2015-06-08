@@ -10,7 +10,7 @@ QTextStream& operator<<(QTextStream& fout, const Tache& t){
     fout<<t.getEcheance().toString()<<"\n";
     return fout;
 }
-QString Tache::info() const
+const QString Tache::info() const
 {
     QString str = "<table border='0' align='center'>";
     str += "<tr><td><b>Titre</b></td><td>"+titre+"</td></tr>";

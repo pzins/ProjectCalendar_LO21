@@ -5,6 +5,11 @@
 #include "duree.h"
 #include "tache.h"
 
+
+/**
+ * @class TacheUnitaire
+ * @brief Classe abstraite représentant une TacheUnitaire
+ */
 class TacheUnitaire : public Tache
 {
     Duree duree;
@@ -20,20 +25,20 @@ public:
             preemptive(preemptive_), programmed(false) {  }
 
     virtual ~TacheUnitaire();
-    TacheUnitaire(const TacheUnitaire& t);
-    TacheUnitaire& operator=(const TacheUnitaire&);
+
     Duree getDuree() const {return duree;}
     void setDuree(const Duree& duree_) {duree=duree_;}
+
+
     virtual void exportXml(QXmlStreamWriter& stream);
 
-
     bool isProgrammed() const {return programmed;}
-    bool setIsProgrammed(bool b) {programmed= b;}
+    void setIsProgrammed(bool b) {programmed= b;}
 
     bool isPreemptive() const {return preemptive;}
     void setPreemptive(bool preemptive_) {preemptive=preemptive_;}
     virtual bool isComposite() const {return false;}
-    virtual QString info() const;
+    virtual const QString info() const;
 
 };
 

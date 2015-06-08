@@ -5,7 +5,10 @@
 #include "tacheunitaire.h"
 
 
-
+/**
+ * @class TacheComposite
+ * @brief Classe abstraite représentant une TacheComposite
+ */
 class TacheComposite : public Tache
 {
 private:
@@ -13,34 +16,57 @@ private:
 
 public:
 
+    /**
+     * @brief ajouterTacheComposite : ajout d'un tache composite
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     * @return
+     */
     TacheComposite* ajouterTacheComposite(const QString& titre, const QString& description, const QDate& dispo,
                                const QDate& echeance);
+    /**
+     * @brief ajouterTacheUnitaire : ajout d'une tache unitaire
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     * @param duree
+     * @param preemptive
+     * @return
+     */
     TacheUnitaire* ajouterTacheUnitaire(const QString& titre, const QString& description, const QDate& dispo,
                               const QDate& echeance, const Duree& duree, bool preemptive=false);
 
+    /**
+     * @brief verification : vérification lors de l'ajout d'un tache
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     */
     void verification(const QString& titre, const QString& description,
-                      const QDate& dispo, const QDate& echeance)
-    {
-        if(titre == "") throw CalendarException("Veuillez entrer un titre");
-        if(description == "") throw CalendarException("Veuillez entrer une description");
+                      const QDate& dispo, const QDate& echeance);
 
-        if(echeance > getEcheance()) throw CalendarException("Echéance et échéance de la tache mère sont incohérentes");
-        if(dispo < getDispo()) throw CalendarException("Disponibilité et disponibilité de tache mère sont incohérentes");
-        if(dispo > echeance) throw CalendarException("Disponibilité et échéance sont incohérentes");
-    }
     std::map<QString, Tache*>& getTache() {return map_tache;}
 
     TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):
         Tache(titre_, description_, dispo_, echeance_){}
+
     virtual ~TacheComposite();
 
     virtual void exportXml(QXmlStreamWriter& stream);
     virtual bool isComposite() const{return true;}
-    virtual QString info() const;
+    virtual const QString info() const;
 
 
 
+    /**
+     * @class Iterator
+     * @brief Iterator de TacheComposite, parcourt les taches de TacheComposite
+     */
     class Iterator
     {
         std::map<QString, Tache*>::iterator courant;

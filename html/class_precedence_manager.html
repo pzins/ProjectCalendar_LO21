@@ -90,23 +90,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PrecedenceManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant de gérer les précédences entre les taches.  
+ <a href="class_precedence_manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PrecedenceManager:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_precedence_manager.png" usemap="#PrecedenceManager_map" alt=""/>
   <map id="PrecedenceManager_map" name="PrecedenceManager_map">
-<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,132,24"/>
-<area href="class_observateur.html" alt="Observateur" shape="rect" coords="142,0,274,24"/>
-<area href="class_xml_exporter.html" alt="XmlExporter" shape="rect" coords="284,0,416,24"/>
+<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="0,0,132,24"/>
+<area href="class_observateur.html" title="class abstraite permettant d&#39;observer d&#39;autres objets " alt="Observateur" shape="rect" coords="142,0,274,24"/>
+<area href="class_xml_exporter.html" title="Interface permettant à une classe d&#39;être exportée en XML. " alt="XmlExporter" shape="rect" coords="284,0,416,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager_1_1_const_iterator.html">ConstIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_precedence_manager_1_1_const_iterator.html" title="ConstIterator de PrecedenceManager sur les précédences. ">ConstIterator</a> de <a class="el" href="class_precedence_manager.html" title="Classe permettant de gérer les précédences entre les taches. ">PrecedenceManager</a> sur les précédences.  <a href="class_precedence_manager_1_1_const_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_precedence_manager_1_1_iterator.html" title="Iterator de PrecedenceManager sur les précédences. ">Iterator</a> de <a class="el" href="class_precedence_manager.html" title="Classe permettant de gérer les précédences entre les taches. ">PrecedenceManager</a> sur les précédences.  <a href="class_precedence_manager_1_1_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -114,23 +121,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace3fa768d0b8817d5ab166ab67885b92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace3fa768d0b8817d5ab166ab67885b92"></a>
 std::set&lt; <a class="el" href="class_precedence.html">Precedence</a> *, <a class="el" href="class_my_comp.html">MyComp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getVectPrecedence</b> () const </td></tr>
 <tr class="separator:ace3fa768d0b8817d5ab166ab67885b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52087d3b4e888d87ffad7313a0ac8ecc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> (<a class="el" href="class_tache.html">Tache</a> &amp;pred_, <a class="el" href="class_tache.html">Tache</a> &amp;succ_, <a class="el" href="class_projet.html">Projet</a> &amp;projet_)</td></tr>
+<tr class="memitem:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a52087d3b4e888d87ffad7313a0ac8ecc">ajouterPrecedence</a> (<a class="el" href="class_tache.html">Tache</a> &amp;pred_, <a class="el" href="class_tache.html">Tache</a> &amp;succ_, <a class="el" href="class_projet.html">Projet</a> &amp;projet_)</td></tr>
+<tr class="memdesc:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterPrecedence : ajout de précédence  <a href="#a52087d3b4e888d87ffad7313a0ac8ecc">More...</a><br/></td></tr>
 <tr class="separator:a52087d3b4e888d87ffad7313a0ac8ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee7451e3b694db841bbd79cd4a15c7ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee7451e3b694db841bbd79cd4a15c7ae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPrecedence</b> (<a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
+<tr class="memitem:aee7451e3b694db841bbd79cd4a15c7ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aee7451e3b694db841bbd79cd4a15c7ae">retirerPrecedence</a> (<a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
+<tr class="memdesc:aee7451e3b694db841bbd79cd4a15c7ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">retirerPrecedence : suppression de précédences  <a href="#aee7451e3b694db841bbd79cd4a15c7ae">More...</a><br/></td></tr>
 <tr class="separator:aee7451e3b694db841bbd79cd4a15c7ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cac19c57efefdb0dedceb4b411b7e12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cac19c57efefdb0dedceb4b411b7e12"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>containsInverse</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p) const </td></tr>
+<tr class="memitem:a9cac19c57efefdb0dedceb4b411b7e12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a9cac19c57efefdb0dedceb4b411b7e12">containsInverse</a> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p) const </td></tr>
+<tr class="memdesc:a9cac19c57efefdb0dedceb4b411b7e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">containsInverse : vérifie si l'inverse d'une précédence n'est pas déjà présente pour éviter les incohérences (A avant B et B avant A)  <a href="#a9cac19c57efefdb0dedceb4b411b7e12">More...</a><br/></td></tr>
 <tr class="separator:a9cac19c57efefdb0dedceb4b411b7e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0388acadd90727af826a0e8350bd99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca0388acadd90727af826a0e8350bd99"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:aca0388acadd90727af826a0e8350bd99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aca0388acadd90727af826a0e8350bd99">update</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:aca0388acadd90727af826a0e8350bd99"><td class="mdescLeft">&#160;</td><td class="mdescRight">update : mise à jour de l'objet  <a href="#aca0388acadd90727af826a0e8350bd99">More...</a><br/></td></tr>
 <tr class="separator:aca0388acadd90727af826a0e8350bd99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ec4a5264bbdbfbe261cd666393e467"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35ec4a5264bbdbfbe261cd666393e467"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:a35ec4a5264bbdbfbe261cd666393e467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a35ec4a5264bbdbfbe261cd666393e467">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:a35ec4a5264bbdbfbe261cd666393e467"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a35ec4a5264bbdbfbe261cd666393e467">More...</a><br/></td></tr>
 <tr class="separator:a35ec4a5264bbdbfbe261cd666393e467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba17ace74bfa503de67198ee61d5dac4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba17ace74bfa503de67198ee61d5dac4"></a>
-std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findPrecedence</b> (<a class="el" href="class_projet.html">Projet</a> *pro, <a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memitem:aba17ace74bfa503de67198ee61d5dac4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aba17ace74bfa503de67198ee61d5dac4">findPrecedence</a> (<a class="el" href="class_projet.html">Projet</a> *pro, <a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memdesc:aba17ace74bfa503de67198ee61d5dac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">findPrecedence : renvoie toutes les précédences concernant une taches  <a href="#aba17ace74bfa503de67198ee61d5dac4">More...</a><br/></td></tr>
 <tr class="separator:aba17ace74bfa503de67198ee61d5dac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8833d98939b5e7b5b94914283e3e4981"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8833d98939b5e7b5b94914283e3e4981"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f, bool contraintes=false)</td></tr>
@@ -172,10 +179,230 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac33f9cf564ef40990c6c8fb3489249fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac33f9cf564ef40990c6c8fb3489249fd"></a>
 static <a class="el" href="class_precedence_manager.html">PrecedenceManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
 <tr class="separator:ac33f9cf564ef40990c6c8fb3489249fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd15c71b5cb7a9925aff852cf9269007"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd15c71b5cb7a9925aff852cf9269007"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>liberer_instance</b> ()</td></tr>
-<tr class="separator:afd15c71b5cb7a9925aff852cf9269007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c8e00025fc0096cd317d48b1d2552e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9c8e00025fc0096cd317d48b1d2552e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
+<tr class="separator:ab9c8e00025fc0096cd317d48b1d2552e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de gérer les précédences entre les taches. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a52087d3b4e888d87ffad7313a0ac8ecc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::ajouterPrecedence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>pred_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>succ_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td>
+          <td class="paramname"><em>projet_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajouterPrecedence : ajout de précédence </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pred_</td><td>tache antérieure </td></tr>
+    <tr><td class="paramname">succ_</td><td>tache postérieure </td></tr>
+    <tr><td class="paramname">projet_</td><td>projet concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9cac19c57efefdb0dedceb4b411b7e12"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PrecedenceManager::containsInverse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_precedence.html">Precedence</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>containsInverse : vérifie si l'inverse d'une précédence n'est pas déjà présente pour éviter les incohérences (A avant B et B avant A) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>précédence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aba17ace74bfa503de67198ee61d5dac4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt; PrecedenceManager::findPrecedence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_projet.html">Projet</a> *&#160;</td>
+          <td class="paramname"><em>pro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>findPrecedence : renvoie toutes les précédences concernant une taches </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pro</td><td>projet </td></tr>
+    <tr><td class="paramname">t</td><td>tache </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a35ec4a5264bbdbfbe261cd666393e467"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::notifier </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notifier : notifie tous les observateurs qui vont se mettre à jour </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>parametre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>parametre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">Observable</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee7451e3b694db841bbd79cd4a15c7ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::retirerPrecedence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_precedence.html">Precedence</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retirerPrecedence : suppression de précédences </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>précédence </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aca0388acadd90727af826a0e8350bd99"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::update </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>update : mise à jour de l'objet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>paramètre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>paramètre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observateur.html#a34b7ede962421a2e816cb4c61d97416f">Observateur</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/precedencemanager.cpp</li>
@@ -183,7 +410,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>liberer_instan
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

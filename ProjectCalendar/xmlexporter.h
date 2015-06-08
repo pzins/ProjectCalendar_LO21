@@ -5,6 +5,10 @@
 #include <QXmlStreamReader>
 #include <QTextCodec>
 
+/**
+ * @class XmlExporter
+ * @brief Interface permettant à une classe d'être exportée en XML
+ */
 class XmlExporter
 {
 

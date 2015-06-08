@@ -13,6 +13,5 @@ int main(int argc, char *argv[])
 
     MainWindow& m = MainWindow::getInstance();
     m.show();
-
     return a.exec();
 }

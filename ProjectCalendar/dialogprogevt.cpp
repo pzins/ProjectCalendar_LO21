@@ -14,15 +14,15 @@ DialogProgEvt::DialogProgEvt(QWidget *parent) :
     ui->horaire->setMinimumTime(QTime::currentTime());
     ui->horaire_fin->setMinimumTime(QTime::currentTime());
 
-    isReunion(false);
+    isRdv(false);
     adaptForm(true);
     connect(ui->un_jour, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
-    connect(ui->is_reunion, SIGNAL(toggled(bool)), this, SLOT(isReunion(bool)));
+    connect(ui->is_rdv, SIGNAL(toggled(bool)), this, SLOT(isReunion(bool)));
 }
 
 
 
-void DialogProgEvt::isReunion(bool etat)
+void DialogProgEvt::isRdv(bool etat)
 {
     if(etat==true)
     {
@@ -51,12 +51,12 @@ void DialogProgEvt::adaptForm(bool etat)
         ui->label_horaire_fin->hide();
         ui->duree->show();
         ui->label_duree->show();
-        ui->is_reunion->show();
+        ui->is_rdv->show();
         ui->lieu->show();
         ui->label_lieu->show();
         ui->personnes->show();
         ui->label_personnes->show();
-        isReunion(false);
+        isRdv(false);
 
     }
     else
@@ -67,7 +67,7 @@ void DialogProgEvt::adaptForm(bool etat)
         ui->label_horaire_fin->show();
         ui->duree->hide();
         ui->label_duree->hide();
-        ui->is_reunion->hide();
+        ui->is_rdv->hide();
         ui->lieu->hide();
         ui->label_lieu->hide();
         ui->personnes->hide();
@@ -92,7 +92,7 @@ void DialogProgEvt::accept()
         Agenda* ag = &Agenda::getInstance();
         if(ui->un_jour->isChecked())
         {
-            if(ui->is_reunion->isChecked())
+            if(ui->is_rdv->isChecked())
             {
                 ag->ajouterProgrammation(1,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
                                      Duree(ui->duree->time().hour(), ui->duree->time().minute()),ui->lieu->text(),

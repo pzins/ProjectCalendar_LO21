@@ -8,10 +8,13 @@
 #include <QtXml>
 
 #include "calendarexception.h"
+#include "affichable.h"
 
-
-
-class Tache
+/**
+ * @class Tache
+ * @brief Classe abstraite représentant une Tache
+ */
+class Tache : public Affichable
 {
 private:
     QString titre;
@@ -20,6 +23,13 @@ private:
     QDate echeance;
 
 public:
+    /**
+     * @brief Tache
+     * @param titre_
+     * @param description_
+     * @param dispo_ date de disponibilité
+     * @param echeance_ date d'échéance
+     */
     Tache(const QString& titre_, const QString& description_, const QDate& dispo_,
          const QDate& echeance_): titre(titre_), description(description_), dispo(dispo_),
          echeance(echeance_){}
@@ -42,11 +52,10 @@ public:
         echeance=echeance_;
     }
 
+    virtual const QString info() const;
 
     virtual void exportXml(QXmlStreamWriter& stream)=0;
     virtual bool isComposite() const =0;
-    virtual QString info() const=0;
-
     bool operator==(const Tache& t);
 };
 #endif // TACHE_H

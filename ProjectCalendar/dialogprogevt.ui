@@ -162,9 +162,9 @@
      <widget class="QLineEdit" name="lieu"/>
     </item>
     <item row="9" column="1">
-     <widget class="QCheckBox" name="is_reunion">
+     <widget class="QCheckBox" name="is_rdv">
       <property name="text">
-       <string>réunion</string>
+       <string>rendez-vous</string>
       </property>
      </widget>
     </item>

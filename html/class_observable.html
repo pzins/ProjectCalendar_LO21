@@ -89,22 +89,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Observable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>class abstraite permettant d'être observé par d'autres objets  
+ <a href="class_observable.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="observable_8h_source.html">observable.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Observable:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_observable.png" usemap="#Observable_map" alt=""/>
   <map id="Observable_map" name="Observable_map">
-<area href="class_agenda.html" alt="Agenda" shape="rect" coords="0,56,132,80"/>
-<area href="class_precedence_manager.html" alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
-<area href="class_projet.html" alt="Projet" shape="rect" coords="284,56,416,80"/>
-<area href="class_projet_manager.html" alt="ProjetManager" shape="rect" coords="426,56,558,80"/>
+<area href="class_agenda.html" title="Gère l&#39;ensemble des programmations. " alt="Agenda" shape="rect" coords="0,56,132,80"/>
+<area href="class_precedence_manager.html" title="Classe permettant de gérer les précédences entre les taches. " alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
+<area href="class_projet.html" title="Classe représentant un projet. " alt="Projet" shape="rect" coords="284,56,416,80"/>
+<area href="class_projet_manager.html" title="Classe qui gère les projets. " alt="ProjetManager" shape="rect" coords="426,56,558,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_observable_1_1_iterator.html" title="Iterator sur tous les observateurs. ">Iterator</a> sur tous les observateurs.  <a href="class_observable_1_1_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -115,8 +121,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b
 <tr class="memitem:ac2100c4c9fcd7a94624c8aaf4acdf58d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2100c4c9fcd7a94624c8aaf4acdf58d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
 <tr class="separator:ac2100c4c9fcd7a94624c8aaf4acdf58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23901520453bfef4b9d41d6eda6ce9de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23901520453bfef4b9d41d6eda6ce9de"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)=0</td></tr>
+<tr class="memitem:a23901520453bfef4b9d41d6eda6ce9de"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)=0</td></tr>
+<tr class="memdesc:a23901520453bfef4b9d41d6eda6ce9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a23901520453bfef4b9d41d6eda6ce9de">More...</a><br/></td></tr>
 <tr class="separator:a23901520453bfef4b9d41d6eda6ce9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcddf8a5f21c6cb31334d91e89541539"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcddf8a5f21c6cb31334d91e89541539"></a>
 const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getObs</b> () const </td></tr>
@@ -128,6 +134,54 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 <a class="el" href="class_observable_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:abeba1960c449755ea7f712b7814f1236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class abstraite permettant d'être observé par d'autres objets </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a23901520453bfef4b9d41d6eda6ce9de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Observable::notifier </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notifier : notifie tous les observateurs qui vont se mettre à jour </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>parametre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>parametre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_projet_manager.html#a0235a15586cd548c3a1b378021d645e0">ProjetManager</a>, <a class="el" href="class_agenda.html#a53f353a2334e4b6ccc8c9a52576b3dda">Agenda</a>, <a class="el" href="class_projet.html#a7c93dd2241398bb117a764dab22a5254">Projet</a>, and <a class="el" href="class_precedence_manager.html#a35ec4a5264bbdbfbe261cd666393e467">PrecedenceManager</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="observable_8h_source.html">observable.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/observable.cpp</li>
@@ -135,7 +189,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

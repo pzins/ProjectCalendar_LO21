@@ -90,20 +90,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ProjetManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe qui gère les projets.  
+ <a href="class_projet_manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ProjetManager:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_projet_manager.png" usemap="#ProjetManager_map" alt=""/>
   <map id="ProjetManager_map" name="ProjetManager_map">
-<area href="class_observable.html" alt="Observable" shape="rect" coords="140,0,270,24"/>
-<area href="class_xml_exporter.html" alt="XmlExporter" shape="rect" coords="280,0,410,24"/>
+<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="140,0,270,24"/>
+<area href="class_xml_exporter.html" title="Interface permettant à une classe d&#39;être exportée en XML. " alt="XmlExporter" shape="rect" coords="280,0,410,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_projet_manager_1_1_iterator.html" title="Iterator de ProjetManager, parcourt les projets. ">Iterator</a> de <a class="el" href="class_projet_manager.html" title="Classe qui gère les projets. ">ProjetManager</a>, parcourt les projets.  <a href="class_projet_manager_1_1_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -124,53 +130,53 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerProjet</b> (QS
 <tr class="memitem:a0a140252ab8a930cff820d3df1308351"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a140252ab8a930cff820d3df1308351"></a>
 <a class="el" href="class_projet.html">Projet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getProjet</b> (const QString &amp;titre)</td></tr>
 <tr class="separator:a0a140252ab8a930cff820d3df1308351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb84b632092a76505144ea05ea049914"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb84b632092a76505144ea05ea049914"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f, bool contraintes=false)</td></tr>
+<tr class="memitem:afb84b632092a76505144ea05ea049914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#afb84b632092a76505144ea05ea049914">save</a> (const QString &amp;f, bool contraintes=false)</td></tr>
+<tr class="memdesc:afb84b632092a76505144ea05ea049914"><td class="mdescLeft">&#160;</td><td class="mdescRight">save : sauvegarde des projets  <a href="#afb84b632092a76505144ea05ea049914">More...</a><br/></td></tr>
 <tr class="separator:afb84b632092a76505144ea05ea049914"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a421f9983e8ee1754abd823a3ae85e333"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a421f9983e8ee1754abd823a3ae85e333"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>saveModel</b> (const QString &amp;f)</td></tr>
+<tr class="memitem:a421f9983e8ee1754abd823a3ae85e333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a421f9983e8ee1754abd823a3ae85e333">saveModel</a> (const QString &amp;f)</td></tr>
+<tr class="memdesc:a421f9983e8ee1754abd823a3ae85e333"><td class="mdescLeft">&#160;</td><td class="mdescRight">saveModel : sauvegarde du model (structure des projets)  <a href="#a421f9983e8ee1754abd823a3ae85e333">More...</a><br/></td></tr>
 <tr class="separator:a421f9983e8ee1754abd823a3ae85e333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab063a939750298817c931187eacf7fda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab063a939750298817c931187eacf7fda"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save_recursive</b> (const QStandardItem &amp;item, QXmlStreamWriter &amp;str, QString pere)</td></tr>
+<tr class="memitem:ab063a939750298817c931187eacf7fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#ab063a939750298817c931187eacf7fda">save_recursive</a> (const QStandardItem &amp;item, QXmlStreamWriter &amp;str, QString pere)</td></tr>
+<tr class="memdesc:ab063a939750298817c931187eacf7fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">save_recursive : fonction récursie utilisée par saveModel  <a href="#ab063a939750298817c931187eacf7fda">More...</a><br/></td></tr>
 <tr class="separator:ab063a939750298817c931187eacf7fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdfde850628d04b9e0489957a013c77e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdfde850628d04b9e0489957a013c77e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
+<tr class="memitem:afdfde850628d04b9e0489957a013c77e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">load</a> (const QString &amp;f)</td></tr>
+<tr class="memdesc:afdfde850628d04b9e0489957a013c77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">load : chargement des projets  <a href="#afdfde850628d04b9e0489957a013c77e">More...</a><br/></td></tr>
 <tr class="separator:afdfde850628d04b9e0489957a013c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae277829fd882c4a0e7bb7a28e19db0ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae277829fd882c4a0e7bb7a28e19db0ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadModel</b> (const QString &amp;f)</td></tr>
+<tr class="memitem:ae277829fd882c4a0e7bb7a28e19db0ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#ae277829fd882c4a0e7bb7a28e19db0ee">loadModel</a> (const QString &amp;f)</td></tr>
+<tr class="memdesc:ae277829fd882c4a0e7bb7a28e19db0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">loadModel : chargement du model (structure des projets)  <a href="#ae277829fd882c4a0e7bb7a28e19db0ee">More...</a><br/></td></tr>
 <tr class="separator:ae277829fd882c4a0e7bb7a28e19db0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affcfadf57d7ff75a2154135821e00ba6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affcfadf57d7ff75a2154135821e00ba6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b> (QStandardItem *item, const QString &amp;pere, const QString &amp;titre)</td></tr>
+<tr class="memitem:affcfadf57d7ff75a2154135821e00ba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#affcfadf57d7ff75a2154135821e00ba6">appendChild</a> (QStandardItem *item, const QString &amp;pere, const QString &amp;titre)</td></tr>
+<tr class="memdesc:affcfadf57d7ff75a2154135821e00ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">appendChild : fonction récursive utilisée par lodamodel  <a href="#affcfadf57d7ff75a2154135821e00ba6">More...</a><br/></td></tr>
 <tr class="separator:affcfadf57d7ff75a2154135821e00ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad1811ba179982bfd497f544cee5ca30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad1811ba179982bfd497f544cee5ca30"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getInfo</b> (QModelIndex idx)</td></tr>
+<tr class="memitem:aad1811ba179982bfd497f544cee5ca30"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#aad1811ba179982bfd497f544cee5ca30">getInfo</a> (QModelIndex idx)</td></tr>
+<tr class="memdesc:aad1811ba179982bfd497f544cee5ca30"><td class="mdescLeft">&#160;</td><td class="mdescRight">getInfo : récupère des informations sur les taches ou projets sélectionnés  <a href="#aad1811ba179982bfd497f544cee5ca30">More...</a><br/></td></tr>
 <tr class="separator:aad1811ba179982bfd497f544cee5ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95c81c5616d4b4ba1a7de4625039b409"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95c81c5616d4b4ba1a7de4625039b409"></a>
-std::vector&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTacheFilles</b> (const QString &amp;tache, const QString &amp;projet)</td></tr>
-<tr class="separator:a95c81c5616d4b4ba1a7de4625039b409"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dc9bb1b841f2babcd32dffaceb1ec8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dc9bb1b841f2babcd32dffaceb1ec8f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>findItem</b> (QStandardItem *projet, const QString &amp;item, std::vector&lt; QString &gt; &amp;vec)</td></tr>
-<tr class="separator:a8dc9bb1b841f2babcd32dffaceb1ec8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1871fe7233690188a71fec8bb4fcd12f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1871fe7233690188a71fec8bb4fcd12f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajoutItemModel</b> (const QString &amp;titre, const QModelIndex &amp;idx)</td></tr>
+<tr class="memitem:a1871fe7233690188a71fec8bb4fcd12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a1871fe7233690188a71fec8bb4fcd12f">ajoutItemModel</a> (const QString &amp;titre, const QModelIndex &amp;idx)</td></tr>
+<tr class="memdesc:a1871fe7233690188a71fec8bb4fcd12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoutItemModel : ajoute un élément au model à partir de l'index  <a href="#a1871fe7233690188a71fec8bb4fcd12f">More...</a><br/></td></tr>
 <tr class="separator:a1871fe7233690188a71fec8bb4fcd12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae79ccc2514c871a220870390e66451"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ae79ccc2514c871a220870390e66451"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>verification</b> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="memitem:a2ae79ccc2514c871a220870390e66451"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a2ae79ccc2514c871a220870390e66451">verification</a> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="memdesc:a2ae79ccc2514c871a220870390e66451"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification : vérifications lors de l'ajout d'un nouveau projet  <a href="#a2ae79ccc2514c871a220870390e66451">More...</a><br/></td></tr>
 <tr class="separator:a2ae79ccc2514c871a220870390e66451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac491e34ab194472da57d7794bbc1555"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac491e34ab194472da57d7794bbc1555"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>findChildren</b> (std::vector&lt; QString &gt; &amp;vec, QStandardItem *item)</td></tr>
+<tr class="memitem:a95c81c5616d4b4ba1a7de4625039b409"><td class="memItemLeft" align="right" valign="top">std::vector&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a95c81c5616d4b4ba1a7de4625039b409">getTacheFilles</a> (const QString &amp;tache, const QString &amp;projet)</td></tr>
+<tr class="memdesc:a95c81c5616d4b4ba1a7de4625039b409"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTacheFilles : renvoie un vector contenant toutes les taches filles d'une tache à partir du nom de la tache de base et du projet  <a href="#a95c81c5616d4b4ba1a7de4625039b409">More...</a><br/></td></tr>
+<tr class="separator:a95c81c5616d4b4ba1a7de4625039b409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc9bb1b841f2babcd32dffaceb1ec8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a8dc9bb1b841f2babcd32dffaceb1ec8f">findItem</a> (QStandardItem *projet, const QString &amp;item, std::vector&lt; QString &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a8dc9bb1b841f2babcd32dffaceb1ec8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">findItem : fonction qui aide getTacheFille, en appelant finditem  <a href="#a8dc9bb1b841f2babcd32dffaceb1ec8f">More...</a><br/></td></tr>
+<tr class="separator:a8dc9bb1b841f2babcd32dffaceb1ec8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac491e34ab194472da57d7794bbc1555"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#aac491e34ab194472da57d7794bbc1555">findChildren</a> (std::vector&lt; QString &gt; &amp;vec, QStandardItem *item)</td></tr>
+<tr class="memdesc:aac491e34ab194472da57d7794bbc1555"><td class="mdescLeft">&#160;</td><td class="mdescRight">findChildren : ajout dans vec de toutes les taches filles de la tache item  <a href="#aac491e34ab194472da57d7794bbc1555">More...</a><br/></td></tr>
 <tr class="separator:aac491e34ab194472da57d7794bbc1555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc1305cc366a27258787ee11423e59e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc1305cc366a27258787ee11423e59e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerItem</b> (QModelIndex &amp;sel)</td></tr>
+<tr class="memitem:adc1305cc366a27258787ee11423e59e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#adc1305cc366a27258787ee11423e59e4">supprimerItem</a> (QModelIndex &amp;sel)</td></tr>
+<tr class="memdesc:adc1305cc366a27258787ee11423e59e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprimerItem : suppression de taches ou projet  <a href="#adc1305cc366a27258787ee11423e59e4">More...</a><br/></td></tr>
 <tr class="separator:adc1305cc366a27258787ee11423e59e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa88d461823b5263e64f9eba032c3d82a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa88d461823b5263e64f9eba032c3d82a"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getProjetName</b> (QModelIndex idx)</td></tr>
+<tr class="memitem:aa88d461823b5263e64f9eba032c3d82a"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#aa88d461823b5263e64f9eba032c3d82a">getProjetName</a> (QModelIndex idx)</td></tr>
+<tr class="memdesc:aa88d461823b5263e64f9eba032c3d82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getProjetName  <a href="#aa88d461823b5263e64f9eba032c3d82a">More...</a><br/></td></tr>
 <tr class="separator:aa88d461823b5263e64f9eba032c3d82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c16273aa4811c965e3f41133e182be8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c16273aa4811c965e3f41133e182be8"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTacheName</b> (QModelIndex idx)</td></tr>
+<tr class="memitem:a7c16273aa4811c965e3f41133e182be8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a7c16273aa4811c965e3f41133e182be8">getTacheName</a> (QModelIndex idx)</td></tr>
+<tr class="memdesc:a7c16273aa4811c965e3f41133e182be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTacheName  <a href="#a7c16273aa4811c965e3f41133e182be8">More...</a><br/></td></tr>
 <tr class="separator:a7c16273aa4811c965e3f41133e182be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0235a15586cd548c3a1b378021d645e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0235a15586cd548c3a1b378021d645e0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:a0235a15586cd548c3a1b378021d645e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a0235a15586cd548c3a1b378021d645e0">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:a0235a15586cd548c3a1b378021d645e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a0235a15586cd548c3a1b378021d645e0">More...</a><br/></td></tr>
 <tr class="separator:a0235a15586cd548c3a1b378021d645e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6661b18e7f02409a9b1e29e7bf16b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6661b18e7f02409a9b1e29e7bf16b58"></a>
 <a class="el" href="class_projet_manager_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
@@ -204,6 +210,562 @@ static <a class="el" href="class_projet_manager.html">ProjetManager</a> &amp;&#1
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
 <tr class="separator:a6d0535201539179e2591f4e2e294e48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe qui gère les projets. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1871fe7233690188a71fec8bb4fcd12f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::ajoutItemModel </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoutItemModel : ajoute un élément au model à partir de l'index </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>index </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="affcfadf57d7ff75a2154135821e00ba6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::appendChild </td>
+          <td>(</td>
+          <td class="paramtype">QStandardItem *&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>pere</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>appendChild : fonction récursive utilisée par lodamodel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td></td></tr>
+    <tr><td class="paramname">pere</td><td></td></tr>
+    <tr><td class="paramname">titre</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aac491e34ab194472da57d7794bbc1555"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::findChildren </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; QString &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QStandardItem *&#160;</td>
+          <td class="paramname"><em>item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>findChildren : ajout dans vec de toutes les taches filles de la tache item </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td></td></tr>
+    <tr><td class="paramname">item</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8dc9bb1b841f2babcd32dffaceb1ec8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::findItem </td>
+          <td>(</td>
+          <td class="paramtype">QStandardItem *&#160;</td>
+          <td class="paramname"><em>projet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; QString &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>findItem : fonction qui aide getTacheFille, en appelant finditem </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projet</td><td></td></tr>
+    <tr><td class="paramname">item</td><td></td></tr>
+    <tr><td class="paramname">vec</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aad1811ba179982bfd497f544cee5ca30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString ProjetManager::getInfo </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getInfo : récupère des informations sur les taches ou projets sélectionnés </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa88d461823b5263e64f9eba032c3d82a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString ProjetManager::getProjetName </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getProjetName </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nom d'un projet à partir d'un index </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a95c81c5616d4b4ba1a7de4625039b409"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; QString &gt; ProjetManager::getTacheFilles </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>tache</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>projet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getTacheFilles : renvoie un vector contenant toutes les taches filles d'une tache à partir du nom de la tache de base et du projet </p>
+<p>============== FONCTIONS OUTILS ===================== </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tache</td><td></td></tr>
+    <tr><td class="paramname">projet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c16273aa4811c965e3f41133e182be8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString ProjetManager::getTacheName </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getTacheName </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nom d'une tache à partir d'un index </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afdfde850628d04b9e0489957a013c77e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::load </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>load : chargement des projets </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_xml_exporter.html">XmlExporter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae277829fd882c4a0e7bb7a28e19db0ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::loadModel </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>loadModel : chargement du model (structure des projets) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0235a15586cd548c3a1b378021d645e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::notifier </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notifier : notifie tous les observateurs qui vont se mettre à jour </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>parametre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>parametre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">Observable</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb84b632092a76505144ea05ea049914"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::save </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>contraintes</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>save : sauvegarde des projets </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+    <tr><td class="paramname">contraintes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_xml_exporter.html">XmlExporter</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab063a939750298817c931187eacf7fda"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::save_recursive </td>
+          <td>(</td>
+          <td class="paramtype">const QStandardItem &amp;&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QXmlStreamWriter &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>pere</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>save_recursive : fonction récursie utilisée par saveModel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+    <tr><td class="paramname">pere</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a421f9983e8ee1754abd823a3ae85e333"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::saveModel </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>saveModel : sauvegarde du model (structure des projets) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="adc1305cc366a27258787ee11423e59e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::supprimerItem </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>sel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>supprimerItem : suppression de taches ou projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ae79ccc2514c871a220870390e66451"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::verification </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>echeance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>verification : vérifications lors de l'ajout d'un nouveau projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">description</td><td></td></tr>
+    <tr><td class="paramname">dispo</td><td></td></tr>
+    <tr><td class="paramname">echeance</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/projetmanager.cpp</li>
@@ -211,7 +773,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

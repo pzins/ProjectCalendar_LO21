@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['horaire',['Horaire',['../class_t_i_m_e_1_1_horaire.html#ab833c9dc3a4fdbda3894dbbd72643813',1,'TIME::Horaire']]]
+  ['dessinerfond',['dessinerFond',['../class_jour_scene.html#aa7d8153523054cfa3da0a3c0253117ec',1,'JourScene']]],
+  ['duree',['Duree',['../class_duree.html#a9031ee4cb937a2cb48a833924e0d8175',1,'Duree::Duree(unsigned int h, unsigned int m)'],['../class_duree.html#a29ce444d85f2870058025ce5db0802a5',1,'Duree::Duree(unsigned int m=0)']]]
 ];

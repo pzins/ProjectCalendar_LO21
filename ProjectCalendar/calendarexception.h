@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/**
+ * @class CalendarException
+ * @brief Exceptions utilisés dans ce projet
+ */
 class CalendarException{
 public:
     CalendarException(const QString& message):info(message){}

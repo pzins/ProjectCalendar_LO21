@@ -94,15 +94,15 @@ Inheritance diagram for ProgrammationTacheUnitaire:</div>
  <div class="center">
   <img src="class_programmation_tache_unitaire.png" usemap="#ProgrammationTacheUnitaire_map" alt=""/>
   <map id="ProgrammationTacheUnitaire_map" name="ProgrammationTacheUnitaire_map">
-<area href="class_programmation.html" alt="Programmation" shape="rect" coords="0,0,174,24"/>
-<area href="class_programmation_partie_tache.html" alt="ProgrammationPartieTache" shape="rect" coords="0,112,174,136"/>
+<area href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. " alt="Programmation" shape="rect" coords="0,0,174,24"/>
+<area href="class_programmation_partie_tache.html" title="Classe représentant la programmation d&#39;une partie d&#39;une tache. " alt="ProgrammationPartieTache" shape="rect" coords="0,112,174,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49279ce8c6e018fb8f0d0bc75ad822c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49279ce8c6e018fb8f0d0bc75ad822c2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ProgrammationTacheUnitaire</b> (const QDate date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_, const QString &amp;projet_)</td></tr>
+<tr class="memitem:a49279ce8c6e018fb8f0d0bc75ad822c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_tache_unitaire.html#a49279ce8c6e018fb8f0d0bc75ad822c2">ProgrammationTacheUnitaire</a> (const QDate date_, const QTime &amp;debut_, <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;tache_, const QString &amp;projet_)</td></tr>
+<tr class="memdesc:a49279ce8c6e018fb8f0d0bc75ad822c2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation_tache_unitaire.html">ProgrammationTacheUnitaire</a>.  <a href="#a49279ce8c6e018fb8f0d0bc75ad822c2">More...</a><br/></td></tr>
 <tr class="separator:a49279ce8c6e018fb8f0d0bc75ad822c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae9704c330b428ca500c4a5c49eb9743"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae9704c330b428ca500c4a5c49eb9743"></a>
 <a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> () const </td></tr>
@@ -120,10 +120,12 @@ virtual const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td><t
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
 <tr class="separator:a25633a3273414bd8495a98ebbc974588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73bd22182d2d76746e910f1077b36ac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73bd22182d2d76746e910f1077b36ac8"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvtPlsJ</b> () const </td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_tache_unitaire.html#a73bd22182d2d76746e910f1077b36ac8">isEvtPlsJ</a> () const </td></tr>
+<tr class="memdesc:a73bd22182d2d76746e910f1077b36ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">isEvtPlsJ : vérifie si il s'agit d'une programmation d'un évènement de plusieurs jours <br/></td></tr>
 <tr class="separator:a73bd22182d2d76746e910f1077b36ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e7c685bef36e3380c5420ff37843ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81e7c685bef36e3380c5420ff37843ea"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isTache</b> () const </td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_tache_unitaire.html#a81e7c685bef36e3380c5420ff37843ea">isTache</a> () const </td></tr>
+<tr class="memdesc:a81e7c685bef36e3380c5420ff37843ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">isTache : vérifie si il s'agit d'une programmation d'une tache <br/></td></tr>
 <tr class="separator:a81e7c685bef36e3380c5420ff37843ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae11ed423a9f160bb56f963ccc401bb44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae11ed423a9f160bb56f963ccc401bb44"></a>
 virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
@@ -131,15 +133,16 @@ virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>toSt
 <tr class="memitem:afaae33aa84ea0827d2ed13af497985a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaae33aa84ea0827d2ed13af497985a9"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const </td></tr>
 <tr class="separator:afaae33aa84ea0827d2ed13af497985a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1a9456b92716c04be189b98d4e0faf7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1a9456b92716c04be189b98d4e0faf7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memitem:ad1a9456b92716c04be189b98d4e0faf7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_tache_unitaire.html#ad1a9456b92716c04be189b98d4e0faf7">exportXml</a> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memdesc:ad1a9456b92716c04be189b98d4e0faf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">exportXml : permet l'export d'un programmation en xml  <a href="#ad1a9456b92716c04be189b98d4e0faf7">More...</a><br/></td></tr>
 <tr class="separator:ad1a9456b92716c04be189b98d4e0faf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1838d3d0e78e866bab3229551959aa5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1838d3d0e78e866bab3229551959aa5"></a>
-virtual const int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const </td></tr>
+virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation_tache_unitaire.html#af1838d3d0e78e866bab3229551959aa5">type</a> () const </td></tr>
+<tr class="memdesc:af1838d3d0e78e866bab3229551959aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">type : renvoie le type de la programmation 0 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement 1 jour 1 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> rendez-vous 2 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_tache.html" title="Classe abstraite représentant une Tache. ">Tache</a> Unitaire 3 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> <a class="el" href="class_partie.html" title="Partie d&#39;une tâche. ">Partie</a> de tâche 4 : <a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a> évènement plusieurs jours <br/></td></tr>
 <tr class="separator:af1838d3d0e78e866bab3229551959aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_programmation"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_programmation')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_programmation.html">Programmation</a></td></tr>
-<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426fadbfbac28956af57aa8984a5eb03"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Programmation</b> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memitem:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_programmation.html#a426fadbfbac28956af57aa8984a5eb03">Programmation</a> (const QDate &amp;date_, const QTime &amp;debut_)</td></tr>
+<tr class="memdesc:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_programmation.html" title="Classe abstraite représentant une programmation dans un agenda. ">Programmation</a>.  <a href="#a426fadbfbac28956af57aa8984a5eb03">More...</a><br/></td></tr>
 <tr class="separator:a426fadbfbac28956af57aa8984a5eb03 inherit pub_methods_class_programmation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1632dfa907a6bf2a84bfdbc3bef38f inherit pub_methods_class_programmation"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1632dfa907a6bf2a84bfdbc3bef38f"></a>
 QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -148,6 +151,101 @@ QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const
 QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () const </td></tr>
 <tr class="separator:a1bec27ff2907165f5ac776604dfbc8bc inherit pub_methods_class_programmation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a49279ce8c6e018fb8f0d0bc75ad822c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ProgrammationTacheUnitaire::ProgrammationTacheUnitaire </td>
+          <td>(</td>
+          <td class="paramtype">const QDate&#160;</td>
+          <td class="paramname"><em>date_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>debut_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tache_unitaire.html">TacheUnitaire</a> &amp;&#160;</td>
+          <td class="paramname"><em>tache_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>projet_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_programmation_tache_unitaire.html">ProgrammationTacheUnitaire</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date_</td><td>date de début </td></tr>
+    <tr><td class="paramname">debut_</td><td>horaire de début </td></tr>
+    <tr><td class="paramname">tache_</td><td>tache concernée </td></tr>
+    <tr><td class="paramname">projet_</td><td>nom du projet concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad1a9456b92716c04be189b98d4e0faf7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProgrammationTacheUnitaire::exportXml </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamWriter &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exportXml : permet l'export d'un programmation en xml </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_programmation.html#aa02ae3dff587ab3d7aaa0c9df4f5c63f">Programmation</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_programmation_partie_tache.html#a06262cf4841944679897f1738b215e44">ProgrammationPartieTache</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="programmationtacheunitaire_8h_source.html">programmationtacheunitaire.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/programmationtacheunitaire.cpp</li>
@@ -155,7 +253,7 @@ QTime&#160;</td><td class="memItemRight" valign="bottom"><b>getDebut</b> () cons
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

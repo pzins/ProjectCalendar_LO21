@@ -20,6 +20,9 @@ MainWindow& MainWindow::getInstance(QWidget* parent)
 
 void MainWindow::libererInstance()
 {
+    ProjetManager::libererInstance();
+    PrecedenceManager::libererInstance();
+    Agenda::libererInstance();
     delete instance;
     instance = 0;
 }
@@ -60,7 +63,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->semaine, SIGNAL(clicked()), this, SLOT(exporterSemaine()));
 
     ui->informations->setChecked(true);
-
 }
 
 void MainWindow::exporterSemaine()
@@ -80,7 +82,7 @@ void MainWindow::initCalendar(QDate d)
     for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
     {
         QDate tmp = d.addDays(i);
-        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width()-1, this);
+        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_dimanche->height(), ui->v_dimanche->width(), this);
     }
     ui->dispo->setMinimumDate(QDate::currentDate());
     ui->eche->setMinimumDate(QDate::currentDate());
@@ -118,20 +120,20 @@ void MainWindow::initCalendar(QDate d)
         ui->v_dimanche->setBackgroundBrush(QBrush(Qt::lightGray));
 
 
-    ui->lundi->setText("<b><h3 align='center'>Lundi</h3><h3 align='center'>"+
-                       Agenda::getInstance().getScene(0).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->mardi->setText("<b><h3 align='center'>Mardi</h3><h3 align='center'>"+
-                       Agenda::getInstance().getScene(1).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->mercredi->setText("<b><h3 align='center'>Mercredi</h3><h3 align='center'>"+
-                          Agenda::getInstance().getScene(2).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->jeudi->setText("<b><h3 align='center'>Jeudi</h3><h3 align='center'>"+
-                       Agenda::getInstance().getScene(3).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->vendredi->setText("<b><h3 align='center'>Vendredi</h3><h3 align='center'>"+
-                          Agenda::getInstance().getScene(4).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->samedi->setText("<b><h3 align='center'>Samedi</h3><h3 align='center'>"+
-                        Agenda::getInstance().getScene(5).getDate().toString("dd.MM.yyyy")+"</h3></b>");
-    ui->dimanche->setText("<b><h3 align='center'>Dimanche</h3><h3 align='center'>"+
-                          Agenda::getInstance().getScene(6).getDate().toString("dd.MM.yyyy")+"</h3></b>");
+    ui->lundi->setText("<b><h5 align='center'>Lundi</h5><h5 align='center'>"+
+                       Agenda::getInstance().getScene(0).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->mardi->setText("<b><h5 align='center'>Mardi</h5><h5 align='center'>"+
+                       Agenda::getInstance().getScene(1).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->mercredi->setText("<b><h5 align='center'>Mercredi</h5><h5 align='center'>"+
+                          Agenda::getInstance().getScene(2).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->jeudi->setText("<b><h5 align='center'>Jeudi</h5><h5 align='center'>"+
+                       Agenda::getInstance().getScene(3).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->vendredi->setText("<b><h5 align='center'>Vendredi</h5><h5 align='center'>"+
+                          Agenda::getInstance().getScene(4).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->samedi->setText("<b><h5 align='center'>Samedi</h5><h5 align='center'>"+
+                        Agenda::getInstance().getScene(5).getDate().toString("dd.MM.yyyy")+"</h5></b>");
+    ui->dimanche->setText("<b><h5 align='center'>Dimanche</h5><h5 align='center'>"+
+                          Agenda::getInstance().getScene(6).getDate().toString("dd.MM.yyyy")+"</h5></b>");
 
 
     connect(ui->v_lundi->scene(), SIGNAL(selectionChanged()), this, SLOT(lundi()));
@@ -143,6 +145,8 @@ void MainWindow::initCalendar(QDate d)
     connect(ui->v_dimanche->scene(), SIGNAL(selectionChanged()), this, SLOT(dimanche()));
     connect(ui->programmer, SIGNAL(clicked()), this, SLOT(programmerTache()));
     Agenda::getInstance().notifier();
+    ui->calendarWidget->setCurrentPage(QDate::currentDate().year(), QDate::currentDate().month());
+
 }
 
 void MainWindow::programmerTache()
@@ -422,16 +426,25 @@ void MainWindow::sauvegarder()
 
 void MainWindow::charger()
 {
-   // QString chemin = QFileDialog::getOpenFileName();
-    //supprimerAllItem();
-    pm->load("projets.xml");
-    pm->loadModel("model.xml");
-    for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+    //QString chemin = QFileDialog::getOpenFileName();
+    if(pm->getMapProjet().size() == 0)
     {
-        (*it).load((*it).getTitre() + QString(".xml"));
+        try
+        {
+            pm->load("projets.xml");
+            pm->loadModel("model.xml");
+            for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
+            {
+                (*it).load((*it).getTitre() + QString(".xml"));
+            }
+            pre->load("precedences.xml");
+            ag->load("programmations.xml");
+        }
+        catch(CalendarException e)
+        {
+            QMessageBox::critical(0, "Erreur", e.getInfo());
+        }
     }
-    pre->load("precedences.xml");
-    ag->load("programmations.xml");
 
 }
 

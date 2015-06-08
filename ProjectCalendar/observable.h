@@ -2,7 +2,10 @@
 #define OBSERVABLE_H
 #include "observateur.h"
 
-
+/**
+ * @class Observable
+ * @brief class abstraite permettant d'être observé par d'autres objets
+ */
 class Observable
 {
 private:
@@ -12,13 +15,19 @@ public:
     void ajouterObservateur(Observateur*);
     void supprimerObservateur(Observateur*);
 
+    /**
+     * @brief notifier : notifie tous les observateurs qui vont se mettre à jour
+     * @param s1 parametre optionel
+     * @param s2 parametre optionel
+     */
     virtual void notifier(const QString& s1="", const QString& s2="") =0;
-
-
-
 
     const std::set<Observateur*>& getObs() const {return obs;}
 
+    /**
+     * @class Iterator
+     * @brief Iterator sur tous les observateurs
+     */
     class Iterator
     {
     private:

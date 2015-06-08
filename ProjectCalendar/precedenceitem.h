@@ -3,6 +3,10 @@
 #include <QListWidgetItem>
 #include "precedence.h"
 
+/**
+ * @class PrecedenceItem
+ * @brief Item représentant une précédence
+ */
 class PrecedenceItem : public QListWidgetItem
 {
 private:

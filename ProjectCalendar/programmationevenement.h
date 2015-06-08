@@ -4,6 +4,10 @@
 #include "programmation.h"
 #include "duree.h"
 
+/**
+ * @class ProgrammationEvenement
+ * @brief Classe abstraite représentant une programmation d'évènement dans un agenda
+ */
 class ProgrammationEvenement : public Programmation
 {
 private:
@@ -12,15 +16,17 @@ private:
 
 
 public:
+    /**
+     * @brief ProgrammationEvenement
+     * @param date_ date de début
+     * @param debut_ horaire de début
+     * @param titre_
+     * @param description_
+     */
     ProgrammationEvenement(const QDate& date_, const QTime& debut_, const QString& titre_, const QString& description_):
         Programmation(date_, debut_), titre(titre_), description(description_){}
 
-    virtual ~ProgrammationEvenement(){}
-
-    virtual void afficher() const =0;
-    virtual bool isEvt1j() const =0;
     virtual bool isTache() const =0;
-
     virtual const Duree& getDuree() const =0;
 
     virtual const QString& getTitre() const {return titre;}

@@ -96,59 +96,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;programmationevenementplsj.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;observateur.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="struct_couleur.html">   11</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_couleur.html">Couleur</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QColor contour;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QColor fond;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_jour_scene.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jour_scene.html">JourScene</a> : <span class="keyword">public</span> QGraphicsScene, <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    QString jour;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QDate date;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> minutes;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="struct_couleur.html">Couleur</a> vec_couleur[5];</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_jour_scene.html">JourScene</a>(<span class="keyword">const</span> QString&amp; nom_, <span class="keyword">const</span> QDate&amp; date_, qreal x_, qreal y_, qreal width_, qreal height_,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> minutes_ = 840, QObject* parent = 0 )</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        :  QGraphicsScene(x_,y_,width_,height_,parent),jour(nom_),date(date_), minutes(minutes_)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        vec_couleur[0] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;red&quot;</span>)};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        vec_couleur[1] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;orange&quot;</span>)};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        vec_couleur[2] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;lightgreen&quot;</span>)};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        vec_couleur[3] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;yellow&quot;</span>)};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        vec_couleur[4] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;lightblue&quot;</span>)};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        dessinerFond();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> QDate&amp; getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> setDate(QDate&amp; d) {date = d;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> ajouterProgrammation(<span class="keyword">const</span> QString titre, <span class="keyword">const</span> QTime&amp; debut, <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; duree,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="class_programmation.html">Programmation</a>* e=0, <span class="keywordtype">int</span> type=0);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> dessinerFond();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> removeAllItems();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(<span class="keyword">const</span> QString&amp; s1=<span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> QString&amp; s2=<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // JOURSCENE_H</span></div>
-<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdef"><b>Definition:</b> programmation.h:9</div></div>
-<div class="ttc" id="class_jour_scene_html"><div class="ttname"><a href="class_jour_scene.html">JourScene</a></div><div class="ttdef"><b>Definition:</b> jourscene.h:19</div></div>
-<div class="ttc" id="class_observateur_html"><div class="ttname"><a href="class_observateur.html">Observateur</a></div><div class="ttdef"><b>Definition:</b> observateur.h:8</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="struct_couleur.html">   15</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_couleur.html">Couleur</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QColor contour;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QColor fond;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_jour_scene.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jour_scene.html">JourScene</a> : <span class="keyword">public</span> QGraphicsScene, <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QString jour;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QDate date;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> minutes;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="struct_couleur.html">Couleur</a> vec_couleur[5];</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_jour_scene.html#a44a6b9d15f08a771ba4d4239c093065f">   47</a></span>&#160;    <a class="code" href="class_jour_scene.html#a44a6b9d15f08a771ba4d4239c093065f">JourScene</a>(<span class="keyword">const</span> QString&amp; nom_, <span class="keyword">const</span> QDate&amp; date_, qreal x_, qreal y_, qreal width_, qreal height_,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> minutes_ = 840, QObject* parent = 0 )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        :  QGraphicsScene(x_,y_,width_,height_,parent),jour(nom_),date(date_), minutes(minutes_)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        vec_couleur[0] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;red&quot;</span>)};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        vec_couleur[1] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;orange&quot;</span>)};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        vec_couleur[2] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;lightgreen&quot;</span>)};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        vec_couleur[3] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;yellow&quot;</span>)};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        vec_couleur[4] = {QColor(<span class="stringliteral">&quot;black&quot;</span>),QColor(<span class="stringliteral">&quot;lightblue&quot;</span>)};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="class_jour_scene.html#aa7d8153523054cfa3da0a3c0253117ec">dessinerFond</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> QDate&amp; getDate()<span class="keyword"> const </span>{<span class="keywordflow">return</span> date;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setDate(QDate&amp; d) {date = d;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_scene.html#ad6ea81a9b6c97c703eca80bf79734d55">ajouterProgrammation</a>(<span class="keyword">const</span> QString titre, <span class="keyword">const</span> QTime&amp; debut, <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; duree,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="class_programmation.html">Programmation</a>* e=0, <span class="keywordtype">int</span> type=0);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_scene.html#aa7d8153523054cfa3da0a3c0253117ec">dessinerFond</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_scene.html#a9cf3e8e576f28a3f540555c17fa31d19">removeAllItems</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_jour_scene.html#a019e742d5f242329d54d132e4e02e131">update</a>(<span class="keyword">const</span> QString&amp; s1=<span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> QString&amp; s2=<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // JOURSCENE_H</span></div>
+<div class="ttc" id="class_jour_scene_html_aa7d8153523054cfa3da0a3c0253117ec"><div class="ttname"><a href="class_jour_scene.html#aa7d8153523054cfa3da0a3c0253117ec">JourScene::dessinerFond</a></div><div class="ttdeci">void dessinerFond()</div><div class="ttdoc">dessinerFond : dessiner le fond du calendrier </div><div class="ttdef"><b>Definition:</b> jourscene.cpp:51</div></div>
+<div class="ttc" id="class_jour_scene_html_ad6ea81a9b6c97c703eca80bf79734d55"><div class="ttname"><a href="class_jour_scene.html#ad6ea81a9b6c97c703eca80bf79734d55">JourScene::ajouterProgrammation</a></div><div class="ttdeci">void ajouterProgrammation(const QString titre, const QTime &amp;debut, const Duree &amp;duree, Programmation *e=0, int type=0)</div><div class="ttdoc">ajouterProgrammation : ajoute une programmation de l&#39;agenda à la scene </div><div class="ttdef"><b>Definition:</b> jourscene.cpp:6</div></div>
+<div class="ttc" id="class_jour_scene_html_a019e742d5f242329d54d132e4e02e131"><div class="ttname"><a href="class_jour_scene.html#a019e742d5f242329d54d132e4e02e131">JourScene::update</a></div><div class="ttdeci">virtual void update(const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</div><div class="ttdoc">update : met la scene à jour à partir de l&#39;agenda </div><div class="ttdef"><b>Definition:</b> jourscene.cpp:82</div></div>
+<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdoc">Classe abstraite représentant une programmation dans un agenda. </div><div class="ttdef"><b>Definition:</b> programmation.h:13</div></div>
+<div class="ttc" id="class_jour_scene_html"><div class="ttname"><a href="class_jour_scene.html">JourScene</a></div><div class="ttdoc">Scene permettant de gérer ce qui sera afficher dans nos vues pour chaque jour. </div><div class="ttdef"><b>Definition:</b> jourscene.h:26</div></div>
+<div class="ttc" id="class_observateur_html"><div class="ttname"><a href="class_observateur.html">Observateur</a></div><div class="ttdoc">class abstraite permettant d&#39;observer d&#39;autres objets </div><div class="ttdef"><b>Definition:</b> observateur.h:11</div></div>
+<div class="ttc" id="class_jour_scene_html_a9cf3e8e576f28a3f540555c17fa31d19"><div class="ttname"><a href="class_jour_scene.html#a9cf3e8e576f28a3f540555c17fa31d19">JourScene::removeAllItems</a></div><div class="ttdeci">void removeAllItems()</div><div class="ttdoc">removeAllItems : vide la scene </div><div class="ttdef"><b>Definition:</b> jourscene.cpp:72</div></div>
+<div class="ttc" id="class_jour_scene_html_a44a6b9d15f08a771ba4d4239c093065f"><div class="ttname"><a href="class_jour_scene.html#a44a6b9d15f08a771ba4d4239c093065f">JourScene::JourScene</a></div><div class="ttdeci">JourScene(const QString &amp;nom_, const QDate &amp;date_, qreal x_, qreal y_, qreal width_, qreal height_, unsigned int minutes_=840, QObject *parent=0)</div><div class="ttdoc">JourScene. </div><div class="ttdef"><b>Definition:</b> jourscene.h:47</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:15</div></div>
-<div class="ttc" id="struct_couleur_html"><div class="ttname"><a href="struct_couleur.html">Couleur</a></div><div class="ttdef"><b>Definition:</b> jourscene.h:11</div></div>
+<div class="ttc" id="struct_couleur_html"><div class="ttname"><a href="struct_couleur.html">Couleur</a></div><div class="ttdoc">Structure contenant les couleurs de fond et de contour pour une programmations dans le calendrier...</div><div class="ttdef"><b>Definition:</b> jourscene.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

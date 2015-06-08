@@ -90,13 +90,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">MainWindow Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>fenêtre principale  
+ <a href="class_main_window.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainWindow:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_main_window.png" usemap="#MainWindow_map" alt=""/>
   <map id="MainWindow_map" name="MainWindow_map">
-<area href="class_observateur.html" alt="Observateur" shape="rect" coords="104,0,198,24"/>
+<area href="class_observateur.html" title="class abstraite permettant d&#39;observer d&#39;autres objets " alt="Observateur" shape="rect" coords="104,0,198,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -111,6 +116,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>charger</b> ()</td></
 <tr class="memitem:ae1b6a0c9804d3c20da3738ed0a60118f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1b6a0c9804d3c20da3738ed0a60118f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerItem</b> ()</td></tr>
 <tr class="separator:ae1b6a0c9804d3c20da3738ed0a60118f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4587a91f23bc5ad49655b86c03693fc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4587a91f23bc5ad49655b86c03693fc1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>expand</b> ()</td></tr>
+<tr class="separator:a4587a91f23bc5ad49655b86c03693fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a436e00916a9dd0ba6f3230dd792362a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a436e00916a9dd0ba6f3230dd792362a9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>adaptForm</b> (bool etat)</td></tr>
 <tr class="separator:a436e00916a9dd0ba6f3230dd792362a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,12 +134,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherInfo</b> (QMo
 <tr class="memitem:a56656ba4f2165313f6eae542935af529"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56656ba4f2165313f6eae542935af529"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> ()</td></tr>
 <tr class="separator:a56656ba4f2165313f6eae542935af529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4587a91f23bc5ad49655b86c03693fc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4587a91f23bc5ad49655b86c03693fc1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>expand</b> ()</td></tr>
-<tr class="separator:a4587a91f23bc5ad49655b86c03693fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e5436bdf09f3be97f6441b1cda501bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e5436bdf09f3be97f6441b1cda501bb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimer_precedence</b> ()</td></tr>
 <tr class="separator:a8e5436bdf09f3be97f6441b1cda501bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec5751972c73e8f2468df679110ba661"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec5751972c73e8f2468df679110ba661"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>programmerTache</b> ()</td></tr>
+<tr class="separator:aec5751972c73e8f2468df679110ba661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcbe61fbf45912fb8a7c9f1875546bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fcbe61fbf45912fb8a7c9f1875546bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterEvt</b> ()</td></tr>
+<tr class="separator:a4fcbe61fbf45912fb8a7c9f1875546bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04074b3c4b005b72841817603c92b44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab04074b3c4b005b72841817603c92b44"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeDate</b> ()</td></tr>
+<tr class="separator:ab04074b3c4b005b72841817603c92b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f3f01d0ca4d7e582c52fd66a19712f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4f3f01d0ca4d7e582c52fd66a19712f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lundi</b> ()</td></tr>
 <tr class="separator:aa4f3f01d0ca4d7e582c52fd66a19712f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,36 +167,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>samedi</b> ()</td></t
 <tr class="memitem:a2b3d29a4ad292efa2728dadc9bf2ab4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b3d29a4ad292efa2728dadc9bf2ab4d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>dimanche</b> ()</td></tr>
 <tr class="separator:a2b3d29a4ad292efa2728dadc9bf2ab4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fcbe61fbf45912fb8a7c9f1875546bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fcbe61fbf45912fb8a7c9f1875546bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterEvt</b> ()</td></tr>
-<tr class="separator:a4fcbe61fbf45912fb8a7c9f1875546bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab04074b3c4b005b72841817603c92b44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab04074b3c4b005b72841817603c92b44"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeDate</b> ()</td></tr>
-<tr class="separator:ab04074b3c4b005b72841817603c92b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec5751972c73e8f2468df679110ba661"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec5751972c73e8f2468df679110ba661"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>programmerTache</b> ()</td></tr>
-<tr class="separator:aec5751972c73e8f2468df679110ba661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af28168816255f8296b3a49102f013b4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af28168816255f8296b3a49102f013b4e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>exporterSemaine</b> ()</td></tr>
 <tr class="separator:af28168816255f8296b3a49102f013b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abfbe72c41f9de40020960290f7ea2424"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfbe72c41f9de40020960290f7ea2424"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerAllItem</b> ()</td></tr>
-<tr class="separator:abfbe72c41f9de40020960290f7ea2424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a197c01df70008df1e2b1ce96b2a6221c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a197c01df70008df1e2b1ce96b2a6221c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memitem:a197c01df70008df1e2b1ce96b2a6221c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a197c01df70008df1e2b1ce96b2a6221c">update</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
+<tr class="memdesc:a197c01df70008df1e2b1ce96b2a6221c"><td class="mdescLeft">&#160;</td><td class="mdescRight">update : mise à jour de l'objet  <a href="#a197c01df70008df1e2b1ce96b2a6221c">More...</a><br/></td></tr>
 <tr class="separator:a197c01df70008df1e2b1ce96b2a6221c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75f823b6e5de937b50b3777ad4c93ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75f823b6e5de937b50b3777ad4c93ada"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerProgrammation</b> (QGraphicsView &amp;v)</td></tr>
+<tr class="memitem:a75f823b6e5de937b50b3777ad4c93ada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a75f823b6e5de937b50b3777ad4c93ada">supprimerProgrammation</a> (QGraphicsView &amp;v)</td></tr>
+<tr class="memdesc:a75f823b6e5de937b50b3777ad4c93ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprimerProgrammation : suppression de programmation  <a href="#a75f823b6e5de937b50b3777ad4c93ada">More...</a><br/></td></tr>
 <tr class="separator:a75f823b6e5de937b50b3777ad4c93ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb43edc4b5ba2ea3c133ffe6f8b3ea0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadb43edc4b5ba2ea3c133ffe6f8b3ea0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getInformation</b> (QGraphicsView &amp;v)</td></tr>
+<tr class="memitem:aadb43edc4b5ba2ea3c133ffe6f8b3ea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aadb43edc4b5ba2ea3c133ffe6f8b3ea0">getInformation</a> (QGraphicsView &amp;v)</td></tr>
+<tr class="memdesc:aadb43edc4b5ba2ea3c133ffe6f8b3ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getInformation : affiche les informations des programmations  <a href="#aadb43edc4b5ba2ea3c133ffe6f8b3ea0">More...</a><br/></td></tr>
 <tr class="separator:aadb43edc4b5ba2ea3c133ffe6f8b3ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16dbac3f7ac4358c09f7cbb9df30f32a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16dbac3f7ac4358c09f7cbb9df30f32a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initCalendar</b> (QDate d)</td></tr>
+<tr class="memitem:a16dbac3f7ac4358c09f7cbb9df30f32a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a16dbac3f7ac4358c09f7cbb9df30f32a">initCalendar</a> (QDate d)</td></tr>
+<tr class="memdesc:a16dbac3f7ac4358c09f7cbb9df30f32a"><td class="mdescLeft">&#160;</td><td class="mdescRight">initCalendar : initialise le calendrier  <a href="#a16dbac3f7ac4358c09f7cbb9df30f32a">More...</a><br/></td></tr>
 <tr class="separator:a16dbac3f7ac4358c09f7cbb9df30f32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e20a4a065fbb0e4d3532a45a0a91425"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e20a4a065fbb0e4d3532a45a0a91425"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>closeEvent</b> (QCloseEvent *event)</td></tr>
+<tr class="separator:a4e20a4a065fbb0e4d3532a45a0a91425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -193,6 +198,126 @@ static <a class="el" href="class_main_window.html">MainWindow</a> &amp;&#160;</t
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
 <tr class="separator:ad1b1ec6946e7966870028df8d0d11405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>fenêtre principale </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aadb43edc4b5ba2ea3c133ffe6f8b3ea0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::getInformation </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsView &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getInformation : affiche les informations des programmations </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>QGraphicsView </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a16dbac3f7ac4358c09f7cbb9df30f32a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::initCalendar </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initCalendar : initialise le calendrier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>date </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a75f823b6e5de937b50b3777ad4c93ada"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::supprimerProgrammation </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsView &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>supprimerProgrammation : suppression de programmation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>QGraphicsView </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a197c01df70008df1e2b1ce96b2a6221c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::update </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s1</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>s2</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>update : mise à jour de l'objet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>paramètre optionel </td></tr>
+    <tr><td class="paramname">s2</td><td>paramètre optionel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_observateur.html#a34b7ede962421a2e816cb4c61d97416f">Observateur</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
 <li>/home/pierre/Qt projects/ProjectCalendar_LO21/ProjectCalendar/mainwindow.cpp</li>
@@ -200,7 +325,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

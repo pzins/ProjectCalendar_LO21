@@ -15,7 +15,7 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
 
 
     ProgrammationItem* prog = new ProgrammationItem(0,y,width(),h,p);
-    prog->setPen(QPen(vec_couleur[type].contour));
+    prog->setPen(QPen(vec_couleur[type].fond));
     prog->setBrush(QBrush(vec_couleur[type].fond));
 
     QGraphicsScene::addItem(prog);

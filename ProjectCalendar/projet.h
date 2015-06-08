@@ -7,9 +7,12 @@
 #include <iostream>
 #include "precedencemanager.h"
 
+/**
+ * @class Projet
+ * @brief Classe représentant un projet
+ */
 class Projet : public Observable
 {
-    //friend class ProjetManager;
 private:
     QString titre;
     QString description;
@@ -31,34 +34,65 @@ public:
     const QDate& getEcheance() const {return echeance;}
     std::map<QString, Tache*>& getMapTache() {return map_tache;}
 
+    /**
+     * @brief ajouterTache : ajout d'une tache à un projet
+     * @param type
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     * @param duree
+     * @param preemptive
+     */
     void ajouterTache(QChar type, const QString& titre, const QString& description, const QDate& dispo,
                         const QDate& echeance, const Duree& duree, bool preemptive);
 
+    /**
+     * @brief supprimerTache : suppression d'une tache d'un projet
+     * @param titre
+     */
     void supprimerTache(QString& titre);
 
-    //verifie avant l'ajout de tache
+    /**
+     * @brief verification : vérification des contraintes liées à l'ajout de taches dans un projet
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     * @param tc_parent
+     */
     void verification(const QString& titre, const QString& description,
                       const QDate& dispo, const QDate& echeance, const QString& tc_parent);
 
-    //retourne un QString contenant des infos sur le projet
+    //****//
     QString info() const;
 
-    //return un pointeur sur la tache d'après le titre, leve CalendarException sinon elle n'existe pas
+    /**
+     * @brief getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache
+     * @param titre
+     */
     Tache* getTache(const QString& titre);
 
-   ~Projet();//à implémenter pour détruire les taches du projet
+   ~Projet();
 
-    //sauvegarde un les taches du projet
+
     void save(const QString &titre);
-    //charge les taches du projet
     void load(const QString& f);
 
+    /**
+     * @brief operator == : compare 2 projets (par rapport à leurs titre)
+     * @param p
+     */
     bool operator==(const Projet& p);
+
 
     void notifier(const QString& str="", const QString& s2="");
 
 
-
+    /**
+     * @class Iterator
+     * @brief Iterator de projet qui parcourt les taches du projet
+     */
     class Iterator
     {
     private:
