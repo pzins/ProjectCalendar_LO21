@@ -1,9 +1,7 @@
 #ifndef PROGRAMMATION_H
 #define PROGRAMMATION_H
-#include <QDate>
-#include <QTime>
 #include "duree.h"
-#include <iostream>
+#include <QTime>
 #include <QXmlStreamReader>
 
 /**

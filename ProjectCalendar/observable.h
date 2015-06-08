@@ -20,7 +20,7 @@ public:
      * @param s1 parametre optionel
      * @param s2 parametre optionel
      */
-    virtual void notifier(const QString& s1="", const QString& s2="") =0;
+    virtual void notifier(const QString& s1="", const QString& s2="") const =0;
 
     const std::set<Observateur*>& getObs() const {return obs;}
 

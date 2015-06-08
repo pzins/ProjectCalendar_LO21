@@ -1,9 +1,4 @@
 #include "agenda.h"
-#include "jourscene.h"
-#include "programmation.h"
-#include "programmationrdv.h"
-#include "programmationtacheunitaire.h"
-#include "programmationpartietache.h"
 #include "projetmanager.h"
 
 Agenda* Agenda::instance = 0;
@@ -33,7 +28,7 @@ Agenda::~Agenda()
 
 }
 
-void Agenda::notifier(const QString& s1, const QString& s2)
+void Agenda::notifier(const QString& s1, const QString& s2) const
 {
     for(Observable::Iterator it = getObs().begin(); it != getObs().end(); ++it)
     {
@@ -183,7 +178,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
 }
 
 
-void Agenda::save(const QString &f, bool contraintes)
+void Agenda::save(const QString &f, bool contraintes) const
 {
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -192,7 +187,7 @@ void Agenda::save(const QString &f, bool contraintes)
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
     stream.writeStartElement("programmations");
-    for(Agenda::Iterator it = begin(); it != end(); ++it){
+    for(Agenda::ConstIterator it = begin(); it != end(); ++it){
         if(contraintes)
         {
             if((*it).getDate() >= scenes.at(0)->getDate() && (*it).getDate() <= scenes.at(6)->getDate())

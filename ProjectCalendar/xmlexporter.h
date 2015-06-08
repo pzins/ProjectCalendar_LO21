@@ -3,7 +3,6 @@
 #include <QString>
 #include <QFile>
 #include <QXmlStreamReader>
-#include <QTextCodec>
 
 /**
  * @class XmlExporter
@@ -15,7 +14,7 @@ class XmlExporter
 public:
     XmlExporter();
     ~XmlExporter();
-    virtual void save(const QString& f, bool contraintes=false)=0;
+    virtual void save(const QString& f, bool contraintes=false)const =0;
     virtual void load(const QString& f)=0;
 };
 

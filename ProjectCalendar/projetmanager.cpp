@@ -8,8 +8,14 @@ ProjetManager* ProjetManager::instance = 0;
 
 ProjetManager::~ProjetManager()
 {
-    for(std::map<QString, Projet*>::iterator it = map_projet.begin(); it != map_projet.end(); ++it)
-        delete (*it).second;
+    std::map<QString, Projet*>::iterator it;
+    std::map<QString, Projet*>::iterator end;
+    while(it != end)
+    {
+        std::map<QString, Projet*>::iterator tmp = it;
+        ++it;
+        delete tmp->second;
+    }
 }
 
 
@@ -31,7 +37,7 @@ void ProjetManager::retirerProjet(QString& titre)
 }
 
 
-void ProjetManager::notifier(const QString& s1, const QString& s2)
+void ProjetManager::notifier(const QString& s1, const QString& s2) const
 {
     for(Observable::Iterator it =  getObs().begin(); it != getObs().end(); ++it)
         (*it).update(s1,s2);
@@ -249,7 +255,7 @@ void ProjetManager::load(const QString& f){
     //qDebug()<<"fin load\n";
 }
 
-void ProjetManager::save(const QString& f, bool contraintes){
+void ProjetManager::save(const QString& f, bool contraintes) const{
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
@@ -257,7 +263,7 @@ void ProjetManager::save(const QString& f, bool contraintes){
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
     stream.writeStartElement("projets");
-    for(ProjetManager::Iterator it = begin(); it != end(); ++it){
+    for(ProjetManager::ConstIterator it = begin(); it != end(); ++it){
         stream.writeStartElement("projet");
         QString str;
         stream.writeTextElement("titre",(*it).getTitre());

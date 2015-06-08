@@ -1,8 +1,6 @@
 #ifndef PROGRAMMATIONPARTIETACHE_H
 #define PROGRAMMATIONPARTIETACHE_H
 #include "programmationtacheunitaire.h"
-#include "duree.h"
-#include <QString>
 
 /**
  * @class ProgrammationPartieTache

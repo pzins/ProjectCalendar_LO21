@@ -1,6 +1,5 @@
 #ifndef TACHEUNITAIRE_H
 #define TACHEUNITAIRE_H
-#include <QString>
 
 #include "duree.h"
 #include "tache.h"
@@ -30,7 +29,7 @@ public:
     void setDuree(const Duree& duree_) {duree=duree_;}
 
 
-    virtual void exportXml(QXmlStreamWriter& stream);
+    virtual void exportXml(QXmlStreamWriter& stream) const;
 
     bool isProgrammed() const {return programmed;}
     void setIsProgrammed(bool b) {programmed= b;}

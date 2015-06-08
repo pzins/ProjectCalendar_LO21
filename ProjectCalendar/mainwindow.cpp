@@ -67,7 +67,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::exporterSemaine()
 {
-    Agenda::getInstance().save("semaine", true);
+    QString file = QFileDialog::getSaveFileName(this);
+    Agenda::getInstance().save(file+".xml", true);
 }
 
 void MainWindow::changeDate()
@@ -426,8 +427,7 @@ void MainWindow::sauvegarder()
 
 void MainWindow::charger()
 {
-    //QString chemin = QFileDialog::getOpenFileName();
-    if(pm->getMapProjet().size() == 0)
+    if(pm->getMapProjet().size() == 0 && ag->getProgrammation().size() == 0)
     {
         try
         {

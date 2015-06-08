@@ -100,12 +100,16 @@ Inheritance diagram for Projet:</div>
  <div class="center">
   <img src="class_projet.png" usemap="#Projet_map" alt=""/>
   <map id="Projet_map" name="Projet_map">
-<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="0,0,78,24"/>
+<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="0,0,81,24"/>
+<area href="class_xml_exporter.html" title="Interface permettant à une classe d&#39;être exportée en XML. " alt="XmlExporter" shape="rect" coords="91,0,172,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_const_iterator.html">ConstIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_projet_1_1_const_iterator.html" title="ConstIterator de projet qui parcourt les taches du projet. ">ConstIterator</a> de projet qui parcourt les taches du projet.  <a href="class_projet_1_1_const_iterator.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_1_1_iterator.html">Iterator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_projet_1_1_iterator.html" title="Iterator de projet qui parcourt les taches du projet. ">Iterator</a> de projet qui parcourt les taches du projet.  <a href="class_projet_1_1_iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,24 +149,30 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> () const 
 <tr class="memitem:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a68ce4f487c4a4fa7b466dc3571653b80">getTache</a> (const QString &amp;titre)</td></tr>
 <tr class="memdesc:a68ce4f487c4a4fa7b466dc3571653b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache  <a href="#a68ce4f487c4a4fa7b466dc3571653b80">More...</a><br/></td></tr>
 <tr class="separator:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0446ff4f2718937b8801c303022f60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c0446ff4f2718937b8801c303022f60"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;titre)</td></tr>
-<tr class="separator:a7c0446ff4f2718937b8801c303022f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f4c77acb3a75ffefa14f7af307eef2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41f4c77acb3a75ffefa14f7af307eef2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;titre, bool contraintes=false) const </td></tr>
+<tr class="separator:a41f4c77acb3a75ffefa14f7af307eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3f14378e9831ce72aef90858d8d733"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d3f14378e9831ce72aef90858d8d733"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:a9d3f14378e9831ce72aef90858d8d733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ba60591b22a971014cb21220c0dc7eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a2ba60591b22a971014cb21220c0dc7eb">operator==</a> (const <a class="el" href="class_projet.html">Projet</a> &amp;p)</td></tr>
 <tr class="memdesc:a2ba60591b22a971014cb21220c0dc7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : compare 2 projets (par rapport à leurs titre)  <a href="#a2ba60591b22a971014cb21220c0dc7eb">More...</a><br/></td></tr>
 <tr class="separator:a2ba60591b22a971014cb21220c0dc7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c93dd2241398bb117a764dab22a5254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a7c93dd2241398bb117a764dab22a5254">notifier</a> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
-<tr class="memdesc:a7c93dd2241398bb117a764dab22a5254"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a7c93dd2241398bb117a764dab22a5254">More...</a><br/></td></tr>
-<tr class="separator:a7c93dd2241398bb117a764dab22a5254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada63691515c0524aacb26fb656a0308f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#ada63691515c0524aacb26fb656a0308f">notifier</a> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;) const </td></tr>
+<tr class="memdesc:ada63691515c0524aacb26fb656a0308f"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#ada63691515c0524aacb26fb656a0308f">More...</a><br/></td></tr>
+<tr class="separator:ada63691515c0524aacb26fb656a0308f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac935c3f7a161e8fb124391cdcb346c39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac935c3f7a161e8fb124391cdcb346c39"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:ac935c3f7a161e8fb124391cdcb346c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad527f5d288ddf9b6e1bb70d285cec13b"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:ad527f5d288ddf9b6e1bb70d285cec13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab930a4dbea6c9ba2fd0a21c01a03a0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab930a4dbea6c9ba2fd0a21c01a03a0c"></a>
+<a class="el" href="class_projet_1_1_const_iterator.html">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const </td></tr>
+<tr class="separator:aab930a4dbea6c9ba2fd0a21c01a03a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799d65d48cc0423fd44762eb431942c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a799d65d48cc0423fd44762eb431942c7"></a>
+<a class="el" href="class_projet_1_1_const_iterator.html">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const </td></tr>
+<tr class="separator:a799d65d48cc0423fd44762eb431942c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
 <tr class="memitem:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24b4cfcda63fe93dbca84dc6fa6cb089"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
@@ -277,7 +287,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 
 </div>
 </div>
-<a class="anchor" id="a7c93dd2241398bb117a764dab22a5254"></a>
+<a class="anchor" id="ada63691515c0524aacb26fb656a0308f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -299,7 +309,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -318,7 +328,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">Observable</a>.</p>
+<p>Implements <a class="el" href="class_observable.html#ac6a48baba44897191cd7410ce6305fdd">Observable</a>.</p>
 
 </div>
 </div>
@@ -433,7 +443,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 22:44:30 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

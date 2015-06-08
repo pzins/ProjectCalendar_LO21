@@ -1,9 +1,6 @@
 #ifndef JOURSCENE_H
 #define JOURSCENE_H
 #include <QGraphicsScene>
-#include <QDate>
-#include "duree.h"
-#include "programmation.h"
 #include "programmationitem.h"
 #include "programmationevenementplsj.h"
 #include "observateur.h"

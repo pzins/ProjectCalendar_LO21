@@ -1,9 +1,6 @@
 #include "dialogprogtache.h"
 #include "ui_dialogprogtache.h"
 #include "agenda.h"
-#include "precedence.h"
-#include "programmationtacheunitaire.h"
-#include "programmation.h"
 #include "dialogprogpartie.h"
 
 
@@ -149,10 +146,6 @@ void DialogProgTache::verificationParties()
             QDate dd = vec_date.at(i+1);
             QTime deb = vec_debut.at(i);
             QTime debdeb = vec_debut.at(i+1);
-            std::cout << "d = " << d.toString().toStdString() << std::endl;
-            std::cout << "dd = " << dd.toString().toStdString()  << std::endl;
-            std::cout << "deb = " << deb.toString().toStdString() << std::endl;
-            std::cout << "debdeb = " << debdeb.toString() .toStdString()<< std::endl;
             if((d > dd) || (d==dd && deb > debdeb))
                 throw CalendarException("Ordre des parties incohérentes");
             if(d==dd && deb == debdeb)

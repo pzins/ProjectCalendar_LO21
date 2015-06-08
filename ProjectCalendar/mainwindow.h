@@ -4,10 +4,8 @@
 #include <QDirModel>
 #include <QStandardItemModel>
 
-#include "projetmanager.h"
 #include "agenda.h"
 #include "dialogprecedence.h"
-#include "precedencemanager.h"
 
 namespace Ui {
 class MainWindow;

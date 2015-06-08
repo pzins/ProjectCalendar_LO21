@@ -28,7 +28,6 @@ public:
     virtual ~ProgrammationEvenementplsJ(){}
     const QDate& getDateFin() const {return date_fin;}
     const QTime& getFin() const {return fin;}
-    virtual void afficher() const;
 
     virtual const Duree& getDuree() const {return 24;}
     virtual const QString toString() const;

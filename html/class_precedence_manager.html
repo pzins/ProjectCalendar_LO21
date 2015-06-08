@@ -133,15 +133,15 @@ std::set&lt; <a class="el" href="class_precedence.html">Precedence</a> *, <a cla
 <tr class="memitem:aca0388acadd90727af826a0e8350bd99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aca0388acadd90727af826a0e8350bd99">update</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
 <tr class="memdesc:aca0388acadd90727af826a0e8350bd99"><td class="mdescLeft">&#160;</td><td class="mdescRight">update : mise à jour de l'objet  <a href="#aca0388acadd90727af826a0e8350bd99">More...</a><br/></td></tr>
 <tr class="separator:aca0388acadd90727af826a0e8350bd99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ec4a5264bbdbfbe261cd666393e467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a35ec4a5264bbdbfbe261cd666393e467">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;)</td></tr>
-<tr class="memdesc:a35ec4a5264bbdbfbe261cd666393e467"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a35ec4a5264bbdbfbe261cd666393e467">More...</a><br/></td></tr>
-<tr class="separator:a35ec4a5264bbdbfbe261cd666393e467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dcd9077f806f4c2916fceb816174d5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a9dcd9077f806f4c2916fceb816174d5f">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a9dcd9077f806f4c2916fceb816174d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#a9dcd9077f806f4c2916fceb816174d5f">More...</a><br/></td></tr>
+<tr class="separator:a9dcd9077f806f4c2916fceb816174d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba17ace74bfa503de67198ee61d5dac4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aba17ace74bfa503de67198ee61d5dac4">findPrecedence</a> (<a class="el" href="class_projet.html">Projet</a> *pro, <a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
 <tr class="memdesc:aba17ace74bfa503de67198ee61d5dac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">findPrecedence : renvoie toutes les précédences concernant une taches  <a href="#aba17ace74bfa503de67198ee61d5dac4">More...</a><br/></td></tr>
 <tr class="separator:aba17ace74bfa503de67198ee61d5dac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8833d98939b5e7b5b94914283e3e4981"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8833d98939b5e7b5b94914283e3e4981"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f, bool contraintes=false)</td></tr>
-<tr class="separator:a8833d98939b5e7b5b94914283e3e4981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fdb45198135b46dc9b87ef2f262de7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fdb45198135b46dc9b87ef2f262de7f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f, bool contraintes=false) const </td></tr>
+<tr class="separator:a6fdb45198135b46dc9b87ef2f262de7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab54ecd23aa9f320dc8cd94732989dc83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab54ecd23aa9f320dc8cd94732989dc83"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:ab54ecd23aa9f320dc8cd94732989dc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,7 +289,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 
 </div>
 </div>
-<a class="anchor" id="a35ec4a5264bbdbfbe261cd666393e467"></a>
+<a class="anchor" id="a9dcd9077f806f4c2916fceb816174d5f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -311,7 +311,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -330,7 +330,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_observable.html#a23901520453bfef4b9d41d6eda6ce9de">Observable</a>.</p>
+<p>Implements <a class="el" href="class_observable.html#ac6a48baba44897191cd7410ce6305fdd">Observable</a>.</p>
 
 </div>
 </div>
@@ -410,7 +410,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 8 2015 21:28:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 22:44:30 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

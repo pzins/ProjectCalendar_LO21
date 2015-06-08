@@ -2,11 +2,10 @@
 #define PROJETMANAGER_H
 #include "projet.h"
 #include "observateur.h"
+#include "xmlexporter.h"
 
-#include <QString>
 #include <QStandardItemModel>
 #include <QTreeView>
-#include "xmlexporter.h"
 
 /**
  * @class ProjetManager
@@ -55,7 +54,7 @@ public:
      * @param f
      * @param contraintes
      */
-    void save(const QString& f, bool contraintes=false);
+    void save(const QString& f, bool contraintes=false) const;
     /**
      * @brief saveModel : sauvegarde du model (structure des projets)
      * @param f
@@ -162,7 +161,7 @@ public:
     QString getTacheName(QModelIndex idx);
 
 
-    virtual void notifier(const QString& s1="", const QString& s2="");
+    virtual void notifier(const QString& s1="", const QString& s2="") const;
 
     /**
      * @class Iterator
@@ -191,6 +190,34 @@ public:
 
     Iterator begin(){return Iterator(map_projet.begin());}
     Iterator end(){return Iterator(map_projet.end());}
+
+    /**
+     * @class ConstIterator
+     * @brief ConstIterator de ProjetManager, parcourt les projets
+     */
+    class ConstIterator
+    {
+    private:
+        std::map<QString, Projet*>::const_iterator courant;
+    public:
+        ConstIterator(std::map<QString, Projet*>::const_iterator deb) : courant(deb){}
+        const Projet& operator*() const {return *courant->second;}
+        ConstIterator& operator++(){++courant; return *this;}
+        ConstIterator operator++(int i){
+            ConstIterator old = *this;
+            ++courant;
+            return old;
+        }
+        bool operator==(ConstIterator it) const{
+            return courant == it.courant;
+        }
+        bool operator!=(ConstIterator it) const{
+            return courant != it.courant;
+        }
+    };
+
+    ConstIterator begin() const {return ConstIterator(map_projet.begin());}
+    ConstIterator end() const {return ConstIterator(map_projet.end());}
 
 };
 

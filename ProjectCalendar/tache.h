@@ -1,11 +1,7 @@
 ﻿#ifndef TACHE_H
 #define TACHE_H
-#include <QString>
 #include <QDate>
-#include <QTextStream>
-#include <QStandardItem>
-#include <QComboBox>
-#include <QtXml>
+#include <QXmlStreamReader>
 
 #include "calendarexception.h"
 #include "affichable.h"
@@ -54,7 +50,7 @@ public:
 
     virtual const QString info() const;
 
-    virtual void exportXml(QXmlStreamWriter& stream)=0;
+    virtual void exportXml(QXmlStreamWriter& stream) const=0;
     virtual bool isComposite() const =0;
     bool operator==(const Tache& t);
 };

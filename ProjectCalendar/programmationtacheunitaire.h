@@ -30,7 +30,6 @@ public:
     TacheUnitaire* getTache() const {return tache;}
     const QString& getProjet() const {return projet;}
 
-    virtual void afficher() const;
     virtual const Duree& getDuree() const {return tache->getDuree();}
     virtual const QString& getTitre() const {return tache->getTitre();}
     virtual bool isEvtPlsJ() const {return false;}

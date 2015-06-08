@@ -1,8 +1,6 @@
 #ifndef PROGRAMMATIONEVENEMENT_H
 #define PROGRAMMATIONEVENEMENT_H
-#include <QString>
 #include "programmation.h"
-#include "duree.h"
 
 /**
  * @class ProgrammationEvenement

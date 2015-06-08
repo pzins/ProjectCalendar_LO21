@@ -1,9 +1,5 @@
 #include "projet.h"
 #include "projetmanager.h"
-#include <QFile>
-#include <QTextCodec>
-#include <QtXml>
-#include <iostream>
 
 
 bool Projet::operator ==(const Projet& p)
@@ -71,7 +67,7 @@ void Projet::supprimerTache(QString& titre)
 }
 
 
-void Projet::notifier(const QString& s1, const QString& s2)
+void Projet::notifier(const QString& s1, const QString& s2) const
 {
     for(Observable::Iterator it =  getObs().begin(); it != getObs().end(); ++it)
         (*it).update(s1,s2);
@@ -81,8 +77,14 @@ void Projet::notifier(const QString& s1, const QString& s2)
 
 Projet::~Projet()
 {
-    for(std::map<QString, Tache*>::iterator it = map_tache.begin(); it != map_tache.end(); ++it)
-        delete (*it).second;
+    std::map<QString, Tache*>::iterator it;
+    std::map<QString, Tache*> ::iterator end;
+    while(it != end)
+    {
+        std::map<QString, Tache*>::iterator tmp = it;
+        ++it;
+        delete tmp->second;
+    }
 }
 
 Tache* Projet::getTache(const QString& titre)
@@ -189,7 +191,7 @@ void Projet::load(const QString& f)
     //qDebug()<<"fin load\n";
 }
 
-void Projet::save(const QString& t)
+void Projet::save(const QString& t,  bool contraintes) const
 {
     QFile newfile(t);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -198,7 +200,7 @@ void Projet::save(const QString& t)
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
     stream.writeStartElement("taches");
-    for(Projet::Iterator it = begin(); it != end(); ++it){
+    for(Projet::ConstIterator it = begin(); it != end(); ++it){
         (*it).exportXml(stream);
     }
     stream.writeEndDocument();

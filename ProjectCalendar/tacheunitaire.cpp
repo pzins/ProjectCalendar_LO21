@@ -1,10 +1,9 @@
 #include "tacheunitaire.h"
-#include <iostream>
 #include "agenda.h"
 
 
 
-void TacheUnitaire::exportXml(QXmlStreamWriter &stream)
+void TacheUnitaire::exportXml(QXmlStreamWriter &stream) const
 {
     stream.writeStartElement("tache");
     stream.writeAttribute("preemptive", isPreemptive()?"true":"false");
@@ -32,7 +31,8 @@ const QString TacheUnitaire::info() const
                 ProgrammationTacheUnitaire* p = dynamic_cast<ProgrammationTacheUnitaire*>(&*it);
                 if(p->getTache() == this)
                 {
-                    str += "<tr><td><b>Programmation</b></td><td>"+p->getDate().toString()+", "+p->getDebut().toString()+"</td></tr>";
+                    str += "<tr><td><b>Programmation</b></td><td>"+p->getDate().toString()+", "+
+                            p->getDebut().toString()+"</td></tr>";
                 }
             }
         }

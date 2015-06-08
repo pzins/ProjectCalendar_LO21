@@ -11,8 +11,6 @@ var searchData=
   ['ajouterprogrammationplsjour',['ajouterProgrammationPlsJour',['../class_agenda.html#ae2520065d9449c085ed593a3020d1cfc',1,'Agenda']]],
   ['ajouterscene',['ajouterScene',['../class_agenda.html#ab52679af67f32a12f9a54b0aa1875695',1,'Agenda']]],
   ['ajoutertache',['ajouterTache',['../class_projet.html#a934da0604e4501d56ee6b990f6dd18d3',1,'Projet']]],
-  ['ajoutertachecomposite',['ajouterTacheComposite',['../class_tache_composite.html#a18934996cba16d87a2c1b5f353117b8d',1,'TacheComposite']]],
-  ['ajoutertacheunitaire',['ajouterTacheUnitaire',['../class_tache_composite.html#aac0bb27213a680c1bfe2147552e9d682',1,'TacheComposite']]],
   ['ajoutitemmodel',['ajoutItemModel',['../class_projet_manager.html#a1871fe7233690188a71fec8bb4fcd12f',1,'ProjetManager']]],
   ['appendchild',['appendChild',['../class_projet_manager.html#affcfadf57d7ff75a2154135821e00ba6',1,'ProjetManager']]]
 ];

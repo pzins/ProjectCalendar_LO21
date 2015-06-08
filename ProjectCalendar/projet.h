@@ -1,17 +1,15 @@
 #ifndef PROJET_H
 #define PROJET_H
 #include "tachecomposite.h"
-#include "observable.h"
-#include <QString>
-#include <stdexcept>
-#include <iostream>
 #include "precedencemanager.h"
+
+#include <stdexcept>
 
 /**
  * @class Projet
  * @brief Classe représentant un projet
  */
-class Projet : public Observable
+class Projet : public Observable, public XmlExporter
 {
 private:
     QString titre;
@@ -76,8 +74,8 @@ public:
    ~Projet();
 
 
-    void save(const QString &titre);
-    void load(const QString& f);
+    virtual void save(const QString &titre, bool contraintes=false) const;
+    virtual void load(const QString& f);
 
     /**
      * @brief operator == : compare 2 projets (par rapport à leurs titre)
@@ -86,7 +84,7 @@ public:
     bool operator==(const Projet& p);
 
 
-    void notifier(const QString& str="", const QString& s2="");
+    void notifier(const QString& str="", const QString& s2="") const;
 
 
     /**
@@ -116,7 +114,32 @@ public:
     Iterator begin(){return Iterator(map_tache.begin());}
     Iterator end(){return Iterator(map_tache.end());}
 
-
+    /**
+     * @class ConstIterator
+     * @brief ConstIterator de projet qui parcourt les taches du projet
+     */
+    class ConstIterator
+    {
+    private:
+        std::map<QString, Tache*>::const_iterator courant;
+    public:
+        ConstIterator(std::map<QString, Tache*>::const_iterator deb) : courant(deb){}
+        const Tache& operator*() const {return *(courant->second);}
+        ConstIterator& operator++(){++courant; return *this;}
+        ConstIterator operator++(int i){
+            ConstIterator old = *this;
+            ++courant;
+            return old;
+        }
+        bool operator==(ConstIterator it) const{
+            return courant == it.courant;
+        }
+        bool operator!=(ConstIterator it) const{
+            return courant != it.courant;
+        }
+    };
+    ConstIterator begin() const {return ConstIterator(map_tache.begin());}
+    ConstIterator end() const {return ConstIterator(map_tache.end());}
 };
 
 

@@ -1,7 +1,6 @@
 #ifndef PROGRAMMATIONEVENEMENT1J_H
 #define PROGRAMMATIONEVENEMENT1J_H
 #include "programmationevenement.h"
-#include "duree.h"
 
 /**
  * @class ProgrammationEvenement1J

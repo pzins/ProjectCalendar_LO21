@@ -2,7 +2,7 @@
 #define PRECEDENCEMANAGER_H
 #include <vector>
 #include <set>
-#include <iostream>
+
 #include "precedence.h"
 #include "observable.h"
 #include "xmlexporter.h"
@@ -30,7 +30,7 @@ class PrecedenceManager : public Observable, public Observateur, public XmlExpor
 private:
     std::set<Precedence*, MyComp> set_precedence;
 
-    PrecedenceManager(){};
+    PrecedenceManager(){}
     virtual ~PrecedenceManager();
     PrecedenceManager(const PrecedenceManager& p);
     PrecedenceManager& operator=(const PrecedenceManager& p);
@@ -74,7 +74,7 @@ public:
 
 
     void update(const QString& s1="", const QString& s2="");
-    void notifier(const QString& s1="", const QString& s2="");
+    void notifier(const QString& s1="", const QString& s2="") const;
 
     /**
      * @brief findPrecedence : renvoie toutes les précédences concernant une taches
@@ -84,7 +84,7 @@ public:
      */
     std::vector<Precedence*> findPrecedence(Projet* pro, Tache* t);
 
-    void save(const QString& f, bool contraintes=false);
+    void save(const QString& f, bool contraintes=false) const;
     void load(const QString& f);
 
 

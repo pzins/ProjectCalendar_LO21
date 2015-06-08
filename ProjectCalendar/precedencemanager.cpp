@@ -1,7 +1,6 @@
 #include "precedencemanager.h"
 #include "calendarexception.h"
 #include "projetmanager.h"
-#include <iostream>
 
 
 PrecedenceManager* PrecedenceManager::instance = 0;
@@ -9,8 +8,14 @@ PrecedenceManager* PrecedenceManager::instance = 0;
 
 PrecedenceManager::~PrecedenceManager()
 {
-    for(std::set<Precedence*, MyComp>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
-        delete (*it);
+    std::set<Precedence*, MyComp>::iterator it;
+    std::set<Precedence*, MyComp>::iterator end;
+    while(it != end)
+    {
+        std::set<Precedence*, MyComp>::iterator  tmp = it;
+        ++it;
+        delete *tmp;
+    }
 }
 
 
@@ -83,14 +88,15 @@ void PrecedenceManager::update(const QString& s1, const QString& s2)
          retirerPrecedence(*(*it));
 }
 
-void PrecedenceManager::notifier(const QString& s1, const QString& s2)
+void PrecedenceManager::notifier(const QString& s1, const QString& s2) const
 {
     for(Observable::Iterator it = getObs().begin(); it != getObs().end(); ++it)
         (*it).update(s1,s2);
 }
 
 
-void PrecedenceManager::save(const QString& f, bool contraintes){
+void PrecedenceManager::save(const QString& f, bool contraintes) const
+{
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
@@ -98,7 +104,7 @@ void PrecedenceManager::save(const QString& f, bool contraintes){
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
     stream.writeStartElement("precedences");
-    for(PrecedenceManager::Iterator it = begin(); it != end(); ++it){
+    for(PrecedenceManager::ConstIterator it = begin(); it != end(); ++it){
         stream.writeStartElement("precedence");
         QString str;
         stream.writeTextElement("projet",(*it).getProjet().getTitre());

@@ -1,12 +1,8 @@
 #ifndef AGENDA_H
 #define AGENDA_H
-#include <vector>
-#include <iostream>
-#include <set>
-#include "tache.h"
-#include "programmationevenement1j.h"
 #include "programmationevenementplsj.h"
-#include "programmationtacheunitaire.h"
+#include "programmationpartietache.h"
+#include "programmationrdv.h"
 #include "jourscene.h"
 #include "observable.h"
 #include "tacheunitaire.h"
@@ -130,15 +126,13 @@ public:
 
     JourScene& getScene(int i) const {return *scenes.at(i);}
     void removeAllScenes(){scenes.clear();}
-    std::set<Programmation*, ProgComp> getProgrammation() const {return set_prog;}
+    const std::set<Programmation*, ProgComp> getProgrammation() const {return set_prog;}
 
 
-    virtual void notifier(const QString& s1="", const QString& s2="");
+    virtual void notifier(const QString& s1="", const QString& s2="") const;
 
 
-
-
-    void save(const QString& f, bool contraintes=false);
+    void save(const QString& f, bool contraintes=false) const;
     void load(const QString& f);
 
 
@@ -171,6 +165,33 @@ public:
     Iterator begin(){return Iterator(set_prog.begin());}
     Iterator end(){return Iterator(set_prog.end());}
 
+    /**
+     * @class ConstIterator
+     * @brief ConstIterator sur les programmations de l'agenda
+     */
+    class ConstIterator
+    {
+    private:
+        std::set<Programmation*, ProgComp>::const_iterator courant;
+    public:
+        ConstIterator(std::set<Programmation*, ProgComp>::const_iterator deb) : courant(deb){}
+        const Programmation& operator*() const {return **courant;}
+        ConstIterator& operator++(){++courant; return *this;}
+        ConstIterator operator++(int i){
+            ConstIterator old = *this;
+            ++courant;
+            return old;
+        }
+        bool operator==(ConstIterator it) const{
+            return courant == it.courant;
+        }
+        bool operator!=(ConstIterator it) const{
+            return courant != it.courant;
+        }
+    };
+
+    ConstIterator begin() const {return ConstIterator(set_prog.begin());}
+    ConstIterator end() const {return ConstIterator(set_prog.end());}
 };
 
 #endif // AGENDA_H
