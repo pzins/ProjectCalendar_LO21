@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Précédences</string>
   </property>
   <widget class="QDialogButtonBox" name="valider">
    <property name="geometry">

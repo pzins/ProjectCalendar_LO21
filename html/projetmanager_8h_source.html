@@ -183,32 +183,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1_iterator.html">   95</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::map&lt;QString, Projet*&gt;::iterator courant;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::map&lt;QString, Projet*&gt;::iterator courant;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(std::map&lt;QString, Projet*&gt;::iterator deb) : courant(deb){}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>() : courant(0){}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *courant-&gt;second;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            ++courant;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">return</span> old;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(map_projet.begin());}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(map_projet.end());}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *courant-&gt;second;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>&amp; operator++(){++courant; <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span> i){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> old = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            ++courant;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">return</span> old;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> courant == it.courant;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> it)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">return</span> courant != it.courant;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a> begin(){<span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1_iterator.html">Iterator</a>(map_projet.begin());}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    Iterator end(){<span class="keywordflow">return</span> Iterator(map_projet.end());}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
 <div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:11</div></div>
 <div class="ttc" id="class_xml_exporter_html"><div class="ttname"><a href="class_xml_exporter.html">XmlExporter</a></div><div class="ttdef"><b>Definition:</b> xmlexporter.h:8</div></div>
 <div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observable.h:6</div></div>
@@ -217,7 +215,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 23:07:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 02:23:41 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

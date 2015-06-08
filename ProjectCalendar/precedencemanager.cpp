@@ -75,12 +75,10 @@ std::vector<Precedence*> PrecedenceManager::findPrecedence(Projet* p, Tache* t)
 
 void PrecedenceManager::update(const QString& s1, const QString& s2)
 {
-    std::cout << "ol" << std::endl;
     Projet* p = ProjetManager::getInstance().getProjet(s1);
     if(!p) return;
     Tache* t = p->getTache(s2);
     std::vector<Precedence*> vec = findPrecedence(p, t);
-    std::cout << "ollo " << vec.size() << std::endl;
     for(std::vector<Precedence*>::iterator it = vec.begin(); it != vec.end(); ++it)
          retirerPrecedence(*(*it));
 }

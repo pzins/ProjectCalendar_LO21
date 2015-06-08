@@ -62,11 +62,9 @@ public:
     class Iterator
     {
     private:
-        friend class Projet;
         std::map<QString, Tache*>::iterator courant;
-        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
     public:
-        Iterator() : courant(0){}
+        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
         Tache& operator*() const {return *(courant->second);}
         Iterator& operator++(){++courant; return *this;}
         Iterator operator++(int i){

@@ -22,6 +22,7 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
     prog->setFlag(QGraphicsItem::ItemIsSelectable);
     prog->setZValue(1);
 
+
     int Xtxt = 0,Ytxt = y;
     QString s;
     if(duree.getDureeEnMinutes()<30)
@@ -37,7 +38,7 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
         s = debut.toString("hh:mm") + "   -   " + fin.toString("hh:mm");
 
 
-    QGraphicsTextItem *txt = QGraphicsScene::addText(s,QFont("Helvetica",8));
+    QGraphicsTextItem *txt = QGraphicsScene::addText(s,QFont("Helvetica",9,QFont::Black));
     txt->setTextWidth(95);
     txt->setX(Xtxt);
     txt->setY(Ytxt);
@@ -51,17 +52,17 @@ void JourScene::dessinerFond()
 {
     qreal r = (height() / minutes)*30;
     qreal x = 0;
-    int i = 0;
+    int i = 0;    
     while( x < minutes)
     {
         if(i % 2 == 0)
         {
             i=0;
-            QGraphicsScene::addLine(0,x,width(),x,QPen(QColor("lightBlue"),1,Qt::PenStyle(Qt::SolidLine)))->setZValue(0);
+            QGraphicsScene::addLine(0,x,width(),x,QPen(Qt::gray,1,Qt::PenStyle(Qt::SolidLine)))->setZValue(0);
         }
         else
         {
-            QGraphicsScene::addLine(0,x,width(),x,QPen(QColor("lightGray"),1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
+            QGraphicsScene::addLine(0,x,width(),x,QPen(Qt::gray,1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
         }
         x += r;
         ++i;

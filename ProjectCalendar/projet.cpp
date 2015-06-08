@@ -102,7 +102,6 @@ Tache* Projet::getTache(const QString& titre)
 void Projet::load(const QString& f)
 {
     QFile fin(f);
-    std::cout << f.toStdString() << std::endl;
     // If we can't open it, let's show an error message.
     if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
         throw CalendarException("Erreur ouverture fichier tâches");

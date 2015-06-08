@@ -60,11 +60,9 @@ public:
     class Iterator
     {
     private:
-        friend class PrecedenceManager;
         std::set<Precedence*,MyComp>::iterator courant;
-        Iterator(std::set<Precedence*,MyComp>::iterator deb) : courant(deb){}
     public:
-        //Iterator() : courant() {}
+        Iterator(std::set<Precedence*,MyComp>::iterator deb) : courant(deb){}
         Precedence& operator*() const {return **courant;}
         Iterator& operator++(){++courant; return *this;}
         Iterator operator++(int i){
@@ -86,10 +84,9 @@ public:
     class ConstIterator
     {
     private:
-        friend class PrecedenceManager;
         std::set<Precedence*,MyComp>::const_iterator courant;
-        ConstIterator(std::set<Precedence*,MyComp>::const_iterator deb) : courant(deb){}
     public:
+        ConstIterator(std::set<Precedence*,MyComp>::const_iterator deb) : courant(deb){}
         const Precedence& operator*() const {return **courant;}
         ConstIterator& operator++(){++courant; return *this;}
         ConstIterator operator++(int i){

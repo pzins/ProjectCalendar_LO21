@@ -1,6 +1,7 @@
 #ifndef CALENDAREXCEPTION_H
 #define CALENDAREXCEPTION_H
 #include <QString>
+#include <QMessageBox>
 
 using namespace std;
 

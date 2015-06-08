@@ -20,8 +20,9 @@ void Agenda::ajouterScene(const QString& jour, const QDate& date, qreal h, qreal
 
 
 Agenda::~Agenda(){
-    //for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
-   /* for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
+   /*
+    for(unsigned int i=0; i<vect_progr.size(); i++) delete vect_progr[i];
+   for(Agenda::Iterator it = vect_progr.begin(); it != vect_progr.end(); ++it)
         delete *it;*/
 }
 
@@ -48,7 +49,7 @@ void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre,
     }
     catch(CalendarException e)
     {
-        std::cout << e.getInfo().toStdString() << std::endl;
+        QMessageBox::critical(0, "Erreur", e.getInfo());
     }
     notifier();
 }
@@ -67,19 +68,19 @@ void Agenda::verifProgrammation(Programmation* p)
                 QTime fin = (*it)->getDebut().addSecs((*it)->getDuree().getDureeEnMinutes() * 60);
                 if(fin > tmp->getDebut())
                 {
-                    throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                    throw CalendarException("Chevauchement de programmations");
                 }
             }
             else if (tmp->getDateFin() == (*it)->getDate())
             {
                 if(tmp->getFin() > (*it)->getDebut())
                 {
-                    throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                    throw CalendarException("Chevauchement de programmations");
                 }
             }
             else if(tmp->getDate() < (*it)->getDate() && tmp->getDateFin() > (*it)->getDate())
             {
-                throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                throw CalendarException("Chevauchement de programmations");
             }
 
         }
@@ -90,7 +91,7 @@ void Agenda::verifProgrammation(Programmation* p)
                 QTime fin = (*it)->getDebut().addSecs((*it)->getDuree().getDureeEnMinutes() * 60);
                 if(fin > p->getDebut())
                 {
-                    throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                    throw CalendarException("Chevauchement de programmations");
                 }
             }
             else if(p->getDate() == (*it)->getDate() && (*it)->getDebut() > p->getDebut())
@@ -98,7 +99,7 @@ void Agenda::verifProgrammation(Programmation* p)
                 QTime fin = p->getDebut().addSecs(p->getDuree().getDureeEnMinutes() * 60);
                 if(fin > (*it)->getDebut())
                 {
-                    throw CalendarException("Erreur, Agenda, chevauchement de programmation");
+                    throw CalendarException("Chevauchement de programmations");
                 }
             }
         }
@@ -127,8 +128,7 @@ void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::
     }
     catch(CalendarException e)
     {
-        std::cout << e.getInfo().toStdString() << std::endl;
-
+        QMessageBox::critical(0, "Erreur", e.getInfo());
         for(int i = 0; i < vec.size(); ++i)
         {
             delete vec.at(i);
@@ -151,21 +151,15 @@ void Agenda::ajouterProgrammation(int type, const QDate& date, const QString tit
         p = new ProgrammationTacheUnitaire(date, debut, *tache, projet);
     else if(type == 3)
         p = new ProgrammationPartieTache(date, debut, *tache, num_partie, nom_partie, duree, projet);
-    try
+
+    verifProgrammation(p);
+    if(set_prog.insert(p).second == false)
     {
-        verifProgrammation(p);
-        if(set_prog.insert(p).second == false)
-        {
-            delete p;
-            throw CalendarException("Erreur, Agenda, une programmation existe à cette heure");
-        }
-        if(type == 2 || type == 3)
-            tache->setIsProgrammed(true);
+        delete p;
+        throw CalendarException("Une programmation existe à cette heure");
     }
-    catch(CalendarException e)
-    {
-        std::cout << e.getInfo().toStdString() << std::endl;
-    }
+    if(type == 2 || type == 3)
+        tache->setIsProgrammed(true);
     notifier();
 }
 
@@ -177,7 +171,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
         ptu->getTache()->setIsProgrammed(false);
     }
     if(set_prog.erase(prog) == 0)
-        throw CalendarException("Erreur, Agenda, cet Programmation n'existe pas");
+        throw CalendarException("Cette programmation n'existe pas");
     notifier();
 }
 

@@ -76,11 +76,9 @@ public:
     class Iterator
     {
     private:
-        friend class Agenda;
         std::set<Programmation*, ProgComp>::iterator courant;
-        Iterator(std::set<Programmation*, ProgComp>::iterator deb) : courant(deb){}
     public:
-        Iterator() : courant(0) {}
+        Iterator(std::set<Programmation*, ProgComp>::iterator deb) : courant(deb){}
         Programmation& operator*() const {return **courant;}
         Iterator& operator++(){++courant; return *this;}
         Iterator operator++(int i){

@@ -81,7 +81,7 @@ void DialogProgTache::accept()
     }
     catch(CalendarException e)
     {
-        std::cout << e.getInfo().toStdString() << std::endl;
+        QMessageBox::critical(this, "Erreur", e.getInfo());
     }
 
     close();

@@ -48,36 +48,5 @@ public:
     virtual QString info() const=0;
 
     bool operator==(const Tache& t);
-
-/*
-    class SuccIterator
-    {
-    private:
-        friend class Tache;
-        std::vector<Precedence*>::iterator courant;
-        SuccIterator(std::vector<Precedence*>::iterator deb) : courant(deb){}
-    public:
-        SuccIterator() : courant(0){}
-        Precedence& operator*() const {return **courant;}
-        SuccIterator& operator++(){
-            while(t != &(*courant)->getPred()) ++courant;
-            return *this;
-        }
-        SuccIterator operator++(int i){
-            SuccIterator old = *this;
-            while(t != &(*courant)->getPred()) ++courant;
-            return old;
-        }
-        bool operator==(SuccIterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(SuccIterator it) const{
-            return courant != it.courant;
-        }
-    };
-
-    SuccIterator begin(){return SuccIterator(PrecedenceManager::getInstance().getVectPrecedence().begin());}
-    SuccIterator end(){return SuccIterator(PrecedenceManager::getInstance().getVectPrecedence().end());}
-*/
 };
 #endif // TACHE_H

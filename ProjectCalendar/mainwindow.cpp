@@ -6,7 +6,6 @@
 
 #include <QPushButton>
 #include <QFileDialog>
-#include <QMessageBox>
 
 MainWindow* MainWindow::instance = 0;
 
@@ -42,20 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->treeView->setAnimated(true);
 
     initCalendar(QDate::currentDate());
-
-    /*
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"ol","lyon", QTime(8,0), Duree(2,3));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"jdtyj","lyon", QTime(11,2), Duree(0,35));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"fdhg","lyon", QTime(17,30), Duree(0,30));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"mmm","lyon", QTime(20,30), Duree(1,0));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,7),"jjj","lyon", QTime(10,2), Duree(1,0));
-    Agenda::getInstance().ajouterProgrammation(0,QDate(2015,6,6),"hhh","lyon", QTime(10,2), Duree(4,0));
-    Agenda::getInstance().ajouterProgrammationPlsJour(QDate(2015,6,2),"gggg","lyon", QTime(10,2),
-                                                      QDate(2015,6,3),QTime(8,15));
-    Agenda::getInstance().ajouterProgrammationPlsJour(QDate(2015,6,5),"fff","lyon", QTime(13,2),
-                                                      QDate(2015,6,6),QTime(10,15));
-*/
-
 
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
     connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
@@ -95,10 +80,10 @@ void MainWindow::initCalendar(QDate d)
     for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
     {
         QDate tmp = d.addDays(i);
-        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width(), this);
+        Agenda::getInstance().ajouterScene(tmp.toString("dddd"),tmp, ui->v_lundi->height(), ui->v_lundi->width()-1, this);
     }
-    ui->dispo->setDate(QDate::currentDate());
-    ui->eche->setDate(QDate::currentDate());
+    ui->dispo->setMinimumDate(QDate::currentDate());
+    ui->eche->setMinimumDate(QDate::currentDate());
 
     ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
     ui->v_mardi->setScene(&Agenda::getInstance().getScene(1));
@@ -107,6 +92,31 @@ void MainWindow::initCalendar(QDate d)
     ui->v_vendredi->setScene(&Agenda::getInstance().getScene(4));
     ui->v_samedi->setScene(&Agenda::getInstance().getScene(5));
     ui->v_dimanche->setScene(&Agenda::getInstance().getScene(6));
+
+    ui->v_lundi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_mardi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_mercredi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_jeudi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_vendredi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_samedi->setBackgroundBrush(QBrush(Qt::white));
+    ui->v_dimanche->setBackgroundBrush(QBrush(Qt::white));
+
+
+    if(Agenda::getInstance().getScene(0).getDate() < QDate::currentDate())
+        ui->v_lundi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(1).getDate() < QDate::currentDate())
+        ui->v_mardi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(2).getDate() < QDate::currentDate())
+        ui->v_mercredi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(3).getDate() < QDate::currentDate())
+        ui->v_jeudi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(4).getDate() < QDate::currentDate())
+        ui->v_vendredi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(5).getDate() < QDate::currentDate())
+        ui->v_samedi->setBackgroundBrush(QBrush(Qt::lightGray));
+    if(Agenda::getInstance().getScene(6).getDate() < QDate::currentDate())
+        ui->v_dimanche->setBackgroundBrush(QBrush(Qt::lightGray));
+
 
     ui->lundi->setText("<b><h3 align='center'>Lundi</h3><h3 align='center'>"+
                        Agenda::getInstance().getScene(0).getDate().toString("dd.MM.yyyy")+"</h3></b>");
@@ -155,7 +165,7 @@ void MainWindow::programmerTache()
         }
         catch(CalendarException e)
         {
-            std::cout << e.getInfo().toStdString() << std::endl;
+            QMessageBox::critical(this, "Erreur", e.getInfo());
         }
     }
 }

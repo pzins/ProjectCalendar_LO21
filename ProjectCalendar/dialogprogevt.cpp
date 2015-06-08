@@ -9,8 +9,11 @@ DialogProgEvt::DialogProgEvt(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->un_jour->setChecked(true);
-    ui->date->setDate(QDate::currentDate());
-    ui->date_fin->setDate(QDate::currentDate());
+    ui->date->setMinimumDate(QDate::currentDate());
+    ui->date_fin->setMinimumDate(QDate::currentDate());
+    ui->horaire->setMinimumTime(QTime::currentTime());
+    ui->horaire_fin->setMinimumTime(QTime::currentTime());
+
     isReunion(false);
     adaptForm(true);
     connect(ui->un_jour, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
@@ -80,27 +83,41 @@ void DialogProgEvt::adaptForm(bool etat)
 
 void DialogProgEvt::accept()
 {
-    Agenda* ag = &Agenda::getInstance();
-    if(ui->un_jour->isChecked())
+    try
     {
-        if(ui->is_reunion->isChecked())
+        if(ui->titre->text() == "" || ui->desc->toPlainText() == "")
         {
-            ag->ajouterProgrammation(1,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                 Duree(ui->duree->time().hour(), ui->duree->time().minute()),ui->lieu->text(),
-                                     ui->personnes->toPlainText());
+            throw CalendarException("Veuillez entrer un titre et une description");
+        }
+        Agenda* ag = &Agenda::getInstance();
+        if(ui->un_jour->isChecked())
+        {
+            if(ui->is_reunion->isChecked())
+            {
+                ag->ajouterProgrammation(1,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
+                                     Duree(ui->duree->time().hour(), ui->duree->time().minute()),ui->lieu->text(),
+                                         ui->personnes->toPlainText());
+            }
+            else
+            {
+                ag->ajouterProgrammation(0,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
+                                     Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+            }
         }
         else
         {
-            ag->ajouterProgrammation(0,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                 Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+            if(QDateTime(ui->date->date(), ui->horaire->time()) >= QDateTime(ui->date_fin->date(), ui->horaire_fin->time()))
+                throw CalendarException("Date et horaire de début et de fin incohérents");
+            ag->ajouterProgrammationPlsJour(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
+                                            ui->date_fin->date(), ui->horaire_fin->time());
         }
+        close();
     }
-    else
+    catch(CalendarException e)
     {
-        ag->ajouterProgrammationPlsJour(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                        ui->date_fin->date(), ui->horaire_fin->time());
+        QMessageBox::critical(0, "Erreur", e.getInfo());
+
     }
-    close();
 }
 
 DialogProgEvt::~DialogProgEvt()
