@@ -165,7 +165,6 @@ void MainWindow::programmerTache()
             Tache* t = p->getTache(tname);
             if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
             TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
-            std::cout << "OOOLLLL " << tu->isProgrammed() << std::endl;
             if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
             DialogProgTache* d = new DialogProgTache(tu,p);
             d->exec();

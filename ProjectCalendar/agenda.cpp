@@ -7,6 +7,7 @@ Agenda* Agenda::instance = 0;
 
 void Agenda::ajouterScene(const QString& jour, const QDate& date, qreal h, qreal w, QObject *parent)
 {
+    //8h-22h => 14H => 840 min
     JourScene* js = new JourScene(jour,date,0,0,w-2,h-2,840,parent);
     ajouterObservateur(js);
     scenes.push_back(js);

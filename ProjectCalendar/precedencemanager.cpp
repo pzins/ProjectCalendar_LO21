@@ -10,6 +10,7 @@ PrecedenceManager::~PrecedenceManager()
 {
     std::set<Precedence*, MyComp>::iterator it;
     std::set<Precedence*, MyComp>::iterator end;
+    //parcours et suppressiondes précédences
     while(it != end)
     {
         std::set<Precedence*, MyComp>::iterator  tmp = it;
@@ -21,17 +22,23 @@ PrecedenceManager::~PrecedenceManager()
 
 void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_, Projet& projet_)
 {
+    //création d'une précédence
     Precedence* pred = new Precedence(pred_,succ_, projet_);
+    //ajout
     if(!set_precedence.insert(pred).second)
     {
+        //si erreur : on supprime la précédence
         delete pred;
+        //et on lève une exception
         throw CalendarException("Précédence déjà présente");
     }
+    //si la précédence inverse existe déjà : on fait la même chose
     else if (containsInverse(*pred))
     {
         delete pred;
         throw CalendarException("Précédence non cohérente");
     }
+    //sinon on fait notifier pour mettre la vue à jour
     else
     {
         notifier();
@@ -40,6 +47,7 @@ void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_, Projet& pr
 
 bool PrecedenceManager::containsInverse(const Precedence &p) const
 {
+    //parcours des précédences et on vérifie si l'inverse de p existe
     for(PrecedenceManager::ConstIterator it = begin(); it != end(); ++it)
     {
         if(p.isInverse(*it))
@@ -51,6 +59,7 @@ bool PrecedenceManager::containsInverse(const Precedence &p) const
 
 void PrecedenceManager::retirerPrecedence(Precedence &p)
 {
+    //parcours et suppression de la précédence p
     for(std::set<Precedence*, MyComp>::iterator it = set_precedence.begin(); it != set_precedence.end(); ++it)
     {
         if(p == *(*it))
@@ -67,8 +76,11 @@ std::vector<Precedence*> PrecedenceManager::findPrecedence(Projet* p, Tache* t)
     std::vector<Precedence*> vec;
     if(p)
     {
+        //parcours des précédences
         for(PrecedenceManager::Iterator it = begin(); it != end(); ++it)
         {
+            //si la précédence fait concerne la tache t du projet p ou si on a juste un projet
+            //on l'ajout dans vec
             if((*it) == *p && ((*it) == *t) || !t)
             {
                 vec.push_back(&*it);
@@ -81,11 +93,14 @@ std::vector<Precedence*> PrecedenceManager::findPrecedence(Projet* p, Tache* t)
 void PrecedenceManager::update(const QString& s1, const QString& s2)
 {
     Projet* p = ProjetManager::getInstance().getProjet(s1);
-    if(!p) return;
-    Tache* t = p->getTache(s2);
-    std::vector<Precedence*> vec = findPrecedence(p, t);
-    for(std::vector<Precedence*>::iterator it = vec.begin(); it != vec.end(); ++it)
-         retirerPrecedence(*(*it));
+    if(p)
+    {
+        Tache* t = p->getTache(s2);
+        std::vector<Precedence*> vec = findPrecedence(p, t);
+        //parcours des précédences et suppressions si elle sont concernées par le projet ou la tache qui a été supprimée
+        for(std::vector<Precedence*>::iterator it = vec.begin(); it != vec.end(); ++it)
+             retirerPrecedence(*(*it));
+    }
 }
 
 void PrecedenceManager::notifier(const QString& s1, const QString& s2) const

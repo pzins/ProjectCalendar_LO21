@@ -118,11 +118,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:abe9424cce57abc14537ddf0777cb79a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe9424cce57abc14537ddf0777cb79a4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_precedence.html">Precedence</a> &amp;p)</td></tr>
 <tr class="separator:abe9424cce57abc14537ddf0777cb79a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc98e26e52e0e7f1eb85637f873b63ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc98e26e52e0e7f1eb85637f873b63ea"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
+<tr class="memitem:afc98e26e52e0e7f1eb85637f873b63ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence.html#afc98e26e52e0e7f1eb85637f873b63ea">operator==</a> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
+<tr class="memdesc:afc98e26e52e0e7f1eb85637f873b63ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : si la précédence concerne le projet p  <a href="#afc98e26e52e0e7f1eb85637f873b63ea">More...</a><br/></td></tr>
 <tr class="separator:afc98e26e52e0e7f1eb85637f873b63ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df47ba79b0a3995a0f295afddb15e88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df47ba79b0a3995a0f295afddb15e88"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_projet.html">Projet</a> &amp;t)</td></tr>
+<tr class="memitem:a7df47ba79b0a3995a0f295afddb15e88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence.html#a7df47ba79b0a3995a0f295afddb15e88">operator==</a> (const <a class="el" href="class_projet.html">Projet</a> &amp;t)</td></tr>
+<tr class="memdesc:a7df47ba79b0a3995a0f295afddb15e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : si la précédence concerne la tache t (antérieure ou postérieure)  <a href="#a7df47ba79b0a3995a0f295afddb15e88">More...</a><br/></td></tr>
 <tr class="separator:a7df47ba79b0a3995a0f295afddb15e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -159,6 +159,56 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>PrecedenceManager</b
 
 </div>
 </div>
+<a class="anchor" id="afc98e26e52e0e7f1eb85637f873b63ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Precedence::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator == : si la précédence concerne le projet p </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7df47ba79b0a3995a0f295afddb15e88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Precedence::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator == : si la précédence concerne la tache t (antérieure ou postérieure) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a8e92ff90562536051418adb94d4e4f26"></a>
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +234,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>PrecedenceManager</b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 9 2015 02:14:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 9 2015 13:40:49 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

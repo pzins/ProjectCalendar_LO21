@@ -44,7 +44,17 @@ public:
 
     bool operator<(const Precedence& p);
     bool operator ==(const Precedence& p);
+    /**
+     * @brief operator == : si la précédence concerne le projet p
+     * @param t
+     * @return
+     */
     bool operator==(const Tache& t);
+    /**
+     * @brief operator == : si la précédence concerne la tache t (antérieure ou postérieure)
+     * @param t
+     * @return
+     */
     bool operator==(const Projet& t);
 
 };

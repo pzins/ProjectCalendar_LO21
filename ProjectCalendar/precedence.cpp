@@ -5,7 +5,6 @@
 #include <iostream>
 QString Precedence::toString() const
 {
-
     QString res = projet->getTitre();
     res += "    antérieure : " +  pred->getTitre();
     res += "    postérieure : " + succ->getTitre();
