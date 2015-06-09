@@ -26,8 +26,6 @@ public:
     ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_, Projet& projet_):
         Programmation(date_, debut_), tache(&tache_), projet(&projet_){}
 
-    virtual ~ProgrammationTacheUnitaire(){}
-
     TacheUnitaire* getTache() const {return tache;}
     Projet* getProjet() const {return projet;}
 

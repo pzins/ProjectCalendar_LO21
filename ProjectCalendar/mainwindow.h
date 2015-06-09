@@ -22,8 +22,8 @@ class MainWindow : public QMainWindow, public Observateur
 private:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    MainWindow& operator=(const MainWindow&);
-    MainWindow(const MainWindow&);
+    MainWindow& operator=(const MainWindow& m);
+    MainWindow(const MainWindow& m);
 
     Ui::MainWindow *ui;
     static MainWindow* instance;
@@ -63,7 +63,7 @@ public:
       * va elle libérer les instance de Agenda, ProjetManager et PrecedenceManager
       * @param event
       */
-     void closeEvent(QCloseEvent *event){
+     void closeEvent(QCloseEvent* event){
          libererInstance();
      }
 
@@ -80,7 +80,7 @@ public slots:
     void afficherInfo(QModelIndex idx);
 
     void ajouterPrecedence();
-    void supprimer_precedence();
+    void supprimerPrecedence();
 
     void programmerTache();
     void ajouterEvt();

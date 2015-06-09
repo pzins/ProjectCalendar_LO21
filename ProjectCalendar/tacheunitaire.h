@@ -26,7 +26,6 @@ public:
     virtual ~TacheUnitaire();
 
     Duree getDuree() const {return duree;}
-    void setDuree(const Duree& duree_) {duree=duree_;}
 
 
     virtual void exportXml(QXmlStreamWriter& stream) const;

@@ -12,7 +12,7 @@
  * @class ProjetManager
  * @brief Classe qui gère les projets
  */
-class ProjetManager : public QStandardItemModel, public Observable, public XmlExporter
+class ProjetManager : public Observable, public XmlExporter
 {
 private:
     std::map<QString, Projet*> map_projet;
@@ -39,7 +39,7 @@ public:
     }
 
     const std::map<QString, Projet*>& getMapProjet() const {return map_projet;}
-    QStandardItemModel& getModel(){return model;}
+    QStandardItemModel& getModel() {return model;}
 
 
     void ajouterProjet(const QString& titre, const QString& description_, const QDate& dispo,
@@ -60,12 +60,12 @@ public:
      * @param f
      * @param contraintes
      */
-    void save(const QString& f, bool contraintes=false) const;
+    virtual void save(const QString& f, bool contraintes=false) const;
     /**
      * @brief saveModel : sauvegarde du model (structure des projets)
      * @param f
      */
-    void saveModel(const QString& f);//sauvegarde le modele
+    void saveModel(const QString& f) const;//sauvegarde le modele
 
     /**
      * @brief save_recursive : fonction récursie utilisée par saveModel
@@ -73,7 +73,7 @@ public:
      * @param str
      * @param pere
      */
-    void save_recursive(const QStandardItem &item, QXmlStreamWriter& str, QString pere);//aide saveModel
+    void save_recursive(const QStandardItem &item, QXmlStreamWriter& str, QString pere) const;//aide saveModel
 
     /**
      * @brief load : chargement des projets

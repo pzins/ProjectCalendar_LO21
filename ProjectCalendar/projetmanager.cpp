@@ -291,7 +291,7 @@ void ProjetManager::save(const QString& f, bool contraintes) const{
 
 
 
-void ProjetManager::saveModel(const QString &f)
+void ProjetManager::saveModel(const QString &f) const
 {
     QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -307,7 +307,7 @@ void ProjetManager::saveModel(const QString &f)
     newfile.close();
 }
 
-void ProjetManager::save_recursive(const QStandardItem& item, QXmlStreamWriter& str, QString pere)
+void ProjetManager::save_recursive(const QStandardItem& item, QXmlStreamWriter& str, QString pere) const
 {
     str.writeStartElement("item");
     QString ele = item.data(0).toString();

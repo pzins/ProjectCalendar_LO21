@@ -131,9 +131,6 @@ const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDispo
 <tr class="memitem:ac35d08c73d7c3588e4c37747b803f5ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac35d08c73d7c3588e4c37747b803f5ef"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEcheance</b> () const </td></tr>
 <tr class="separator:ac35d08c73d7c3588e4c37747b803f5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b8a6ac1b80374f119d96f56f4d19337"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b8a6ac1b80374f119d96f56f4d19337"></a>
-std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapTache</b> ()</td></tr>
-<tr class="separator:a9b8a6ac1b80374f119d96f56f4d19337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a934da0604e4501d56ee6b990f6dd18d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a934da0604e4501d56ee6b990f6dd18d3">ajouterTache</a> (QChar type, const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance, const <a class="el" href="class_duree.html">Duree</a> &amp;duree, bool preemptive)</td></tr>
 <tr class="memdesc:a934da0604e4501d56ee6b990f6dd18d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterTache : ajout d'une tache à un projet  <a href="#a934da0604e4501d56ee6b990f6dd18d3">More...</a><br/></td></tr>
 <tr class="separator:a934da0604e4501d56ee6b990f6dd18d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,21 +143,21 @@ std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; &am
 <tr class="memitem:a57c9aaee78a82d744627c278dc0d5442"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57c9aaee78a82d744627c278dc0d5442"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> () const </td></tr>
 <tr class="separator:a57c9aaee78a82d744627c278dc0d5442"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a68ce4f487c4a4fa7b466dc3571653b80">getTache</a> (const QString &amp;titre)</td></tr>
-<tr class="memdesc:a68ce4f487c4a4fa7b466dc3571653b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache  <a href="#a68ce4f487c4a4fa7b466dc3571653b80">More...</a><br/></td></tr>
-<tr class="separator:a68ce4f487c4a4fa7b466dc3571653b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2d2288a8b6d9d5061d032437fe27c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#afa2d2288a8b6d9d5061d032437fe27c8">getTache</a> (const QString &amp;titre) const </td></tr>
+<tr class="memdesc:afa2d2288a8b6d9d5061d032437fe27c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache  <a href="#afa2d2288a8b6d9d5061d032437fe27c8">More...</a><br/></td></tr>
+<tr class="separator:afa2d2288a8b6d9d5061d032437fe27c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41f4c77acb3a75ffefa14f7af307eef2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41f4c77acb3a75ffefa14f7af307eef2"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;titre, bool contraintes=false) const </td></tr>
 <tr class="separator:a41f4c77acb3a75ffefa14f7af307eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3f14378e9831ce72aef90858d8d733"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d3f14378e9831ce72aef90858d8d733"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
 <tr class="separator:a9d3f14378e9831ce72aef90858d8d733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ba60591b22a971014cb21220c0dc7eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a2ba60591b22a971014cb21220c0dc7eb">operator==</a> (const <a class="el" href="class_projet.html">Projet</a> &amp;p)</td></tr>
-<tr class="memdesc:a2ba60591b22a971014cb21220c0dc7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : compare 2 projets (par rapport à leurs titre)  <a href="#a2ba60591b22a971014cb21220c0dc7eb">More...</a><br/></td></tr>
-<tr class="separator:a2ba60591b22a971014cb21220c0dc7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada63691515c0524aacb26fb656a0308f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#ada63691515c0524aacb26fb656a0308f">notifier</a> (const QString &amp;str=&quot;&quot;, const QString &amp;s2=&quot;&quot;) const </td></tr>
-<tr class="memdesc:ada63691515c0524aacb26fb656a0308f"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#ada63691515c0524aacb26fb656a0308f">More...</a><br/></td></tr>
-<tr class="separator:ada63691515c0524aacb26fb656a0308f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6733ddeb52049e723cd773b4093a30ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#a6733ddeb52049e723cd773b4093a30ed">operator==</a> (const <a class="el" href="class_projet.html">Projet</a> &amp;p) const </td></tr>
+<tr class="memdesc:a6733ddeb52049e723cd773b4093a30ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : compare 2 projets (par rapport à leurs titre)  <a href="#a6733ddeb52049e723cd773b4093a30ed">More...</a><br/></td></tr>
+<tr class="separator:a6733ddeb52049e723cd773b4093a30ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd98284bc42631304f8fd9dd386fe80d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet.html#abd98284bc42631304f8fd9dd386fe80d">notifier</a> (const QString &amp;s1=&quot;&quot;, const QString &amp;s2=&quot;&quot;) const </td></tr>
+<tr class="memdesc:abd98284bc42631304f8fd9dd386fe80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifier : notifie tous les observateurs qui vont se mettre à jour  <a href="#abd98284bc42631304f8fd9dd386fe80d">More...</a><br/></td></tr>
+<tr class="separator:abd98284bc42631304f8fd9dd386fe80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac935c3f7a161e8fb124391cdcb346c39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac935c3f7a161e8fb124391cdcb346c39"></a>
 <a class="el" href="class_projet_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:ac935c3f7a161e8fb124391cdcb346c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,7 +260,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 
 </div>
 </div>
-<a class="anchor" id="a68ce4f487c4a4fa7b466dc3571653b80"></a>
+<a class="anchor" id="afa2d2288a8b6d9d5061d032437fe27c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -272,7 +269,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>titre</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -287,7 +284,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 
 </div>
 </div>
-<a class="anchor" id="ada63691515c0524aacb26fb656a0308f"></a>
+<a class="anchor" id="abd98284bc42631304f8fd9dd386fe80d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -332,7 +329,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 
 </div>
 </div>
-<a class="anchor" id="a2ba60591b22a971014cb21220c0dc7eb"></a>
+<a class="anchor" id="a6733ddeb52049e723cd773b4093a30ed"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -341,7 +338,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -443,7 +440,7 @@ const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> *
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 9 2015 21:28:42 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 00:54:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

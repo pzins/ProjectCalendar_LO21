@@ -31,22 +31,11 @@ public:
          echeance(echeance_){}
     virtual ~Tache(){}
 
-    QString getTitre() const {return titre;}
-    void setTitre(const QString& titre_) {titre=titre_;}
-
-    QDate getDispo() const {return dispo;}
-    QDate getEcheance() const {return echeance;}
-
-
-
+    const QString getTitre() const {return titre;}
+    const QDate getDispo() const {return dispo;}
+    const QDate getEcheance() const {return echeance;}
     const QString& getDescription() const {return description;}
-    void setDescription(const QString& description_) {description = description_;}
 
-    void setDispoEcheance(const QDate& dispo_, const QDate& echeance_) {
-        if (echeance_<dispo_) throw CalendarException("erreur Tache : date echeance < date disponibilite");
-        dispo=dispo_;
-        echeance=echeance_;
-    }
 
     virtual const QString info() const;
 

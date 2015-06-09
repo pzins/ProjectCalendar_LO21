@@ -30,7 +30,7 @@ public:
     }
 
 
-    QString getPersonne() const {
+    const QString getPersonne() const {
         QString res="";
         for(int i = 0; i < personne.size(); ++i)
         {

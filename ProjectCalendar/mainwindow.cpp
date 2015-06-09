@@ -291,7 +291,7 @@ void MainWindow::expand()
     ui->treeView->expandAll();
 }
 
-void MainWindow::supprimer_precedence()
+void MainWindow::supprimerPrecedence()
 {
     if(ui->precedence_list->currentIndex().isValid())
     {

@@ -25,12 +25,11 @@ public:
     {
         ajouterObservateur(&PrecedenceManager::getInstance());
     }
-
+    ~Projet();
     const QString& getTitre() const {return titre;}
     const QString& getDescription() const {return description;}
     const QDate& getDispo() const {return dispo;}
     const QDate& getEcheance() const {return echeance;}
-    std::map<QString, Tache*>& getMapTache() {return map_tache;}
 
     /**
      * @brief ajouterTache : ajout d'une tache à un projet
@@ -69,9 +68,7 @@ public:
      * @brief getTache : renvoie un pointeur sur une tache, à partir du nom de cette tache
      * @param titre
      */
-    Tache* getTache(const QString& titre);
-
-   ~Projet();
+    Tache* getTache(const QString& titre) const;
 
 
     virtual void save(const QString &titre, bool contraintes=false) const;
@@ -81,10 +78,10 @@ public:
      * @brief operator == : compare 2 projets (par rapport à leurs titre)
      * @param p
      */
-    bool operator==(const Projet& p);
+    bool operator==(const Projet& p) const;
 
 
-    void notifier(const QString& str="", const QString& s2="") const;
+    void notifier(const QString& s1="", const QString& s2="") const;
 
 
     /**

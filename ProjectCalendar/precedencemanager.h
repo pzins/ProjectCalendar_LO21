@@ -31,15 +31,13 @@ private:
     std::set<Precedence*, MyComp> set_precedence;
 
     PrecedenceManager(){}
-    virtual ~PrecedenceManager();
+    ~PrecedenceManager();
     PrecedenceManager(const PrecedenceManager& p);
     PrecedenceManager& operator=(const PrecedenceManager& p);
 
     static PrecedenceManager* instance;
 
 public:
-    std::set<Precedence*, MyComp> getVectPrecedence() const {return set_precedence;}
-
     static PrecedenceManager& getInstance(){
         if(!instance) instance = new PrecedenceManager();
         return *instance;

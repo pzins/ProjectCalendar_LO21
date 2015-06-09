@@ -101,8 +101,8 @@ Inheritance diagram for ProjetManager:</div>
  <div class="center">
   <img src="class_projet_manager.png" usemap="#ProjetManager_map" alt=""/>
   <map id="ProjetManager_map" name="ProjetManager_map">
-<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="140,0,270,24"/>
-<area href="class_xml_exporter.html" title="Interface permettant à une classe d&#39;être exportée en XML. " alt="XmlExporter" shape="rect" coords="280,0,410,24"/>
+<area href="class_observable.html" title="class abstraite permettant d&#39;être observé par d&#39;autres objets " alt="Observable" shape="rect" coords="0,0,96,24"/>
+<area href="class_xml_exporter.html" title="Interface permettant à une classe d&#39;être exportée en XML. " alt="XmlExporter" shape="rect" coords="106,0,202,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -133,15 +133,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerProjet</b> (QS
 <tr class="memitem:a0a140252ab8a930cff820d3df1308351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_projet.html">Projet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a0a140252ab8a930cff820d3df1308351">getProjet</a> (const QString &amp;titre)</td></tr>
 <tr class="memdesc:a0a140252ab8a930cff820d3df1308351"><td class="mdescLeft">&#160;</td><td class="mdescRight">getProjet : retourne un pointeur sur le projet à partir du nom  <a href="#a0a140252ab8a930cff820d3df1308351">More...</a><br/></td></tr>
 <tr class="separator:a0a140252ab8a930cff820d3df1308351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ade44d938db3754f8f97d2a42785c1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a7ade44d938db3754f8f97d2a42785c1f">save</a> (const QString &amp;f, bool contraintes=false) const </td></tr>
+<tr class="memitem:a7ade44d938db3754f8f97d2a42785c1f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a7ade44d938db3754f8f97d2a42785c1f">save</a> (const QString &amp;f, bool contraintes=false) const </td></tr>
 <tr class="memdesc:a7ade44d938db3754f8f97d2a42785c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">save : sauvegarde des projets  <a href="#a7ade44d938db3754f8f97d2a42785c1f">More...</a><br/></td></tr>
 <tr class="separator:a7ade44d938db3754f8f97d2a42785c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a421f9983e8ee1754abd823a3ae85e333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a421f9983e8ee1754abd823a3ae85e333">saveModel</a> (const QString &amp;f)</td></tr>
-<tr class="memdesc:a421f9983e8ee1754abd823a3ae85e333"><td class="mdescLeft">&#160;</td><td class="mdescRight">saveModel : sauvegarde du model (structure des projets)  <a href="#a421f9983e8ee1754abd823a3ae85e333">More...</a><br/></td></tr>
-<tr class="separator:a421f9983e8ee1754abd823a3ae85e333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab063a939750298817c931187eacf7fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#ab063a939750298817c931187eacf7fda">save_recursive</a> (const QStandardItem &amp;item, QXmlStreamWriter &amp;str, QString pere)</td></tr>
-<tr class="memdesc:ab063a939750298817c931187eacf7fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">save_recursive : fonction récursie utilisée par saveModel  <a href="#ab063a939750298817c931187eacf7fda">More...</a><br/></td></tr>
-<tr class="separator:ab063a939750298817c931187eacf7fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2e2cc9ddf219d5cb905d47b3d46856"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#abe2e2cc9ddf219d5cb905d47b3d46856">saveModel</a> (const QString &amp;f) const </td></tr>
+<tr class="memdesc:abe2e2cc9ddf219d5cb905d47b3d46856"><td class="mdescLeft">&#160;</td><td class="mdescRight">saveModel : sauvegarde du model (structure des projets)  <a href="#abe2e2cc9ddf219d5cb905d47b3d46856">More...</a><br/></td></tr>
+<tr class="separator:abe2e2cc9ddf219d5cb905d47b3d46856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a348c3af9ff4d0d72479fef70bc9e13f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a348c3af9ff4d0d72479fef70bc9e13f8">save_recursive</a> (const QStandardItem &amp;item, QXmlStreamWriter &amp;str, QString pere) const </td></tr>
+<tr class="memdesc:a348c3af9ff4d0d72479fef70bc9e13f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">save_recursive : fonction récursie utilisée par saveModel  <a href="#a348c3af9ff4d0d72479fef70bc9e13f8">More...</a><br/></td></tr>
+<tr class="separator:a348c3af9ff4d0d72479fef70bc9e13f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdfde850628d04b9e0489957a013c77e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">load</a> (const QString &amp;f)</td></tr>
 <tr class="memdesc:afdfde850628d04b9e0489957a013c77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">load : chargement des projets  <a href="#afdfde850628d04b9e0489957a013c77e">More...</a><br/></td></tr>
 <tr class="separator:afdfde850628d04b9e0489957a013c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -661,7 +661,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 
 </div>
 </div>
-<a class="anchor" id="ab063a939750298817c931187eacf7fda"></a>
+<a class="anchor" id="a348c3af9ff4d0d72479fef70bc9e13f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -686,7 +686,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -703,7 +703,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 
 </div>
 </div>
-<a class="anchor" id="a421f9983e8ee1754abd823a3ae85e333"></a>
+<a class="anchor" id="abe2e2cc9ddf219d5cb905d47b3d46856"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -712,7 +712,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -807,7 +807,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 9 2015 21:28:42 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 00:54:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

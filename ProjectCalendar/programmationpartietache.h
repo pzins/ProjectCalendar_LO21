@@ -32,7 +32,7 @@ public:
 
     virtual const Duree& getDuree() const {return duree;}
     const QString getNomPartie() const {return nom_partie;}
-    int getNumero() const {return numero;}
+    const int getNumero() const {return numero;}
     virtual bool isTache() const {return true;}
     virtual void exportXml(QXmlStreamWriter& stream) const;
 

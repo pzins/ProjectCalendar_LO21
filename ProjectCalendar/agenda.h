@@ -37,7 +37,6 @@ public:
 class Agenda : public Observable,  public XmlExporter
 {
 private:
-
     std::set<Programmation*, ProgComp> set_prog;
     std::vector<JourScene*> scenes;
     Agenda(){}
@@ -129,8 +128,8 @@ public:
     virtual void notifier(const QString& s1="", const QString& s2="") const;
 
 
-    void save(const QString& f, bool contraintes=false) const;
-    void load(const QString& f);
+    virtual void save(const QString& f, bool contraintes=false) const;
+    virtual void load(const QString& f);
 
 
 

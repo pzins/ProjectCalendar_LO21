@@ -2,7 +2,7 @@
 #include "projetmanager.h"
 
 
-bool Projet::operator ==(const Projet& p)
+bool Projet::operator ==(const Projet& p) const
 {
     return titre == p.getTitre();
 }
@@ -90,7 +90,7 @@ Projet::~Projet()
     }
 }
 
-Tache* Projet::getTache(const QString& titre)
+Tache* Projet::getTache(const QString& titre) const
 {
     try
     {
