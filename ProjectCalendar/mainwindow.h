@@ -68,16 +68,15 @@ public:
      }
 
 public slots:
-    void sauvegarder();
-    void charger();
-    void supprimerItem();
-
-    void expand();
-
     void adaptForm(bool etat);
     void adaptForm2(bool etat);
-    void ajouter();
+    void expand();
 
+    void sauvegarder();
+    void charger();
+
+    void ajouter();
+    void supprimerItem();
     void afficherInfo(QModelIndex idx);
 
     void ajouterPrecedence();

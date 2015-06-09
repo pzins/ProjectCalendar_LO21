@@ -36,8 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     pm = &ProjetManager::getInstance();
-
     ui->treeView->setModel(&pm->getModel());
+
     ag = &Agenda::getInstance();
     pre = &PrecedenceManager::getInstance();
     pre->ajouterObservateur(this);
@@ -45,10 +45,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     initCalendar(QDate::currentDate());
 
+    //connect
     connect(ui->tacheunitaire, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
     connect(ui->tachecomposite, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
     connect(ui->projet, SIGNAL(toggled(bool)), this, SLOT(adaptForm2(bool)));
-
     connect(ui->ajouter, SIGNAL(clicked()), this, SLOT(ajouter()));
     connect(ui->precedence, SIGNAL(clicked()), this, SLOT(ajouterPrecedence()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(sauvegarder()));
@@ -57,7 +57,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
     connect(ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(afficherInfo(QModelIndex)));
     connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
-
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
     connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(changeDate()));
     connect(ui->semaine, SIGNAL(clicked()), this, SLOT(exporterSemaine()));
@@ -81,6 +80,7 @@ void MainWindow::changeDate()
 void MainWindow::initCalendar(QDate d)
 {
     Agenda::getInstance().removeAllScenes();
+    //pour chaque jour de la semaine on ajoute la vue
     for(int i = -(d.dayOfWeek()-1); i < 7-(d.dayOfWeek()-1); ++i)
     {
         QDate tmp = d.addDays(i);
@@ -89,6 +89,7 @@ void MainWindow::initCalendar(QDate d)
     ui->dispo->setMinimumDate(QDate::currentDate());
     ui->eche->setMinimumDate(QDate::currentDate());
 
+    //on crée les scenes pour chaque vues
     ui->v_lundi->setScene(&Agenda::getInstance().getScene(0));
     ui->v_mardi->setScene(&Agenda::getInstance().getScene(1));
     ui->v_mercredi->setScene(&Agenda::getInstance().getScene(2));
@@ -97,6 +98,7 @@ void MainWindow::initCalendar(QDate d)
     ui->v_samedi->setScene(&Agenda::getInstance().getScene(5));
     ui->v_dimanche->setScene(&Agenda::getInstance().getScene(6));
 
+    //on met le background
     ui->v_lundi->setBackgroundBrush(QBrush(Qt::white));
     ui->v_mardi->setBackgroundBrush(QBrush(Qt::white));
     ui->v_mercredi->setBackgroundBrush(QBrush(Qt::white));
@@ -106,6 +108,7 @@ void MainWindow::initCalendar(QDate d)
     ui->v_dimanche->setBackgroundBrush(QBrush(Qt::white));
 
 
+    //background gris si jour passé
     if(Agenda::getInstance().getScene(0).getDate() < QDate::currentDate())
         ui->v_lundi->setBackgroundBrush(QBrush(Qt::lightGray));
     if(Agenda::getInstance().getScene(1).getDate() < QDate::currentDate())
@@ -122,6 +125,7 @@ void MainWindow::initCalendar(QDate d)
         ui->v_dimanche->setBackgroundBrush(QBrush(Qt::lightGray));
 
 
+    //fixe le texte au dessus des jours
     ui->lundi->setText("<b><h5 align='center'>Lundi</h5><h5 align='center'>"+
                        Agenda::getInstance().getScene(0).getDate().toString("dd.MM.yyyy")+"</h5></b>");
     ui->mardi->setText("<b><h5 align='center'>Mardi</h5><h5 align='center'>"+
@@ -137,7 +141,7 @@ void MainWindow::initCalendar(QDate d)
     ui->dimanche->setText("<b><h5 align='center'>Dimanche</h5><h5 align='center'>"+
                           Agenda::getInstance().getScene(6).getDate().toString("dd.MM.yyyy")+"</h5></b>");
 
-
+    //connect
     connect(ui->v_lundi->scene(), SIGNAL(selectionChanged()), this, SLOT(lundi()));
     connect(ui->v_mardi->scene(), SIGNAL(selectionChanged()), this, SLOT(mardi()));
     connect(ui->v_mercredi->scene(), SIGNAL(selectionChanged()), this, SLOT(mercredi()));
@@ -148,7 +152,6 @@ void MainWindow::initCalendar(QDate d)
 
     Agenda::getInstance().notifier();
     ui->calendarWidget->setCurrentPage(QDate::currentDate().year(), QDate::currentDate().month());
-
 }
 
 void MainWindow::programmerTache()
@@ -158,6 +161,7 @@ void MainWindow::programmerTache()
     {
         try
         {
+            //onrécupère la tache selectionnée et fait des vérifications
             QString pname = pm->getProjetName(sel[0]);
             QString tname = pm->getTacheName(sel[0]);
             if(pname == tname) throw CalendarException("Impossible de programmer un projet");
@@ -166,6 +170,7 @@ void MainWindow::programmerTache()
             if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
             TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
             if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
+            //on ouvre une fenêtre pour entrer les infos de la programmation
             DialogProgTache* d = new DialogProgTache(tu,p);
             d->exec();
             delete d;
@@ -249,7 +254,8 @@ void MainWindow::getInformation(QGraphicsView& v)
 {
     if(v.scene()->selectedItems().size() >0)
     {
-        for(QList<QGraphicsItem*>::iterator it =v.scene()->selectedItems().begin() ; it != v.scene()->selectedItems().end() ; ++it)
+        for(QList<QGraphicsItem*>::iterator it =v.scene()->selectedItems().begin() ;
+            it != v.scene()->selectedItems().end() ; ++it)
         {
             Programmation* p = dynamic_cast<ProgrammationItem*>(*it)->getProgrammation();
             QMessageBox* mess = new QMessageBox(this);
@@ -261,8 +267,6 @@ void MainWindow::getInformation(QGraphicsView& v)
         v.scene()->clearSelection();
     }
 }
-
-
 
 
 void MainWindow::ajouterPrecedence()
@@ -292,7 +296,6 @@ void MainWindow::supprimer_precedence()
     if(ui->precedence_list->currentIndex().isValid())
     {
         PrecedenceItem* element = dynamic_cast<PrecedenceItem*>(ui->precedence_list->currentItem());
-
         pre->retirerPrecedence(*element->getPrecedence());
         delete element->getPrecedence();
         ui->precedence_list->removeItemWidget(ui->precedence_list->currentItem());
@@ -358,6 +361,8 @@ void MainWindow::ajouter()
         idx_parent = idx;
         while(idx_parent.parent().data().toString() != "") idx_parent = idx_parent.parent();
     }
+    //gestion des différentes possibilités d'ajout
+    //projet
     if(ui->projet->isChecked() == true)
     {
         try
@@ -372,6 +377,7 @@ void MainWindow::ajouter()
         }
 
     }
+    //tache
     else if (sel.size() == 1 && (ui->tacheunitaire->isChecked() == true || ui->tachecomposite->isChecked() == true))
     {
         Projet* p;
@@ -421,14 +427,14 @@ void MainWindow::ajouter()
 
 void MainWindow::sauvegarder()
 {
-    pm->save("projets.xml");
-    pm->saveModel("model.xml");
+    pm->save("projets.xml"); //sauvegarde des projets
+    pm->saveModel("model.xml"); //sauvegarde du model
     for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
     {
-        (*it).save((*it).getTitre() + QString(".xml"));
+        (*it).save((*it).getTitre() + QString(".xml")); //suavegarde des taches de chaque projets
     }
-    pre->save("precedences.xml");
-    ag->save("programmations.xml");
+    pre->save("precedences.xml"); // sauvegarde des précédences
+    ag->save("programmations.xml"); //sauvegarde de l'agenda
 
 }
 
@@ -438,14 +444,14 @@ void MainWindow::charger()
     {
         try
         {
-            pm->load("projets.xml");
-            pm->loadModel("model.xml");
+            pm->load("projets.xml"); //chargement des projets
+            pm->loadModel("model.xml"); //chargement du model
             for(ProjetManager::Iterator it = pm->begin(); it != pm->end(); ++it)
             {
-                (*it).load((*it).getTitre() + QString(".xml"));
+                (*it).load((*it).getTitre() + QString(".xml")); //chargement des taches
             }
-            pre->load("precedences.xml");
-            ag->load("programmations.xml");
+            pre->load("precedences.xml"); //chargement des précédences
+            ag->load("programmations.xml"); //chargement des programmations
         }
         catch(CalendarException e)
         {

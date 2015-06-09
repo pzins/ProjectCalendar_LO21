@@ -1,9 +1,9 @@
 #ifndef PROGRAMMATIONTACHEUNITAIRE_H
 #define PROGRAMMATIONTACHEUNITAIRE_H
 #include "programmation.h"
-#include "tacheunitaire.h"
 #include "projet.h"
 
+class TacheUnitaire;
 
 /**
  * @class ProgrammationPartieTache

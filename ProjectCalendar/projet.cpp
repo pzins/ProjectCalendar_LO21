@@ -10,6 +10,7 @@ bool Projet::operator ==(const Projet& p)
 void Projet::ajouterTache(QChar type, const QString& titre, const QString& description, const QDate& dispo,
                           const QDate& echeance, const Duree& duree, bool preemptive)
 {
+    //ajout d'une tache dans le map en fonction du type : 'U' : tachc unitaire, 'C' : tache composite
     if(type == 'U')
     {
         Tache* tu = new TacheUnitaire(titre, description, dispo, echeance, duree, preemptive);
@@ -26,6 +27,7 @@ void Projet::verification(const QString& titre, const QString& description,
                   const QDate& dispo, const QDate& echeance, const QString& tc_parent)
 {
     std::map<QString, Tache*>::iterator it = map_tache.find(tc_parent);
+    //vérification des contraintes pour l'ajout de tache
     if(it != map_tache.end())
     {
         if((*it).second->getDispo() > dispo) throw CalendarException("Disponibilité et disponibilité de tache mère sont incohérentes");
@@ -79,6 +81,7 @@ Projet::~Projet()
 {
     std::map<QString, Tache*>::iterator it;
     std::map<QString, Tache*> ::iterator end;
+    //parcours et suppressions des taches
     while(it != end)
     {
         std::map<QString, Tache*>::iterator tmp = it;

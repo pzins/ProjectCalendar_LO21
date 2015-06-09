@@ -5,6 +5,7 @@
 void TacheComposite::verification(const QString& titre, const QString& description,
                   const QDate& dispo, const QDate& echeance)
 {
+    //vérification des contrainte lors de l'ajout d'une tache à une tache composite
     if(titre == "") throw CalendarException("Veuillez entrer un titre");
     if(description == "") throw CalendarException("Veuillez entrer une description");
 

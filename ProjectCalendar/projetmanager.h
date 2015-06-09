@@ -7,6 +7,7 @@
 #include <QStandardItemModel>
 #include <QTreeView>
 
+
 /**
  * @class ProjetManager
  * @brief Classe qui gère les projets
@@ -46,6 +47,11 @@ public:
 
     void retirerProjet(QString &titre);
 
+    /**
+     * @brief getProjet : retourne un pointeur sur le projet à partir du nom
+     * @param titre
+     * @return
+     */
     Projet* getProjet(const QString &titre);
 
 

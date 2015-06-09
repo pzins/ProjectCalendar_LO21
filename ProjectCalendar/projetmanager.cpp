@@ -10,6 +10,7 @@ ProjetManager::~ProjetManager()
 {
     std::map<QString, Projet*>::iterator it;
     std::map<QString, Projet*>::iterator end;
+    //parcours et suppression des projets
     while(it != end)
     {
         std::map<QString, Projet*>::iterator tmp = it;
@@ -46,6 +47,7 @@ void ProjetManager::notifier(const QString& s1, const QString& s2) const
 void ProjetManager::verification(const QString& titre, const QString& description,
                   const QDate& dispo, const QDate& echeance)
 {
+    //vérifications des contriantes lors de l'ajout de projet
     if(titre == "") throw CalendarException("Veuillez entrer un titre");
     if(description == "") throw CalendarException("Veuillez entrer une description");
     if(map_projet.find(titre) != map_projet.end()) throw CalendarException("Nom déjà attribué");
@@ -67,12 +69,15 @@ QString ProjetManager::getProjetName(QModelIndex idx)
 QString ProjetManager::getInfo(QModelIndex idx)
 {
     QString item = idx.data(0).toString();
+    //onrécupère le nom du parent initial
     while(idx.parent().isValid()) idx = idx.parent();
     QString parent  = idx.data(0).toString();
     Projet* p = getProjet(parent);
     QString ret;
+    //si c'est une tache
     if(item != parent)
         ret = p->getTache(item)->info();
+    //si c'est un projet
     else
         ret = p->info();
     return ret;
@@ -109,12 +114,16 @@ std::vector<QString> ProjetManager::getTacheFilles(const QString& tache, const Q
 {
     QStandardItem* it = model.invisibleRootItem();
     QStandardItem* pro;
+    //res contiendra tous les fils aux niveaux inférieurs
     std::vector<QString> res;
+    //on parcours les fils
     for(int i = 0; i < it->rowCount(); ++i)
     {
         if(it->child(i,0)->data(0).toString() == projet)
         {
             pro = it->child(i,0);
+            //pour chaque fils on appelle findItem()
+            //tous les fils seront ajoutés dans le vector res
             findItem(pro, tache, res);
         }
     }
@@ -137,6 +146,7 @@ void ProjetManager::findItem(QStandardItem* projet, const QString& item, std::ve
 
 void ProjetManager::findChildren(std::vector<QString>& vec, QStandardItem* item)
 {
+    //ajoute tous les fils des niveaux inférieurs dans vec
     vec.push_back(item->data(0).toString());
     for(int i = 0; i < item->rowCount(); ++i)
     {
@@ -151,6 +161,7 @@ void ProjetManager::supprimerItem(QModelIndex& sel)
     std::vector<QString> vec;
     findChildren(vec, selectedItem);
     QStandardItem* parent = selectedItem;
+    //on récupère le parent initial
     while(parent->parent()) parent = parent->parent();
     Projet* p = getProjet(parent->data(0).toString());
     if(p)
@@ -163,22 +174,23 @@ void ProjetManager::supprimerItem(QModelIndex& sel)
         QString str = parent->data(0).toString();
         retirerProjet(str);
     }
-    //delete all children of parent;
-    QStandardItem * loopItem = selectedItem; //main loop item
-    QList<QStandardItem *> carryItems; //Last In First Out stack of items
-    QList<QStandardItem *> itemsToBeDeleted; //List of items to be deleted
+    //suppression de tous les fils
+    QStandardItem * loopItem = selectedItem;
+    QList<QStandardItem *> carryItems; //pile
+    QList<QStandardItem *> itemsToBeDeleted; //list des items à supprimer
     while (loopItem->rowCount())
     {
         itemsToBeDeleted << loopItem->takeRow(0);
-        //if the row removed has children:
+        // il ya des fils
         if (itemsToBeDeleted.at(0)->hasChildren())
         {
-            carryItems << loopItem;                 //put on the stack the current loopItem
-            loopItem = itemsToBeDeleted.at(0);      //set the row with children as the loopItem
+            carryItems << loopItem;                 //empile l'élément courant
+            loopItem = itemsToBeDeleted.at(0);
         }
-        //if current loopItem has no more rows but carryItems list is not empty:
+        //si l'élément courant n'a plus de ligne mais la pile n'est pas vide
         if (!loopItem->rowCount() && !carryItems.isEmpty()) loopItem = carryItems.takeFirst();
     }
+
     qDeleteAll(itemsToBeDeleted);
     model.removeRow(selectedItem->row(), sel.parent());
 }
