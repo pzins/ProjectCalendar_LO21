@@ -89,13 +89,13 @@ void DialogProgTache::accept()
         if(ui->parties->isChecked())
         {
             verificationParties();
-            ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache, projet->getTitre());
+            ag->ajouterProgrammationPartieTache(vec_date, vec_titre, vec_debut, vec_duree, tache, projet);
         }
         //sinon ajout de la tache unitaire dans l'agenda
         else
         {
             ag->ajouterProgrammation(2, ui->date->date(), tache->getTitre(), tache->getDescription(),ui->horaire->time(),
-                                     tache->getDuree(),"", "", tache, projet->getTitre());
+                                     tache->getDuree(),"", "", tache, projet);
         }
         close();
     }

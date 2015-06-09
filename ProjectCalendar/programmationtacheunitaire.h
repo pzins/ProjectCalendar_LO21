@@ -2,6 +2,7 @@
 #define PROGRAMMATIONTACHEUNITAIRE_H
 #include "programmation.h"
 #include "tacheunitaire.h"
+#include "projet.h"
 
 
 /**
@@ -12,7 +13,7 @@ class ProgrammationTacheUnitaire : public Programmation
 {
 private:
     TacheUnitaire* tache;
-    QString projet;
+    Projet* projet;
 
 public:
     /**
@@ -22,13 +23,13 @@ public:
      * @param tache_ tache concernée
      * @param projet_ nom du projet concerné
      */
-    ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_, const QString& projet_):
-        Programmation(date_, debut_), tache(&tache_), projet(projet_){}
+    ProgrammationTacheUnitaire(const QDate date_, const QTime& debut_, TacheUnitaire& tache_, Projet& projet_):
+        Programmation(date_, debut_), tache(&tache_), projet(&projet_){}
 
     virtual ~ProgrammationTacheUnitaire(){}
 
     TacheUnitaire* getTache() const {return tache;}
-    const QString& getProjet() const {return projet;}
+    Projet* getProjet() const {return projet;}
 
     virtual const Duree& getDuree() const {return tache->getDuree();}
     virtual const QString& getTitre() const {return tache->getTitre();}

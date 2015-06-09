@@ -9,7 +9,7 @@ void ProgrammationTacheUnitaire::exportXml(QXmlStreamWriter &stream) const
     stream.writeAttribute("type", "2");
     stream.writeTextElement("date",getDate().toString(Qt::ISODate));
     stream.writeTextElement("debut",getDebut().toString());
-    stream.writeTextElement("projet", projet);
+    stream.writeTextElement("projet", projet->getTitre());
     stream.writeTextElement("tache", tache->getTitre());
     stream.writeEndElement();
 }

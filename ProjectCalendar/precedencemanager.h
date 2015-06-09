@@ -92,25 +92,11 @@ public:
      * @class Iterator
      * @brief Iterator de PrecedenceManager sur les précédences
      */
-    class Iterator
+    class Iterator : public std::set<Precedence*,MyComp>::iterator
     {
-    private:
-        std::set<Precedence*,MyComp>::iterator courant;
     public:
-        Iterator(std::set<Precedence*,MyComp>::iterator deb) : courant(deb){}
-        Precedence& operator*() const {return **courant;}
-        Iterator& operator++(){++courant; return *this;}
-        Iterator operator++(int i){
-            Iterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(Iterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(Iterator it) const{
-            return courant != it.courant;
-        }
+        Iterator(std::set<Precedence*,MyComp>::iterator deb) : std::set<Precedence*,MyComp>::iterator(deb){}
+        Precedence& operator*() const {return *std::set<Precedence*,MyComp>::iterator::operator *();}
     };
 
     Iterator begin(){return Iterator(set_precedence.begin());}
@@ -120,25 +106,12 @@ public:
      * @class ConstIterator
      * @brief ConstIterator de PrecedenceManager sur les précédences
      */
-    class ConstIterator
+    class ConstIterator : public std::set<Precedence*,MyComp>::const_iterator
     {
-    private:
-        std::set<Precedence*,MyComp>::const_iterator courant;
     public:
-        ConstIterator(std::set<Precedence*,MyComp>::const_iterator deb) : courant(deb){}
-        const Precedence& operator*() const {return **courant;}
-        ConstIterator& operator++(){++courant; return *this;}
-        ConstIterator operator++(int i){
-            ConstIterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(ConstIterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(ConstIterator it) const{
-            return courant != it.courant;
-        }
+        ConstIterator(std::set<Precedence*,MyComp>::const_iterator deb) :
+            std::set<Precedence*,MyComp>::const_iterator(deb){}
+        const Precedence& operator*() const {return *std::set<Precedence*,MyComp>::const_iterator::operator *();}
     };
 
     ConstIterator begin() const {return ConstIterator(set_precedence.begin());}

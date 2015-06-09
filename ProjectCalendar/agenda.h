@@ -68,13 +68,13 @@ public:
      * @param lieu lieu : si rendez-vous
      * @param pers participants : si rendez-vous
      * @param tache tache correspondant à la programmation : si programmation de TacheUnitaire ou partie de Tache
-     * @param projet tache correspondant à la tache : si programmation de TacheUnitaire ou de partie de tache
+     * @param projet projet correspondant à la programmation: si programmation de TacheUnitaire ou de partie de tache
      * @param num_partie numéro de la prtie : si programmation de partie de tache
      * @param nom_partie nom de la partie : si programmation de partie de tache
      */
     void ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc, const QTime& debut,
                               const Duree& duree,  const QString& lieu="", const QString& pers="",
-                              TacheUnitaire* tache = 0, const QString &projet="", int num_partie=0,
+                              TacheUnitaire* tache = 0, Projet* projet = 0, int num_partie=0,
                               const QString nom_partie="");
 
 
@@ -100,7 +100,7 @@ public:
      */
     void ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::vector<QString>& vec_titre,
                                                  std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
-                                         TacheUnitaire *t, const QString &projet);
+                                         TacheUnitaire *t, Projet *projet);
     /**
      * @brief enleverProgrammation : suppression d'une programmation de l'agenda
      * @param prog programmation
@@ -141,27 +141,12 @@ public:
      * @class Iterator
      * @brief Iterator sur les programmations de l'agenda
      */
-    class Iterator
+    class Iterator : public std::set<Programmation*, ProgComp>::iterator
     {
-    private:
-        std::set<Programmation*, ProgComp>::iterator courant;
     public:
-        Iterator(std::set<Programmation*, ProgComp>::iterator deb) : courant(deb){}
-        Programmation& operator*() const {return **courant;}
-        Iterator& operator++(){++courant; return *this;}
-        Iterator operator++(int i){
-            Iterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(Iterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(Iterator it) const{
-            return courant != it.courant;
-        }
+        Iterator(std::set<Programmation*, ProgComp>::iterator deb) : std::set<Programmation*, ProgComp>::iterator(deb){}
+        Programmation& operator*() const {return *std::set<Programmation*, ProgComp>::iterator::operator *();}
     };
-
     Iterator begin(){return Iterator(set_prog.begin());}
     Iterator end(){return Iterator(set_prog.end());}
 
@@ -169,25 +154,12 @@ public:
      * @class ConstIterator
      * @brief ConstIterator sur les programmations de l'agenda
      */
-    class ConstIterator
+    class ConstIterator : public std::set<Programmation*, ProgComp>::const_iterator
     {
-    private:
-        std::set<Programmation*, ProgComp>::const_iterator courant;
     public:
-        ConstIterator(std::set<Programmation*, ProgComp>::const_iterator deb) : courant(deb){}
-        const Programmation& operator*() const {return **courant;}
-        ConstIterator& operator++(){++courant; return *this;}
-        ConstIterator operator++(int i){
-            ConstIterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(ConstIterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(ConstIterator it) const{
-            return courant != it.courant;
-        }
+        ConstIterator(std::set<Programmation*, ProgComp>::const_iterator deb) :
+            std::set<Programmation*, ProgComp>::const_iterator(deb){}
+        const Programmation& operator*() const {return *std::set<Programmation*, ProgComp>::const_iterator::operator *();}
     };
 
     ConstIterator begin() const {return ConstIterator(set_prog.begin());}

@@ -91,25 +91,11 @@ public:
      * @class Iterator
      * @brief Iterator de projet qui parcourt les taches du projet
      */
-    class Iterator
+    class Iterator : public std::map<QString, Tache*>::iterator
     {
-    private:
-        std::map<QString, Tache*>::iterator courant;
     public:
-        Iterator(std::map<QString, Tache*>::iterator deb) : courant(deb){}
-        Tache& operator*() const {return *(courant->second);}
-        Iterator& operator++(){++courant; return *this;}
-        Iterator operator++(int i){
-            Iterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(Iterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(Iterator it) const{
-            return courant != it.courant;
-        }
+        Iterator(std::map<QString, Tache*>::iterator deb) :  std::map<QString, Tache*>::iterator(deb){}
+        Tache& operator*() const {return  *std::map<QString, Tache*>::iterator::operator *().second;}
     };
     Iterator begin(){return Iterator(map_tache.begin());}
     Iterator end(){return Iterator(map_tache.end());}
@@ -118,25 +104,11 @@ public:
      * @class ConstIterator
      * @brief ConstIterator de projet qui parcourt les taches du projet
      */
-    class ConstIterator
+    class ConstIterator : public std::map<QString, Tache*>::const_iterator
     {
-    private:
-        std::map<QString, Tache*>::const_iterator courant;
     public:
-        ConstIterator(std::map<QString, Tache*>::const_iterator deb) : courant(deb){}
-        const Tache& operator*() const {return *(courant->second);}
-        ConstIterator& operator++(){++courant; return *this;}
-        ConstIterator operator++(int i){
-            ConstIterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(ConstIterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(ConstIterator it) const{
-            return courant != it.courant;
-        }
+        ConstIterator(std::map<QString, Tache*>::const_iterator deb) :  std::map<QString, Tache*>::const_iterator(deb){}
+        const Tache& operator*() const {return  *std::map<QString, Tache*>::const_iterator::operator *().second;}
     };
     ConstIterator begin() const {return ConstIterator(map_tache.begin());}
     ConstIterator end() const {return ConstIterator(map_tache.end());}

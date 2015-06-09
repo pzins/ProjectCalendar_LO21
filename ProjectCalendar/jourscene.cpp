@@ -60,11 +60,11 @@ void JourScene::dessinerFond()
         if(i % 2 == 0)
         {
             i=0;
-            QGraphicsScene::addLine(0,x,width(),x,QPen(Qt::gray,1,Qt::PenStyle(Qt::SolidLine)))->setZValue(0);
+            QGraphicsScene::addLine(-2,x,width()+2,x,QPen(Qt::gray,1,Qt::PenStyle(Qt::SolidLine)))->setZValue(0);
         }
         else
         {
-            QGraphicsScene::addLine(0,x,width(),x,QPen(Qt::gray,1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
+            QGraphicsScene::addLine(-2,x,width()+2,x,QPen(Qt::gray,1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
         }
         x += r;
         ++i;

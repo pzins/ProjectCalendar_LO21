@@ -28,25 +28,11 @@ public:
      * @class Iterator
      * @brief Iterator sur tous les observateurs
      */
-    class Iterator
+    class Iterator : public  std::set<Observateur*>::iterator
     {
-    private:
-        std::set<Observateur*>::iterator courant;
     public:
-        Iterator(std::set<Observateur*>::iterator deb) : courant(deb){}
-        Observateur& operator*() const {return **courant;}
-        Iterator& operator++(){++courant; return *this;}
-        Iterator operator++(int i){
-            Iterator old = *this;
-            ++courant;
-            return old;
-        }
-        bool operator==(Iterator it) const{
-            return courant == it.courant;
-        }
-        bool operator!=(Iterator it) const{
-            return courant != it.courant;
-        }
+        Iterator(std::set<Observateur*>::iterator deb) : std::set<Observateur*>::iterator(deb){}
+        Observateur& operator*() const {return *std::set<Observateur*>::iterator::operator *();}
     };
 
     Iterator begin(){return Iterator(obs.begin());}

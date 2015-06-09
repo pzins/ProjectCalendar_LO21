@@ -25,7 +25,7 @@ public:
      * @param projet_ nom du projet concerné
      */
     ProgrammationPartieTache(const QDate& date_, const QTime& debut_, TacheUnitaire& tache_,
-                const int numero_, const QString& nom_partie_, const Duree& duree_, const QString& projet_):
+                const int numero_, const QString& nom_partie_, const Duree& duree_, Projet& projet_):
         ProgrammationTacheUnitaire(date_, debut_, tache_, projet_), nom_partie(nom_partie_),
         numero(numero_), duree(duree_){}
 

@@ -95,7 +95,7 @@ void Agenda::verifProgrammation(Programmation* p)
 
 void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::vector<QString>& vec_titre,
                                              std::vector<QTime>& vec_debut, std::vector<Duree>& vec_duree,
-                                             TacheUnitaire* t, const QString& projet)
+                                             TacheUnitaire* tache, Projet* projet)
 {
     std::vector<ProgrammationPartieTache*> vec;
     try
@@ -105,8 +105,8 @@ void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::
         //aucune partie ne soit programmée (tout ou rien)
         for(int i = 0; i < vec_date.size(); ++i)
         {
-            vec.push_back(new ProgrammationPartieTache(vec_date.at(i), vec_debut.at(i), *t, i+1,
-                                                   vec_titre.at(i), vec_duree.at(i), projet));
+            vec.push_back(new ProgrammationPartieTache(vec_date.at(i), vec_debut.at(i), *tache, i+1,
+                                                   vec_titre.at(i), vec_duree.at(i), *projet));
             verifProgrammation(vec.at(i));
         }
         //insertion de toutes les parties dans l'agenda
@@ -131,7 +131,7 @@ void Agenda::ajouterProgrammationPartieTache(std::vector<QDate>& vec_date, std::
 
 void Agenda::ajouterProgrammation(int type, const QDate& date, const QString titre, const QString& desc,
                                   const QTime& debut, const Duree& duree, const QString& lieu, const QString& pers,
-                                  TacheUnitaire* tache, const QString& projet, int num_partie, const QString nom_partie)
+                                  TacheUnitaire* tache, Projet* projet, int num_partie, const QString nom_partie)
 {
     Programmation* p;
     //création du bon type d'évènement en fonction de l'entier type
@@ -141,9 +141,9 @@ void Agenda::ajouterProgrammation(int type, const QDate& date, const QString tit
     else if(type == 1)
         p = new ProgrammationRdv(date, debut, titre, desc, duree, lieu, pers);
     else if(type == 2)
-        p = new ProgrammationTacheUnitaire(date, debut, *tache, projet);
+        p = new ProgrammationTacheUnitaire(date, debut, *tache, *projet);
     else if(type == 3)
-        p = new ProgrammationPartieTache(date, debut, *tache, num_partie, nom_partie, duree, projet);
+        p = new ProgrammationPartieTache(date, debut, *tache, num_partie, nom_partie, duree, *projet);
 
     verifProgrammation(p);
     if(set_prog.insert(p).second == false)
@@ -360,7 +360,7 @@ void Agenda::load(const QString &f)
                     Projet* p = ProjetManager::getInstance().getProjet(projet);
                     Tache* t = p->getTache(tache);
                     TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
-                    ajouterProgrammation(cas, date, "", "", debut, Duree(0), "", "", tu);
+                    ajouterProgrammation(cas, date, "", "", debut, Duree(0), "", "", tu, p);
                     break;
                 }
                 case 3:
@@ -368,7 +368,7 @@ void Agenda::load(const QString &f)
                     Projet* p = ProjetManager::getInstance().getProjet(projet);
                     Tache* t = p->getTache(tache);
                     TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
-                    ajouterProgrammation(cas, date, "", "", debut, duree, "", "", tu, projet, numero.toInt(), nom_partie);
+                    ajouterProgrammation(cas, date, "", "", debut, duree, "", "", tu, p, numero.toInt(), nom_partie);
                     break;
                 }
                 case 4:

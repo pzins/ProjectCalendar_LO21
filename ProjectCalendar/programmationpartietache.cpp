@@ -14,7 +14,7 @@ void ProgrammationPartieTache::exportXml(QXmlStreamWriter &stream) const
     QString str2;
     str2.setNum(duree.getDureeEnMinutes());
     stream.writeTextElement("duree",str2);
-    stream.writeTextElement("projet", getProjet() );
+    stream.writeTextElement("projet", getProjet()->getTitre() );
     stream.writeTextElement("tache", getTache()->getTitre());
     stream.writeEndElement();
 }
