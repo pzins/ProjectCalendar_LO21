@@ -2,7 +2,7 @@
 #define DIALOGPROGEVT_H
 
 #include <QDialog>
-
+#include <QDate>
 namespace Ui {
 class DialogProgEvt;
 }
@@ -30,6 +30,18 @@ public slots:
      * @param etat
      */
     void isRdv(bool etat);
+
+    /**
+     * @brief adaptTimeDebut : adapte les champs Time et Date début
+     * @param d
+     */
+    void adaptTimeDebut(QDate d);
+    /**
+     * @brief adaptTimeFin : adapte les champs Time et Date fin
+     * @param d
+     */
+    void adaptTimeFin(QDate d);
+
 
 public:
     explicit DialogProgEvt(QWidget *parent = 0);

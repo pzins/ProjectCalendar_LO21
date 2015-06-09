@@ -43,7 +43,7 @@ void Projet::verification(const QString& titre, const QString& description,
 
 QString Projet::info() const
 {
-    QString str = "<h3 align='center'>Projet</h3><table border='0' align='center'>";
+    QString str = "<h3 align='center'>Projet</h3><table border='0' align='center' padding:'15px'>";
     str += "<tr><td><b>Titre</b><td >"+titre+"</td></td></tr>";
     str += "<tr><td><b>Description</b><td >"+description+"</td></td></tr>";
     str += "<tr><td><b>Disponibilité</b><td >"+dispo.toString()+"</td></td></tr>";

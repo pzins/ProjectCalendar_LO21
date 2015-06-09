@@ -52,6 +52,8 @@ public slots:
      */
     void ajouterParties();
 
+    void adaptTime(QDate d);
+
 };
 
 #endif // DIALOGPROGTACHE_H

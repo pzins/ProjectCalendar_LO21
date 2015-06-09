@@ -61,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
     connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(changeDate()));
     connect(ui->semaine, SIGNAL(clicked()), this, SLOT(exporterSemaine()));
+    connect(ui->programmer, SIGNAL(clicked()), this, SLOT(programmerTache()));
 
     ui->informations->setChecked(true);
 }
@@ -144,7 +145,7 @@ void MainWindow::initCalendar(QDate d)
     connect(ui->v_vendredi->scene(), SIGNAL(selectionChanged()), this, SLOT(vendredi()));
     connect(ui->v_samedi->scene(), SIGNAL(selectionChanged()), this, SLOT(samedi()));
     connect(ui->v_dimanche->scene(), SIGNAL(selectionChanged()), this, SLOT(dimanche()));
-    connect(ui->programmer, SIGNAL(clicked()), this, SLOT(programmerTache()));
+
     Agenda::getInstance().notifier();
     ui->calendarWidget->setCurrentPage(QDate::currentDate().year(), QDate::currentDate().month());
 
@@ -164,9 +165,11 @@ void MainWindow::programmerTache()
             Tache* t = p->getTache(tname);
             if(t->isComposite()) throw CalendarException("Impossible de programmer une tâche composite");
             TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(t);
+            std::cout << "OOOLLLL " << tu->isProgrammed() << std::endl;
             if(tu->isProgrammed()) throw CalendarException("Tâche déjà programmée");
             DialogProgTache* d = new DialogProgTache(tu,p);
             d->exec();
+            delete d;
         }
         catch(CalendarException e)
         {
@@ -394,13 +397,18 @@ void MainWindow::ajouter()
                 pm->ajoutItemModel(ui->titre->text(), idx);
                 if(ui->tacheunitaire->isChecked())
                 {
-                    p->ajouterTache(QChar('U'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date(),
-                                    Duree(ui->duree->time().hour(), ui->duree->time().minute()), ui->isPreemptive->isChecked());
+                    if(!ui->isPreemptive->isChecked() && ui->duree->time() > QTime(12,0))
+                        throw CalendarException("Une tache non préemptive ne peut pas durer plus de 12H");
+                    else
+                        p->ajouterTache(QChar('U'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                        ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()),
+                                        ui->isPreemptive->isChecked());
                 }
                 else
                 {
-                    p->ajouterTache(QChar('C'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(), ui->eche->date(),
-                                    Duree(ui->duree->time().hour(), ui->duree->time().minute()), ui->isPreemptive->isChecked());
+                    p->ajouterTache(QChar('C'), ui->titre->text(), ui->descr->toPlainText(), ui->dispo->date(),
+                                    ui->eche->date(), Duree(ui->duree->time().hour(), ui->duree->time().minute()),
+                                    ui->isPreemptive->isChecked());
                 }
             }
             catch(CalendarException e)

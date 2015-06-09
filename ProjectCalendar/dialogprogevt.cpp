@@ -9,18 +9,54 @@ DialogProgEvt::DialogProgEvt(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->un_jour->setChecked(true);
-    ui->date->setMinimumDate(QDate::currentDate());
-    ui->date_fin->setMinimumDate(QDate::currentDate());
-    ui->horaire->setMinimumTime(QTime::currentTime());
-    ui->horaire_fin->setMinimumTime(QTime::currentTime());
+
+
+    adaptTimeDebut(QDate::currentDate());
+    adaptTimeFin(QDate::currentDate());
 
     isRdv(false);
     adaptForm(true);
+
     connect(ui->un_jour, SIGNAL(toggled(bool)), this, SLOT(adaptForm(bool)));
-    connect(ui->is_rdv, SIGNAL(toggled(bool)), this, SLOT(isReunion(bool)));
+    connect(ui->is_rdv, SIGNAL(toggled(bool)), this, SLOT(isRdv(bool)));
+    connect(ui->date, SIGNAL(dateChanged(QDate)), this, SLOT(adaptTimeDebut(QDate)));
+    connect(ui->date_fin, SIGNAL(dateChanged(QDate)), this, SLOT(adaptTimeFin(QDate)));
 }
 
-
+void DialogProgEvt::adaptTimeDebut(QDate d)
+{
+    //ajoute les contraintes sur la date de début et l'horaire de début
+    ui->date->setMinimumDate(d);
+    ui->date_fin->setMinimumDate(ui->date->date().addDays(1));
+    ui->horaire->setMaximumTime(QTime(22,0));
+    if(d == QDate::currentDate())
+    {
+        if(QTime::currentTime() < QTime(8,0))
+            ui->horaire->setMinimumTime(QTime(8,0));
+        else
+            ui->horaire->setMinimumTime(QTime::currentTime());
+    }
+    else
+    {
+        ui->horaire->setMinimumTime(QTime(8,0));
+    }
+}
+void DialogProgEvt::adaptTimeFin(QDate d)
+{
+    //ajoute les contraintes sur la date de fin et l'horaire de fin
+    ui->horaire_fin->setMaximumTime(QTime(22,0));
+    if(d == QDate::currentDate())
+    {
+        if(QTime::currentTime() < QTime(8,0))
+            ui->horaire_fin->setMinimumTime(QTime(8,0));
+        else
+            ui->horaire_fin->setMinimumTime(QTime::currentTime());
+    }
+    else
+    {
+        ui->horaire->setMinimumTime(QTime(8,0));
+    }
+}
 
 void DialogProgEvt::isRdv(bool etat)
 {
@@ -90,26 +126,27 @@ void DialogProgEvt::accept()
             throw CalendarException("Veuillez entrer un titre et une description");
         }
         Agenda* ag = &Agenda::getInstance();
+        //ajoute le bon type d'évènement en fonction en fonction des informations entrées
         if(ui->un_jour->isChecked())
         {
             if(ui->is_rdv->isChecked())
             {
-                ag->ajouterProgrammation(1,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                     Duree(ui->duree->time().hour(), ui->duree->time().minute()),ui->lieu->text(),
-                                         ui->personnes->toPlainText());
+                ag->ajouterProgrammation(1,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(),
+                                         ui->horaire->time(),
+                                         Duree(ui->duree->time().hour(), ui->duree->time().minute()),
+                                         ui->lieu->text(), ui->personnes->toPlainText());
             }
             else
             {
-                ag->ajouterProgrammation(0,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                     Duree(ui->duree->time().hour(), ui->duree->time().minute()));
+                ag->ajouterProgrammation(0,ui->date->date(),ui->titre->text(),ui->desc->toPlainText(),
+                                         ui->horaire->time(),
+                                         Duree(ui->duree->time().hour(), ui->duree->time().minute()));
             }
         }
         else
         {
-            if(QDateTime(ui->date->date(), ui->horaire->time()) >= QDateTime(ui->date_fin->date(), ui->horaire_fin->time()))
-                throw CalendarException("Date et horaire de début et de fin incohérents");
-            ag->ajouterProgrammationPlsJour(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(), ui->horaire->time(),
-                                            ui->date_fin->date(), ui->horaire_fin->time());
+            ag->ajouterProgrammationPlsJour(ui->date->date(),ui->titre->text(),ui->desc->toPlainText(),
+                                            ui->horaire->time(), ui->date_fin->date(), ui->horaire_fin->time());
         }
         close();
     }

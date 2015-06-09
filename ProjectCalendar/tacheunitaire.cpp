@@ -21,6 +21,10 @@ const QString TacheUnitaire::info() const
 {
     QString str = "<h3 align='center'>Tache Unitaire</h3>"+Tache::info();
     str += "<tr><td><b>Durée</b></td><td >"+duree.toString()+"</td></tr>";
+    QString tmp = (preemptive ? "true" : "false");
+    str += "<tr><td><b>Préemptive</b></td><td >"+tmp+"</td></tr>";
+    tmp = (programmed ? "true" : "false");
+    str += "<tr><td><b>Programmée</b></td><td >"+tmp+"</td></tr>";
     if(isProgrammed())
     {
         Agenda* ag = &Agenda::getInstance();

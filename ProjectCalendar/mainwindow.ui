@@ -53,7 +53,7 @@ background-color: #55aaff;
      </palette>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="ProjectManager">
      <property name="styleSheet">
@@ -279,6 +279,13 @@ background-color: #55aaff;
           <widget class="QTimeEdit" name="duree">
            <property name="calendarPopup">
             <bool>false</bool>
+           </property>
+           <property name="time">
+            <time>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+            </time>
            </property>
           </widget>
          </item>
@@ -804,28 +811,55 @@ background-color: #55aaff;
       <property name="palette">
        <palette>
         <active>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>227</red>
-            <green>227</green>
-            <blue>227</blue>
+            <red>173</red>
+            <green>188</green>
+            <blue>255</blue>
            </color>
           </brush>
          </colorrole>
         </active>
         <inactive>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>227</red>
-            <green>227</green>
-            <blue>227</blue>
+            <red>173</red>
+            <green>188</green>
+            <blue>255</blue>
            </color>
           </brush>
          </colorrole>
         </inactive>
         <disabled>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>159</red>
+            <green>158</green>
+            <blue>158</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">

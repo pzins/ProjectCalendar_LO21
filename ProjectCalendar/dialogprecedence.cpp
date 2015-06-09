@@ -4,10 +4,6 @@
 #include <QMessageBox>
 
 
-
-
-
-
 DialogPrecedence::DialogPrecedence(QStandardItem* it, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogPrecedence),
@@ -27,6 +23,7 @@ void DialogPrecedence::chargerAnterieure()
     if(item_tache->parent())
     {
         QStandardItem* parent = item_tache->parent();
+        //parcourt les taches possibles
         for(int i = 0; i < parent->rowCount(); ++i)
         {
             QString str = parent->child(i,0)->data(0).toString();
@@ -41,23 +38,17 @@ void DialogPrecedence::accept()
     PrecedenceManager* pm = &PrecedenceManager::getInstance();
     try
     {
-
-        for(PrecedenceManager::Iterator it = pm->begin(); it != pm->end(); ++it)
-        {
-            if((*it).getSucc().getTitre() == ui->anterieure->currentText() && (*it).getPred().getTitre() == item_tache->data(0).toString())
-            {
-                throw CalendarException("Précédente incohérente car inverse présente");
-            }
-        }
         QStandardItem* it = item_tache;
         while(it->parent()) it = it->parent();
         Projet* p = ProjetManager::getInstance().getProjet(it->data(0).toString());
         Tache* ant = p->getTache(ui->anterieure->currentText());
         Tache* post = p->getTache(item_tache->data(0).toString());
         std::vector<QString> vec;
+        //si la tache anterieure ou posterieure est composite
         if(ant->isComposite() || post->isComposite())
         {
             vec = ProjetManager::getInstance().getTacheFilles(ant->getTitre(), p->getTitre());
+            //on ajoute la précédence à toutes les tache filles
             for(std::vector<QString>::iterator it = vec.begin(); it != vec.end(); ++it)
             {
                 if(*it != ant->getTitre())
@@ -66,6 +57,7 @@ void DialogPrecedence::accept()
                     testDejaProg(ante, post);
                 }
             }
+            //on ajoute la précédence à toutes les tache filles
             vec = ProjetManager::getInstance().getTacheFilles(post->getTitre(), p->getTitre());
             for(std::vector<QString>::iterator it = vec.begin(); it != vec.end(); ++it)
             {
@@ -77,6 +69,9 @@ void DialogPrecedence::accept()
             }
         }
         testDejaProg(ant, post);
+        //on a d'abord vérifiées si il n'y a pas d'erreur et maintenant on ajoute vraiment les précédences dans le
+        //PrecedenceManager à partir du vecteur vec
+        //pour éviter l'ajout de seulement une partie des précédences (tout ou rien)
         if(ant->isComposite())
         {
             vec = ProjetManager::getInstance().getTacheFilles(ant->getTitre(), p->getTitre());
@@ -101,20 +96,18 @@ void DialogPrecedence::accept()
                 }
             }
         }
-        //verif pas dejà prog
-
         pm->ajouterPrecedence(*ant, *post, *p);
-
+        close();
     }
     catch(CalendarException e)
     {
         QMessageBox::critical(this, "Erreur", e.getInfo());
     }
-    close();
 }
 
 void DialogPrecedence::testDejaProg(Tache* ant, Tache* post)
 {
+    //vérification si tache postérieure ou antérieure est déjà programmée => erreur
     if(!ant->isComposite())
     {
         TacheUnitaire* tu = dynamic_cast<TacheUnitaire*>(ant);

@@ -53,7 +53,15 @@ private:
     std::vector<Partie*> vec_parties;
 
 public:
-
+    /**
+     * @brief DialogProgPartie
+     * @param nb
+     * @param vec_titre_ vecteur contenant les titres des parties
+     * @param vec_date_ vecteur contenant les dates des parties
+     * @param vec_debut_ vecteur contenant les horaires de début des parties
+     * @param vec_duree_ vecteur contenant les durées des parties
+     * @param parent
+     */
     explicit DialogProgPartie(int nb, std::vector<QString> &vec_titre_, std::vector<QDate> &vec_date_,
                               std::vector<QTime> &vec_debut_, std::vector<Duree> &vec_duree_, QWidget *parent = 0);
     ~DialogProgPartie();
@@ -64,10 +72,6 @@ public:
      */
     void initialisation(int nb);
 
-    /**
-     * @brief affichage : affichage des champs du formulaire
-     */
-    void affichage();
 
 
 public slots:

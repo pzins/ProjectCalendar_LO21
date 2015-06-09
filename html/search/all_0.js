@@ -1,8 +1,9 @@
 var searchData=
 [
   ['adaptform',['adaptForm',['../class_dialog_prog_evt.html#a744fabae48f91987edd35ba25bf7868d',1,'DialogProgEvt::adaptForm()'],['../class_dialog_prog_tache.html#a5d6a0818548aa69fbc9547d253484b81',1,'DialogProgTache::adaptForm()']]],
+  ['adapttimedebut',['adaptTimeDebut',['../class_dialog_prog_evt.html#a2172ed0a2591c06dac6253ee2e329e21',1,'DialogProgEvt']]],
+  ['adapttimefin',['adaptTimeFin',['../class_dialog_prog_evt.html#ac77adc5ef6d6db9876726fc35656591f',1,'DialogProgEvt']]],
   ['affichable',['Affichable',['../class_affichable.html',1,'']]],
-  ['affichage',['affichage',['../class_dialog_prog_partie.html#a2ee0c0860343a18f05b6d6978cdf2a42',1,'DialogProgPartie']]],
   ['agenda',['Agenda',['../class_agenda.html',1,'']]],
   ['ajouterparties',['ajouterParties',['../class_dialog_prog_tache.html#a06cdd507949f42ad90612a6634c72f22',1,'DialogProgTache']]],
   ['ajouterprecedence',['ajouterPrecedence',['../class_precedence_manager.html#a52087d3b4e888d87ffad7313a0ac8ecc',1,'PrecedenceManager']]],

@@ -12,7 +12,6 @@ DialogProgPartie::DialogProgPartie(int nb, std::vector<QString>& vec_titre_, std
 {
     ui->setupUi(this);
     initialisation(nb);
-    affichage();
 }
 
 DialogProgPartie::~DialogProgPartie()
@@ -24,12 +23,7 @@ DialogProgPartie::~DialogProgPartie()
 
 void DialogProgPartie::initialisation(int nb)
 {
-    while(!ui->verticalLayout->isEmpty()) {
-        QWidget *w = ui->verticalLayout->takeAt(0)->widget();
-        delete w;
-    }
-    vec_parties.clear();
-
+    //génération du bon nombre de formulaire (date, horaire et durée)
     for(int i = 0; i < nb; ++i)
     {
         Partie* p = new Partie();
@@ -41,13 +35,13 @@ void DialogProgPartie::initialisation(int nb)
         p->date->setCalendarPopup(true);
         p->date->setDate(QDate::currentDate());
         p->debut = new QTimeEdit(this);
+        p->debut->setMaximumTime(QTime(22,0));
+        p->debut->setMinimumTime(QTime(8,0));
         p->duree = new QTimeEdit(this);
+        p->duree->setMaximumTime(QTime(12,0));
         vec_parties.push_back(p);
     }
-}
-
-void DialogProgPartie::affichage()
-{
+    //affichage des éléments
     for(int i = 0; i < vec_parties.size(); ++i)
     {
         ui->verticalLayout->addWidget(vec_parties.at(i)->label);
@@ -63,8 +57,10 @@ void DialogProgPartie::affichage()
     }
 }
 
+
 void DialogProgPartie::accept()
 {
+    //ajout des programmations de partie dans les vecteurs
     for(int i = 0; i < vec_parties.size(); ++i)
     {
         vec_titre.push_back(vec_parties.at(i)->titre->text());

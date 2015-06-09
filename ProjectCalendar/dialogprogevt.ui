@@ -126,10 +126,33 @@
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QTimeEdit" name="horaire"/>
+     <widget class="QTimeEdit" name="horaire">
+      <property name="maximumTime">
+       <time>
+        <hour>22</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
+      <property name="minimumTime">
+       <time>
+        <hour>8</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
+     </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QTimeEdit" name="duree"/>
+     <widget class="QTimeEdit" name="duree">
+      <property name="maximumTime">
+       <time>
+        <hour>11</hour>
+        <minute>59</minute>
+        <second>59</second>
+       </time>
+      </property>
+     </widget>
     </item>
     <item row="7" column="1">
      <widget class="QDateEdit" name="date_fin">
@@ -139,7 +162,22 @@
      </widget>
     </item>
     <item row="8" column="1">
-     <widget class="QTimeEdit" name="horaire_fin"/>
+     <widget class="QTimeEdit" name="horaire_fin">
+      <property name="maximumTime">
+       <time>
+        <hour>22</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
+      <property name="minimumTime">
+       <time>
+        <hour>8</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
+     </widget>
     </item>
     <item row="11" column="0">
      <widget class="QLabel" name="label_personnes">
