@@ -121,7 +121,7 @@ void DialogProgTache::verification()
             for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)//boucle sur ttes les taches déjà programmées
             {
                 //verif que c'est bien une prog de tache
-                if((*it).isTache())
+                if((*it).type() == 2 || (*it).type() == 3)
                 {
                     //si la tache est la tache antérieure de la précédence
                     if(tache->getTitre() == (*ite)->getSucc().getTitre())

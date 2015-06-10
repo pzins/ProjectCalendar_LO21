@@ -32,26 +32,39 @@ public:
      * @brief verification : vérification de la programmation par rapport aux précédences, disponibilités, échéances,...
      */
     void verification();
+
     /**
      * @brief verificationParties : vérifications de la programmations des parties de la tâche
      */
     void verificationParties();
 
     void setTache(TacheUnitaire* t){tache = t;}
+
     void setProjet(Projet* p){projet= p;}
 
 public slots:
+
+    /**
+     * @brief accept : vérifie des contraintes et ajoute la programmations si il n'y a pas de problème
+     */
     void accept();
+
     /**
      * @brief adaptForm : adapte le formulaire si on veut programmer des parties
      * @param etat
      */
     void adaptForm(bool etat);
+
     /**
      * @brief ajouterParties : ouvre la fenêtre DialogProgTache si l'on veut programmer des parties de tâches
      */
     void ajouterParties();
 
+    /**
+     * @brief adaptTime : adapte le formulaire en contraignant les champs date et heure
+     * pour empecher la programmation dans le passé
+     * @param d
+     */
     void adaptTime(QDate d);
 
 };

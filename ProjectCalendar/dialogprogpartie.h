@@ -11,7 +11,7 @@
 
 /**
  * @class Partie
- * @brief Partie d'une tâche
+ * @brief Représentation des éléments du formualire pour l'ajout d'une partie de tache
  */
 class Partie
 {
@@ -36,6 +36,7 @@ namespace Ui {
 class DialogProgPartie;
 }
 
+
 /**
  * @class DialogProgPartie
  * @brief Fenetre pour la programmations de partie de tâche
@@ -53,6 +54,7 @@ private:
     std::vector<Partie*> vec_parties;
 
 public:
+
     /**
      * @brief DialogProgPartie
      * @param nb
@@ -75,6 +77,10 @@ public:
 
 
 public slots:
+    /**
+     * @brief accept : vérifie des contraintes et réalise l'ajout des programmations de partie de tache dans
+     * l'agenda si toutes les parties vérifient les conditions
+     */
     void accept();
 
 

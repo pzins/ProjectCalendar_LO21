@@ -40,10 +40,27 @@ public:
         }
     }
     const QString& getLieu() const {return lieu;}
+
+    /**
+     * @brief toString : renvoie un QString contenant les informations de la programmation
+     * @return
+     */
     virtual const QString toString() const;
-    virtual bool isEvtPlsJ() const {return false;}
+
+    /**
+     * @brief exportXml : exporte une tache en XML
+     * @param stream
+     */
     virtual void exportXml(QXmlStreamWriter& stream) const;
 
+    /**
+     * @brief type : renvoie le type de la programmation
+     * 0 : Programmation évènement 1 jour
+     * 1 : Programmation rendez-vous
+     * 2 : Programmation Tache Unitaire
+     * 3 : Programmation Partie de tâche
+     * 4 : Programmation évènement plusieurs jours
+     */
     virtual const int type() const {return 1;}
 
 

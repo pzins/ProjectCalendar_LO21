@@ -30,7 +30,7 @@ const QString TacheUnitaire::info() const
         Agenda* ag = &Agenda::getInstance();
         for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
         {
-            if((*it).isTache())
+            if((*it).type() == 2 || (*it).type() == 3)
             {
                 ProgrammationTacheUnitaire* p = dynamic_cast<ProgrammationTacheUnitaire*>(&*it);
                 if(p->getTache() == this)
@@ -52,7 +52,7 @@ TacheUnitaire::~TacheUnitaire()
     std::vector<Programmation*> vec;
     for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)
     {
-        if((*it).isTache())
+        if((*it).type() == 2 || (*it).type() == 3)
         {
             ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
             if(ptu->getTache() == this)

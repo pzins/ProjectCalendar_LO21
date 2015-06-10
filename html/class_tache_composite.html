@@ -112,14 +112,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3855975eee5939e5b1c60a5e112b9949"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3855975eee5939e5b1c60a5e112b9949"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TacheComposite</b> (const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
 <tr class="separator:a3855975eee5939e5b1c60a5e112b9949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa4656ee62c73d70e765f801abf8a605"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa4656ee62c73d70e765f801abf8a605"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exportXml</b> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memitem:afa4656ee62c73d70e765f801abf8a605"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#afa4656ee62c73d70e765f801abf8a605">exportXml</a> (QXmlStreamWriter &amp;stream) const </td></tr>
+<tr class="memdesc:afa4656ee62c73d70e765f801abf8a605"><td class="mdescLeft">&#160;</td><td class="mdescRight">exportXml : exportatio d'une tache composite en XML  <a href="#afa4656ee62c73d70e765f801abf8a605">More...</a><br/></td></tr>
 <tr class="separator:afa4656ee62c73d70e765f801abf8a605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e776a36ce9bf7914a9b67e775d97d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9e776a36ce9bf7914a9b67e775d97d6"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isComposite</b> () const </td></tr>
+<tr class="memitem:af9e776a36ce9bf7914a9b67e775d97d6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#af9e776a36ce9bf7914a9b67e775d97d6">isComposite</a> () const </td></tr>
+<tr class="memdesc:af9e776a36ce9bf7914a9b67e775d97d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">isComposite : test si une tache est composite  <a href="#af9e776a36ce9bf7914a9b67e775d97d6">More...</a><br/></td></tr>
 <tr class="separator:af9e776a36ce9bf7914a9b67e775d97d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a965dd45293c177398e0f6aa9dc6eea4b"><td class="memItemLeft" align="right" valign="top">virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a965dd45293c177398e0f6aa9dc6eea4b">info</a> () const </td></tr>
-<tr class="memdesc:a965dd45293c177398e0f6aa9dc6eea4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">info : crée un QString destiné à être affiché dans un Text Browser  <a href="#a965dd45293c177398e0f6aa9dc6eea4b">More...</a><br/></td></tr>
+<tr class="memdesc:a965dd45293c177398e0f6aa9dc6eea4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">info : renvoie une QString contenant les informations de la tache composite  <a href="#a965dd45293c177398e0f6aa9dc6eea4b">More...</a><br/></td></tr>
 <tr class="separator:a965dd45293c177398e0f6aa9dc6eea4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_tache"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_tache')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_tache.html">Tache</a></td></tr>
 <tr class="memitem:aa1adac818e0106a196c2a19a3c556b8b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#aa1adac818e0106a196c2a19a3c556b8b">Tache</a> (const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</td></tr>
@@ -137,13 +137,47 @@ const QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getEcheance</b
 <tr class="memitem:aa6b543d264701e0766a3a12e34217504 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6b543d264701e0766a3a12e34217504"></a>
 const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const </td></tr>
 <tr class="separator:aa6b543d264701e0766a3a12e34217504 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed1fd0458eaac678c0e42b5b961b2cc9 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed1fd0458eaac678c0e42b5b961b2cc9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
+<tr class="memitem:aed1fd0458eaac678c0e42b5b961b2cc9 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#aed1fd0458eaac678c0e42b5b961b2cc9">operator==</a> (const <a class="el" href="class_tache.html">Tache</a> &amp;t)</td></tr>
+<tr class="memdesc:aed1fd0458eaac678c0e42b5b961b2cc9 inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == : entre deux taches vrai si elle ont les meme titres  <a href="#aed1fd0458eaac678c0e42b5b961b2cc9">More...</a><br/></td></tr>
 <tr class="separator:aed1fd0458eaac678c0e42b5b961b2cc9 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe abstraite représentant une <a class="el" href="class_tache_composite.html" title="Classe abstraite représentant une TacheComposite. ">TacheComposite</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="afa4656ee62c73d70e765f801abf8a605"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TacheComposite::exportXml </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamWriter &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exportXml : exportatio d'une tache composite en XML </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_tache.html#a0f23a7afe3ca84ac85a17be60f024655">Tache</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a965dd45293c177398e0f6aa9dc6eea4b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -165,10 +199,38 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </table>
 </div><div class="memdoc">
 
-<p>info : crée un QString destiné à être affiché dans un Text Browser </p>
-<dl class="section return"><dt>Returns</dt><dd>une QString contenant toutes les informations sur l'objet </dd></dl>
+<p>info : renvoie une QString contenant les informations de la tache composite </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">Tache</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af9e776a36ce9bf7914a9b67e775d97d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool TacheComposite::isComposite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>isComposite : test si une tache est composite </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="class_tache.html#ae605d6e28a58e575cf1159be3af2bd8a">Tache</a>.</p>
 
 </div>
 </div>
@@ -228,7 +290,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

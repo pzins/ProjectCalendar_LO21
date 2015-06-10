@@ -101,26 +101,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_programmation_evenement.html#a5fa581350af3fb44c12b5d2aea798e85">   24</a></span>&#160;    <a class="code" href="class_programmation_evenement.html#a5fa581350af3fb44c12b5d2aea798e85">ProgrammationEvenement</a>(<span class="keyword">const</span> QDate&amp; date_, <span class="keyword">const</span> QTime&amp; debut_, <span class="keyword">const</span> QString&amp; titre_, <span class="keyword">const</span> QString&amp; description_):</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="class_programmation.html">Programmation</a>(date_, debut_), titre(titre_), description(description_){}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_programmation_evenement.html#a97107492b67f2de6d0a539997fa06ebe">isTache</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree() <span class="keyword">const</span> =0;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getTitre()<span class="keyword"> const </span>{<span class="keywordflow">return</span> titre;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getDescription()<span class="keyword"> const </span>{<span class="keywordflow">return</span> description;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString toString() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONEVENEMENT_H</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString <a class="code" href="class_programmation_evenement.html#a6d96c7e0e6fc679357f1ccc34e8cf109">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONEVENEMENT_H</span></div>
 <div class="ttc" id="class_programmation_evenement_html_a5fa581350af3fb44c12b5d2aea798e85"><div class="ttname"><a href="class_programmation_evenement.html#a5fa581350af3fb44c12b5d2aea798e85">ProgrammationEvenement::ProgrammationEvenement</a></div><div class="ttdeci">ProgrammationEvenement(const QDate &amp;date_, const QTime &amp;debut_, const QString &amp;titre_, const QString &amp;description_)</div><div class="ttdoc">ProgrammationEvenement. </div><div class="ttdef"><b>Definition:</b> programmationevenement.h:24</div></div>
-<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdoc">Classe abstraite représentant une programmation dans un agenda. </div><div class="ttdef"><b>Definition:</b> programmation.h:11</div></div>
+<div class="ttc" id="class_programmation_html"><div class="ttname"><a href="class_programmation.html">Programmation</a></div><div class="ttdoc">Classe abstraite représentant une programmation dans un agenda. </div><div class="ttdef"><b>Definition:</b> programmation.h:21</div></div>
+<div class="ttc" id="class_programmation_evenement_html_a6d96c7e0e6fc679357f1ccc34e8cf109"><div class="ttname"><a href="class_programmation_evenement.html#a6d96c7e0e6fc679357f1ccc34e8cf109">ProgrammationEvenement::toString</a></div><div class="ttdeci">virtual const QString toString() const </div><div class="ttdoc">toString : retourne un QString contenant les informations de la programmation </div><div class="ttdef"><b>Definition:</b> programmationevenement.cpp:3</div></div>
 <div class="ttc" id="class_programmation_evenement_html"><div class="ttname"><a href="class_programmation_evenement.html">ProgrammationEvenement</a></div><div class="ttdoc">Classe abstraite représentant une programmation d&#39;évènement dans un agenda. </div><div class="ttdef"><b>Definition:</b> programmationevenement.h:9</div></div>
-<div class="ttc" id="class_programmation_evenement_html_a97107492b67f2de6d0a539997fa06ebe"><div class="ttname"><a href="class_programmation_evenement.html#a97107492b67f2de6d0a539997fa06ebe">ProgrammationEvenement::isTache</a></div><div class="ttdeci">virtual bool isTache() const =0</div><div class="ttdoc">isTache : vérifie si il s&#39;agit d&#39;une programmation d&#39;une tache </div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

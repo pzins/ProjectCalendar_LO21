@@ -11,7 +11,7 @@ class Affichable
 public:
     /**
      * @brief info : crée un QString destiné à être affiché dans un Text Browser
-     * @return une QString contenant toutes les informations sur l'objet
+     * @return un QString contenant toutes les informations sur l'objet
      */
     virtual const QString info() const=0;
 

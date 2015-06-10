@@ -68,25 +68,79 @@ public:
      }
 
 public slots:
+     /**
+     * @brief adaptForm adapte le formulaire en fonction des choix fait par l'utilisateur
+     * @param etat
+     */
     void adaptForm(bool etat);
+
+    /**
+    * @brief adaptForm2 adapte le formulaire en fonction des choix fait par l'utilisateur
+     * @param etat
+     */
     void adaptForm2(bool etat);
+
+    /**
+     * @brief expand : étend l'affichage du TreeView
+     */
     void expand();
 
+    /**
+     * @brief sauvegarder : lance la sauvegarde des données
+     */
     void sauvegarder();
+
+    /**
+     * @brief charger : charge les données
+     */
     void charger();
 
+    /**
+     * @brief ajouter : fait des vérifications et si il n'y a pas de problème
+     * l'ajout du projet ou de la tache sera effectué
+     */
     void ajouter();
+
+    /**
+     * @brief supprimerItem : suppression d'un item dans le TreeView
+     * cela entrainera la suppression réelle de l'item (tache ou projet)
+     */
     void supprimerItem();
+
+    /**
+     * @brief afficherInfo : affiche l'information d'un item (tache ou projet) selectionné dans le TreeView
+     * @param idx
+     */
     void afficherInfo(QModelIndex idx);
 
+    /**
+     * @brief ajouterPrecedence : lance la fenetre de dialogue pour l'ajout de contraintes de precedences
+     */
     void ajouterPrecedence();
+
+    /**
+     * @brief supprimerPrecedence : suppression d'un item de la QList ce qui entrainera la suppression réelle de
+     * la précédence
+     */
     void supprimerPrecedence();
 
+    /**
+     * @brief programmerTache : lance la fenetre de dialogue concernant l'ajout de programmations de tache
+     */
     void programmerTache();
+
+    /**
+     * @brief ajouterEvt : lance la fenetre de dialogue concernant l'ajout de programmation d'événement traditionnels
+     */
     void ajouterEvt();
+
+    /**
+     * @brief changeDate : va mettre à jour les vues de chaque jours pour afficher la bonne semain
+     */
     void changeDate();
 
-
+    //SLOT déclenchés lors du clic dans une des 7 vues
+    //cela affichera les informations de la programmation ou supprimer la programmation
     void lundi();
     void mardi();
     void mercredi();
@@ -95,12 +149,10 @@ public slots:
     void samedi();
     void dimanche();
 
+    /**
+     * @brief exporterSemaine : exportera toutes les programmations d'une semaine en fichier XML
+     */
     void exporterSemaine();
-
-
-
-
-
 
 };
 

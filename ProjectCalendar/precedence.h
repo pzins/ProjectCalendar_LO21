@@ -16,6 +16,7 @@ private:
     Tache* pred;
     Tache* succ;
     Projet* projet;
+
     /**
      * @brief Precedence
      * @param pred_ tache antérieure
@@ -37,7 +38,16 @@ public:
 
 
     bool operator<(const Precedence& p);
+
+    /**
+     * @brief operator == : compare 2 précedences
+     * 2 précédences sont égales si elles ont les meme element : projet, succ et pred
+     * ou si elles ont le meme projet et succ et pred inversée
+     * @param p
+     * @return
+     */
     bool operator ==(const Precedence& p);
+
     /**
      * @brief operator == : si la précédence concerne le projet p
      * @param t

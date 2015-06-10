@@ -27,15 +27,37 @@ public:
 
     Duree getDuree() const {return duree;}
 
-
+    /**
+     * @brief exportXml : exportatio d'une tache composite en XML
+     * @param stream
+     */
     virtual void exportXml(QXmlStreamWriter& stream) const;
 
+    /**
+     * @brief isProgrammed : test si une tache est deja programmee
+     * @return
+     */
     bool isProgrammed() const {return programmed;}
+
     void setIsProgrammed(bool b) {programmed= b;}
 
+    /**
+     * @brief isPreemptive : test si une tache est composite
+     * @return
+     */
     bool isPreemptive() const {return preemptive;}
     void setPreemptive(bool preemptive_) {preemptive=preemptive_;}
+
+    /**
+     * @brief isComposite : test si une tache est composite
+     * @return
+     */
     virtual bool isComposite() const {return false;}
+
+    /**
+     * @brief info : renvoie une QString contenant les informations de la tache composite
+     * @return
+     */
     virtual const QString info() const;
 
 };

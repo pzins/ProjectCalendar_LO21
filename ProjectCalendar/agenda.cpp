@@ -58,7 +58,7 @@ void Agenda::verifProgrammation(Programmation* p)
     for(std::set<Programmation*, ProgComp>::iterator it = set_prog.begin(); it != set_prog.end(); ++it)
     {
         //si evt sur plusieurs jours : vérification des chevauchements
-        if(p->isEvtPlsJ())
+        if(p->type() == 4)
         {
             ProgrammationEvenementplsJ* tmp = dynamic_cast<ProgrammationEvenementplsJ*>(p);
             if (tmp->getDateFin() == (*it)->getDate())
@@ -164,7 +164,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
 {
     std::vector<Programmation*> vec;
     //si la programmation a supprimer est une tache
-    if(prog->isTache())
+    if(prog->type() == 2 || prog->type() == 3)
     {
         ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(prog);
         //on met le isProgrammed de la tache à false
@@ -174,7 +174,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
         //dans ce cas, on les supprimes toutes
         for(Agenda::Iterator it = begin(); it != end(); ++it)
         {
-            if((*it).isTache())
+            if((*it).type() == 2 || (*it).type() == 3)
             {
                 ProgrammationTacheUnitaire* tmp = dynamic_cast<ProgrammationTacheUnitaire*>(&*it);
                 //si d'autres programmations possède la même tache, on l'ajout au vector vec

@@ -16,7 +16,7 @@ class ProgComp
 public:
 
     /**
-     * @brief operator ()
+     * @brief operator () : compare les dates et heure de début des programmations a et b
      * @param a première programmation
      * @param b seconde programmation
      * @return a < b
@@ -121,14 +121,30 @@ public:
 
 
     JourScene& getScene(int i) const {return *scenes.at(i);}
+    /**
+     * @brief removeAllScenes : supprimer toutes les scenes
+     */
     void removeAllScenes(){scenes.clear();}
     const std::set<Programmation*, ProgComp> getProgrammation() const {return set_prog;}
 
-
+    /**
+     * @brief notifier : va notifier tous ses observateurs
+     * @param s1
+     * @param s2
+     */
     virtual void notifier(const QString& s1="", const QString& s2="") const;
 
-
+    /**
+     * @brief save : sauvegarde des programmations de l'agenda
+     * @param f
+     * @param contraintes
+     */
     virtual void save(const QString& f, bool contraintes=false) const;
+
+    /**
+     * @brief load : chargement des programmations dans l'agenda
+     * @param f
+     */
     virtual void load(const QString& f);
 
 

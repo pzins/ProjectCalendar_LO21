@@ -23,7 +23,6 @@ public:
 /**
  * @class PrecedenceManager
  * @brief Classe permettant de gérer les précédences entre les taches
- *
  */
 class PrecedenceManager : public Observable, public Observateur, public XmlExporter
 {
@@ -62,7 +61,20 @@ public:
     void retirerPrecedence(Precedence& p);
 
 
+    /**
+     * @brief update : va mettre à jour le set des précédences par rapport aux projets et taches existante
+     * utilisé lors de la suppression des taches ou des projets
+     * @param s1
+     * @param s2
+     */
     void update(const QString& s1="", const QString& s2="");
+
+    /**
+     * @brief notifier : va notifier l'ensemble de ses observateur
+     * utilisé pour mettre à jour la vue contenant les précédeces
+     * @param s1
+     * @param s2
+     */
     void notifier(const QString& s1="", const QString& s2="") const;
 
     /**
@@ -73,7 +85,17 @@ public:
      */
     std::vector<Precedence*> findPrecedence(Projet* pro, Tache* t);
 
+    /**
+     * @brief save : sauvegarde de l'ensemble des contraintes de précédences en XML
+     * @param f
+     * @param contraintes
+     */
     void save(const QString& f, bool contraintes=false) const;
+
+    /**
+     * @brief load : chargememnt des precedences à partir d'un fichier XML
+     * @param f
+     */
     void load(const QString& f);
 
 

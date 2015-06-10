@@ -114,21 +114,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> QString&amp; getDescription()<span class="keyword"> const </span>{<span class="keywordflow">return</span> description;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString <a class="code" href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">info</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> exportXml(QXmlStreamWriter&amp; stream) <span class="keyword">const</span>=0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isComposite() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; t);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // TACHE_H</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString <a class="code" href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">info</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tache.html#a0f23a7afe3ca84ac85a17be60f024655">exportXml</a>(QXmlStreamWriter&amp; stream) <span class="keyword">const</span>=0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_tache.html#ae605d6e28a58e575cf1159be3af2bd8a">isComposite</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tache.html#aed1fd0458eaac678c0e42b5b961b2cc9">operator==</a>(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; t);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // TACHE_H</span></div>
 <div class="ttc" id="class_tache_html_aa1adac818e0106a196c2a19a3c556b8b"><div class="ttname"><a href="class_tache.html#aa1adac818e0106a196c2a19a3c556b8b">Tache::Tache</a></div><div class="ttdeci">Tache(const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</div><div class="ttdoc">Tache. </div><div class="ttdef"><b>Definition:</b> tache.h:29</div></div>
+<div class="ttc" id="class_tache_html_aed1fd0458eaac678c0e42b5b961b2cc9"><div class="ttname"><a href="class_tache.html#aed1fd0458eaac678c0e42b5b961b2cc9">Tache::operator==</a></div><div class="ttdeci">bool operator==(const Tache &amp;t)</div><div class="ttdoc">operator == : entre deux taches vrai si elle ont les meme titres </div><div class="ttdef"><b>Definition:</b> tache.cpp:15</div></div>
 <div class="ttc" id="class_affichable_html"><div class="ttname"><a href="class_affichable.html">Affichable</a></div><div class="ttdoc">Interface permettant aux classes d&#39;être facilement affichée dans un Text Browser. ...</div><div class="ttdef"><b>Definition:</b> affichable.h:9</div></div>
+<div class="ttc" id="class_tache_html_ae605d6e28a58e575cf1159be3af2bd8a"><div class="ttname"><a href="class_tache.html#ae605d6e28a58e575cf1159be3af2bd8a">Tache::isComposite</a></div><div class="ttdeci">virtual bool isComposite() const =0</div><div class="ttdoc">isComposite : test si une tache est composite </div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdoc">Classe abstraite représentant une Tache. </div><div class="ttdef"><b>Definition:</b> tache.h:13</div></div>
-<div class="ttc" id="class_tache_html_a1c02621a29f8e92c82c0e12fb1962039"><div class="ttname"><a href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">Tache::info</a></div><div class="ttdeci">virtual const QString info() const </div><div class="ttdoc">info : crée un QString destiné à être affiché dans un Text Browser </div><div class="ttdef"><b>Definition:</b> tache.cpp:5</div></div>
+<div class="ttc" id="class_tache_html_a1c02621a29f8e92c82c0e12fb1962039"><div class="ttname"><a href="class_tache.html#a1c02621a29f8e92c82c0e12fb1962039">Tache::info</a></div><div class="ttdeci">virtual const QString info() const </div><div class="ttdoc">info : renvoie une QString contenant les informations de la tache </div><div class="ttdef"><b>Definition:</b> tache.cpp:5</div></div>
+<div class="ttc" id="class_tache_html_a0f23a7afe3ca84ac85a17be60f024655"><div class="ttname"><a href="class_tache.html#a0f23a7afe3ca84ac85a17be60f024655">Tache::exportXml</a></div><div class="ttdeci">virtual void exportXml(QXmlStreamWriter &amp;stream) const =0</div><div class="ttdoc">exportXml : exportation de la tache en XML </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -24,6 +24,10 @@ private:
     QStandardItem* item_tache;
 
 public slots:
+    /**
+     * @brief accept : va faire les vérifications et l'ajout de ou des précédences si
+     * toutes les contraintes sont respectées
+     */
     virtual void accept();
 
 public:
@@ -31,10 +35,12 @@ public:
     ~DialogPrecedence();
 
     void setItemTache(QStandardItem* i){item_tache = i;}
+
     /**
      * @brief chargerAnterieure : charge les tâches pouvant avoir la contrainte de précédences
      */
     void chargerAnterieure();
+
     /**
      * @brief testDejaProg : test si l'ajout de précédence ne concerne pas une tâche déjà programmée
      * @param ant tache antérieure

@@ -111,29 +111,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_duree.html">Duree</a> getDuree()<span class="keyword"> const </span>{<span class="keywordflow">return</span> duree;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> exportXml(QXmlStreamWriter&amp; stream) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> isProgrammed()<span class="keyword"> const </span>{<span class="keywordflow">return</span> programmed;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> setIsProgrammed(<span class="keywordtype">bool</span> b) {programmed= b;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tache_unitaire.html#ae047c792cc617e8df38f20544f90da90">exportXml</a>(QXmlStreamWriter&amp; stream) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> isPreemptive()<span class="keyword"> const </span>{<span class="keywordflow">return</span> preemptive;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setPreemptive(<span class="keywordtype">bool</span> preemptive_) {preemptive=preemptive_;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isComposite()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString <a class="code" href="class_tache_unitaire.html#a3ee92a092cc758375d53bdf39c8ae6a5">info</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // TACHEUNITAIRE_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_tache_unitaire.html#adcdbdd458e70423a0bf55161116da2d1">   40</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tache_unitaire.html#adcdbdd458e70423a0bf55161116da2d1">isProgrammed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> programmed;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> setIsProgrammed(<span class="keywordtype">bool</span> b) {programmed= b;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_tache_unitaire.html#ae4a486337d876c31d0ada03828f005ff">   48</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tache_unitaire.html#ae4a486337d876c31d0ada03828f005ff">isPreemptive</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> preemptive;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setPreemptive(<span class="keywordtype">bool</span> preemptive_) {preemptive=preemptive_;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_tache_unitaire.html#a7d9aa534d657efe4e4ecd61d2bf86e52">   55</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_tache_unitaire.html#a7d9aa534d657efe4e4ecd61d2bf86e52">isComposite</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString <a class="code" href="class_tache_unitaire.html#a3ee92a092cc758375d53bdf39c8ae6a5">info</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // TACHEUNITAIRE_H</span></div>
+<div class="ttc" id="class_tache_unitaire_html_adcdbdd458e70423a0bf55161116da2d1"><div class="ttname"><a href="class_tache_unitaire.html#adcdbdd458e70423a0bf55161116da2d1">TacheUnitaire::isProgrammed</a></div><div class="ttdeci">bool isProgrammed() const </div><div class="ttdoc">isProgrammed : test si une tache est deja programmee </div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:40</div></div>
+<div class="ttc" id="class_tache_unitaire_html_ae4a486337d876c31d0ada03828f005ff"><div class="ttname"><a href="class_tache_unitaire.html#ae4a486337d876c31d0ada03828f005ff">TacheUnitaire::isPreemptive</a></div><div class="ttdeci">bool isPreemptive() const </div><div class="ttdoc">isPreemptive : test si une tache est composite </div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:48</div></div>
 <div class="ttc" id="class_tache_html_aa1adac818e0106a196c2a19a3c556b8b"><div class="ttname"><a href="class_tache.html#aa1adac818e0106a196c2a19a3c556b8b">Tache::Tache</a></div><div class="ttdeci">Tache(const QString &amp;titre_, const QString &amp;description_, const QDate &amp;dispo_, const QDate &amp;echeance_)</div><div class="ttdoc">Tache. </div><div class="ttdef"><b>Definition:</b> tache.h:29</div></div>
 <div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdoc">Classe abstraite représentant une TacheUnitaire. </div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:12</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdoc">Classe abstraite représentant une Tache. </div><div class="ttdef"><b>Definition:</b> tache.h:13</div></div>
-<div class="ttc" id="class_tache_unitaire_html_a3ee92a092cc758375d53bdf39c8ae6a5"><div class="ttname"><a href="class_tache_unitaire.html#a3ee92a092cc758375d53bdf39c8ae6a5">TacheUnitaire::info</a></div><div class="ttdeci">virtual const QString info() const </div><div class="ttdoc">info : crée un QString destiné à être affiché dans un Text Browser </div><div class="ttdef"><b>Definition:</b> tacheunitaire.cpp:20</div></div>
+<div class="ttc" id="class_tache_unitaire_html_a7d9aa534d657efe4e4ecd61d2bf86e52"><div class="ttname"><a href="class_tache_unitaire.html#a7d9aa534d657efe4e4ecd61d2bf86e52">TacheUnitaire::isComposite</a></div><div class="ttdeci">virtual bool isComposite() const </div><div class="ttdoc">isComposite : test si une tache est composite </div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:55</div></div>
+<div class="ttc" id="class_tache_unitaire_html_a3ee92a092cc758375d53bdf39c8ae6a5"><div class="ttname"><a href="class_tache_unitaire.html#a3ee92a092cc758375d53bdf39c8ae6a5">TacheUnitaire::info</a></div><div class="ttdeci">virtual const QString info() const </div><div class="ttdoc">info : renvoie une QString contenant les informations de la tache composite </div><div class="ttdef"><b>Definition:</b> tacheunitaire.cpp:20</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:15</div></div>
+<div class="ttc" id="class_tache_unitaire_html_ae047c792cc617e8df38f20544f90da90"><div class="ttname"><a href="class_tache_unitaire.html#ae047c792cc617e8df38f20544f90da90">TacheUnitaire::exportXml</a></div><div class="ttdeci">virtual void exportXml(QXmlStreamWriter &amp;stream) const </div><div class="ttdoc">exportXml : exportatio d&#39;une tache composite en XML </div><div class="ttdef"><b>Definition:</b> tacheunitaire.cpp:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

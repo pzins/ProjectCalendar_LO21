@@ -67,6 +67,7 @@ public:
      */
     void ajouterProgrammation(const QString titre, const QTime& debut, const Duree& duree,
             Programmation* e=0, int type=0);
+
     /**
      * @brief dessinerFond : dessiner le fond du calendrier
      */

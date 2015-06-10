@@ -42,9 +42,20 @@ public:
     QStandardItemModel& getModel() {return model;}
 
 
-    void ajouterProjet(const QString& titre, const QString& description_, const QDate& dispo,
+    /**
+     * @brief ajouterProjet : créé et ajoute un nouveau projet
+     * @param titre
+     * @param description
+     * @param dispo
+     * @param echeance
+     */
+    void ajouterProjet(const QString& titre, const QString& description, const QDate& dispo,
                        const QDate& echeance);
 
+    /**
+     * @brief retirerProjet : retire et supprimer un projet
+     * @param titre
+     */
     void retirerProjet(QString &titre);
 
     /**

@@ -25,9 +25,22 @@ public:
     TacheComposite(const QString& titre_, const QString& description_, const QDate& dispo_,
                    const QDate& echeance_):  Tache(titre_, description_, dispo_, echeance_){}
 
-
+    /**
+     * @brief exportXml : exportatio d'une tache composite en XML
+     * @param stream
+     */
     virtual void exportXml(QXmlStreamWriter& stream) const;
+
+    /**
+     * @brief isComposite : test si une tache est composite
+     * @return
+     */
     virtual bool isComposite() const{return true;}
+
+    /**
+     * @brief info : renvoie une QString contenant les informations de la tache composite
+     * @return
+     */
     virtual const QString info() const;
 };
 

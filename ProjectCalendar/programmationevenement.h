@@ -24,11 +24,16 @@ public:
     ProgrammationEvenement(const QDate& date_, const QTime& debut_, const QString& titre_, const QString& description_):
         Programmation(date_, debut_), titre(titre_), description(description_){}
 
-    virtual bool isTache() const =0;
+
     virtual const Duree& getDuree() const =0;
 
     virtual const QString& getTitre() const {return titre;}
     virtual const QString& getDescription() const {return description;}
+
+    /**
+     * @brief toString : retourne un QString contenant les informations de la programmation
+     * @return
+     */
     virtual const QString toString() const;
 
 

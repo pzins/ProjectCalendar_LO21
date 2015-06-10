@@ -37,10 +37,30 @@ public:
     const QString& getDescription() const {return description;}
 
 
+    /**
+     * @brief info : renvoie une QString contenant les informations de la tache
+     * @return
+     */
     virtual const QString info() const;
 
+    /**
+     * @brief exportXml : exportation de la tache en XML
+     * @param stream
+     */
     virtual void exportXml(QXmlStreamWriter& stream) const=0;
+
+    /**
+     * @brief isComposite : test si une tache est composite
+     * @return
+     */
     virtual bool isComposite() const =0;
+
+    /**
+     * @brief operator == : entre deux taches
+     * vrai si elle ont les meme titres
+     * @param t
+     * @return
+     */
     bool operator==(const Tache& t);
 };
 #endif // TACHE_H

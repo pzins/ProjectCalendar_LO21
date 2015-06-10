@@ -124,11 +124,11 @@ const std::map&lt; QString, <br class="typebreak"/>
 <tr class="memitem:a6958644d399946ad798d7abb965c73ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6958644d399946ad798d7abb965c73ee"></a>
 QStandardItemModel &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModel</b> ()</td></tr>
 <tr class="separator:a6958644d399946ad798d7abb965c73ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6003fe7cb30b42435cb14ec4b363ac87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6003fe7cb30b42435cb14ec4b363ac87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProjet</b> (const QString &amp;titre, const QString &amp;description_, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
-<tr class="separator:a6003fe7cb30b42435cb14ec4b363ac87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b0cd4d8c512658388f4da2217f0339"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4b0cd4d8c512658388f4da2217f0339"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerProjet</b> (QString &amp;titre)</td></tr>
+<tr class="memitem:afb8b5967fd4560bc6b26d70de6099015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#afb8b5967fd4560bc6b26d70de6099015">ajouterProjet</a> (const QString &amp;titre, const QString &amp;description, const QDate &amp;dispo, const QDate &amp;echeance)</td></tr>
+<tr class="memdesc:afb8b5967fd4560bc6b26d70de6099015"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterProjet : créé et ajoute un nouveau projet  <a href="#afb8b5967fd4560bc6b26d70de6099015">More...</a><br/></td></tr>
+<tr class="separator:afb8b5967fd4560bc6b26d70de6099015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b0cd4d8c512658388f4da2217f0339"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#ab4b0cd4d8c512658388f4da2217f0339">retirerProjet</a> (QString &amp;titre)</td></tr>
+<tr class="memdesc:ab4b0cd4d8c512658388f4da2217f0339"><td class="mdescLeft">&#160;</td><td class="mdescRight">retirerProjet : retire et supprimer un projet  <a href="#ab4b0cd4d8c512658388f4da2217f0339">More...</a><br/></td></tr>
 <tr class="separator:ab4b0cd4d8c512658388f4da2217f0339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a140252ab8a930cff820d3df1308351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_projet.html">Projet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#a0a140252ab8a930cff820d3df1308351">getProjet</a> (const QString &amp;titre)</td></tr>
 <tr class="memdesc:a0a140252ab8a930cff820d3df1308351"><td class="mdescLeft">&#160;</td><td class="mdescRight">getProjet : retourne un pointeur sur le projet à partir du nom  <a href="#a0a140252ab8a930cff820d3df1308351">More...</a><br/></td></tr>
@@ -195,10 +195,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerProjet</b> (QS
 <tr class="separator:a17647b045043c6aaf6cb713b347d962f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
 <tr class="memitem:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24b4cfcda63fe93dbca84dc6fa6cb089"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a24b4cfcda63fe93dbca84dc6fa6cb089">ajouterObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+<tr class="memdesc:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouterObservateur : ajout d'un observateur à l'élément <br/></td></tr>
 <tr class="separator:a24b4cfcda63fe93dbca84dc6fa6cb089 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2100c4c9fcd7a94624c8aaf4acdf58d inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2100c4c9fcd7a94624c8aaf4acdf58d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#ac2100c4c9fcd7a94624c8aaf4acdf58d">supprimerObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *)</td></tr>
+<tr class="memdesc:ac2100c4c9fcd7a94624c8aaf4acdf58d inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">supprimerObservateur : suppression d'un observateur à un élément <br/></td></tr>
 <tr class="separator:ac2100c4c9fcd7a94624c8aaf4acdf58d inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcddf8a5f21c6cb31334d91e89541539 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcddf8a5f21c6cb31334d91e89541539"></a>
 const std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getObs</b> () const </td></tr>
@@ -222,6 +224,55 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe qui gère les projets. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="afb8b5967fd4560bc6b26d70de6099015"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::ajouterProjet </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>echeance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajouterProjet : créé et ajoute un nouveau projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">description</td><td></td></tr>
+    <tr><td class="paramname">dispo</td><td></td></tr>
+    <tr><td class="paramname">echeance</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a1871fe7233690188a71fec8bb4fcd12f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -616,6 +667,30 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 
 </div>
 </div>
+<a class="anchor" id="ab4b0cd4d8c512658388f4da2217f0339"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::retirerProjet </td>
+          <td>(</td>
+          <td class="paramtype">QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retirerProjet : retire et supprimer un projet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7ade44d938db3754f8f97d2a42785c1f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -657,7 +732,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_xml_exporter.html">XmlExporter</a>.</p>
+<p>Implements <a class="el" href="class_xml_exporter.html#a5d075fd1174a214a8a527ce78ef4df5a">XmlExporter</a>.</p>
 
 </div>
 </div>
@@ -807,7 +882,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

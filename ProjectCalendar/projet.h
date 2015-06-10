@@ -61,7 +61,10 @@ public:
     void verification(const QString& titre, const QString& description,
                       const QDate& dispo, const QDate& echeance, const QString& tc_parent);
 
-    //****//
+    /**
+     * @brief info : renvoie un QString contenant les information d'une projet
+     * @return
+     */
     QString info() const;
 
     /**
@@ -70,8 +73,17 @@ public:
      */
     Tache* getTache(const QString& titre) const;
 
-
+    /**
+     * @brief save : sauvegarde l'ensemble des tache d'un projet en XML
+     * @param titre
+     * @param contraintes
+     */
     virtual void save(const QString &titre, bool contraintes=false) const;
+
+    /**
+     * @brief load : charge l'ensemble des taches d'une projet à partir d'un fichier
+     * @param f
+     */
     virtual void load(const QString& f);
 
     /**
@@ -80,7 +92,11 @@ public:
      */
     bool operator==(const Projet& p) const;
 
-
+    /**
+     * @brief notifier : va notifier l'ensemble des observateurs
+     * @param s1
+     * @param s2
+     */
     void notifier(const QString& s1="", const QString& s2="") const;
 
 

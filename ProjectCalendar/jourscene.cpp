@@ -93,7 +93,7 @@ void JourScene::update(const QString& s1, const QString& s2)
     for(Agenda::Iterator it = ag->begin() ; it != ag->end() ; ++it)
     {
         //si c'est un évènement sur plusieurs jours
-        if((*it).isEvtPlsJ())
+        if((*it).type() == 4)
         {
             ProgrammationEvenementplsJ* p = dynamic_cast<ProgrammationEvenementplsJ*>(&*it);
             QDate deb = p->getDate(), fin = p->getDateFin();

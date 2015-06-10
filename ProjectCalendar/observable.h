@@ -12,7 +12,13 @@ private:
     std::set<Observateur*> obs;
 public:
 
+    /**
+     * @brief ajouterObservateur : ajout d'un observateur à l'élément
+     */
     void ajouterObservateur(Observateur*);
+    /**
+     * @brief supprimerObservateur : suppression d'un observateur à un élément
+     */
     void supprimerObservateur(Observateur*);
 
     /**

@@ -108,26 +108,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QStandardItem* item_tache;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> accept();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_dialog_precedence.html">DialogPrecedence</a>(QStandardItem *it, QWidget *parent = 0);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="class_dialog_precedence.html">DialogPrecedence</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_dialog_precedence.html#afcb10d8948b0a4985181ad5881fa2fc0">accept</a>();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setItemTache(QStandardItem* i){item_tache = i;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_dialog_precedence.html#a09a624c7a8f5519df35069221be16a56">chargerAnterieure</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_dialog_precedence.html#a44826abdb9c48447bd04dec64729964b">testDejaProg</a>(<a class="code" href="class_tache.html">Tache</a> *ant, <a class="code" href="class_tache.html">Tache</a> *post);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // DIALOGPRECEDENCE_H</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_dialog_precedence.html">DialogPrecedence</a>(QStandardItem *it, QWidget *parent = 0);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~<a class="code" href="class_dialog_precedence.html">DialogPrecedence</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setItemTache(QStandardItem* i){item_tache = i;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_dialog_precedence.html#a09a624c7a8f5519df35069221be16a56">chargerAnterieure</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_dialog_precedence.html#a44826abdb9c48447bd04dec64729964b">testDejaProg</a>(<a class="code" href="class_tache.html">Tache</a> *ant, <a class="code" href="class_tache.html">Tache</a> *post);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // DIALOGPRECEDENCE_H</span></div>
 <div class="ttc" id="class_dialog_precedence_html_a44826abdb9c48447bd04dec64729964b"><div class="ttname"><a href="class_dialog_precedence.html#a44826abdb9c48447bd04dec64729964b">DialogPrecedence::testDejaProg</a></div><div class="ttdeci">void testDejaProg(Tache *ant, Tache *post)</div><div class="ttdoc">testDejaProg : test si l&#39;ajout de précédence ne concerne pas une tâche déjà programmée ...</div><div class="ttdef"><b>Definition:</b> dialogprecedence.cpp:108</div></div>
+<div class="ttc" id="class_dialog_precedence_html_afcb10d8948b0a4985181ad5881fa2fc0"><div class="ttname"><a href="class_dialog_precedence.html#afcb10d8948b0a4985181ad5881fa2fc0">DialogPrecedence::accept</a></div><div class="ttdeci">virtual void accept()</div><div class="ttdoc">accept : va faire les vérifications et l&#39;ajout de ou des précédences si toutes les contraintes sont r...</div><div class="ttdef"><b>Definition:</b> dialogprecedence.cpp:36</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdoc">Classe abstraite représentant une Tache. </div><div class="ttdef"><b>Definition:</b> tache.h:13</div></div>
 <div class="ttc" id="class_dialog_precedence_html_a09a624c7a8f5519df35069221be16a56"><div class="ttname"><a href="class_dialog_precedence.html#a09a624c7a8f5519df35069221be16a56">DialogPrecedence::chargerAnterieure</a></div><div class="ttdeci">void chargerAnterieure()</div><div class="ttdoc">chargerAnterieure : charge les tâches pouvant avoir la contrainte de précédences </div><div class="ttdef"><b>Definition:</b> dialogprecedence.cpp:21</div></div>
 <div class="ttc" id="class_dialog_precedence_html"><div class="ttname"><a href="class_dialog_precedence.html">DialogPrecedence</a></div><div class="ttdoc">Fenêtre de dialogue pour l&#39;ajout de précédences. </div><div class="ttdef"><b>Definition:</b> dialogprecedence.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 12:02:02 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 15:54:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
