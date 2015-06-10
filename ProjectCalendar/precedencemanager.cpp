@@ -33,11 +33,11 @@ void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_, Projet& pr
         throw CalendarException("Précédence déjà présente");
     }
     //si la précédence inverse existe déjà : on fait la même chose
-    else if (containsInverse(*pred))
+    /*else if (containsInverse(*pred))
     {
         delete pred;
         throw CalendarException("Précédence non cohérente");
-    }
+    }*/
     //sinon on fait notifier pour mettre la vue à jour
     else
     {
@@ -45,16 +45,6 @@ void PrecedenceManager::ajouterPrecedence(Tache &pred_, Tache &succ_, Projet& pr
     }
 }
 
-bool PrecedenceManager::containsInverse(const Precedence &p) const
-{
-    //parcours des précédences et on vérifie si l'inverse de p existe
-    for(PrecedenceManager::ConstIterator it = begin(); it != end(); ++it)
-    {
-        if(p.isInverse(*it))
-            return true;
-    }
-    return false;
-}
 
 
 void PrecedenceManager::retirerPrecedence(Precedence &p)

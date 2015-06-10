@@ -61,15 +61,6 @@ public:
      */
     void retirerPrecedence(Precedence& p);
 
-    /**
-     * @brief containsInverse : vérifie si l'inverse d'une précédence n'est pas déjà présente
-     * pour éviter les incohérences (A avant B et B avant A)
-     * @param p précédence
-     * @return
-     */
-    bool containsInverse(const Precedence& p) const;
-
-
 
     void update(const QString& s1="", const QString& s2="");
     void notifier(const QString& s1="", const QString& s2="") const;

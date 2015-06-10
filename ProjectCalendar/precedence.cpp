@@ -13,18 +13,14 @@ QString Precedence::toString() const
 
 bool Precedence::operator==(const Precedence& p)
 {
-    return  (&p.getPred() == pred && &p.getSucc() == succ && &p.getProjet() == projet);
+    return  ((&p.getPred() == pred && &p.getSucc() == succ && &p.getProjet() == projet) ||
+             (&p.getPred() == succ && &p.getSucc() == pred && &p.getProjet() == projet));
 }
 
 
 bool Precedence::operator<(const Precedence& p)
 {
     return  !(&p.getPred() == pred && &p.getSucc() == succ && &p.getProjet() == projet);
-}
-
-bool Precedence::isInverse(const Precedence &p) const
-{
-    return  (&p.getPred() == succ && &p.getSucc() == pred && &p.getProjet() == projet);
 }
 
 bool Precedence::operator ==(const Projet& p)

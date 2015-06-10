@@ -35,12 +35,6 @@ public:
      */
     QString toString() const;
 
-    /**
-     * @brief isInverse : vérifie si 2 précédences sont l'inverse l'une de l'autre
-     * @param pred précédence
-     * @return
-     */
-    bool isInverse(const Precedence& pred) const;
 
     bool operator<(const Precedence& p);
     bool operator ==(const Precedence& p);

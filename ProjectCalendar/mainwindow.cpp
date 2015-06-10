@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->expand, SIGNAL(clicked()), this, SLOT(expand()));
     connect(ui->supprimer, SIGNAL(clicked()), this, SLOT(supprimerItem()));
     connect(ui->treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(afficherInfo(QModelIndex)));
-    connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimer_precedence()));
+    connect(ui->supprimer_precedence, SIGNAL(clicked()), this, SLOT(supprimerPrecedence()));
     connect(ui->ajouter_evt, SIGNAL(clicked()), this, SLOT(ajouterEvt()));
     connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SLOT(changeDate()));
     connect(ui->semaine, SIGNAL(clicked()), this, SLOT(exporterSemaine()));
