@@ -191,8 +191,7 @@ void Agenda::enleverProgrammation(Programmation* prog)
     //on supprime toutes les programmations du vecteur
     for(unsigned int i = 0; i < vec.size(); ++i)
     {
-        if(set_prog.erase(vec.at(i)) == 0)
-            throw CalendarException("Cette programmation n'existe pas");
+        set_prog.erase(vec.at(i));
     }
     //on met à jour la vue
     notifier();
