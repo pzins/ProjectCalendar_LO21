@@ -5,15 +5,6 @@
 #include "programmationevenementplsj.h"
 #include "observateur.h"
 
-/**
- * @struct Couleur
- * @brief Structure contenant les couleurs de fond et de contour pour une programmations dans le calendrier
- */
-struct Couleur
-{
-    QColor contour;
-    QColor fond;
-};
 
 
 /**
@@ -27,7 +18,7 @@ private:
     QString jour;
     QDate date;
     unsigned int minutes;
-    Couleur vec_couleur[5];
+    QColor vec_couleur[5];
 
 public:
     /**
@@ -45,11 +36,11 @@ public:
               unsigned int minutes_ = 840, QObject* parent = 0 )
         :  QGraphicsScene(x_,y_,width_,height_,parent),jour(nom_),date(date_), minutes(minutes_)
     {
-        vec_couleur[0] = {QColor("black"),QColor("red")};
-        vec_couleur[1] = {QColor("black"),QColor("orange")};
-        vec_couleur[2] = {QColor("black"),QColor("lightgreen")};
-        vec_couleur[3] = {QColor("black"),QColor("yellow")};
-        vec_couleur[4] = {QColor("black"),QColor("lightblue")};
+        vec_couleur[0] = QColor("red");
+        vec_couleur[1] = QColor("orange");
+        vec_couleur[2] = QColor("lightgreen");
+        vec_couleur[3] = QColor("yellow");
+        vec_couleur[4] = QColor("lightblue");
 
         dessinerFond();
     }

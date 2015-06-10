@@ -16,8 +16,8 @@ void JourScene::ajouterProgrammation(const QString titre, const QTime& debut, co
 
     //création et ajout de l'item à la scene
     ProgrammationItem* prog = new ProgrammationItem(0,y,width(),h,p);
-    prog->setPen(QPen(vec_couleur[type].fond));
-    prog->setBrush(QBrush(vec_couleur[type].fond));
+    prog->setPen(QPen(vec_couleur[type]));
+    prog->setBrush(QBrush(vec_couleur[type]));
     QGraphicsScene::addItem(prog);
     prog->setFlag(QGraphicsItem::ItemIsSelectable);
     prog->setZValue(1);
