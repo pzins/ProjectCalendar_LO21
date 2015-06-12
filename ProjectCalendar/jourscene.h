@@ -36,11 +36,11 @@ public:
               unsigned int minutes_ = 840, QObject* parent = 0 )
         :  QGraphicsScene(x_,y_,width_,height_,parent),jour(nom_),date(date_), minutes(minutes_)
     {
-        vec_couleur[0] = QColor("red");
+        vec_couleur[0] = QColor("yellow");
         vec_couleur[1] = QColor("orange");
-        vec_couleur[2] = QColor("lightgreen");
-        vec_couleur[3] = QColor("yellow");
-        vec_couleur[4] = QColor("lightblue");
+        vec_couleur[2] = QColor("blue");
+        vec_couleur[3] = QColor("lightblue");
+        vec_couleur[4] = QColor("lightgreen");
 
         dessinerFond();
     }

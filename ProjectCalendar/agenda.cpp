@@ -49,6 +49,7 @@ void Agenda::ajouterProgrammationPlsJour(const QDate& date, const QString titre,
         delete p;
         throw CalendarException("Erreur, Agenda, une programmation existe à cette heure");
     }
+    notifier();
 }
 
 

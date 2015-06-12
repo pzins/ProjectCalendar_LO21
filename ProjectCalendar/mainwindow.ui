@@ -53,7 +53,7 @@ background-color: #55aaff;
      </palette>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="iconSize">
      <size>
@@ -355,7 +355,7 @@ background-color: #55aaff;
      </widget>
      <widget class="QTextBrowser" name="info">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -790,6 +790,9 @@ background-color: #55aaff;
       </property>
       <property name="cursor" stdset="0">
        <cursorShape>ForbiddenCursor</cursorShape>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
       </property>
      </widget>
      <widget class="QPushButton" name="expand">

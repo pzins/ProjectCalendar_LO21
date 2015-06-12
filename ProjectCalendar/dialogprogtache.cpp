@@ -108,39 +108,43 @@ void DialogProgTache::accept()
 
 void DialogProgTache::verification()
 {
-    if(tache->getDispo() > ui->date->date()) throw CalendarException("Tache pas encore disponible");
-    if(tache->getEcheance() < ui->date->date()) throw CalendarException("Echéance dépassée");
-    Agenda* ag = &Agenda::getInstance();
-    //boucles sur les precedences pour vérifier la cohérence
-    std::vector<Precedence*> vec = PrecedenceManager::getInstance().findPrecedence(projet, tache);
-    for(std::vector<Precedence*>::iterator ite = vec.begin(); ite != vec.end(); ++ite)
+    //si il s'agit d'une programmation de parties de taches, les verifiactions ont déjà été faites
+    if(!ui->parties->isChecked())
     {
-        //boucle sur ttes les précédences dt la tache succ ou pred est celle que l'on programme
-        if(tache->getTitre() == (*ite)->getSucc().getTitre() || tache->getTitre() == (*ite)->getPred().getTitre())
+        if(tache->getDispo() > ui->date->date()) throw CalendarException("Tache pas encore disponible");
+        if(tache->getEcheance() < ui->date->date()) throw CalendarException("Echéance dépassée");
+        Agenda* ag = &Agenda::getInstance();
+        //boucles sur les precedences pour vérifier la cohérence
+        std::vector<Precedence*> vec = PrecedenceManager::getInstance().findPrecedence(projet, tache);
+        for(std::vector<Precedence*>::iterator ite = vec.begin(); ite != vec.end(); ++ite)
         {
-            for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)//boucle sur ttes les taches déjà programmées
+            //boucle sur ttes les précédences dt la tache succ ou pred est celle que l'on programme
+            if(tache->getTitre() == (*ite)->getSucc().getTitre() || tache->getTitre() == (*ite)->getPred().getTitre())
             {
-                //verif que c'est bien une prog de tache
-                if((*it).type() == 2 || (*it).type() == 3)
+                for(Agenda::Iterator it = ag->begin(); it != ag->end(); ++it)//boucle sur ttes les taches déjà programmées
                 {
-                    //si la tache est la tache antérieure de la précédence
-                    if(tache->getTitre() == (*ite)->getSucc().getTitre())
+                    //verif que c'est bien une prog de tache
+                    if((*it).type() == 2)
                     {
-                        ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
-                        if(ptu->getDate() > ui->date->date() ||
-                          (ptu->getDate() == ui->date->date() && ptu->getDebut() > ui->horaire->time()))
+                        //si la tache est la tache antérieure de la précédence
+                        if(tache->getTitre() == (*ite)->getSucc().getTitre())
                         {
-                            throw CalendarException("Incohérence avec les contraintes de Précédences");
+                            ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
+                            if(ptu->getDate() > ui->date->date() ||
+                              (ptu->getDate() == ui->date->date() && ptu->getDebut() > ui->horaire->time()))
+                            {
+                                throw CalendarException("Incohérence avec les contraintes de Précédences");
+                            }
                         }
-                    }
-                    //sinon la tache est la tache postérieure de la précédence
-                    else
-                    {
-                        ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
-                        if(ptu->getDate() < ui->date->date() ||
-                          (ptu->getDate() == ui->date->date() && ptu->getDebut() < ui->horaire->time()))
+                        //sinon la tache est la tache postérieure de la précédence
+                        else
                         {
-                            throw CalendarException("Incohérence avec les contraintes de Précédences");
+                            ProgrammationTacheUnitaire* ptu = dynamic_cast<ProgrammationTacheUnitaire*>(&(*it));
+                            if(ptu->getDate() < ui->date->date() ||
+                              (ptu->getDate() == ui->date->date() && ptu->getDebut() < ui->horaire->time()))
+                            {
+                                throw CalendarException("Incohérence avec les contraintes de Précédences");
+                            }
                         }
                     }
                 }
