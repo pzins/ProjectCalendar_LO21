@@ -26,7 +26,7 @@ DialogProgEvt::DialogProgEvt(QWidget *parent) :
 void DialogProgEvt::adaptTimeDebut(QDate d)
 {
     //ajoute les contraintes sur la date de début et l'horaire de début
-    ui->date->setMinimumDate(d);
+    ui->date->setMinimumDate(QDate::currentDate());
     ui->date_fin->setMinimumDate(ui->date->date().addDays(1));
     ui->horaire->setMaximumTime(QTime(22,0));
     if(d == QDate::currentDate())

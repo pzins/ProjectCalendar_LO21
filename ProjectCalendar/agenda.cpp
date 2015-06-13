@@ -1,6 +1,5 @@
 #include "agenda.h"
 #include "projetmanager.h"
-#include <iostream>
 Agenda* Agenda::instance = 0;
 
 
@@ -150,8 +149,6 @@ void Agenda::ajouterProgrammation(int type, const QDate& date, const QString tit
     if(set_prog.insert(p).second == false)
     {
         delete p;
-        for(Agenda::Iterator it = begin(); it != end(); ++it)
-            std::cout << "***   " << (*it).getTitre().toStdString() << " / " << (*it).getDate().toString().toStdString() << std::endl;
         throw CalendarException("Une programmation existe à cette heure");
     }
     //indique à la tache qu'elle a été programmée
@@ -209,7 +206,9 @@ void Agenda::save(const QString &f, bool contraintes) const
     stream.writeStartDocument();
     stream.writeStartElement("programmations");
     //parcourt les programmations de l'agenda
+
     for(Agenda::ConstIterator it = begin(); it != end(); ++it){
+
         //si contrainte : pour l'export des programmations d'une semaine
         if(contraintes)
         {

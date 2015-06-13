@@ -1,5 +1,5 @@
 #include "programmationevenement1j.h"
-
+#include <iostream>
 
 const QString ProgrammationEvenement1J::toString() const
 {
@@ -12,7 +12,8 @@ void ProgrammationEvenement1J::exportXml(QXmlStreamWriter& stream) const
 {
     stream.writeStartElement("programmation");
     stream.writeAttribute("type", "0");
-    stream.writeTextElement("date",getDate().toString(Qt::ISODate));
+    std::cout << getTitre().toStdString() << std::endl;
+    //stream.writeTextElement("date",getDate().toString(Qt::ISODate));
     stream.writeTextElement("debut",getDebut().toString());
     stream.writeTextElement("titre", getTitre());
     stream.writeTextElement("description",getDescription());

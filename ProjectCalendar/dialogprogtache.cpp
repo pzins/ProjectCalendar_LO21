@@ -26,7 +26,7 @@ DialogProgTache::DialogProgTache(TacheUnitaire* tache_, Projet* projet_, QWidget
 void DialogProgTache::adaptTime(QDate d)
 {
     //ajoute les contraintes sur la date et l'horaire de début
-    ui->date->setMinimumDate(d);
+    ui->date->setMinimumDate(QDate::currentDate());
     ui->horaire->setMaximumTime(QTime(22,0));
     if(d == QDate::currentDate())
     {
